@@ -1,0 +1,417 @@
+Add-Content -Path "e:\Rajkumar\Advocate-Chambers\scripts\generate_cad.py" -Value "
+# ============================================================
+# DRAWING 12: OPTION 2 — PLOT 1 LONGITUDINAL SECTION (Through Courtyard)
+# ============================================================
+def draw_o2_p1_section():
+    doc = setup_doc(\"SHEET 12 / O2-SEC-P1\", \"OPTION 2 — LONGITUDINAL SECTION PLOT 1 (Through Courtyard 24'x24')\",
+                    \"1/8\\\" = 1'-0\\\"\")
+    msp = doc.modelspace()
+    W = 90 * FT
+    plinth = 1.5 * FT
+    gf_ht = 11 * FT
+    slab = 1 * FT
+    # Heights from dim table: GF=0, FF slab top=12', 2F=24', Roof=36', Parapet=39'
+    levels = {\"Plinth\": 0, \"GF FF\": plinth, \"FF Slab Top\": plinth + gf_ht + slab,
+              \"2F Slab Top\": plinth + 2 * (gf_ht + slab), \"Roof Top\": plinth + 3 * (gf_ht + slab),
+              \"Parapet\": plinth + 3 * (gf_ht + slab) + 3 * FT,
+              \"OHT Top\": plinth + 3 * (gf_ht + slab) + 4.5 * FT}
+    gy = levels[\"Plinth\"]
+    # Ground line
+    msp.add_line((-3 * FT, gy), (W + 3 * FT, gy), dxfattribs={\"layer\": \"A-SECT-CUT\", \"lineweight\": 50})
+    # Plinth
+    rect(msp, 0, gy, W, levels[\"GF FF\"], layer=\"A-WALL\")
+    fill_rect(msp, 0, gy, W, levels[\"GF FF\"], layer=\"A-HATCH\", hatch=\"ANSI31\")
+    # Walls (cut) up to parapet
+    wall_top_y = levels[\"Roof Top\"]
+    for wx in [0, W]:
+        msp.add_line((wx, levels[\"GF FF\"]), (wx, wall_top_y), dxfattribs={\"layer\": \"A-WALL\", \"lineweight\": 60})
+        fill_rect(msp, wx - 0.3 * FT, levels[\"GF FF\"], wx + 0.4 * FT, wall_top_y, layer=\"A-WALL-PATT\")
+    # Slabs (GF slab is just floor, then FF slab at level 12', 2F at 24', Roof at 36')
+    for slab_level_name in [\"FF Slab Top\", \"2F Slab Top\", \"Roof Top\"]:
+        top_y = levels[slab_level_name]
+        bot_y = top_y - slab
+        rect(msp, 0, bot_y, W, top_y, layer=\"A-ROOF\")
+        fill_rect(msp, 0, bot_y, W, top_y, layer=\"A-HATCH\", hatch=\"ANSI31\")
+        text_msp(msp, slab_level_name + \" (RCC 150mm M25 + 1 ft Coba)\", W / 2, bot_y - 0.8 * FT, h=0.2 * FT, layer=\"A-TEXT\")
+    # Courtyard void (double height 23 ft clear, spans GF + FF)
+    cx1 = (W - 24 * FT) / 2
+    cx2 = cx1 + 24 * FT
+    c_y_bot = levels[\"GF FF\"]
+    c_y_top = levels[\"FF Slab Top\"] + gf_ht  # top of 2F level slab = courtyard slab soffit? Actually courtyard void is 24x24 open to sky through roof; we will mark it up to Roof level with dashed
+    msp.add_lwpolyline([(cx1, c_y_bot), (cx1, levels[\"Parapet\"]), (cx2, levels[\"Parapet\"]), (cx2, c_y_bot)],
+                       dxfattribs={\"layer\": \"A-JALI\", \"linetype\": \"DASHED\"})
+    text_msp(msp, \"24'x24' OPEN-TO-SKY COURTYARD VOID\", (cx1 + cx2) / 2, levels[\"2F Slab Top\"] + 2 * FT, h=0.3 * FT,
+             layer=\"A-TEXT\")
+    text_msp(msp, \"(DOUBLE HEIGHT 23' CLEAR GF→2F) | Stepwell Fountain + Trees\",
+             (cx1 + cx2) / 2, levels[\"FF Slab Top\"] + gf_ht / 2, h=0.22 * FT, layer=\"A-TEXT\")
+    # Fountain symbol
+    msp.add_circle(((cx1 + cx2) / 2, c_y_bot + 2 * FT), 2 * FT, dxfattribs={\"layer\": \"A-HATCH\"})
+    # Ring corridor (6 ft) text
+    text_msp(msp, \"6 ft RING CORRIDOR FLOOR\", (cx1 - 6 * FT / 2), levels[\"FF Slab Top\"] + gf_ht / 2 - 5 * FT,
+             h=0.2 * FT, layer=\"A-TEXT\", rot=90.0)
+    text_msp(msp, \"6 ft RING CORRIDOR FLOOR\", (cx2 + 6 * FT / 2), levels[\"FF Slab Top\"] + gf_ht / 2 - 5 * FT,
+             h=0.2 * FT, layer=\"A-TEXT\", rot=90.0)
+    # Bay labels
+    text_msp(msp, \"GF BAYS 60 Nos (8 Prem+52 Open)\", (0 + cx1) / 2, levels[\"GF FF\"] + 5.5 * FT, h=0.28 * FT, layer=\"A-TEXT\")
+    text_msp(msp, \"FF BAYS 60 Nos (12 Prem+48 Open) | SKY-BRIDGE\",
+             (W + cx2) / 2, levels[\"FF Slab Top\"] + 5.5 * FT, h=0.28 * FT, layer=\"A-TEXT\")
+    # Sky-bridge indicator (right side, FF level)
+    sb_x, sb_w = W, 10 * FT
+    sb_y1, sb_y2 = levels[\"FF Slab Top\"], levels[\"FF Slab Top\"] + 1 * FT
+    rect(msp, sb_x, sb_y1 - 0.5 * FT, sb_x + sb_w, sb_y2 + 3 * FT, layer=\"A-ROOF\")
+    text_msp(msp, \"SKY-BRIDGE → PLOT 2 FF (10' Wide)\", sb_x + sb_w / 2, levels[\"FF Slab Top\"] + 2 * FT, h=0.22 * FT,
+             layer=\"A-TEXT\")
+    # Level markers (right side)
+    lmx = W + 4 * FT
+    for name, yval in levels.items():
+        msp.add_line((lmx - 0.5 * FT, yval), (lmx + 0.5 * FT, yval), dxfattribs={\"layer\": \"A-DIM\"})
+        text_msp(msp, f\"{name} ({yval / FT:.1f}')\", lmx + 0.7 * FT, yval, h=0.2 * FT, layer=\"A-TEXT\")
+    text_msp(msp, \"TOTAL HT (Plinth → Parapet): 39'-0\\\" < 15m Local Body Limit ✓\",
+             W / 2, levels[\"Parapet\"] + 1.5 * FT, h=0.35 * FT, layer=\"A-TEXT-TTL\")
+    # Left-to-right dims
+    dim_h(msp, 0, gy - 2 * FT, W, \"BUILDING 90'-0\\\" (Buildable Inside 230mm Walls)\", offset=-0.5 * FT)
+    doc._origin = (-8 * FT, -12 * FT)
+    doc._scale = 70 * FT
+    save(doc, \"12-Option2-Plot1-Longitudinal-Section-Courtyard\")
+    return doc
+
+
+# ============================================================
+# DRAWING 13: OPTION 2 — PLOT 2 SECTION G+1
+# ============================================================
+def draw_o2_p2_section():
+    doc = setup_doc(\"SHEET 13 / O2-SEC-P2\", \"OPTION 2 — PLOT 2 SECTION G+1\", \"1/8\\\" = 1'-0\\\"\")
+    msp = doc.modelspace()
+    W = 60 * FT
+    plinth = 1.5 * FT
+    clr = 11 * FT
+    slab = 1 * FT
+    p = 3 * FT
+    levels = {\"Plinth\": 0, \"GF FF\": plinth, \"FF Slab Top\": plinth + clr + slab,
+              \"Roof Top\": plinth + 2 * clr + 2 * slab, \"Parapet\": plinth + 2 * clr + 2 * slab + p}
+    gy = levels[\"Plinth\"]
+    msp.add_line((-3 * FT, gy), (W + 3 * FT, gy), dxfattribs={\"layer\": \"A-SECT-CUT\", \"lineweight\": 50})
+    rect(msp, 0, gy, W, levels[\"GF FF\"], layer=\"A-WALL\")
+    fill_rect(msp, 0, gy, W, levels[\"GF FF\"], layer=\"A-HATCH\", hatch=\"ANSI31\")
+    for wx in [0, W]:
+        msp.add_line((wx, levels[\"GF FF\"]), (wx, levels[\"Roof Top\"]), dxfattribs={\"layer\": \"A-WALL\", \"lineweight\": 60})
+    for slab_name in [\"FF Slab Top\", \"Roof Top\"]:
+        top_y = levels[slab_name]
+        rect(msp, 0, top_y - slab, W, top_y, layer=\"A-ROOF\")
+        fill_rect(msp, 0, top_y - slab, W, top_y, layer=\"A-HATCH\", hatch=\"ANSI31\")
+    # Parapet
+    rect(msp, 0, levels[\"Roof Top\"], W, levels[\"Parapet\"], layer=\"A-WALL\")
+    # Sky-bridge indicator on right
+    sb_y1 = levels[\"FF Slab Top\"]
+    rect(msp, W, sb_y1 - 0.5 * FT, W + 10 * FT, sb_y1 + 4 * FT, layer=\"A-ROOF\")
+    text_msp(msp, \"═══ SKY-BRIDGE ═══ → PLOT 1 FF @ 12 ft\", W + 5 * FT, sb_y1 + 1.5 * FT,
+             h=0.22 * FT, layer=\"A-TEXT\")
+    text_msp(msp, \"GF: 15 BAYS (121-135) + 35 BIKE PARK + LOUNGE + AMEN\",
+             W / 2, levels[\"GF FF\"] + 5 * FT, h=0.3 * FT, layer=\"A-TEXT\")
+    text_msp(msp, \"FF: 15 BAYS (136-150) + CONF + DINING\",
+             W / 2, levels[\"FF Slab Top\"] + 5 * FT, h=0.3 * FT, layer=\"A-TEXT\")
+    text_msp(msp, \"Plot 2 Total HT (Plinth→Parapet): 26'-0\\\" (~7.9 m)\",
+             W / 2, levels[\"Parapet\"] + 1.5 * FT, h=0.4 * FT, layer=\"A-TEXT-TTL\")
+    lmx = W + 4 * FT
+    for name, yval in levels.items():
+        msp.add_line((lmx - 0.5 * FT, yval), (lmx + 0.5 * FT, yval), dxfattribs={\"layer\": \"A-DIM\"})
+        text_msp(msp, f\"{name} ({yval / FT:.1f}')\", lmx + 0.7 * FT, yval, h=0.2 * FT, layer=\"A-TEXT\")
+    dim_h(msp, 0, gy - 2 * FT, W, \"PLOT 2 BUILDING 60'-0\\\"\", offset=-0.5 * FT)
+    doc._origin = (-8 * FT, -10 * FT)
+    doc._scale = 55 * FT
+    save(doc, \"13-Option2-Plot2-G+1-Section\")
+    return doc
+" ; (Get-Content "e:\Rajkumar\Advocate-Chambers\scripts\generate_cad.py" | Measure-Object -Line).Lines
+
+(some characters truncated)...
+t) up to parapet
+>>     wall_top_y = levels[\"Roof Top\"]
+>>     for wx in [0, W]:
+>>         msp.add_line((wx, levels[\"GF FF\"]), (wx, wall_top_y), dxfattribs={\"layer\": \"A-WALL\", \"lineweight\": 60})
+>>         fill_rect(msp, wx - 0.3 * FT, levels[\"GF FF\"], wx + 0.4 * FT, wall_top_y, layer=\"A-WALL-PATT\")
+>>     # Slabs (GF slab is just floor, then FF slab at level 12', 2F at 24', Roof at 36')
+>>     for slab_level_name in [\"FF Slab Top\", \"2F Slab Top\", \"Roof Top\"]: 
+>>         top_y = levels[slab_level_name]
+>>         bot_y = top_y - slab
+>>         rect(msp, 0, bot_y, W, top_y, layer=\"A-ROOF\")
+>>         fill_rect(msp, 0, bot_y, W, top_y, layer=\"A-HATCH\", hatch=\"ANSI31\")
+>>         text_msp(msp, slab_level_name + \" (RCC 150mm M25 + 1 ft Coba)\", W / 2, bot_y - 0.8 * FT, h=0.2 * FT, layer=\"A-TEXT\")
+>>     # Courtyard void (double height 23 ft clear, spans GF + FF)
+>>     cx1 = (W - 24 * FT) / 2
+>>     cx2 = cx1 + 24 * FT
+>>     c_y_bot = levels[\"GF FF\"]
+>>     c_y_top = levels[\"FF Slab Top\"] + gf_ht  # top of 2F level slab = courtyard slab soffit? Actually courtyard void is 24x24 open to sky through roof; we 
+will mark it up to Roof level with dashed
+>>     msp.add_lwpolyline([(cx1, c_y_bot), (cx1, levels[\"Parapet\"]), (cx2, levels[\"Parapet\"]), (cx2, c_y_bot)],
+>>                        dxfattribs={\"layer\": \"A-JALI\", \"linetype\": \"DASHED\"})
+>>     text_msp(msp, \"24'x24' OPEN-TO-SKY COURTYARD VOID\", (cx1 + cx2) / 2, levels[\"2F Slab Top\"] + 2 * FT, h=0.3 * FT,
+>>              layer=\"A-TEXT\")
+>>     text_msp(msp, \"(DOUBLE HEIGHT 23' CLEAR GF2F) | Stepwell Fountain + Tre
+es\",
+>>              (cx1 + cx2) / 2, levels[\"FF Slab Top\"] + gf_ht / 2, h=0.22 * FT, layer=\"A-TEXT\")
+>>     # Fountain symbol
+>>     msp.add_circle(((cx1 + cx2) / 2, c_y_bot + 2 * FT), 2 * FT, dxfattribs={\"layer\": \"A-HATCH\"})
+>>     # Ring corridor (6 ft) text
+>>     text_msp(msp, \"6 ft RING CORRIDOR FLOOR\", (cx1 - 6 * FT / 2), levels[\"FF Slab Top\"] + gf_ht / 2 - 5 * FT,
+>>              h=0.2 * FT, layer=\"A-TEXT\", rot=90.0)
+>>     text_msp(msp, \"6 ft RING CORRIDOR FLOOR\", (cx2 + 6 * FT / 2), levels[\"FF Slab Top\"] + gf_ht / 2 - 5 * FT,
+>>              h=0.2 * FT, layer=\"A-TEXT\", rot=90.0)
+>>     # Bay labels
+>>     text_msp(msp, \"GF BAYS 60 Nos (8 Prem+52 Open)\", (0 + cx1) / 2, levels[\"GF FF\"] + 5.5 * FT, h=0.28 * FT, layer=\"A-TEXT\")
+>>     t
+Oops, something went wrong.  Please report this bug with the details below.     
+Report on GitHub: https://github.com/lzybkr/PSReadLine/issues/new
+-----------------------------------------------------------------------
+Last 200 Keys:
+ 0 Space * Space F T ) Enter
+ Space Space Space Space d o c . _ s c a l e Space = Space 5 5 Space * Space F T Enter
+ Space Space Space Space s a v e ( d o c , Space \ " 1 3 - O p t i o n 2 - P l o t 2 - G + 1 - S e c t i o n \ " ) Enter
+ Space Space Space Space r e t u r n Space d o c Enter
+ " Space ; Space ( G e t - C o n t e n t Space " e : \ R a j k u m a r \ A d v o c a t e - C h a m b e r s \ s c r i p t s \ g e n e r a t e _ c a d . p y " Space | Space M e a s u r e - O b j e c t Space - L i n e ) . L i n e s Enter      
+ Enter
+
+
+Exception:
+System.ArgumentOutOfRangeException: The value must be greater than or equal to zero and less than the console's buffer size in that dimension.
+Parameter name: top
+Actual value was -50.
+   at System.Console.SetCursorPosition(Int32 left, Int32 top)
+   at Microsoft.PowerShell.PSConsoleReadLine.ReallyRender(RenderData renderData, String defaultColor)
+   at Microsoft.PowerShell.PSConsoleReadLine.ForceRender()
+   at Microsoft.PowerShell.PSConsoleReadLine.Insert(Char c)
+   at Microsoft.PowerShell.PSConsoleReadLine.SelfInsert(Nullable`1 key, Object arg)
+   at Microsoft.PowerShell.PSConsoleReadLine.ProcessOneKey(ConsoleKeyInfo key, Dictionary`2 dispatchTable, Boolean ignoreIfNoAction, Object arg)
+   at Microsoft.PowerShell.PSConsoleReadLine.InputLoop()
+   at Microsoft.PowerShell.PSConsoleReadLine.ReadLine(Runspace runspace, EngineIntrinsics engineIntrinsics)
+-----------------------------------------------------------------------
+(TraeAI-5) E:\Rajkumar\Advocate-Chambers [0:0] $ Add-Content -Path "e:\Rajkumar\Advocate-Chambers\scripts\generate_cad.py" -Value "
+>> 
+>> # ============================================================
+>> # DRAWING 12: OPTION 2 - PLOT 1 LONGITUDINAL SECTION (Through Courtyard)     
+>> # ============================================================
+>> def draw_o2_p1_section():
+>>     doc = setup_doc(\"SHEET 12 / O2-SEC-P1\", \"OPTION 2 - LONGITUDINAL SECTION PLOT 1 (Through Courtyard 24'x24')\",
+>>                     \"1/8\\\" = 1'-0\\\"\")
+>>     msp = doc.modelspace()
+>>     W = 90 * FT
+>>     plinth = 1.5 * FT
+>>     gf_ht = 11 * FT
+>>     slab = 1 * FT
+>>     # Heights from dim table: GF=0, FF slab top=12', 2F=24', Roof=36', Parapet=39'
+>>     levels = {\"Plinth\": 0, \"GF FF\": plinth, \"FF Slab Top\": plinth + gf_ht + slab,
+>>               \"2F Slab Top\": plinth + 2 * (gf_ht + slab), \"Roof Top\": plinth + 3 * (gf_ht + slab),
+>>               \"Parapet\": plinth + 3 * (gf_ht + slab) + 3 * FT,
+>>               \"OHT Top\": plinth + 3 * (gf_ht + slab) + 4.5 * FT}
+>>     gy = levels[\"Plinth\"]
+>>     # Ground line
+>>     msp.add_line((-3 * FT, gy), (W + 3 * FT, gy), dxfattribs={\"layer\": \"A-SECT-CUT\", \"lineweight\": 50})
+>>     # Plinth
+>>     rect(msp, 0, gy, W, levels[\"GF FF\"], layer=\"A-WALL\")
+>>     fill_rect(msp, 0, gy, W, levels[\"GF FF\"], layer=\"A-HATCH\", hatch=\"ANSI31\")
+>>     # Walls (cut) up to parapet
+>>     wall_top_y = levels[\"Roof Top\"]
+>>     for wx in [0, W]:
+>>         msp.add_line((wx, levels[\"GF FF\"]), (wx, wall_top_y), dxfattribs={\"layer\": \"A-WALL\", \"lineweight\": 60})
+>>         fill_rect(msp, wx - 0.3 * FT, levels[\"GF FF\"], wx + 0.4 * FT, wall_top_y, layer=\"A-WALL-PATT\")
+>>     # Slabs (GF slab is just floor, then FF slab at level 12', 2F at 24', Roof at 36')
+>>     for slab_level_name in [\"FF Slab Top\", \"2F Slab Top\", \"Roof Top\"]: 
+>>         top_y = levels[slab_level_name]
+>>         bot_y = top_y - slab
+>>         rect(msp, 0, bot_y, W, top_y, layer=\"A-ROOF\")
+>>         fill_rect(msp, 0, bot_y, W, top_y, layer=\"A-HATCH\", hatch=\"ANSI31\")
+>>         text_msp(msp, slab_level_name + \" (RCC 150mm M25 + 1 ft Coba)\", W / 2, bot_y - 0.8 * FT, h=0.2 * FT, layer=\"A-TEXT\")
+>>     # Courtyard void (double height 23 ft clear, spans GF + FF)
+>>     cx1 = (W - 24 * FT) / 2
+>>     cx2 = cx1 + 24 * FT
+>>     c_y_bot = levels[\"GF FF\"]
+>>     c_y_top = levels[\"FF Slab Top\"] + gf_ht  # top of 2F level slab = courtyard slab soffit? Actually courtyard void is 24x24 open to sky through roof; we 
+will mark it up to Roof level with dashed
+>>     msp.add_lwpolyline([(cx1, c_y_bot), (cx1, levels[\"Parapet\"]), (cx2, levels[\"Parapet\"]), (cx2, c_y_bot)],
+>>                        dxfattribs={\"layer\": \"A-JALI\", \"linetype\": \"DASHED\"})
+>>     text_msp(msp, \"24'x24' OPEN-TO-SKY COURTYARD VOID\", (cx1 + cx2) / 2, levels[\"2F Slab Top\"] + 2 * FT, h=0.3 * FT,
+>>              layer=\"A-TEXT\")
+>>     text_msp(msp, \"(DOUBLE HEIGHT 23' CLEAR GF2F) | Stepwell Fountain + Tre
+es\",
+>>              (cx1 + cx2) / 2, levels[\"FF Slab Top\"] + gf_ht / 2, h=0.22 * FT, layer=\"A-TEXT\")
+>>     # Fountain symbol
+>>     msp.add_circle(((cx1 + cx2) / 2, c_y_bot + 2 * FT), 2 * FT, dxfattribs={\"layer\": \"A-HATCH\"})
+>>     # Ring corridor (6 ft) text
+>>     text_msp(msp, \"6 ft RING CORRIDOR FLOOR\", (cx1 - 6 * FT / 2), levels[\"FF Slab Top\"] + gf_ht / 2 - 5 * FT,
+>>              h=0.2 * FT, layer=\"A-TEXT\", rot=90.0)
+>>     text_msp(msp, \"6 ft RING CORRIDOR FLOOR\", (cx2 + 6 * FT / 2), levels[\"FF Slab Top\"] + gf_ht / 2 - 5 * FT,
+>>              h=0.2 * FT, layer=\"A-TEXT\", rot=90.0)
+>>     # Bay labels
+>>     text_msp(msp, \"GF BAYS 60 Nos (8 Prem+52 Open)\", (0 + cx1) / 2, levels[\"GF FF\"] + 5.5 * FT, h=0.28 * FT, layer=\"A-TEXT\")
+>>     text_msp(msp, \"FF BAYS 60 Nos (12 Prem+48 Open) | SKY-BRIDGE\",
+>>              (W + cx2) / 2, levels[\"FF Slab Top\"] + 5.5 * FT, h=0.28 * FT, 
+layer=\"A-TEXT\")
+>>     # Sky-bridge indicator (right side, FF level)
+>>     sb_x, sb
+Oops, something went wrong.  Please report this bug with the details below.     
+Report on GitHub: https://github.com/lzybkr/PSReadLine/issues/new
+-----------------------------------------------------------------------
+Last 200 Keys:
+ 0 Space * Space F T ) Enter
+ Space Space Space Space d o c . _ s c a l e Space = Space 5 5 Space * Space F T Enter
+ Space Space Space Space s a v e ( d o c , Space \ " 1 3 - O p t i o n 2 - P l o t 2 - G + 1 - S e c t i o n \ " ) Enter
+ Space Space Space Space r e t u r n Space d o c Enter
+ " Space ; Space ( G e t - C o n t e n t Space " e : \ R a j k u m a r \ A d v o c a t e - C h a m b e r s \ s c r i p t s \ g e n e r a t e _ c a d . p y " Space | Space M e a s u r e - O b j e c t Space - L i n e ) . L i n e s Enter      
+ Enter
+
+
+Exception:
+System.ArgumentOutOfRangeException: The value must be greater than or equal to zero and less than the console's buffer size in that dimension.
+Parameter name: top
+Actual value was -54.
+   at System.Console.SetCursorPosition(Int32 left, Int32 top)
+   at Microsoft.PowerShell.PSConsoleReadLine.ReallyRender(RenderData renderData, String defaultColor)
+   at Microsoft.PowerShell.PSConsoleReadLine.ForceRender()
+   at Microsoft.PowerShell.PSConsoleReadLine.Insert(Char c)
+   at Microsoft.PowerShell.PSConsoleReadLine.SelfInsert(Nullable`1 key, Object arg)
+   at Microsoft.PowerShell.PSConsoleReadLine.ProcessOneKey(ConsoleKeyInfo key, Dictionary`2 dispatchTable, Boolean ignoreIfNoAction, Object arg)
+   at Microsoft.PowerShell.PSConsoleReadLine.InputLoop()
+   at Microsoft.PowerShell.PSConsoleReadLine.ReadLine(Runspace runspace, EngineIntrinsics engineIntrinsics)
+-----------------------------------------------------------------------
+
+Thought
+
+Search codebase for '^def save|^def export|if __name__'
+
+Thought
+
+Search codebase for '^def draw_'
+
+Thought
+
+scripts\generate_cad.py
+
+generate_cad.py
+scripts\generate_cad.py
+
++ 91 - 0
+
+Open Diff
+
+Thought
+
+scripts\generate_cad.py
+
+generate_cad.py
+scripts\generate_cad.py
+
++ 99 - 0
+
+Open Diff
+
+4/7 done
+
+Check available CAD tools (AutoCAD/LibreCAD/QCAD/Python-ezdxf) in the environment
+
+Install Python CAD packages: ezdxf + matplotlib for DXF generation + PDF export
+
+Extract drawing schedule (list of required layout sheets) from creat.md
+
+Create CAD output directories and master generation script
+
+Generate all 16 DXF architectural drawings (site, plans, sections, elevations) with layers, dims, title block
+
+Export each CAD drawing to PDF
+
+Compile and verify deliverable set
+
+Thought
+
+scripts\generate_cad.py
+
+generate_cad.py
+scripts\generate_cad.py
+
++ 124 - 0
+
+Open Diff
+
+Thought
+
+scripts\generate_cad.py
+
+generate_cad.py
+scripts\generate_cad.py
+
++ 114 - 0
+
+Open Diff
+
+4/7 done
+
+Check available CAD tools (AutoCAD/LibreCAD/QCAD/Python-ezdxf) in the environment
+
+Install Python CAD packages: ezdxf + matplotlib for DXF generation + PDF export
+
+Extract drawing schedule (list of required layout sheets) from creat.md
+
+Create CAD output directories and master generation script
+
+Generate all 16 DXF architectural drawings (site, plans, sections, elevations) with layers, dims, title block
+
+Export each CAD drawing to PDF
+
+Compile and verify deliverable set
+
+Advocate-Chambers
+Outside Sandbox
+View in terminal
+
+$ cd "e:\Rajkumar\Advocate-Chambers" ; $env:MPLBACKEND="Agg" ; python scripts\generate_cad.py 2>&1 | Select-Object -First 200
+
+rs" ; $env:MPLBACKEND="Agg" ; python scripts\generate_cad.py 2>&1 | Select-Object -First 200
+
+Thought
+
+Advocate-Chambers\CAD-Drawings\DXF
+
+Thought
+
+Advocate-Chambers
+Outside Sandbox
+View in terminal
+
+$ $ErrorActionPreference = "Continue" ; Set-Location "e:\Rajkumar\Advocate-Chambers" ; $env:MPLBACKEND="Agg" ; python -u scripts\generate_cad.py *>&1 | Tee-Object -FilePath scripts\cad_run.log | Select-Object -Last 120
+
+thon -u scripts\generate_cad.py *>&1 | Tee-Object -FilePath scripts\cad_run.log 
+| Select-Object -Last 120
+python : Traceback (most recent call last):
+At line:1 char:110
++ ... env:MPLBACKEND="Agg" ; python -u scripts\generate_cad.py *>&1 | Tee-O ... 
++                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)  
+   ::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "E:\Rajkumar\Advocate-Chambers\scripts\generate_cad.py", line 38, in     
+<module>
+    "A-WALL-PATT": dict(color=colors.GRAY_70, linetype="CONTINUOUS", 
+lineweight=18),
+                              ^^^^^^^^^^^^^^
+AttributeError: module 'ezdxf.colors' has no attribute 'GRAY_70'
+
+Thought
+
+Advocate-Chambers
+Outside Sandbox
+View in terminal
+
+$ Set-Location "e:\Rajkumar\Advocate-Chambers" ; $env:MPLBACKEND='Agg' ; python .\scripts\generate_cad.py *>&1 | Out-String -Width 300
+
+ate-Chambers" ; $env:MPLBACKEND='Agg' ; python .\scripts\generate_cad.py *>&1 | 
+Out-String -Width 300
+
+Thought
+
+Advocate-Chambers
+Outside Sandbox
+View in terminal
+
+$ Set-Location "e:\Rajkumar\Advocate-Chambers" ; $env:MPLBACKEND='Agg' ; python .\scripts\generate_cad.py > .\cad_run.log 2>&1 ; Write-Output "EXIT CODE: $LASTEXITCODE" ; Get-Content .\cad_run.log -Tail 120 ; Write-Output "--- FILES ---" ; Get-ChildItem .\CAD-Drawings\DXF ; Write-Output "--- PDF ---" ; Get-ChildItem .\CAD-Drawings\PDF
+
+
+DELIVER PDF PLAN >>>>>OPTION 1>>>> 1.1.1 AND 1.1.2 >>>>DETAILES OF LOCKERS >>>
