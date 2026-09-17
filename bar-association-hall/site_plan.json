@@ -44,6 +44,9 @@
     "east": 5
   },
   "planning_area_claimed_sqft_per_floor": 4785,
+  "plot_area_calculated_sqft": 5467.5,
+  "simple_coordinate_envelope_area_sqft_per_floor": 4427.5,
+  "area_status": "The 4,785 sq ft value is retained as a brief assumption; the coordinate-derived simple envelope is 4,427.5 sq ft and must be verified against a survey and true polygon offset.",
   "floors": {
     "ground": {
       "name": "Bar Association Banswara Hall",

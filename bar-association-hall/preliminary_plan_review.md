@@ -8,6 +8,7 @@
 
 - `ground_floor_preliminary.svg` - Public entry, assembly hall, dais, service core, and review exit.
 - `first_floor_preliminary.svg` - Library, stack area, admin, discussion, computer, and stacked service core.
+- `derived_g_plus_1_plan.pdf` - Printable five-page summary derived from the stored JSON geometry and room schedules.
 - `preliminary_plans.json` - Coordinate source for the room rectangles and review notes.
 
 ## Design basis
@@ -16,6 +17,16 @@
 - Setbacks: west 0'-0", north 5'-0", south 5'-0", east 5'-0".
 - Simple coordinate envelope used for this revision: `(0,5) -> (30,5) -> (30,21.5) -> (55,21.5) -> (55,93) -> (0,93)`.
 - Calculated envelope area: **4,427.5 sq ft per floor**. The brief's 4,785 sq ft figure remains an unresolved planning assumption and is not used to stretch the rooms in these drawings.
+
+## Area reconciliation
+
+| Measure | Area |
+| --- | ---: |
+| Polygon area from stored coordinates | 5,467.5 sq ft |
+| Simple coordinate setback envelope | 4,427.5 sq ft per floor |
+| Earlier area carried in the planning brief | 4,785 sq ft per floor |
+
+The 4,785 sq ft figure should not be used for procurement, sanction, or cost commitment until the site is surveyed and a true inward polygon offset is checked by the architect.
 
 ## Ground-floor schedule
 
