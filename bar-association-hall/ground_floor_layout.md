@@ -1,21 +1,22 @@
 # Ground Floor - Bar Association Banswara Hall
 
-## Rooms and amenities
+**Revision:** A - coordinated preliminary review plan
 
-- **Entrance lobby and reception:** 20'-0" x 11'-6"; welcome desk, waiting area, record filing counter.
-- **Main assembly hall:** 45'-0" x 55'-0"; central aisle, member seating, and raised dais.
-- **Dais and speaker zone:** 15'-0" x 55'-0" at the northern end.
-- **Pantry:** 12'-0" x 11'-6" with counter, sink, and storage.
-- **Male toilet:** 6'-0" x 8'-0".
-- **Female toilet:** 6'-0" x 8'-0".
-- **Accessible toilet:** 5'-0" x 6'-0"; confirm turning radius and fixtures against the applicable accessibility standard.
-- **Drinking water station:** 4'-0" x 4'-0".
-- **First-aid room:** 8'-0" x 8'-0".
-- **Store room:** 10'-0" x 11'-6".
-- **Electrical/server room:** 8'-0" x 8'-0".
+See `ground_floor_preliminary.svg` for the visual plan and `preliminary_plan_review.md` for the full design basis and review checklist.
 
-## Planning notes
+## Room schedule
 
-- The west wall is the zero-setback boundary wall; show no openings until the boundary and fire strategy are approved.
-- Keep toilets, pantry, and service shafts coordinated with the first-floor plan.
-- Confirm exits, travel distances, occupant load, ventilation, and fire provisions with the project architect.
+- **Reception / Records:** 11'-0" x 16'-6" at the south-west entry; welcome desk, waiting, and filing counter.
+- **Stair Core:** 10'-0" x 9'-0" in the south service core; final stair width, risers, landings, and fire rating to be designed.
+- **Pantry:** 10'-0" x 7'-6" directly above/below the first-floor pantry.
+- **Toilet Block:** 9'-0" x 16'-6" with male, female, and accessible provisions shown conceptually.
+- **Main Assembly Hall:** 55'-0" x 57'-0" with central aisle, member seating, and clear route to the dais.
+- **Dais / Speaker Zone:** 55'-0" x 14'-6" at the north end of the hall.
+
+## Preliminary planning notes
+
+- Public entry is from the south through the reception/records vestibule.
+- The west boundary wall is shown blank with no openings.
+- The east-side exit is a review placeholder subject to fire strategy, site access, and local approval.
+- The drawing uses the 4,427.5 sq ft coordinate envelope, not the unresolved 4,785 sq ft planning claim.
+- Validate occupant load, aisle width, accessible route, exits, daylight, ventilation, and fire provisions before design development.

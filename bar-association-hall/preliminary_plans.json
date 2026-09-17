@@ -1,0 +1,190 @@
+{
+  "status": "preliminary-review",
+  "basis": {
+    "units": "feet",
+    "plot_geometry_source": "bar-association-hall/site_plan.json",
+    "simple_setback_envelope_area_sqft": 4427.5,
+    "planning_area_claimed_in_brief_sqft_per_floor": 4785,
+    "note": "The drawings use the simple coordinate envelope and are not construction or statutory drawings."
+  },
+  "envelope": [
+    {
+      "x": 0,
+      "y": 5
+    },
+    {
+      "x": 30,
+      "y": 5
+    },
+    {
+      "x": 30,
+      "y": 21.5
+    },
+    {
+      "x": 55,
+      "y": 21.5
+    },
+    {
+      "x": 55,
+      "y": 93
+    },
+    {
+      "x": 0,
+      "y": 93
+    }
+  ],
+  "floors": {
+    "ground": {
+      "title": "Ground Floor - Bar Association Hall",
+      "rooms": [
+        {
+          "id": "GF-01",
+          "name": "Reception / Records",
+          "x": 0,
+          "y": 5,
+          "w": 11,
+          "h": 16.5
+        },
+        {
+          "id": "GF-02",
+          "name": "Stair Core",
+          "x": 11,
+          "y": 5,
+          "w": 10,
+          "h": 9
+        },
+        {
+          "id": "GF-03",
+          "name": "Pantry",
+          "x": 11,
+          "y": 14,
+          "w": 10,
+          "h": 7.5
+        },
+        {
+          "id": "GF-04",
+          "name": "Toilet Block",
+          "x": 21,
+          "y": 5,
+          "w": 9,
+          "h": 16.5,
+          "subdivisions": [
+            "Male",
+            "Female",
+            "Accessible"
+          ]
+        },
+        {
+          "id": "GF-05",
+          "name": "Main Assembly Hall",
+          "x": 0,
+          "y": 21.5,
+          "w": 55,
+          "h": 57
+        },
+        {
+          "id": "GF-06",
+          "name": "Dais / Speaker Zone",
+          "x": 0,
+          "y": 78.5,
+          "w": 55,
+          "h": 14.5
+        }
+      ],
+      "notes": [
+        "South entry through reception; hall door aligns with the public lobby.",
+        "West boundary wall is blank; no openings shown.",
+        "East-side exit is shown as a review placeholder subject to fire strategy and site access.",
+        "Toilets and pantry form the service core for first-floor stacking."
+      ]
+    },
+    "first": {
+      "title": "First Floor - Bar Library + Pantry",
+      "rooms": [
+        {
+          "id": "FF-01",
+          "name": "Librarian / Admin",
+          "x": 0,
+          "y": 5,
+          "w": 11,
+          "h": 16.5
+        },
+        {
+          "id": "FF-02",
+          "name": "Stair Core",
+          "x": 11,
+          "y": 5,
+          "w": 10,
+          "h": 9
+        },
+        {
+          "id": "FF-03",
+          "name": "Pantry",
+          "x": 11,
+          "y": 14,
+          "w": 10,
+          "h": 7.5
+        },
+        {
+          "id": "FF-04",
+          "name": "Toilet Block",
+          "x": 21,
+          "y": 5,
+          "w": 9,
+          "h": 16.5,
+          "subdivisions": [
+            "Male",
+            "Female",
+            "Accessible"
+          ]
+        },
+        {
+          "id": "FF-05",
+          "name": "Library Reading Room",
+          "x": 0,
+          "y": 21.5,
+          "w": 55,
+          "h": 43
+        },
+        {
+          "id": "FF-06",
+          "name": "Stack Area / Book Storage",
+          "x": 0,
+          "y": 64.5,
+          "w": 55,
+          "h": 18
+        },
+        {
+          "id": "FF-07",
+          "name": "Discussion Room",
+          "x": 0,
+          "y": 82.5,
+          "w": 18,
+          "h": 10.5
+        },
+        {
+          "id": "FF-08",
+          "name": "Computer / Internet",
+          "x": 18,
+          "y": 82.5,
+          "w": 18,
+          "h": 10.5
+        },
+        {
+          "id": "FF-09",
+          "name": "Store / Electrical",
+          "x": 36,
+          "y": 82.5,
+          "w": 19,
+          "h": 10.5
+        }
+      ],
+      "notes": [
+        "Stair, pantry, and toilets are stacked over the ground-floor service core.",
+        "Reading room faces the north and east sides for daylight planning.",
+        "West boundary wall is blank; no openings shown.",
+        "Shelf loading, ventilation, and escape capacity require professional review."
+      ]
+    }
+  }
+}

@@ -1,23 +1,24 @@
 # First Floor - Bar Library + Pantry
 
-## Rooms and amenities
+**Revision:** A - coordinated preliminary review plan
 
-- **Library reading room:** 40'-0" x 50'-0" with reference tables, quiet study zones, and natural light.
-- **Stack area / book storage:** 25'-0" x 50'-0" for law reports, journals, and archives.
-- **Librarian/admin room:** 12'-0" x 11'-6" near the entrance for issuing and monitoring.
-- **Pantry:** 12'-0" x 11'-6"; planned above the ground-floor pantry.
-- **Male toilet:** 6'-0" x 8'-0".
-- **Female toilet:** 6'-0" x 8'-0".
-- **Accessible toilet:** 5'-0" x 6'-0"; verify accessibility clearances.
-- **Drinking water station:** 4'-0" x 4'-0".
-- **First-aid room:** 8'-0" x 8'-0".
-- **Discussion room:** 12'-0" x 11'-6".
-- **Computer/internet room:** 12'-0" x 11'-6".
-- **Store room:** 8'-0" x 8'-0".
-- **Electrical room:** 6'-0" x 6'-0".
+See `first_floor_preliminary.svg` for the visual plan and `preliminary_plan_review.md` for the full design basis and review checklist.
 
-## Planning notes
+## Room schedule
 
-- Stack wet areas over the ground floor where practical to reduce service runs.
-- Keep the west wall blank unless an approved boundary/fire solution permits otherwise.
-- Coordinate shelving loads, escape routes, daylight, ventilation, and electrical/data capacity before final design.
+- **Librarian / Admin:** 11'-0" x 16'-6" at the south-west landing; issuing, supervision, and administration.
+- **Stair Core:** 10'-0" x 9'-0" stacked over the ground-floor stair core.
+- **Pantry:** 10'-0" x 7'-6" stacked over the ground-floor pantry.
+- **Toilet Block:** 9'-0" x 16'-6" stacked over the ground-floor toilet zone; male, female, and accessible provisions shown conceptually.
+- **Library Reading Room:** 55'-0" x 43'-0" for tables, quiet study, and flexible seating.
+- **Stack Area / Book Storage:** 55'-0" x 18'-0" for law reports, journals, and archives; confirm floor loading with the structural engineer.
+- **Discussion Room:** 18'-0" x 10'-6".
+- **Computer / Internet Room:** 18'-0" x 10'-6".
+- **Store / Electrical:** 19'-0" x 10'-6" with final equipment clearances to be coordinated.
+
+## Preliminary planning notes
+
+- Stair, pantry, and wet areas are stacked for a cleaner plumbing strategy.
+- Reading and stack zones occupy the upper wing and receive planned daylight from the north/east sides.
+- The west boundary wall is shown blank with no openings.
+- Confirm shelving loads, escape capacity, accessible clearances, ventilation, electrical/data loads, and fire separation before design development.
