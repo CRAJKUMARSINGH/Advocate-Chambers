@@ -1,0 +1,64 @@
+{
+  "project": "Bar Association Banswara",
+  "status": "conceptual-planning-input",
+  "structure_type": "RCC Framed",
+  "foundation": "Isolated Footings with Plinth Beam",
+  "column_grid_ft": {
+    "x_axis": [
+      0,
+      15,
+      30,
+      45,
+      55
+    ],
+    "y_axis": [
+      5,
+      11.5,
+      30,
+      50,
+      70,
+      93
+    ]
+  },
+  "corner_references": [
+    {
+      "id": "C1",
+      "x": 0,
+      "y": 5
+    },
+    {
+      "id": "C2",
+      "x": 30,
+      "y": 5
+    },
+    {
+      "id": "C3",
+      "x": 30,
+      "y": 11.5
+    },
+    {
+      "id": "C4",
+      "x": 55,
+      "y": 11.5
+    },
+    {
+      "id": "C5",
+      "x": 0,
+      "y": 93
+    },
+    {
+      "id": "C6",
+      "x": 55,
+      "y": 93
+    }
+  ],
+  "slab_thickness_mm": 125,
+  "beam_sizes_mm": [
+    "230x450",
+    "230x300"
+  ],
+  "special_notes": [
+    "West edge is zero-setback in the planning brief.",
+    "Final footing, retaining/boundary, seismic, and fire design requires a licensed structural engineer."
+  ]
+}

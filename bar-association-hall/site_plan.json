@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "project": "Bar Association Banswara",
+  "location": "Banswara, Rajasthan, India",
+  "units": "feet",
+  "plot_type": "L-Shape",
+  "dimensions_ft": {
+    "north_width": 60,
+    "south_width": 35,
+    "west_depth": 98,
+    "east_step_top": 12,
+    "east_step_bottom": 16.5
+  },
+  "vertices": [
+    {
+      "x": 0,
+      "y": 0
+    },
+    {
+      "x": 35,
+      "y": 0
+    },
+    {
+      "x": 35,
+      "y": 16.5
+    },
+    {
+      "x": 60,
+      "y": 16.5
+    },
+    {
+      "x": 60,
+      "y": 98
+    },
+    {
+      "x": 0,
+      "y": 98
+    }
+  ],
+  "setbacks_ft": {
+    "west": 0,
+    "north": 5,
+    "south": 5,
+    "east": 5
+  },
+  "planning_area_claimed_sqft_per_floor": 4785,
+  "floors": {
+    "ground": {
+      "name": "Bar Association Banswara Hall",
+      "layout_file": "ground_floor_layout.md"
+    },
+    "first": {
+      "name": "Bar Library + Pantry",
+      "layout_file": "first_floor_layout.md"
+    }
+  },
+  "source_notes": [
+    "The polygon and setbacks are the rationalized planning inputs from the supplied brief.",
+    "The attached sketch contains an earlier smaller dimension set; see SOURCE_IMAGE.md.",
+    "The claimed net buildable area must be checked against a surveyed boundary and a true polygon-offset calculation."
+  ]
+}
