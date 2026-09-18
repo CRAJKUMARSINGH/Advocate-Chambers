@@ -4,8 +4,18 @@
     "units": "feet",
     "plot_geometry_source": "bar-association-hall/site_plan.json",
     "simple_setback_envelope_area_sqft": 4427.5,
-    "planning_area_claimed_in_brief_sqft_per_floor": 4427.5,
-    "note": "Adopted planning area per floor is 4,427.50 sq ft corresponding to the simple setback envelope."
+    "planning_area_claimed_in_brief_sqft_per_floor": 4785,
+    "note": "Dimensioned architectural preliminary study; not a construction, approval, fire-NOC, or structural drawing.",
+    "architectural_conventions": {
+      "external_wall_thickness_in": 9,
+      "internal_wall_thickness_in": 4.5,
+      "stair_type": "dog-leg RCC stair",
+      "stair_clear_width_ft": 4,
+      "stair_tread_in": 11,
+      "stair_riser_in": 6.6667,
+      "stair_landing_ft": 4,
+      "floor_to_floor_height_ft": 10
+    }
   },
   "envelope": [
     {
@@ -36,33 +46,44 @@
   "floors": {
     "ground": {
       "title": "Ground Floor - Bar Association Hall",
+      "access_points": [
+        {
+          "id": "GF-ENTRY-01",
+          "name": "Main hall entry",
+          "coordinate": { "x": 27.5, "y": 29.5 },
+          "wall": "south long wall of hall",
+          "clear_width_ft": 5,
+          "notes": "Centered on the 55'-0\" hall wall and reached through the public entry lobby."
+        },
+        {
+          "id": "GF-ENTRY-02",
+          "name": "Independent stair entry",
+          "coordinate": { "x": 15, "y": 5 },
+          "wall": "south exterior wall",
+          "clear_width_ft": 4,
+          "notes": "Direct exterior access to the stair; no passage through the ground-floor hall."
+        }
+      ],
       "rooms": [
         {
           "id": "GF-01",
           "name": "Reception / Records",
           "x": 0,
           "y": 5,
-          "w": 11,
+          "w": 9,
           "h": 16.5
         },
         {
           "id": "GF-02",
-          "name": "Stair Core",
-          "x": 11,
+          "name": "Dog-leg Stair Core",
+          "x": 9,
           "y": 5,
-          "w": 10,
-          "h": 9
+          "w": 12,
+          "h": 16.5,
+          "details": "4'-0\" clear flight width; 11\" tread; 6-2/3\" riser; 4'-0\" landings; 18 risers total for 10'-0\" floor-to-floor."
         },
         {
           "id": "GF-03",
-          "name": "Pantry",
-          "x": 11,
-          "y": 14,
-          "w": 10,
-          "h": 7.5
-        },
-        {
-          "id": "GF-04",
           "name": "Toilet Block",
           "x": 21,
           "y": 5,
@@ -75,15 +96,31 @@
           ]
         },
         {
-          "id": "GF-05",
-          "name": "Main Assembly Hall",
+          "id": "GF-04",
+          "name": "Entry Lobby / Public Circulation",
           "x": 0,
           "y": 21.5,
-          "w": 55,
-          "h": 57
+          "w": 30,
+          "h": 8
+        },
+        {
+          "id": "GF-05",
+          "name": "Pantry",
+          "x": 30,
+          "y": 21.5,
+          "w": 10,
+          "h": 8
         },
         {
           "id": "GF-06",
+          "name": "Main Assembly Hall",
+          "x": 0,
+          "y": 29.5,
+          "w": 55,
+          "h": 49
+        },
+        {
+          "id": "GF-07",
           "name": "Dais / Speaker Zone",
           "x": 0,
           "y": 78.5,
@@ -100,33 +137,36 @@
     },
     "first": {
       "title": "First Floor - Bar Library + Pantry",
+      "access_points": [
+        {
+          "id": "FF-ENTRY-01",
+          "name": "Independent stair entry",
+          "coordinate": { "x": 15, "y": 5 },
+          "wall": "south exterior wall at stair core",
+          "clear_width_ft": 4,
+          "notes": "First-floor visitors use the exterior stair entrance and do not enter the ground-floor hall."
+        }
+      ],
       "rooms": [
         {
           "id": "FF-01",
           "name": "Librarian / Admin",
           "x": 0,
           "y": 5,
-          "w": 11,
+          "w": 9,
           "h": 16.5
         },
         {
           "id": "FF-02",
-          "name": "Stair Core",
-          "x": 11,
+          "name": "Dog-leg Stair Core",
+          "x": 9,
           "y": 5,
-          "w": 10,
-          "h": 9
+          "w": 12,
+          "h": 16.5,
+          "details": "4'-0\" clear flight width; 11\" tread; 6-2/3\" riser; 4'-0\" landings; 18 risers total for 10'-0\" floor-to-floor."
         },
         {
           "id": "FF-03",
-          "name": "Pantry",
-          "x": 11,
-          "y": 14,
-          "w": 10,
-          "h": 7.5
-        },
-        {
-          "id": "FF-04",
           "name": "Toilet Block",
           "x": 21,
           "y": 5,
@@ -139,15 +179,31 @@
           ]
         },
         {
-          "id": "FF-05",
-          "name": "Library Reading Room",
+          "id": "FF-04",
+          "name": "Library Lobby / Circulation",
           "x": 0,
           "y": 21.5,
-          "w": 55,
-          "h": 43
+          "w": 30,
+          "h": 8
+        },
+        {
+          "id": "FF-05",
+          "name": "Pantry",
+          "x": 30,
+          "y": 21.5,
+          "w": 10,
+          "h": 8
         },
         {
           "id": "FF-06",
+          "name": "Library Reading Room",
+          "x": 0,
+          "y": 29.5,
+          "w": 55,
+          "h": 35
+        },
+        {
+          "id": "FF-07",
           "name": "Stack Area / Book Storage",
           "x": 0,
           "y": 64.5,
@@ -155,7 +211,7 @@
           "h": 18
         },
         {
-          "id": "FF-07",
+          "id": "FF-08",
           "name": "Discussion Room",
           "x": 0,
           "y": 82.5,
@@ -163,7 +219,7 @@
           "h": 10.5
         },
         {
-          "id": "FF-08",
+          "id": "FF-09",
           "name": "Computer / Internet",
           "x": 18,
           "y": 82.5,
@@ -171,7 +227,7 @@
           "h": 10.5
         },
         {
-          "id": "FF-09",
+          "id": "FF-10",
           "name": "Store / Electrical",
           "x": 36,
           "y": 82.5,

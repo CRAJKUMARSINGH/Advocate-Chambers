@@ -3,7 +3,7 @@
 **Project:** Advocate Chambers & Bar Association Hall  
 **Location:** Banswara, Rajasthan  
 **Plot shape:** L-shaped irregular polygon  
-**Status:** Planning package with refined preliminary review plans  
+**Status:** Dimensioned architectural preliminary review package
 
 > Planning package only: dimensions, room layouts, structural notes, services, and cost figures must be verified by a licensed architect/engineer, site survey, and the competent local authority before construction or statutory submission.
 
@@ -19,6 +19,8 @@
 The refined drawings use the simple coordinate setback envelope of **4,427.5 sq ft per floor**. The brief's earlier **4,785 sq ft** figure is retained in the estimate as an unresolved assumption and is intentionally not used to inflate these preliminary layouts.
 
 The derived PDF follows the coordinate-based 4,427.5 sq ft envelope. It is a planning study, not a construction, approval, fire-NOC, or structural drawing.
+
+Revision B makes the circulation explicit: the hall entry is centered on the south long wall, and the stair has an independent 4'-0" clear exterior entry for first-floor visitors. The stair note separates the 4'-0" clear flight width from the 11" tread depth.
 
 ## Plot and setbacks
 
