@@ -777,48 +777,50 @@ def draw_stair(c, origin, stair_space, stair):
         c.line(cx_col+col_sz, cy_col, cx_col, cy_col+col_sz)
 
     # ═══════════════════════════════════════════════════════════════════════
-    # 3. STAIR GEOMETRY — two flights side by side along X, running along Y
+    # 3. STAIR GEOMETRY — landing at SOUTH wall, flights run NORTH
+    #    Layout (Y increases northward on page):
+    #    Y=sy+wall  : south wall inner face
+    #    +land_pt   : 4'-0" landing slab (bilkul south wall se sata hua)
+    #    +flight_run: flight 1 (12 treads × 9")
+    #    +mid_wall  : 6" partition between flights
+    #    +flight_run: flight 2 (12 treads × 9") — reversed direction
+    #    +void      : 4'-0" open void at north (user circulation space)
     # ═══════════════════════════════════════════════════════════════════════
-    # Layout (plan view, Y increases northward / upward on page):
-    #   Flight 1 (LEFT half):  x = inner_x .. inner_x+flight_w
-    #                          treads stack from inner_y upward (Y+)
-    #                          Riser 1 at bottom, riser 12 at top → UP going north
-    #   Mid-landing:           horizontal band at top of flight runs (both flights
-    #                          share the same landing zone — full inner width, land_pt tall)
-    #   Flight 2 (RIGHT half): x = inner_x+flight_w+mid_wall .. inner_x+inner_w
-    #                          treads stack from inner_y upward (Y+)
-    #                          Numbered 13-24 going DOWN from landing on plan
-    #                          (travel direction continues UP from landing to FF)
-    #
-    # inner_w = 132 pt  (144 - 2×6 = 132")  → converted to pt
-    # mid_wall partition between flights:
-    mid_wall_pt = wall_pt  # 6" mid-wall partition
-    # Each flight width (along X):
-    flight_w = (inner_w - mid_wall_pt) / 2   # (132*0.75 - 4.5) / 2 ≈ 47.25 pt
+    mid_wall_pt = wall_pt
+    flight_w    = (inner_w - mid_wall_pt) / 2
 
-    # Flight 1 — LEFT (bottom entry, UP direction northward)
+    # Landing at bottom (south)
+    land_y0 = inner_y
+    land_y1 = land_y0 + land_pt
+
+    # Flight 1 — LEFT half, going UP (south→north)
     f1_x0 = inner_x
     f1_x1 = inner_x + flight_w
-    f1_y0 = inner_y                       # south (bottom) end — entry
-    f1_y1 = inner_y + flight_run          # north end of treads
+    f1_y0 = land_y1
+    f1_y1 = f1_y0 + flight_run
 
-    # Mid-landing — sits above both flights, full inner width
-    land_y0 = f1_y1                       # bottom of landing
-    land_y1 = land_y0 + land_pt           # top of landing
-
-    # Flight 2 — RIGHT (continues up from landing)
+    # Flight 2 — RIGHT half, continuing UP from landing (user turns at landing)
     f2_x0 = inner_x + flight_w + mid_wall_pt
     f2_x1 = inner_x + inner_w
-    f2_y0 = inner_y                       # south (bottom) of flight 2
-    f2_y1 = inner_y + flight_run          # = same as f1_y1
+    f2_y0 = land_y1
+    f2_y1 = f2_y0 + flight_run
 
-    # Mid-partition wall between the two flights (vertical band, full height of flights)
+    # Mid-partition between the two flights
     c.setFillColor(WALL_DARK); c.setLineWidth(0)
-    c.rect(inner_x + flight_w, inner_y,
-           mid_wall_pt, flight_run + land_pt, stroke=0, fill=1)
+    c.rect(inner_x + flight_w, land_y1,
+           mid_wall_pt, flight_run, stroke=0, fill=1)
+
+    # North void (4' free space above flights)
+    void_y0 = f1_y1
+    void_y1 = inner_y + inner_h
+    c.setFillColor(colors.HexColor("#e8f4e8"))  # light green = open void
+    c.setStrokeColor(WALL_DARK); c.setLineWidth(0.6)
+    c.rect(inner_x, void_y0, inner_w, void_y1 - void_y0, stroke=1, fill=1)
+    c.setFillColor(colors.HexColor("#2d6a2d")); c.setFont("Helvetica-Bold", 4.5)
+    c.drawCentredString(inner_x + inner_w/2, (void_y0+void_y1)/2, "OPEN / VOID")
 
     # ═══════════════════════════════════════════════════════════════════════
-    # 4. LANDING SLAB — blue-grey fill with horizontal hatch
+    # 4. LANDING SLAB — at SOUTH (bilkul south wall se sata hua)
     # ═══════════════════════════════════════════════════════════════════════
     c.setFillColor(LANDING_CLR); c.setStrokeColor(WALL_DARK); c.setLineWidth(0.8)
     c.rect(inner_x, land_y0, inner_w, land_pt, stroke=1, fill=1)
@@ -832,8 +834,8 @@ def draw_stair(c, origin, stair_space, stair):
     mid_land_cx = inner_x + inner_w / 2
     mid_land_cy = land_y0 + land_pt / 2
     c.setFillColor(WALL_DARK); c.setFont("Helvetica-Bold", 5)
-    c.drawCentredString(mid_land_cx, mid_land_cy + 3, "MID")
-    c.drawCentredString(mid_land_cx, mid_land_cy - 5, "LANDING")
+    c.drawCentredString(mid_land_cx, mid_land_cy + 3, "LANDING")
+    c.drawCentredString(mid_land_cx, mid_land_cy - 5, "4'-0\" WIDE")
 
     # ═══════════════════════════════════════════════════════════════════════
     # 5. TREADS — Flight 1 LEFT (numbered 1→12, south to north / bottom to top)
