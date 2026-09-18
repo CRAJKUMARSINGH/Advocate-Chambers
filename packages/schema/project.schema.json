@@ -1,0 +1,308 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://advocate-chambers.local/schemas/project-v1.schema.json",
+  "title": "Advocate-Chambers Parametric Project Schema v1",
+  "description": "Authoritative source-of-truth shape for React 19.3 + Python hybrid CAD platform. Patch 1 (typed schema package). Every drawable carries id + kind + levelId + geometry + source + status + revision for provenance tracing.",
+  "type": "object",
+  "required": [
+    "project",
+    "units",
+    "site",
+    "levels",
+    "spaces",
+    "openings",
+    "stairs",
+    "structuralGrid",
+    "sheets",
+    "assumptions",
+    "revisions"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "client", "location", "codeReference"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^proj-[a-z0-9-]+$"},
+        "name": {"type": "string", "minLength": 1},
+        "client": {"type": "string"},
+        "location": {"type": "string"},
+        "codeReference": {"type": "string"},
+        "status": {"enum": ["draft", "schematic", "approved", "for-construction"]},
+        "revision": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "units": {
+      "const": "inch",
+      "description": "1 drawing unit = 1 inch. 12 units = 1 foot. Do NOT mix unit systems in the same project."
+    },
+    "site": {
+      "type": "object",
+      "required": ["id", "kind", "geometry", "source", "status", "revision"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"const": "site"},
+        "levelId": {"const": "SITE"},
+        "geometry": {
+          "type": "object",
+          "properties": {
+            "plotVertices": {
+              "type": "array",
+              "minItems": 3,
+              "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+            },
+            "setbacks": {
+              "type": "object",
+              "properties": {
+                "north": {"type": "number", "minimum": 0},
+                "south": {"type": "number", "minimum": 0},
+                "east": {"type": "number", "minimum": 0},
+                "west": {"type": "number", "minimum": 0}
+              }
+            }
+          }
+        },
+        "source": {"enum": ["user", "generator", "import", "survey"]},
+        "status": {"enum": ["draft", "validated", "warning", "rejected"]},
+        "revision": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "levels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "elevation", "floorToFloor"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^(SITE|GF|FF|SF|TF|[0-9]+F)$"},
+          "name": {"type": "string"},
+          "elevation": {"type": "number"},
+          "floorToFloor": {"type": "number", "exclusiveMinimum": 0},
+          "source": {"enum": ["user", "generator", "import"]},
+          "status": {"enum": ["draft", "validated", "warning", "rejected"]},
+          "revision": {"type": "integer", "minimum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "spaces": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/space"}
+    },
+    "walls": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/wall"},
+      "description": "Optional explicit wall topology. When absent, walls are inferred from space rect contact edges plus declared outerThickness/innerThickness."
+    },
+    "openings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/opening"}
+    },
+    "stairs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/stair"}
+    },
+    "structuralGrid": {
+      "type": "object",
+      "required": ["id", "kind", "levelId", "geometry", "source", "status", "revision"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"const": "structural-grid"},
+        "levelId": {"const": "ALL"},
+        "geometry": {
+          "type": "object",
+          "properties": {
+            "xStations": {"type": "array", "items": {"type": "number"}},
+            "yStations": {"type": "array", "items": {"type": "number"}},
+            "columnSize": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+          },
+          "required": ["xStations", "yStations"]
+        },
+        "source": {"enum": ["user", "generator", "import", "engineer"]},
+        "status": {"enum": ["draft", "validated", "warning", "rejected"]},
+        "revision": {"type": "integer", "minimum": 1}
+      }
+    },
+    "sheets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "number", "title", "levelId", "paperSize"],
+        "properties": {
+          "id": {"type": "string"},
+          "number": {"type": "string", "pattern": "^A-[0-9]{3}"},
+          "title": {"type": "string"},
+          "levelId": {"type": "string"},
+          "paperSize": {"enum": ["A4", "A3", "A2", "A1", "A0"]},
+          "orientation": {"enum": ["portrait", "landscape"]},
+          "plotScaleDenominator": {"type": "number", "exclusiveMinimum": 0},
+          "marginMm": {"type": "number", "minimum": 0},
+          "rotation90Cw": {"type": "boolean", "description": "When true, rotate drawing 90 deg clockwise so landscape content fits on A4 Portrait"},
+          "source": {"enum": ["user", "generator", "import"]},
+          "status": {"enum": ["draft", "issued"]},
+          "revision": {"type": "integer", "minimum": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Design assumptions, planning notes, and explicit non-guarantees. Must include: (1) units, (2) structural system, (3) toilet fixture counts, (4) stair rise-run, (5) setback constraints, (6) professional review disclaimer."
+    },
+    "revisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "date", "author", "summary"],
+        "properties": {
+          "id": {"type": "string"},
+          "date": {"type": "string", "format": "date"},
+          "author": {"type": "string"},
+          "summary": {"type": "string"},
+          "affectedSheets": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Per-sheet 7-note legend: units, cut-vs-partition lineweights, D/W tag convention, door-swing composition, stair convention, survey confirmation, and licensed review disclaimer."
+    }
+  },
+  "$defs": {
+    "drawableBase": {
+      "type": "object",
+      "required": ["id", "kind", "levelId", "geometry", "source", "status", "revision"],
+      "properties": {
+        "id": {"type": "string", "description": "Stable unique id. Browser edit proposals reference this id."},
+        "kind": {"type": "string", "description": "Type discriminator: space, wall, door, window, stair, furniture, fixture."},
+        "levelId": {"type": "string", "description": "Foreign key into levels[].id. Use ALL for multi-level objects."},
+        "geometry": {"type": "object", "description": "Structured geometry specific to `kind`. Must be fully measurable — no pixel positions."},
+        "source": {"enum": ["user", "generator", "import", "regulation", "engineer"]},
+        "status": {"enum": ["draft", "validated", "warning", "rejected"]},
+        "revision": {"type": "integer", "minimum": 1}
+      }
+    },
+    "space": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "properties": {
+            "kind": {"const": "space"},
+            "name": {"type": "string"},
+            "finish": {"enum": ["public", "service", "circulation", "private", "assembly"]},
+            "geometry": {
+              "type": "object",
+              "required": ["rect"],
+              "properties": {
+                "rect": {
+                  "type": "array", "minItems": 4, "maxItems": 4,
+                  "items": {"type": "number"},
+                  "description": "[x0, y0, x1, y1] in model inches. Positive area required."
+                },
+                "finishFloor": {"type": "string"},
+                "finishCeiling": {"type": "string"}
+              }
+            },
+            "stairId": {"type": "string", "description": "Optional back-reference to the stair contained by this space."}
+          },
+          "required": ["name", "finish"]
+        }
+      ]
+    },
+    "wall": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "properties": {
+            "kind": {"const": "wall"},
+            "wallClass": {"enum": ["outer", "inner", "partition", "cut"]},
+            "thickness": {"type": "number", "exclusiveMinimum": 0},
+            "lineweight": {"type": "integer", "minimum": 0, "maximum": 211, "description": "DXF lineweight in 1/100mm: outer 40, cut 35, inner 28, partition 22."},
+            "geometry": {
+              "type": "object",
+              "required": ["a", "b"],
+              "properties": {
+                "a": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+                "b": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+              }
+            }
+          },
+          "required": ["wallClass", "thickness", "lineweight"]
+        }
+      ]
+    },
+    "opening": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "properties": {
+            "kind": {"enum": ["door", "window"]},
+            "tag": {"type": "string", "description": "D-01, W-01, D-MAIN, etc. Displayed beside swing arc in 3DHome convention."},
+            "hostSpace": {"type": "string"},
+            "hostWall": {"type": "string"},
+            "wall": {"enum": ["north", "south", "east", "west"]},
+            "geometry": {
+              "type": "object",
+              "required": ["offset", "width", "swing"],
+              "properties": {
+                "offset": {"type": "number", "minimum": 0},
+                "width": {"type": "number", "exclusiveMinimum": 0},
+                "height": {"type": "number", "exclusiveMinimum": 0},
+                "swing": {"enum": ["in", "out"]},
+                "hinge": {"enum": ["left", "right"], "description": "Hinge on left or right end of opening segment as you stand OUTSIDE the space facing IN."}
+              }
+            }
+          },
+          "required": ["tag", "hostSpace", "wall"]
+        }
+      ]
+    },
+    "stair": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "properties": {
+            "kind": {"const": "stair"},
+            "configuration": {"enum": ["straight", "dog-leg", "switchback", "u-type"]},
+            "turnDegrees": {"type": "number"},
+            "geometry": {
+              "type": "object",
+              "required": [
+                "compartment", "width",
+                "riserCountTotal", "riserCountPerFlight",
+                "riser", "tread",
+                "landingDepth", "handrails"
+              ],
+              "properties": {
+                "compartment": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}},
+                "width": {"type": "number", "exclusiveMinimum": 0, "description": "Full compartment width. Dog-leg rule: W = 2*flight + partition + 2handrail. For Indian standard 9'-0\"W use: 4'+1'+4' plus handrails."},
+                "riserCountTotal": {"type": "integer", "minimum": 2},
+                "riserCountPerFlight": {"type": "integer", "minimum": 1},
+                "riser": {"type": "number", "exclusiveMinimum": 0},
+                "tread": {"type": "number", "exclusiveMinimum": 0},
+                "landingDepth": {"type": "number", "exclusiveMinimum": 0, "description": "Intermediate landing depth. Must be >= width by NBC."},
+                "floorToFloor": {"type": "number", "exclusiveMinimum": 0, "description": "Must equal riserCountTotal * riser within 1/8\"."},
+                "handrails": {
+                  "type": "array",
+                  "items": {"enum": ["L", "R", "CENTER-LEFT", "CENTER-RIGHT", "PARTITION"]}
+                },
+                "nosingProjection": {"type": "number", "minimum": 0, "default": 1.5}
+              }
+            }
+          },
+          "required": ["configuration", "turnDegrees"]
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

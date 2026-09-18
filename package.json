@@ -1,5 +1,29 @@
 {
+  "name": "advocate-chambers",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Advocate-Chambers / Bar Association Banswara — hybrid React 19.3 + Python parametric CAD platform.",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "services/*"
+  ],
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:api": "uvicorn services.api.main:app --reload --port 8000",
+    "build:web": "npm --prefix apps/web run build",
+    "typecheck:web": "npm --prefix apps/web run typecheck",
+    "draw:refined": "python bar-association-hall/generate_refined_cad.py",
+    "draw:standard": "python bar-association-hall/generate_standard_drawings.py",
+    "validate:standard": "python -c \"from bar_association_hall.drawing_model import load_model, validate_model; s,p=load_model(); e=validate_model(s,p); print('fail' if e else 'pass'); [print(x) for x in e]\"",
+    "docs:patch-guide": "start code-junction/future-react-cad-transformation-patch-guide/deliverables/TRANSFORMATION_PATCH_GUIDE.md"
+  },
   "devDependencies": {
     "markdown-pdf": "^11.0.0"
-  }
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "npm@10.0.0"
 }

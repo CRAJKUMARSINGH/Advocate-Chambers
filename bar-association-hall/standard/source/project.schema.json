@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bar Association Hall Drawing Model",
+  "type": "object",
+  "required": ["projectId", "units", "wallThickness", "spaces", "openings", "windows", "entries", "stairs"],
+  "properties": {
+    "projectId": {"type": "string"},
+    "units": {"const": "inch"},
+    "wallThickness": {"type": "number", "exclusiveMinimum": 0},
+    "spaces": {"type": "array", "items": {"$ref": "#/$defs/space"}},
+    "openings": {"type": "array", "items": {"$ref": "#/$defs/opening"}},
+    "windows": {"type": "array", "items": {"$ref": "#/$defs/opening"}},
+    "entries": {"type": "array", "items": {"$ref": "#/$defs/entry"}},
+    "stairs": {"type": "array", "items": {"$ref": "#/$defs/stair"}},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "space": {
+      "type": "object",
+      "required": ["id", "level", "name", "rect"],
+      "properties": {
+        "id": {"type": "string"},
+        "level": {"type": "string"},
+        "name": {"type": "string"},
+        "rect": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "number"}}
+      }
+    },
+    "opening": {
+      "type": "object",
+      "required": ["id", "level", "tag", "hostSpace", "wall", "offset", "width"],
+      "properties": {
+        "id": {"type": "string"},
+        "level": {"type": "string"},
+        "type": {"type": "string"},
+        "tag": {"type": "string"},
+        "hostSpace": {"type": "string"},
+        "wall": {"enum": ["north", "south", "east", "west"]},
+        "offset": {"type": "number", "minimum": 0},
+        "width": {"type": "number", "exclusiveMinimum": 0},
+        "swing": {"enum": ["in", "out"]}
+      }
+    },
+    "stair": {
+      "type": "object",
+      "required": ["id", "kind", "riserCountTotal", "riserCountPerFlight", "riser", "tread", "landingDepth", "width"],
+      "properties": {
+        "id": {"type": "string"},
+        "kind": {"const": "dog-leg"},
+        "riserCountTotal": {"type": "integer", "minimum": 2},
+        "riserCountPerFlight": {"type": "integer", "minimum": 1},
+        "riser": {"type": "number", "exclusiveMinimum": 0},
+        "tread": {"type": "number", "exclusiveMinimum": 0},
+        "landingDepth": {"type": "number", "exclusiveMinimum": 0},
+        "width": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "entry": {
+      "type": "object",
+      "required": ["id", "level", "kind", "label", "openingId", "hostSpace", "wall", "status"],
+      "properties": {
+        "id": {"type": "string"},
+        "level": {"type": "string"},
+        "kind": {"enum": ["main", "secondary", "service"]},
+        "label": {"type": "string"},
+        "openingId": {"type": "string"},
+        "hostSpace": {"type": "string"},
+        "wall": {"enum": ["north", "south", "east", "west"]},
+        "status": {"enum": ["provisional", "confirmed"]},
+        "porch": {"type": "object"}
+      }
+    }
+  }
+}

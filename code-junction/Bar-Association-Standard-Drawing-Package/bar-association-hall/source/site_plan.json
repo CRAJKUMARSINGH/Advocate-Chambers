@@ -1,0 +1,53 @@
+{
+  "project": {
+    "name": "Bar Association Hall",
+    "location": "Banswara, Rajasthan",
+    "status": "schematic",
+    "drawing_standard": "Coordinated architectural planning set",
+    "source_note": "This model replaces the uploaded abstract review diagrams. Dimensions shown on the sheets are calculated from this file."
+  },
+  "units": "inch",
+  "site": {
+    "north": "up",
+    "plot": [
+      [0, 0],
+      [35, 0],
+      [35, 30],
+      [60, 30],
+      [60, 98],
+      [0, 98]
+    ],
+    "setbacks": {
+      "west": 0,
+      "north": 60,
+      "east": 5,
+      "south": 5
+    },
+    "assumptions": [
+      "L-shaped plot vertices are rationalized from the uploaded planning package and require a licensed survey.",
+      "North is shown toward the top of the sheet; confirm orientation against the site survey.",
+      "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets."
+    ]
+  },
+  "levels": [
+    {
+      "id": "GF",
+      "name": "Ground Floor",
+      "elevation": 0,
+      "floorToFloor": 132
+    },
+    {
+      "id": "FF",
+      "name": "First Floor",
+      "elevation": 132,
+      "floorToFloor": 132
+    }
+  ],
+  "revisions": [
+    {
+      "id": "P01",
+      "date": "2026-09-18",
+      "description": "Rebuilt from a coordinated structured model; conventional door swings and parametric dog-leg stair added."
+    }
+  ]
+}

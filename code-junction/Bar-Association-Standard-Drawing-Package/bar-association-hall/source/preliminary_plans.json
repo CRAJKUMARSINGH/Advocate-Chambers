@@ -1,0 +1,198 @@
+{
+  "projectId": "bar-association-hall",
+  "units": "inch",
+  "wallThickness": 6,
+  "spaces": [
+    {
+      "id": "GF-01",
+      "level": "GF",
+      "name": "Reception / Records",
+      "rect": [6, 6, 126, 180],
+      "finish": "public"
+    },
+    {
+      "id": "GF-02",
+      "level": "GF",
+      "name": "Main Stair",
+      "rect": [132, 6, 276, 246],
+      "finish": "circulation",
+      "stairId": "STAIR-01"
+    },
+    {
+      "id": "GF-03",
+      "level": "GF",
+      "name": "Pantry",
+      "rect": [282, 6, 402, 96],
+      "finish": "service"
+    },
+    {
+      "id": "GF-04",
+      "level": "GF",
+      "name": "Toilet Block",
+      "rect": [408, 6, 516, 204],
+      "finish": "service"
+    },
+    {
+      "id": "GF-05",
+      "level": "GF",
+      "name": "Main Assembly Hall",
+      "rect": [6, 252, 666, 900],
+      "finish": "public"
+    },
+    {
+      "id": "GF-06",
+      "level": "GF",
+      "name": "Dais / Speaker Zone",
+      "rect": [6, 906, 666, 1080],
+      "finish": "public"
+    },
+    {
+      "id": "FF-01",
+      "level": "FF",
+      "name": "Librarian / Administration",
+      "rect": [6, 6, 126, 180],
+      "finish": "staff"
+    },
+    {
+      "id": "FF-02",
+      "level": "FF",
+      "name": "Main Stair",
+      "rect": [132, 6, 276, 246],
+      "finish": "circulation",
+      "stairId": "STAIR-01"
+    },
+    {
+      "id": "FF-03",
+      "level": "FF",
+      "name": "Pantry",
+      "rect": [282, 6, 402, 96],
+      "finish": "service"
+    },
+    {
+      "id": "FF-04",
+      "level": "FF",
+      "name": "Toilet Block",
+      "rect": [408, 6, 516, 204],
+      "finish": "service"
+    },
+    {
+      "id": "FF-05",
+      "level": "FF",
+      "name": "Library Reading Room",
+      "rect": [6, 252, 666, 768],
+      "finish": "public"
+    },
+    {
+      "id": "FF-06",
+      "level": "FF",
+      "name": "Stack Area / Book Storage",
+      "rect": [6, 774, 666, 990],
+      "finish": "public"
+    },
+    {
+      "id": "FF-07",
+      "level": "FF",
+      "name": "Discussion Room",
+      "rect": [6, 996, 222, 1122],
+      "finish": "public"
+    },
+    {
+      "id": "FF-08",
+      "level": "FF",
+      "name": "Computer / Internet",
+      "rect": [228, 996, 444, 1122],
+      "finish": "public"
+    },
+    {
+      "id": "FF-09",
+      "level": "FF",
+      "name": "Store / Electrical",
+      "rect": [450, 996, 666, 1122],
+      "finish": "service"
+    }
+  ],
+  "openings": [
+    {"id": "D-GF-01", "level": "GF", "type": "door", "tag": "D-01", "hostSpace": "GF-01", "wall": "south", "offset": 54, "width": 42, "swing": "in"},
+    {"id": "D-GF-02", "level": "GF", "type": "door", "tag": "D-02", "hostSpace": "GF-02", "wall": "east", "offset": 72, "width": 36, "swing": "in"},
+    {"id": "D-GF-03", "level": "GF", "type": "door", "tag": "D-03", "hostSpace": "GF-03", "wall": "south", "offset": 48, "width": 36, "swing": "in"},
+    {"id": "D-GF-04", "level": "GF", "type": "door", "tag": "D-04", "hostSpace": "GF-04", "wall": "south", "offset": 48, "width": 36, "swing": "in"},
+    {"id": "D-GF-05", "level": "GF", "type": "door", "tag": "D-05", "hostSpace": "GF-05", "wall": "south", "offset": 300, "width": 72, "swing": "out"},
+    {"id": "D-GF-06", "level": "GF", "type": "door", "tag": "D-06", "hostSpace": "GF-05", "wall": "east", "offset": 240, "width": 42, "swing": "out"},
+    {"id": "D-GF-07", "level": "GF", "type": "door", "tag": "D-07", "hostSpace": "GF-06", "wall": "north", "offset": 288, "width": 42, "swing": "out"},
+    {"id": "D-FF-01", "level": "FF", "type": "door", "tag": "D-01", "hostSpace": "FF-01", "wall": "south", "offset": 54, "width": 42, "swing": "in"},
+    {"id": "D-FF-02", "level": "FF", "type": "door", "tag": "D-02", "hostSpace": "FF-02", "wall": "east", "offset": 72, "width": 36, "swing": "in"},
+    {"id": "D-FF-03", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-03", "wall": "south", "offset": 48, "width": 36, "swing": "in"},
+    {"id": "D-FF-04", "level": "FF", "type": "door", "tag": "D-04", "hostSpace": "FF-04", "wall": "south", "offset": 48, "width": 36, "swing": "in"},
+    {"id": "D-FF-05", "level": "FF", "type": "door", "tag": "D-05", "hostSpace": "FF-05", "wall": "south", "offset": 300, "width": 42, "swing": "in"},
+    {"id": "D-FF-06", "level": "FF", "type": "door", "tag": "D-06", "hostSpace": "FF-06", "wall": "north", "offset": 300, "width": 36, "swing": "in"},
+    {"id": "D-FF-07", "level": "FF", "type": "door", "tag": "D-07", "hostSpace": "FF-07", "wall": "south", "offset": 96, "width": 36, "swing": "in"},
+    {"id": "D-FF-08", "level": "FF", "type": "door", "tag": "D-08", "hostSpace": "FF-08", "wall": "south", "offset": 96, "width": 36, "swing": "in"},
+    {"id": "D-FF-09", "level": "FF", "type": "door", "tag": "D-09", "hostSpace": "FF-09", "wall": "south", "offset": 96, "width": 36, "swing": "out"}
+  ],
+  "windows": [
+    {"id": "W-GF-01", "level": "GF", "tag": "W-01", "hostSpace": "GF-05", "wall": "west", "offset": 240, "width": 72},
+    {"id": "W-GF-02", "level": "GF", "tag": "W-02", "hostSpace": "GF-05", "wall": "east", "offset": 420, "width": 72},
+    {"id": "W-FF-01", "level": "FF", "tag": "W-01", "hostSpace": "FF-05", "wall": "west", "offset": 240, "width": 72},
+    {"id": "W-FF-02", "level": "FF", "tag": "W-02", "hostSpace": "FF-05", "wall": "east", "offset": 420, "width": 72}
+  ],
+  "entries": [
+    {
+      "id": "ENTRY-MAIN",
+      "level": "GF",
+      "kind": "main",
+      "label": "SOUTH / MAIN ENTRY",
+      "openingId": "D-GF-05",
+      "hostSpace": "GF-05",
+      "wall": "south",
+      "importance": "primary public access to the assembly hall",
+      "sourceBasis": "label carried from uploaded reference plan",
+      "status": "provisional",
+      "porch": {
+        "label": "MAIN ENTRY PORCH",
+        "width": 120,
+        "depth": 72,
+        "status": "provisional; confirm with client, survey, accessibility, and site design"
+      }
+    },
+    {
+      "id": "ENTRY-VIP",
+      "level": "GF",
+      "kind": "secondary",
+      "label": "EAST / VIP ENTRY",
+      "openingId": "D-GF-06",
+      "hostSpace": "GF-05",
+      "wall": "east",
+      "importance": "secondary controlled access / egress review",
+      "sourceBasis": "label carried from uploaded reference plan",
+      "status": "provisional"
+    }
+  ],
+  "stairs": [
+    {
+      "id": "STAIR-01",
+      "kind": "dog-leg",
+      "levelFrom": "GF",
+      "levelTo": "FF",
+      "width": 48,
+      "flightCount": 2,
+      "riserCountTotal": 18,
+      "riserCountPerFlight": 9,
+      "floorToFloor": 132,
+      "riser": 7.3333,
+      "tread": 10,
+      "landingDepth": 48,
+      "turn": "180-deg",
+      "direction": "up",
+      "handrails": ["left", "right"],
+      "status": "schematic"
+    }
+  ],
+  "notes": [
+    "Entry intent carried from the uploaded reference plan: SOUTH / MAIN ENTRY is the primary public access; EAST / VIP ENTRY is secondary and must be confirmed.",
+    "The main-entry porch is shown as a provisional 10'-0\" wide × 6'-0\" deep zone for coordination only. Its size, cover, steps/ramp, drainage, and accessibility must be confirmed before design development.",
+    "Wall cut lines are heavy; partitions, openings, fixtures, furniture, and dimensions use descending line weights.",
+    "Door symbols show a wall break, hinge point, leaf, and 90-degree swing arc. Door tags identify the opening schedule; they are not room labels.",
+    "Stair is drawn as two parallel flights with a connecting intermediate landing. UP arrow follows travel direction; riser and tread values are shown beside the stair.",
+    "Planning layout only. Verify survey, local building code, fire egress, accessibility, structure, MEP, services, and authority requirements before design development or construction."
+  ]
+}
