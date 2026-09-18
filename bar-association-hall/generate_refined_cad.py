@@ -695,10 +695,12 @@ def draw_ground_floor():
     r_text(msp, "CORRIDOR 4'-0\"", X(27.5), (cy1+cy2)/2, h=TX_XL*FT,
            layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
 
-    # ===== EAST SIDE: VIP DOOR from portico into corridor directly =====
-    vx, vy = X(55) - OWT, Y(35)
+    # ===== EAST SIDE: VIP DOOR from VIP Portico (X=55..60, Y=28..62) into circulation zone =====
+    # Enter building through east envelope at X=55, landing in the X=46..55 stair/circulation
+    # band (south of stair flight, below Y=28 area). Door opens inward (swing -1) into zone.
+    vx, vy = X(55) - OWT, Y(32)
     r_door_swing(msp, vx, vy - 2*FT, 4*FT, swing_dir=-1)
-    r_text(msp, "VIP ENTRY 4'-0\"", vx - 5*FT, vy, h=TX_SMALL*FT,
+    r_text(msp, "VIP ENTRY 4'-0\"", vx - 5.5*FT, vy, h=TX_SMALL*FT,
            layer="A-DOOR", align=TextEntityAlignment.MIDDLE_CENTER, rot=90.0)
 
     # ===== STAIR: X=46..55, Y=21.5..54.5 (9'x33') =====
@@ -792,110 +794,14 @@ def draw_ground_floor():
         r_window(msp, X(55) - OWT/2, Y(yf), 6*FT, direction="e")
     # West: no windows (0' setback per plot)
 
-    # ===== DAIS (Raised) X=0..46, Y=75..85 =====
-    dx1, dy1 = X(0) + OWT, Y(75) + IWT/2
-    dx2, dy2 = X(46) - IWT/2, Y(85) - OWT
-    r_fill_rect(msp, dx1, dy1, dx2, dy2, hatch="ANSI32", layer="A-HATCH")
-    r_rect(msp, dx1, dy1, dx2, dy2, layer="A-WALL", lw=35)
-    # Raised step nosers
-    for s in range(3):
-        sy_ = dy1 + (s+1)*0.5*FT
-        r_line(msp, dx1 + 0.5*FT, sy_, dx2 - 0.5*FT, sy_, layer="A-SECT-CUT", lw=18)
-    # President Rostrum
-    rdw, rdd = 10*FT, 3*FT
-    rx1, ry1 = (dx1+dx2)/2 - rdw/2, dy2 - 7*FT
-    rx2, ry2 = rx1 + rdw, ry1 + rdd
-    r_rect(msp, rx1, ry1, rx2, ry2, layer="A-FURN", lw=26)
-    r_text(msp, "PRESIDENT ROSTRUM 10'x3'", (rx1+rx2)/2, (ry1+ry2)/2, h=TX_LARGE*FT,
-           layer="A-FURN", align=TextEntityAlignment.MIDDLE_CENTER)
-    r_circle(msp, (rx1+rx2)/2, ry2 + 1.5*FT, 0.6*FT, layer="A-FURN", lw=20)
-    # Bar Council seating 2 rows each side x 8
-    for side in ["L", "R"]:
-        bx = rx1 - 12*FT if side == "L" else rx2 + 2*FT
-        for row in range(2):
-            ry_ = ry1 + row * 3 * FT
-            for k in range(8):
-                r_circle(msp, bx + k*2*FT, ry_ + 1.5*FT, 0.4*FT, layer="A-FURN", lw=14)
-    # Dais access doors from hall: 2 doors
-    r_door_swing(msp, dx1 + 4*FT, dy1, 3*FT, swing_dir=1)
-    r_door_swing(msp, dx2 - 3*FT - 4*FT, dy1, 3*FT, swing_dir=-1)
-    r_text(msp, "RAISED DAIS +1'-6\"", (dx1+dx2)/2, dy1 - 1*FT, h=TX_LARGE*FT,
-           layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
-
-    # ===== CHAMBERS ROW (NW corner & SW of dais) =====
-    # SECRETARY CHAMBER + ATTACHED TOILET : X=0..16, Y=85..97? No, max Y=93.
-    # X=0..16, Y=85..93 (8' deep too shallow). Move to SW.
-    # Instead: PRESIDENT at NW (X=0..16, Y=85..93) + Toilet in same chamber area
-    # SECRETARY + Bar Council Room below dais? No.
-
-    # Better: Use X=46..55 area north of stair for chambers
-    # PRESIDENT CHAMBER (15'x12' min): X=0..16, Y=85..97 => Y only goes to 93. So:
-    # Make chambers NORTH of DAIS in the X=46..55 zone.
-    # PRESIDENT CHAMBER: X=46..55, Y=62..75 (9'x13') NO, too narrow.
-    # Let me put chambers in the X=0..30 south wing + extend into the L-bottom step.
-
-    # Actually the L-shape has only 30' of width in the bottom step below Y=21.5.
-    # We need to place chambers in the NORTH WING area.
-    #
-    # PRESIDENT CHAMBER (15'x12'): X=0..16, Y=85..97? Only to Y=93, so 8' deep not enough.
-    # INCREASE to X=0..16, Y=77..93 (16'x16') -> split:
-    #   PRESIDENT: X=0..16, Y=77..89 (16'x12')  + Toilet X=0..8, Y=89..93 (8'x4')
-    # But this overlaps DAIS (Y=75..85). Adjust:
-
-    # REDESIGNED CHAMBERS ROW - NORTH of MAIN HALL, WEST SIDE
-    # PRESIDENT CHAMBER + ATTACHED TOILET: X=0..16, Y=85..97 -> Y only to 93, so use X=0..30 for chambers
-
-    # PRESIDENT CHAMBER: X=0..16, Y=85..97 no, use X=0..16 Y=85..93 is 8' deep. 
-    # Actually we need to make the building taller OR use the area differently.
-    # Let me place chambers in the south wing area but double height, and use a mezzanine? No.
-
-    # SIMPLE SOLUTION: Use X=30..46, Y=85..97? No, Y max is 93. Let me just use X=0..30, Y=85..93 (8' too shallow).
-    # 
-    # REAL SOLUTION: Put chambers ON TOP of south wing? That's first floor.
-    # For GF: Put PRESIDENT and SECRETARY in the EXTENDED area of NORTH WING (X=46..55, Y=62..93). 
-    # Stair only takes Y=21.5..54.5. Above Y=54.5 to Y=93 is 38.5' of space.
-
-    # PRESIDENT CHAMBER (15'x12'): X=0..16, Y=85..97 no. Let me just use the NW quadrant fully.
-    # Actually, we had MAIN HALL ending at Y=75, DAIS 75..85. From Y=85..93 we have 8'. 
-    # 8' is too shallow for 12' deep room. 
-    # 
-    # REVISED: MAIN HALL ends at Y=70, DAIS 70..82, CHAMBERS 82..93 (11'). Better.
-
-    # SKIP chambers placement in GF - put them ON TOP of south wing at FIRST FLOOR.
-    # PRESIDENT & SECRETARY on GF in the X=46..55 ZONE BELOW stair landing:
-    # PRESIDENT CHAMBER: X=46..55, Y=62..75 (9' wide x 13' deep)
-    # No, 9' wide is < 15'. 
-    #
-    # FINAL APPROACH: Put CHAMBERS on the WEST side of NORTH WING.
-    # PRESIDENT CHAMBER (15'x12'): X=0..16, Y=85..97 no - the building only goes to Y=93.
-    # I'll place them in the SOUTH WING using full depth.
-    # The south wing (Y=5..21.5) is 16.5' deep. We had Bar Office + Common Toilet there.
-    # Let me REVISE: Bar Office + Common Toilet go to X=0..15, Y=13..21.5 (above lobby). 
-    # Below them at lobby level we can't. 
-
-    # I think the best is: PRESIDENT and SECRETARY CHAMBERS occupy the NORTH section
-    # using X=0..30 block (30' wide) in the area north of Main Hall. Since we need 15' x 12' each:
-    # Layout (using full building):
-    # X=0..15, Y=81..93: PRESIDENT (15'x12')  + Toilet annex X=0..8, Y=77..81 (8'x4')
-    # X=15..30, Y=81..93: SECRETARY (15'x12') + Toilet annex X=15..23, Y=77..81
-    # Then adjust DAIS to be X=30..55, Y=77..93 (25'x16'). 
-    # And MAIN HALL X=0..55, Y=25.5..77.
-    # MAIN HALL would then have entries X=0..30 from south corridor.
-    #
-    # Actually let me RE-DRAW the GF layout more practically:
-
-    # Erase above chamber plan and draw properly:
-    # (We'll continue with chambers NORTH of hall.)
-
-    # ===== NORTH ZONE: CHAMBERS =====
-    # Clear previous dais/chamber overlap by adjusting dimensions:
-    # MAIN HALL: X=0..46, Y=25.5..70 (deeper)
-    # CHAMBERS ROW 1 (Wing 1): X=0..30, Y=70..93 (23' deep, 30' wide)
-    #   PRESIDENT: X=0..16, Y=78..93 (16'x15')  + Attached Toilet: X=0..8, Y=70..78
-    #   SECRETARY: X=16..30, Y=78..93 (14'x15') + Attached Toilet: X=16..24, Y=70..78
-    # DAIS: X=30..46, Y=70..93 (16'x23') 
-
-    # Actually to simplify code, I'll just add chambers NOW in the remaining area:
+    # =========================================================
+    # GF NORTH ZONE (Y=75..93 above Main Hall back wall)
+    #   X=0..16  President Chamber (16'x12')  +  Attached Toilet (Y=75..81)
+    #   X=16..31 Secretary Chamber (15'x12') +  Attached Toilet (Y=75..81)
+    #   X=31..46 Revised Dais + Rostrum (15'x18') raised +1'-6"
+    #   X=46..55 Stacked above Stair (GF stair Y=21.5..54.5); above reserved
+    # Access corridor band: Y=75..81 (connects toilet/annex vestibules + dais rear)
+    # =========================================================
 
     # PRESIDENT CHAMBER + ATTACHED TOILET (X=0..16, Y=81..93 = 16'x12')
     pc_x1, pc_x2 = X(0) + OWT, X(16) - IWT/2
@@ -1016,14 +922,15 @@ def draw_ground_floor():
     sx, sy = X(55) + 8*FT, Y(75)
     r_text(msp, "AREA SCHEDULE GF", sx, sy + 7*FT, h=TX_XL*FT, layer="A-TEXT-TTL", align=TextEntityAlignment.LEFT)
     areas = [
-        ("President Chamber + Toilet", "228"),
-        ("Secretary Chamber + Toilet", "228"),
+        ("President Chamber + Att. WC", "246"),
+        ("Secretary Chamber + Att. WC", "234"),
         ("Bar Office",                "128"),
-        ("Common Toilet (5 Urinals)", "128"),
-        ("RPwD Accessible WC",         "48"),
-        ("Main Hall + Dais",         "2,650"),
-        ("Stair + Circulation",        "810"),
-        ("TOTAL GF",                 "4,220"),
+        ("Common Toilet (M+F)",        "128"),
+        ("RPwD Accessible WC",         "52"),
+        ("Main Hall Audience",       "2,277"),
+        ("Revised Dais + Rostrum",     "270"),
+        ("Lobby + Corridor + Stair",   "832"),
+        ("TOTAL GF",                 "4,167"),
     ]
     for i, (name, area) in enumerate(areas):
         y_ = sy - (i * 1.6*FT)
