@@ -169,12 +169,22 @@ OUT_PDF.mkdir(parents=True, exist_ok=True)
 
 import os as _os
 BARE = _os.environ.get("BARE", "0") == "1"
+LUMION = _os.environ.get("LUMION", "0") == "1"
 SUFFIX = "-BARE" if BARE else ""
+LUMION_PREFIX = "BA-Lumion-" if LUMION else "BA-Refined-"
 
 def _skip_layer(layer: str) -> bool:
-    if not BARE:
-        return False
     if layer is None:
+        return False
+    if LUMION:
+        keep_prefixes = (
+            "A-WALL", "A-COLUMN", "A-DOOR", "A-WINDOW",
+            "A-SITE", "A-ROOF", "A-SECT-CUT",
+        )
+        if not any(layer.startswith(p) for p in keep_prefixes):
+            return True
+        return False
+    if not BARE:
         return False
     skip_prefixes = (
         "A-FURN", "A-LOCKER", "A-JALI",
@@ -290,6 +300,21 @@ def r_fill_rect(msp, x1, y1, x2, y2, **kw):
 
 
 def r_door_swing(msp, hx, hy, w, swing_dir=1, **kw):
+    if LUMION:
+        layer = kw.get("layer", "A-DOOR")
+        lw = kw.get("lw", 24)
+        if _skip_layer(layer):
+            return
+        hx_r, hy_r = rotate_pt(hx, hy, ROT_CX, ROT_CY, ROT_DEG)
+        leaf_ex = hx + w * math.cos(0)
+        leaf_ey = hy + w * swing_dir * math.sin(0)
+        lex_r, ley_r = rotate_pt(leaf_ex, leaf_ey, ROT_CX, ROT_CY, ROT_DEG)
+        try:
+            pts = [(hx_r, hy_r), (lex_r, hy_r), (lex_r, ley_r), (hx_r, ley_r)]
+            msp.add_lwpolyline(pts, close=True, dxfattribs={"layer": layer, "lineweight": lw})
+        except Exception:
+            pass
+        return
     hx_r, hy_r = rotate_pt(hx, hy, ROT_CX, ROT_CY, ROT_DEG)
     leaf_ex = hx + w * math.cos(0)
     leaf_ey = hy + w * swing_dir * math.sin(0)
@@ -940,21 +965,23 @@ def draw_ground_floor():
         r_text(msp, name, sx, y_, h=h_, layer=layer_, align=TextEntityAlignment.LEFT)
         r_text(msp, f"{area} sft", sx + 28*FT, y_, h=h_, layer=layer_, align=TextEntityAlignment.LEFT)
 
-    # Title block
-    draw_sheet_frame_and_titleblock(
-        msp, SH, SW,
-        sheet_no="SHEET 01 OF 02",
-        sheet_title="GROUND FLOOR PLAN",
-        scale_txt='1/8" = 1\'-0"',
-        config=config,
-    )
+    # Title block (skip in LUMION mode — Lumion imports need plan geometry only)
+    if not LUMION:
+        draw_sheet_frame_and_titleblock(
+            msp, SH, SW,
+            sheet_no="SHEET 01 OF 02",
+            sheet_title="GROUND FLOOR PLAN",
+            scale_txt='1/8" = 1\'-0"',
+            config=config,
+        )
 
     # Save
-    dxf_path = OUT_DXF / f"BA-Refined-Ground-Floor-Plan{SUFFIX}.dxf"
+    dxf_path = OUT_DXF / f"{LUMION_PREFIX}Ground-Floor-Plan{SUFFIX}.dxf"
     doc.saveas(str(dxf_path))
     print(f"[OK] GF DXF saved: {dxf_path.name}")
-    pdf = export_dxf_to_pdf(dxf_path, config)
-    print(f"[OK] GF PDF saved: {pdf}")
+    pdf = None if LUMION else export_dxf_to_pdf(dxf_path, config)
+    if pdf:
+        print(f"[OK] GF PDF saved: {pdf}")
     return dxf_path, pdf
 
 
@@ -1255,39 +1282,143 @@ def draw_first_floor():
     r_arch_dim_v(msp, X(0) - 3*FT, Y(5), Y(93), "88'-0\" OVERALL", offset=-1.2*FT)
     r_arch_dim_v(msp, X(55) + 0.5*FT, Y(21.5), Y(93), "71'-6\"", offset=1.0*FT)
 
-    # Title block (no notes, no area schedule per user instruction - only GF has area)
-    draw_sheet_frame_and_titleblock(
-        msp, SH, SW,
-        sheet_no="SHEET 02 OF 02",
-        sheet_title="FIRST FLOOR PLAN",
-        scale_txt='1/8" = 1\'-0"',
-        config=config,
-    )
+    # Title block (skip in LUMION mode — Lumion imports need plan geometry only)
+    if not LUMION:
+        draw_sheet_frame_and_titleblock(
+            msp, SH, SW,
+            sheet_no="SHEET 02 OF 02",
+            sheet_title="FIRST FLOOR PLAN",
+            scale_txt='1/8" = 1\'-0"',
+            config=config,
+        )
 
     # Save
-    dxf_path = OUT_DXF / f"BA-Refined-First-Floor-Plan{SUFFIX}.dxf"
+    dxf_path = OUT_DXF / f"{LUMION_PREFIX}First-Floor-Plan{SUFFIX}.dxf"
     doc.saveas(str(dxf_path))
     print(f"[OK] FF DXF saved: {dxf_path.name}")
-    pdf = export_dxf_to_pdf(dxf_path, config)
-    print(f"[OK] FF PDF saved: {pdf}")
+    pdf = None if LUMION else export_dxf_to_pdf(dxf_path, config)
+    if pdf:
+        print(f"[OK] FF PDF saved: {pdf}")
     return dxf_path, pdf
 
 
 if __name__ == "__main__":
     print("=" * 72)
-    print("BAR ASSOCIATION BANSWARA — COMPLETE REDESIGN STARTED")
+    if LUMION:
+        print("BAR ASSOCIATION BANSWARA — LUMION 12.5 EXPORT STARTED")
+        print("  Mode: LUMION import-optimised DXF (7 architecture layers only,")
+        print("        no furniture/hatch/text/dimensions/titleblock, openings")
+        print("        drawn as closed rectangles for clean boolean cutting)")
+    else:
+        print("BAR ASSOCIATION BANSWARA — COMPLETE REDESIGN STARTED")
     print("  Stair: 9'W (2x4'+1'), 12\"Tread, 26 Risers, 33' Run")
     print("  Rotation: 90° Clockwise (A4 Portrait)")
-    print("  Fonts: 4x size (300% increase)")
+    if not LUMION:
+        print("  Fonts: 4x size (300% increase)")
     print("  GF: Pres+Secy Chambers, Bar Off, 5-Urinal Toilet, Hall Chairs Only")
     print("  FF: EDP Centre Corner, Library Tables Chairs Both Sides")
     print("=" * 72)
     gf_dxf, gf_pdf = draw_ground_floor()
     ff_dxf, ff_pdf = draw_first_floor()
     print("=" * 72)
-    print("ALL REDESIGNED DRAWINGS GENERATED SUCCESSFULLY")
-    print(f"  GF DXF : {gf_dxf}")
-    print(f"  GF PDF : {gf_pdf}")
-    print(f"  FF DXF : {ff_dxf}")
-    print(f"  FF PDF : {ff_pdf}")
+    if LUMION:
+        # Write Lumion 12.5 extrusion / height schedule alongside the DXF files
+        heights_txt = OUT_DXF / f"{LUMION_PREFIX.rstrip('-')}-HEIGHTS-SCHEDULE.txt"
+        FT_TO_MM = 304.8
+        GF_CLEAR_FT = 11.0
+        SLAB_FT = 1.0
+        PLINTH_FT = 1.5
+        PARAPET_FT = 3.0
+        def L(h_ft): return f"{h_ft:.2f} ft  ({h_ft * FT_TO_MM:.0f} mm)"
+        content = f"""BAR ASSOCIATION HALL, BANSWARA — LUMION 12.5 IMPORT + EXTRUSION SCHEDULE
+Generated by generate_refined_cad.py (LUMION=1 mode) — 18 September 2026
+Source coordinate system: plan drawn in Feet (1 ft units), 1 Drawing Unit = 1 ft (12 in)
+
+============================================================
+HOW TO IMPORT THESE FILES INTO LUMION 12.5
+============================================================
+1. Start Lumion 12.5  →  'Import' button  →  Navigate to:
+       {OUT_DXF}
+2. Import the two DXF files below one-by-one as separate 'Models':
+       GF :  {LUMION_PREFIX}Ground-Floor-Plan.dxf
+       FF :  {LUMION_PREFIX}First-Floor-Plan.dxf
+3. On import dialog set 'Units' = FEET  (NOT inches, NOT meters)
+   The building footprint is  55' × 88'  (≈ 16.8 m × 26.8 m)
+4. For each imported model, click the imported object in the scene, open
+   the 'Build' (or 'Utility') panel, and apply the 'Extrude' modifier
+   (or split by layer in a CAD pre-tool first, then import by layer).
+
+============================================================
+BUILDING VERTICAL SCHEDULE  (measured from DUETASK.TXT — Plot 2 G+1)
+============================================================
+  Plinth  .....................................  {L(PLINTH_FT)}      (Plinth top = 0 level inside building)
+  Ground Floor  CLEAR STOREY HEIGHT ...........  {L(GF_CLEAR_FT)}
+  RCC Slab 150 mm (1 ft) ......................  {L(SLAB_FT)}
+  FF Slab top elevation .......................  {L(PLINTH_FT + GF_CLEAR_FT + SLAB_FT)}
+  First Floor CLEAR STOREY HEIGHT .............  {L(GF_CLEAR_FT)}
+  RCC Slab 150 mm (1 ft) ......................  {L(SLAB_FT)}
+  Roof Slab top elevation .....................  {L(PLINTH_FT + 2*GF_CLEAR_FT + 2*SLAB_FT)}
+  Parapet 3' above roof .......................  {L(PARAPET_FT)}
+  TOTAL HEIGHT  Plinth top → Parapet top .....  {L(PLINTH_FT + 2*GF_CLEAR_FT + 2*SLAB_FT + PARAPET_FT)}
+                                          (= 27.5 ft ≈ 8.4 m)
+
+============================================================
+PER-LAYER EXTRUSION HEIGHTS FOR LUMION
+  Import with 'Split by layer' = ON, then set the Z-base and
+  extrusion height for each layer as per this table.
+============================================================
+Layer                | Z-Base at        |  Extrude to         |  Notes
+                     |  (feet above 0)  |  (feet above z-base)
+---------------------+-------------------+----------------------+----------------------
+A-WALL (EXTERIOR)    |  +1.5 (Plinth top)|  26.0 to Parapet    |  Full building envelope walls —
+                     |                   |  (=22 clear+3parapet)|  230 mm (9") thick
+A-WALL (INTERIOR)    |  GF: +1.5         |  GF only:  11.0     |  Interior partitions on GF
+                     |  FF: +13.5        |  FF only:  11.0     |  (two separate layer-splits)
+A-COLUMN             |  +1.5             |  25.0 (to Roof top) |  All structural columns 12"×12"
+                     |                   |  or 28.0 (Parapet)  |  (run full height)
+A-DOOR               |  GF: +1.5         |  7.0  (7 ft lintel) |  These are OPENINGS — use
+                     |  FF: +13.5        |  7.0                |  Boolean 'Cut' / Subtract
+A-WINDOW             |  GF: +1.5         |  Windowsill 2.5 ft,  |  Boolean 'Cut' holes:
+                     |                   |   head 7.0 ft       |   height = 4.5 ft (54")
+                     |  FF: +13.5        |   (same on FF)       |   width  = per DXF frame label
+A-SITE (Porticos)    |  +0.0 (Ground)    |  +1.5 (to plinth t.)|  Public south & VIP east entry
+A-SECT-CUT (nosers)  |  + per floor      |  local 0.5 ft       |  dais step risers only — keep thin
+
+============================================================
+SLABS / FLOORS (draw in Lumion using 'Floor' object OR extrude:
+============================================================
+  GF Finished Floor (FFL)  Z = +1.5 ft  (Plinth top)
+  FF Slab top              Z = +13.5 ft (1.5 + 11 clear + 1 slab)
+  Roof Slab top            Z = +25.5 ft
+  Parapet top              Z = +28.5 ft
+
+============================================================
+FOOTPRINT REFERENCE (to verify scale in Lumion after import):
+============================================================
+  Plan outer bounding box (X, Y in drawing units = Feet):
+      X-axis width  = 55'-0"   (Building overall width)
+      Y-axis depth  = 88'-0"   (Building overall depth, incl. south wing step)
+  Main Hall:  46' × 49.5'
+  Chambers + Dais band: X=0..46 × Y=75..93  (above Hall back wall)
+  L-shape footprint (Plot 2 style):
+      South wing 30' × 16'-6" deep   +   North body 55' × 71'-6" deep
+"""
+        try:
+            heights_txt.write_text(content, encoding="utf-8")
+            print(f"[OK] Lumion extrusion schedule saved: {heights_txt.name}")
+        except Exception as e:
+            print(f"[WARN] Could not write heights schedule: {e}")
+        print("ALL LUMION 12.5 DXF + HEIGHTS SCHEDULE GENERATED SUCCESSFULLY")
+        print(f"  GF DXF (Lumion) : {gf_dxf}")
+        print(f"  FF DXF (Lumion) : {ff_dxf}")
+        if heights_txt.exists():
+            print(f"  Extrusion guide : {heights_txt}")
+        print("  HOW TO USE: in Lumion 12.5, Import (Units = FEET)")
+        print("    then extrude layers using heights in the HEIGHTS-SCHEDULE.txt above.")
+    else:
+        print("ALL REDESIGNED DRAWINGS GENERATED SUCCESSFULLY")
+        print(f"  GF DXF : {gf_dxf}")
+        print(f"  GF PDF : {gf_pdf}")
+        print(f"  FF DXF : {ff_dxf}")
+        print(f"  FF PDF : {ff_pdf}")
     print("=" * 72)
