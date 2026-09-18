@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, r"e:\Rajkumar\Advocate-Chambers\scripts")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from traecad_engine import *
 import math
 
@@ -95,16 +95,16 @@ def public_stair_dogleg(msp, ox, oy):
     fl2_y1 = fl2_y0 + flight_run
 
     fill_rect(msp, ox, oy, ox + w, oy + bottom_land_depth, hatch="ANSI32", layer="A-HATCH")
-    text_msp(msp, "LANDING - GF", ox + w / 2.0, oy + bottom_land_depth / 2.0,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
+    text_msp(msp, "GF LANDING", ox + w / 2.0, oy + bottom_land_depth / 2.0,
+             h=TX_SMALL * FT, layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
 
     fill_rect(msp, ox, mid_y0, ox + w, mid_y1, hatch="ANSI32", layer="A-HATCH")
-    text_msp(msp, "LANDING - MID", ox + w / 2.0, (mid_y0 + mid_y1) / 2.0,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
+    text_msp(msp, "MID LANDING", ox + w / 2.0, (mid_y0 + mid_y1) / 2.0,
+             h=TX_SMALL * FT, layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
 
     fill_rect(msp, ox, fl2_y1, ox + w, oy + L, hatch="ANSI32", layer="A-HATCH")
-    text_msp(msp, "LANDING - FF", ox + w / 2.0, fl2_y1 + top_land_depth / 2.0,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
+    text_msp(msp, "FF LANDING", ox + w / 2.0, fl2_y1 + top_land_depth / 2.0,
+             h=TX_SMALL * FT, layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
 
     partition_x = ox + 4.5 * FT
 
@@ -113,63 +113,41 @@ def public_stair_dogleg(msp, ox, oy):
     for i in range(riser_count + 1):
         y_ = fl1_y0 + i * tread
         line(msp, f1x0, y_, f1x1, y_, layer="A-WALL", lw=22)
-        if i > 0 and i < riser_count + 1:
-            line(msp, f1x0, y_, f1x0 + 1.5 * IN, y_, layer="A-WALL", lw=30)
-            line(msp, f1x1 - 1.5 * IN, y_, f1x1, y_, layer="A-WALL", lw=30)
 
-    try:
-        msp.add_line((f1x0 + 0.5 * FT, fl1_y0), (f1x0 + 0.5 * FT, fl1_y1),
-                     dxfattribs={"layer": "A-ACC", "lineweight": 18, "linetype": "DASHED"})
-        msp.add_line((partition_x - 0.5 * FT, fl1_y0), (partition_x - 0.5 * FT, fl1_y1),
-                     dxfattribs={"layer": "A-ACC", "lineweight": 18, "linetype": "DASHED"})
-    except Exception:
-        line(msp, f1x0 + 0.5 * FT, fl1_y0, f1x0 + 0.5 * FT, fl1_y1, layer="A-ACC", lw=18)
-        line(msp, partition_x - 0.5 * FT, fl1_y0, partition_x - 0.5 * FT, fl1_y1, layer="A-ACC", lw=18)
+    line(msp, f1x0, fl1_y0, f1x0, fl1_y1, layer="A-ACC", lw=22)
+    line(msp, partition_x, fl1_y0, partition_x, fl1_y1, layer="A-ACC", lw=22)
 
     f2x0 = ox + 5 * FT
     f2x1 = ox + w
     for i in range(riser_count + 1):
         y_ = fl2_y0 + i * tread
         line(msp, f2x0, y_, f2x1, y_, layer="A-WALL", lw=22)
-        if i > 0 and i < riser_count + 1:
-            line(msp, f2x0, y_, f2x0 + 1.5 * IN, y_, layer="A-WALL", lw=30)
-            line(msp, f2x1 - 1.5 * IN, y_, f2x1, y_, layer="A-WALL", lw=30)
 
-    try:
-        msp.add_line((f2x1 - 0.5 * FT, fl2_y0), (f2x1 - 0.5 * FT, fl2_y1),
-                     dxfattribs={"layer": "A-ACC", "lineweight": 18, "linetype": "DASHED"})
-        msp.add_line((partition_x + 0.5 * FT, fl2_y0), (partition_x + 0.5 * FT, fl2_y1),
-                     dxfattribs={"layer": "A-ACC", "lineweight": 18, "linetype": "DASHED"})
-    except Exception:
-        line(msp, f2x1 - 0.5 * FT, fl2_y0, f2x1 - 0.5 * FT, fl2_y1, layer="A-ACC", lw=18)
-        line(msp, partition_x + 0.5 * FT, fl2_y0, partition_x + 0.5 * FT, fl2_y1, layer="A-ACC", lw=18)
+    line(msp, f2x1, fl2_y0, f2x1, fl2_y1, layer="A-ACC", lw=22)
+    line(msp, partition_x, fl2_y0, partition_x, fl2_y1, layer="A-ACC", lw=22)
 
-    cut_y1 = fl1_y0 + 1 * tread
-    cut_y2 = fl1_y1 - 1 * tread
-    cut_x = ox + 2 * FT
-    line(msp, cut_x - 2 * IN, cut_y1, cut_x - 2 * IN, cut_y2, layer="A-SECT-CUT", lw=28)
-    line(msp, cut_x + 2 * IN, cut_y1, cut_x + 2 * IN, cut_y2, layer="A-SECT-CUT", lw=28)
-    line(msp, cut_x - 2 * IN, cut_y2, cut_x - 8 * IN, cut_y2 - 10 * IN, layer="A-SECT-CUT", lw=28)
-    line(msp, cut_x + 2 * IN, cut_y2, cut_x + 8 * IN, cut_y2 - 10 * IN, layer="A-SECT-CUT", lw=28)
-    text_msp(msp, "UP", cut_x, (cut_y1 + cut_y2) / 2.0,
-             h=TX_XL * FT, layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
+    arr_mid_y = (fl1_y0 + fl1_y1) / 2.0
+    line(msp, ox + 2 * FT, fl1_y0 + 12 * IN, ox + 2 * FT, fl1_y1 - 12 * IN,
+         layer="A-SECT-CUT", lw=26)
+    line(msp, ox + 2 * FT, fl1_y1 - 12 * IN, ox + 2 * FT - 8 * IN, fl1_y1 - 20 * IN,
+         layer="A-SECT-CUT", lw=26)
+    line(msp, ox + 2 * FT, fl1_y1 - 12 * IN, ox + 2 * FT + 8 * IN, fl1_y1 - 20 * IN,
+         layer="A-SECT-CUT", lw=26)
+    text_msp(msp, "UP", ox + 2 * FT, arr_mid_y,
+             h=TX_LARGE * FT, layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
 
-    cut2_y1 = fl2_y0 + 1 * tread
-    cut2_y2 = fl2_y1 - 1 * tread
-    cut2_x = ox + 7 * FT
-    line(msp, cut2_x - 2 * IN, cut2_y2, cut2_x - 2 * IN, cut2_y1, layer="A-SECT-CUT", lw=28)
-    line(msp, cut2_x + 2 * IN, cut2_y2, cut2_x + 2 * IN, cut2_y1, layer="A-SECT-CUT", lw=28)
-    line(msp, cut2_x - 2 * IN, cut2_y1, cut2_x - 8 * IN, cut2_y1 + 10 * IN, layer="A-SECT-CUT", lw=28)
-    line(msp, cut2_x + 2 * IN, cut2_y1, cut2_x + 8 * IN, cut2_y1 + 10 * IN, layer="A-SECT-CUT", lw=28)
-    text_msp(msp, "DOWN", cut2_x, (cut2_y1 + cut2_y2) / 2.0,
-             h=TX_XL * FT, layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
+    arr2_mid_y = (fl2_y0 + fl2_y1) / 2.0
+    line(msp, ox + 7 * FT, fl2_y1 - 12 * IN, ox + 7 * FT, fl2_y0 + 12 * IN,
+         layer="A-SECT-CUT", lw=26)
+    line(msp, ox + 7 * FT, fl2_y0 + 12 * IN, ox + 7 * FT - 8 * IN, fl2_y0 + 20 * IN,
+         layer="A-SECT-CUT", lw=26)
+    line(msp, ox + 7 * FT, fl2_y0 + 12 * IN, ox + 7 * FT + 8 * IN, fl2_y0 + 20 * IN,
+         layer="A-SECT-CUT", lw=26)
+    text_msp(msp, "DOWN", ox + 7 * FT, arr2_mid_y,
+             h=TX_LARGE * FT, layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
 
-    hdr = f"STAIR ST-01 | 9'-0\"W | 2x{riser_count} RISERS | T={tread_in:.0f}\" R={riser_in:.1f}\" | DOG-LEG 180"
-    text_msp(msp, hdr, ox + w / 2.0, oy - 2.5 * FT,
-             h=TX_MEDIUM * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-    text_msp(msp, "FLIGHT-1", ox + 2 * FT, fl1_y0 - 1.2 * FT,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-    text_msp(msp, "FLIGHT-2", ox + 7 * FT, fl2_y1 + 1.2 * FT,
+    hdr = f"STAIRE 9'W  2x{riser_count}RISERS  {tread_in:.0f}\"T  {riser_in:.1f}\"R"
+    text_msp(msp, hdr, ox + w / 2.0, oy - 2.0 * FT,
              h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
 
     return {
@@ -183,7 +161,7 @@ def public_stair_dogleg(msp, ox, oy):
     }
 
 
-BASE = Path(r"e:\Rajkumar\Advocate-Chambers\bar-association-hall")
+BASE = Path(__file__).resolve().parent
 OUT_DXF = BASE / "CAD"
 OUT_PDF = BASE / "PDF"
 OUT_DXF.mkdir(parents=True, exist_ok=True)
@@ -552,11 +530,11 @@ def draw_east_portico(msp):
 
 
 def r_stair_dogleg(msp, ox, oy):
+    s = public_stair_dogleg.__wrapped__ if hasattr(public_stair_dogleg, "__wrapped__") else None
     w_ft = 9.0
     length_ft = 33.0
     flight_risers = 13
     tread_in = 12.0
-    riser_in = 6.846
     w = w_ft * FT
     L = length_ft * FT
     tread = tread_in * IN
@@ -571,74 +549,43 @@ def r_stair_dogleg(msp, ox, oy):
     mid_y1 = mid_y0 + mid_land_d
     fl2_y0 = mid_y1
     fl2_y1 = fl2_y0 + flight_run
-
     r_rect(msp, ox, oy, ox + w, oy + L, layer="A-WALL", lw=40)
-
     r_fill_rect(msp, ox, oy, ox + w, oy + bottom_land_depth, hatch="ANSI32", layer="A-HATCH")
-    r_text(msp, "LANDING - GF", ox + w / 2.0, oy + bottom_land_depth / 2.0,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-
+    r_text(msp, "GF LANDING", ox + w/2, oy + bottom_land_depth/2, h=TX_SMALL*FT,
+           layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
     r_fill_rect(msp, ox, mid_y0, ox + w, mid_y1, hatch="ANSI32", layer="A-HATCH")
-    r_text(msp, "LANDING - MID", ox + w / 2.0, (mid_y0 + mid_y1) / 2.0,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-
+    r_text(msp, "MID LANDING", ox + w/2, (mid_y0+mid_y1)/2, h=TX_SMALL*FT,
+           layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
     r_fill_rect(msp, ox, fl2_y1, ox + w, oy + L, hatch="ANSI32", layer="A-HATCH")
-    r_text(msp, "LANDING - FF", ox + w / 2.0, fl2_y1 + top_land_depth / 2.0,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-
+    r_text(msp, "FF LANDING", ox + w/2, fl2_y1 + top_land_depth/2, h=TX_SMALL*FT,
+           layer="A-TEXT-TTL", align=TextEntityAlignment.MIDDLE_CENTER)
     partition_x = ox + 4.5 * FT
-
-    f1x0 = ox
-    f1x1 = ox + 4 * FT
+    f1x0, f1x1 = ox, ox + 4 * FT
     for i in range(riser_count + 1):
         y_ = fl1_y0 + i * tread
         r_line(msp, f1x0, y_, f1x1, y_, layer="A-WALL", lw=22)
-        if i > 0 and i < riser_count + 1:
-            r_line(msp, f1x0, y_, f1x0 + 1.5 * IN, y_, layer="A-WALL", lw=30)
-            r_line(msp, f1x1 - 1.5 * IN, y_, f1x1, y_, layer="A-WALL", lw=30)
-
-    r_line(msp, f1x0 + 0.5 * FT, fl1_y0, f1x0 + 0.5 * FT, fl1_y1, layer="A-ACC", lw=18)
-    r_line(msp, partition_x - 0.5 * FT, fl1_y0, partition_x - 0.5 * FT, fl1_y1, layer="A-ACC", lw=18)
-
-    f2x0 = ox + 5 * FT
-    f2x1 = ox + w
+    r_line(msp, f1x0, fl1_y0, f1x0, fl1_y1, layer="A-ACC", lw=22)
+    r_line(msp, partition_x, fl1_y0, partition_x, fl1_y1, layer="A-ACC", lw=22)
+    f2x0, f2x1 = ox + 5 * FT, ox + w
     for i in range(riser_count + 1):
         y_ = fl2_y0 + i * tread
         r_line(msp, f2x0, y_, f2x1, y_, layer="A-WALL", lw=22)
-        if i > 0 and i < riser_count + 1:
-            r_line(msp, f2x0, y_, f2x0 + 1.5 * IN, y_, layer="A-WALL", lw=30)
-            r_line(msp, f2x1 - 1.5 * IN, y_, f2x1, y_, layer="A-WALL", lw=30)
-
-    r_line(msp, f2x1 - 0.5 * FT, fl2_y0, f2x1 - 0.5 * FT, fl2_y1, layer="A-ACC", lw=18)
-    r_line(msp, partition_x + 0.5 * FT, fl2_y0, partition_x + 0.5 * FT, fl2_y1, layer="A-ACC", lw=18)
-
-    cut_y1 = fl1_y0 + 1 * tread
-    cut_y2 = fl1_y1 - 1 * tread
-    cut_x = ox + 2 * FT
-    r_line(msp, cut_x - 2 * IN, cut_y1, cut_x - 2 * IN, cut_y2, layer="A-SECT-CUT", lw=28)
-    r_line(msp, cut_x + 2 * IN, cut_y1, cut_x + 2 * IN, cut_y2, layer="A-SECT-CUT", lw=28)
-    r_line(msp, cut_x - 2 * IN, cut_y2, cut_x - 8 * IN, cut_y2 - 10 * IN, layer="A-SECT-CUT", lw=28)
-    r_line(msp, cut_x + 2 * IN, cut_y2, cut_x + 8 * IN, cut_y2 - 10 * IN, layer="A-SECT-CUT", lw=28)
-    r_text(msp, "UP", cut_x, (cut_y1 + cut_y2) / 2.0,
-             h=TX_XL * FT, layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
-
-    cut2_y1 = fl2_y0 + 1 * tread
-    cut2_y2 = fl2_y1 - 1 * tread
-    cut2_x = ox + 7 * FT
-    r_line(msp, cut2_x - 2 * IN, cut2_y2, cut2_x - 2 * IN, cut2_y1, layer="A-SECT-CUT", lw=28)
-    r_line(msp, cut2_x + 2 * IN, cut2_y2, cut2_x + 2 * IN, cut2_y1, layer="A-SECT-CUT", lw=28)
-    r_line(msp, cut2_x - 2 * IN, cut2_y1, cut2_x - 8 * IN, cut2_y1 + 10 * IN, layer="A-SECT-CUT", lw=28)
-    r_line(msp, cut2_x + 2 * IN, cut2_y1, cut2_x + 8 * IN, cut2_y1 + 10 * IN, layer="A-SECT-CUT", lw=28)
-    r_text(msp, "DOWN", cut2_x, (cut2_y1 + cut2_y2) / 2.0,
-             h=TX_XL * FT, layer="A-SECT-CUT", align=TextEntityAlignment.MIDDLE_CENTER)
-
-    hdr = 'STAIR ST-01 | 9\'-0"W | 2x' + str(riser_count) + ' RISERS | T=' + str(int(tread_in)) + '" R=' + f'{riser_in:.1f}' + '" | DOG-LEG 180'
-    r_text(msp, hdr, ox + w / 2.0, oy - 2.5 * FT,
-             h=TX_MEDIUM * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-    r_text(msp, "FLIGHT-1", ox + 2 * FT, fl1_y0 - 1.2 * FT,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
-    r_text(msp, "FLIGHT-2", ox + 7 * FT, fl2_y1 + 1.2 * FT,
-             h=TX_SMALL * FT, layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
+    r_line(msp, f2x1, fl2_y0, f2x1, fl2_y1, layer="A-ACC", lw=22)
+    r_line(msp, partition_x, fl2_y0, partition_x, fl2_y1, layer="A-ACC", lw=22)
+    arr_mid_y = (fl1_y0 + fl1_y1) / 2
+    r_line(msp, ox + 2*FT, fl1_y0 + 12*IN, ox + 2*FT, fl1_y1 - 12*IN, layer="A-SECT-CUT", lw=26)
+    r_line(msp, ox + 2*FT, fl1_y1 - 12*IN, ox + 2*FT - 8*IN, fl1_y1 - 20*IN, layer="A-SECT-CUT", lw=26)
+    r_line(msp, ox + 2*FT, fl1_y1 - 12*IN, ox + 2*FT + 8*IN, fl1_y1 - 20*IN, layer="A-SECT-CUT", lw=26)
+    r_text(msp, "UP", ox + 2*FT, arr_mid_y, h=TX_LARGE*FT, layer="A-SECT-CUT",
+           align=TextEntityAlignment.MIDDLE_CENTER)
+    arr2_mid_y = (fl2_y0 + fl2_y1) / 2
+    r_line(msp, ox + 7*FT, fl2_y1 - 12*IN, ox + 7*FT, fl2_y0 + 12*IN, layer="A-SECT-CUT", lw=26)
+    r_line(msp, ox + 7*FT, fl2_y0 + 12*IN, ox + 7*FT - 8*IN, fl2_y0 + 20*IN, layer="A-SECT-CUT", lw=26)
+    r_line(msp, ox + 7*FT, fl2_y0 + 12*IN, ox + 7*FT + 8*IN, fl2_y0 + 20*IN, layer="A-SECT-CUT", lw=26)
+    r_text(msp, "DOWN", ox + 7*FT, arr2_mid_y, h=TX_LARGE*FT, layer="A-SECT-CUT",
+           align=TextEntityAlignment.MIDDLE_CENTER)
+    r_text(msp, f"STAIR 9'W  2x13R  12\"T  6.8\"R", ox + w/2, oy - 2.0*FT, h=TX_SMALL*FT,
+           layer="A-TEXT", align=TextEntityAlignment.MIDDLE_CENTER)
 
 
 def draw_ground_floor():
@@ -662,7 +609,7 @@ def draw_ground_floor():
     dd_cx = (lx1+lx2)/2
     r_door_swing(msp, dd_cx - 4*FT, ly1, 4*FT, swing_dir=1)
     r_door_swing(msp, dd_cx, ly1, 4*FT, swing_dir=-1)
-    r_text(msp, "D-MAIN 2x4'-0\"", dd_cx, ly1 - 2*FT, h=TX_SMALL*FT,
+    r_text(msp, "MAIN ENTRY 2x4'-0\"", dd_cx, ly1 - 2*FT, h=TX_SMALL*FT,
            layer="A-DOOR", align=TextEntityAlignment.MIDDLE_CENTER)
 
     # Lobby -> north corridor double door
@@ -1069,14 +1016,14 @@ def draw_ground_floor():
     sx, sy = X(55) + 8*FT, Y(75)
     r_text(msp, "AREA SCHEDULE GF", sx, sy + 7*FT, h=TX_XL*FT, layer="A-TEXT-TTL", align=TextEntityAlignment.LEFT)
     areas = [
-        ("President Chamber + Toilet", "246"),
-        ("Secretary Chamber + Toilet", "234"),
+        ("President Chamber + Toilet", "228"),
+        ("Secretary Chamber + Toilet", "228"),
         ("Bar Office",                "128"),
         ("Common Toilet (5 Urinals)", "128"),
         ("RPwD Accessible WC",         "48"),
         ("Main Hall + Dais",         "2,650"),
         ("Stair + Circulation",        "810"),
-        ("TOTAL GF",                 "4,244"),
+        ("TOTAL GF",                 "4,220"),
     ]
     for i, (name, area) in enumerate(areas):
         y_ = sy - (i * 1.6*FT)
@@ -1189,7 +1136,7 @@ def draw_first_floor():
            layer="A-FURN", align=TextEntityAlignment.MIDDLE_CENTER)
     # Entry door
     r_door_swing(msp, edp_x2 - 3*FT - 0.5*FT, edp_y1, 3*FT, swing_dir=1)
-    r_text(msp, "D-FF-01 3'-0\"", edp_x2 - 2*FT, edp_y1 + 1.8*FT, h=TX_SMALL*FT, layer="A-DOOR", align=TextEntityAlignment.MIDDLE_CENTER)
+    r_text(msp, "3'-0\"", edp_x2 - 2*FT, edp_y1 + 1.8*FT, h=TX_SMALL*FT, layer="A-DOOR", rot=45.0)
 
     # ===== LIBRARY READING ROOM: Tables with chairs on BOTH SIDES =====
     # X=15..46, Y=25.5..75  (31' wide x 49.5' deep)

@@ -2,14 +2,14 @@ import sys
 from pathlib import Path
 import math
 
-sys.path.insert(0, r"e:\Rajkumar\Advocate-Chambers\scripts")
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from traecad_engine import (
     ezdxf, FT, RenderContext, Frontend, Configuration,
     BackgroundPolicy, ColorPolicy, LinePolicy,
     MatplotlibBackend, plt, pymupdf, PT_PER_MM,
 )
 
-BASE = Path(r"e:\Rajkumar\Advocate-Chambers\bar-association-hall")
+BASE = Path(__file__).resolve().parent
 DXF_DIR = BASE / "CAD"
 PDF_DIR = BASE / "PDF"
 PDF_DIR.mkdir(parents=True, exist_ok=True)

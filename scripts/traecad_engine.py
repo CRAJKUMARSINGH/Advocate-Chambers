@@ -834,7 +834,7 @@ def save_drawing(doc, filename, config=None):
     if config:
         dxf_dir = config.dxf_dir
     else:
-        dxf_dir = Path(r"e:\Rajkumar\Advocate-Chambers\CAD-Drawings\DXF")
+        dxf_dir = Path(__file__).resolve().parent.parent / "CAD-Drawings" / "DXF"
     dxf_dir.mkdir(parents=True, exist_ok=True)
     fpath = dxf_dir / f"{filename}.dxf"
     doc.saveas(str(fpath))
@@ -858,7 +858,7 @@ def export_dxf_to_pdf(dxf_path, config=None):
         paper_h_mm = config.paper_h_mm
         margin_mm = config.margin_mm
     else:
-        pdf_dir = Path(r"e:\Rajkumar\Advocate-Chambers\CAD-Drawings\PDF")
+        pdf_dir = Path(__file__).resolve().parent.parent / "CAD-Drawings" / "PDF"
         paper_w_mm, paper_h_mm = 297.0, 210.0
         margin_mm = 20.0
 
@@ -976,7 +976,7 @@ DRAW_BY = "TRAE AI ARCHITECTURE STUDIO"
 CODE = "NBC 2016 + RPwD ACT 2016 + IS 4912"
 DOC_REF = "Banswara-DC-Advocate-Sitout-v2.4"
 
-BASE_DIR = Path(r"e:\Rajkumar\Advocate-Chambers")
+BASE_DIR = Path(__file__).resolve().parent.parent
 DXF_DIR = BASE_DIR / "CAD-Drawings" / "DXF"
 PDF_DIR = BASE_DIR / "CAD-Drawings" / "PDF"
 DXF_DIR.mkdir(parents=True, exist_ok=True)
