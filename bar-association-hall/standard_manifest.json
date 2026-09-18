@@ -1,23 +1,48 @@
 {
-  "project": "Bar Association Hall",
-  "generatedUtc": "2026-09-18T05:31:18.292209+00:00",
-  "sourceSha256": "563db72470d4b5fc50c4e5644cef849e1dcd8950bc399f93d8c1440859c556b7",
-  "generator": "generate_standard_drawings.py",
+  "project": "Bar Association Hall, Banswara",
+  "generatedUtc": "2026-09-18T19:31:22.937884+00:00",
+  "generator": "generate_lumion_drawings.py",
+  "sourceSha256": "2c33884ac79a18d5fc63b0d5cb932f08a86a972255f4c19eb6797b0b7a6132ec",
   "status": "pass",
+  "adoptedSetbackEnvelopeAreaSqFt": 4427.5,
+  "mainEntranceLocation": "East Long Wall \u2014 12'-0\" \u00d7 8'-0\" Covered Porch",
+  "fenestration": "4-Sided (North, South, East, West)",
+  "drawingSets": {
+    "Set 1 \u2014 Architectural (No Furniture)": [
+      "A-101",
+      "A-102"
+    ],
+    "Set 2 \u2014 Presentation (With Furniture)": [
+      "A-201",
+      "A-202"
+    ],
+    "Set 3 \u2014 Structural (With Columns)": [
+      "S-101",
+      "S-102"
+    ]
+  },
   "outputs": [
-    "PDF\\A-101-Ground-Floor-Plan.pdf",
-    "CAD\\A-101-GF-Plan-R2018.dxf",
-    "PDF\\A-102-First-Floor-Plan.pdf",
-    "CAD\\A-102-FF-Plan-R2018.dxf",
-    "PDF\\Bar-Association-Standard-Review-Set.pdf"
+    "A-101-GF-GROUND-FLOOR-PLAN-BARE.pdf",
+    "A-101-GF-bare.dxf",
+    "A-201-GF-GROUND-FLOOR-PLAN-FURNITURE.pdf",
+    "A-201-GF-furniture.dxf",
+    "S-101-GF-GROUND-FLOOR-PLAN-COLUMNS.pdf",
+    "S-101-GF-columns.dxf",
+    "A-102-FF-FIRST-FLOOR-PLAN-BARE.pdf",
+    "A-102-FF-bare.dxf",
+    "A-202-FF-FIRST-FLOOR-PLAN-FURNITURE.pdf",
+    "A-202-FF-furniture.dxf",
+    "S-102-FF-FIRST-FLOOR-PLAN-COLUMNS.pdf",
+    "S-102-FF-columns.dxf",
+    "Bar-Association-Lumion-Master-Review-Set.pdf"
   ],
-  "validationErrors": [],
-  "sheetSize": "A2 landscape",
-  "declaredPlotScale": "1/8\" = 1'-0\" approximate",
-  "professionalStatus": "schematic",
+  "sheetSize": "A2 Landscape",
+  "scale": "1/8\" = 1'-0\" (approx)",
   "notes": [
-    "DXF is R2018-compatible and uses model units of inches.",
-    "The uploaded PDFs are retained under references/original and are not used as geometry source.",
-    "This package is not for construction and requires survey, code, fire, accessibility, structural, MEP, and licensed review."
+    "3 professional drawing sets produced from approved schematic source model.",
+    "Main entrance on East long wall with 12'-0\" \u00d7 8'-0\" covered accessible porch.",
+    "Windows on all four facades approved per design directive.",
+    "Old confusing drawing files removed before generation.",
+    "Source: standard/source/preliminary_plans.json + site_plan.json"
   ]
 }

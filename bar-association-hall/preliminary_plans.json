@@ -4,8 +4,8 @@
     "units": "feet",
     "plot_geometry_source": "bar-association-hall/site_plan.json",
     "simple_setback_envelope_area_sqft": 4427.5,
-    "planning_area_claimed_in_brief_sqft_per_floor": 4785,
-    "note": "The drawings use the simple coordinate envelope and are not construction or statutory drawings."
+    "planning_area_claimed_in_brief_sqft_per_floor": 4427.5,
+    "note": "Adopted planning area per floor is 4,427.50 sq ft corresponding to the simple setback envelope."
   },
   "envelope": [
     {

@@ -10,3 +10,5 @@ Thumbs.db
 *.swo
 *~
 bar-association-hall/generated/
+.venv/
+.venv_revb/

@@ -8,7 +8,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent
-SOURCE = ROOT / "source"
+SOURCE = ROOT / "standard" / "source" if (ROOT / "standard" / "source").exists() else ROOT / "source"
 
 
 def load_model() -> tuple[dict[str, Any], dict[str, Any]]:
