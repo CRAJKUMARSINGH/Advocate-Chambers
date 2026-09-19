@@ -1,0 +1,269 @@
+{
+  "reportVersion": "week8.drawing-quality.v1",
+  "status": "fail",
+  "stamp": "NOT ISSUABLE",
+  "issuable": false,
+  "findingCounts": {},
+  "findings": [],
+  "sheetCatalog": [
+    {
+      "sheetId": "A-101",
+      "kind": "plan",
+      "levelId": "GF",
+      "title": "Ground Floor plan",
+      "scale": "1:100",
+      "northArrow": true,
+      "legend": true,
+      "titleBlock": true,
+      "sourceModelIds": {
+        "spaces": [
+          "GF-01",
+          "GF-02",
+          "GF-03",
+          "GF-04",
+          "GF-05",
+          "GF-06",
+          "GF-07"
+        ],
+        "openings": [
+          "D-GF-01",
+          "D-GF-02",
+          "D-GF-03",
+          "D-GF-04",
+          "D-GF-05",
+          "D-GF-06",
+          "D-GF-07",
+          "D-GF-08",
+          "D-GF-09",
+          "D-GF-10"
+        ],
+        "windows": [
+          "V-GF-01",
+          "V-GF-02",
+          "V-GF-03",
+          "W-GF-01",
+          "W-GF-02",
+          "W-GF-03",
+          "W-GF-04",
+          "W-GF-05",
+          "W-GF-06",
+          "W-GF-07",
+          "W-GF-08",
+          "W-GF-09",
+          "W-GF-10",
+          "W-GF-11",
+          "W-GF-12",
+          "W-GF-13",
+          "W-GF-14",
+          "W-GF-15"
+        ],
+        "stairs": [
+          "STAIR-01"
+        ]
+      }
+    },
+    {
+      "sheetId": "A-102",
+      "kind": "plan",
+      "levelId": "FF",
+      "title": "First Floor plan",
+      "scale": "1:100",
+      "northArrow": true,
+      "legend": true,
+      "titleBlock": true,
+      "sourceModelIds": {
+        "spaces": [
+          "FF-01",
+          "FF-02",
+          "FF-03",
+          "FF-04",
+          "FF-05",
+          "FF-06",
+          "FF-07",
+          "FF-08",
+          "FF-09",
+          "FF-10"
+        ],
+        "openings": [
+          "D-FF-01",
+          "D-FF-02",
+          "D-FF-03",
+          "D-FF-04",
+          "D-FF-05",
+          "D-FF-06",
+          "D-FF-07",
+          "D-FF-08",
+          "D-FF-09",
+          "D-FF-10"
+        ],
+        "windows": [
+          "V-FF-01",
+          "V-FF-02",
+          "V-FF-03",
+          "V-FF-04",
+          "W-FF-01",
+          "W-FF-02",
+          "W-FF-03",
+          "W-FF-04",
+          "W-FF-05",
+          "W-FF-06",
+          "W-FF-07",
+          "W-FF-08",
+          "W-FF-09",
+          "W-FF-10",
+          "W-FF-11",
+          "W-FF-12",
+          "W-FF-13",
+          "W-FF-14",
+          "W-FF-15",
+          "W-FF-16"
+        ],
+        "stairs": [
+          "STAIR-01"
+        ]
+      }
+    },
+    {
+      "sheetId": "A-301",
+      "kind": "section",
+      "levelId": null,
+      "title": "Building section",
+      "scale": "1:100",
+      "northArrow": false,
+      "legend": true,
+      "titleBlock": true,
+      "sourceModelIds": {
+        "levels": [
+          "FF",
+          "GF"
+        ],
+        "stairs": [
+          "STAIR-01"
+        ]
+      }
+    },
+    {
+      "sheetId": "A-401",
+      "kind": "elevation",
+      "levelId": null,
+      "title": "Principal elevation",
+      "scale": "1:100",
+      "northArrow": true,
+      "legend": true,
+      "titleBlock": true,
+      "sourceModelIds": {
+        "levels": [
+          "FF",
+          "GF"
+        ],
+        "openings": [
+          "D-FF-01",
+          "D-FF-02",
+          "D-FF-03",
+          "D-FF-04",
+          "D-FF-05",
+          "D-FF-06",
+          "D-FF-07",
+          "D-FF-08",
+          "D-FF-09",
+          "D-FF-10",
+          "D-GF-01",
+          "D-GF-02",
+          "D-GF-03",
+          "D-GF-04",
+          "D-GF-05",
+          "D-GF-06",
+          "D-GF-07",
+          "D-GF-08",
+          "D-GF-09",
+          "D-GF-10"
+        ]
+      }
+    }
+  ],
+  "drawingStandards": {
+    "layers": {
+      "wall-cut": {
+        "lineWeight": 0.5,
+        "purpose": "cut walls and primary structure"
+      },
+      "wall-projection": {
+        "lineWeight": 0.25,
+        "purpose": "overhead and projected geometry"
+      },
+      "opening": {
+        "lineWeight": 0.25,
+        "purpose": "doors, windows, and swing graphics"
+      },
+      "stair": {
+        "lineWeight": 0.35,
+        "purpose": "riser, tread, landing, and direction graphics"
+      },
+      "dimension": {
+        "lineWeight": 0.18,
+        "purpose": "dimensions and extension lines"
+      },
+      "annotation": {
+        "lineWeight": 0.18,
+        "purpose": "labels, legends, and notes"
+      },
+      "hatch": {
+        "lineWeight": 0.13,
+        "purpose": "material and cut-area hatches"
+      }
+    },
+    "wallHierarchy": "wall-cut > wall-projection > opening > annotation",
+    "hatches": [
+      "cut-material",
+      "wet-area",
+      "service-zone"
+    ],
+    "dimensionUnits": "inch",
+    "titleBlockFields": [
+      "project",
+      "sheetId",
+      "revision",
+      "scale",
+      "status",
+      "north"
+    ],
+    "traceabilityRequired": true
+  },
+  "consistency": {
+    "planLevelIds": [
+      "FF",
+      "GF"
+    ],
+    "sectionLevelIds": [
+      "FF",
+      "GF"
+    ],
+    "elevationLevelIds": [
+      "FF",
+      "GF"
+    ],
+    "planSectionElevationLevelsMatch": true,
+    "visibleSpaceCount": 17,
+    "visibleOpeningCount": 20,
+    "visibleStairCount": 1,
+    "modelTraceability": true
+  },
+  "determinism": {
+    "algorithm": "sha256",
+    "inputContract": "canonical model IDs + labels + sheet catalog + drawing standards",
+    "signature": "c2a57dbb9bf3ca93e57aae8c56e5a138bf8ecfebd4697cf7257e89b8a1a526ee",
+    "sameModelSameRulePackProducesSameSignature": true,
+    "exportFormats": [
+      "DXF",
+      "PDF",
+      "SVG"
+    ]
+  },
+  "validationGate": {
+    "week56Status": "fail",
+    "week7Status": "pass",
+    "week8LocalStatus": "pass",
+    "professionalReviewRequired": true,
+    "explanation": "The sheet stamp inherits upstream validation status; it cannot hide blockers or substitute for qualified professional review."
+  }
+}

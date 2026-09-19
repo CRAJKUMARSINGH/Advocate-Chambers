@@ -31,6 +31,10 @@
     "validate:week5": "python scripts/week5.py",
     "validate:week6": "python scripts/week6.py",
     "test:week56": "python -m unittest discover -s tests -p 'test_week56*.py'",
+    "enrich:week78": "python scripts/week78.py report",
+    "validate:week7": "python scripts/week7.py",
+    "validate:week8": "python scripts/week8.py",
+    "test:week78": "python -m unittest discover -s tests -p 'test_week78*.py'",
     "docs:patch-guide": "start code-junction/future-react-cad-transformation-patch-guide/deliverables/TRANSFORMATION_PATCH_GUIDE.md"
   },
   "devDependencies": {

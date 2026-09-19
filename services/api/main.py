@@ -41,9 +41,11 @@ except Exception:  # pragma: no cover
 try:
     from week34 import enrichment_report  # type: ignore
     from week56 import enrichment_report as week56_enrichment_report  # type: ignore
+    from week78 import enrichment_report as week78_enrichment_report  # type: ignore
 except Exception:  # pragma: no cover
     enrichment_report = None  # type: ignore
     week56_enrichment_report = None  # type: ignore
+    week78_enrichment_report = None  # type: ignore
 
 
 app = FastAPI(
@@ -53,7 +55,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-week6",
+    version="1.0.0-week8",
 )
 
 app.add_middleware(
@@ -196,7 +198,12 @@ def validate(req: ValidateRequest) -> ValidateResponse:
 def analysis(level: str | None = None) -> dict[str, Any]:
     """Return the Week 3 graph and Week 4 opening semantics for the viewport."""
 
-    if load_model is None or enrichment_report is None or week56_enrichment_report is None:
+    if (
+        load_model is None
+        or enrichment_report is None
+        or week56_enrichment_report is None
+        or week78_enrichment_report is None
+    ):
         raise HTTPException(status_code=503, detail="analysis engine unavailable")
     try:
         site, plans = load_model()
@@ -208,6 +215,7 @@ def analysis(level: str | None = None) -> dict[str, Any]:
 
         canonical = load_canonical_model()
         coordination = week56_enrichment_report(canonical)
+        enriched = week78_enrichment_report(canonical)
     except Exception as exc:  # pragma: no cover - surfaced as an API diagnostic
         raise HTTPException(status_code=500, detail=f"analysis failed: {exc}") from exc
 
@@ -257,9 +265,14 @@ def analysis(level: str | None = None) -> dict[str, Any]:
         for finding in coordination["week5"]["findings"] + coordination["week6"]["findings"]
         if selected_level is None or finding.get("levelId") in {None, selected_level}
     )
+    findings.extend(
+        finding
+        for finding in enriched["week7"]["findings"] + enriched["week8"]["findings"]
+        if selected_level is None or finding.get("levelId") in {None, selected_level}
+    )
     return {
-        "reportVersion": coordination["reportVersion"],
-        "status": coordination["status"],
+        "reportVersion": enriched["reportVersion"],
+        "status": enriched["status"],
         "findingCounts": {
             severity: sum(1 for finding in findings if finding["severity"] == severity)
             for severity in ("BLOCKER", "ERROR", "WARNING")
@@ -275,6 +288,10 @@ def analysis(level: str | None = None) -> dict[str, Any]:
         "program": coordination["week6"]["program"],
         "orientation": coordination["week6"]["program"]["orientation"],
         "adjacencies": coordination["week6"]["program"]["adjacencyEvaluations"],
+        "week7": enriched["week7"],
+        "week8": enriched["week8"],
+        "rulePack": enriched["week7"]["selectedRulePack"],
+        "drawingQuality": enriched["week8"],
     }
 
 

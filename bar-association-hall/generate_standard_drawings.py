@@ -38,6 +38,10 @@ CAD_DIR = ROOT / "CAD"
 MANIFEST = ROOT / "standard_manifest.json"
 PAGE_W, PAGE_H = landscape(A2)
 SCALE = 0.80  # points per model inch (~1/8" = 1'-0" scale)
+# Keep the export package byte-stable for a fixed model/rule-pack revision.
+# The report and manifest carry the same release date.
+DOCUMENT_DATE = "19-SEP-2026"
+DOCUMENT_GENERATED_UTC = "2026-09-19T00:00:00+00:00"
 
 # Architectural Color Palette
 BLACK = colors.HexColor("#0f172a")
@@ -269,7 +273,7 @@ def draw_title_block(
     c.drawString(x + 242, y + h - 54, f"LEVEL: {level_name.upper()}  |  SCALE: ~1/8\" = 1'-0\" (A2)")
     c.drawString(x + 242, y + 18, "MAIN ENTRY: EAST LONG WALL  |  4-SIDED FENESTRATION")
     c.setFillColor(colors.HexColor("#b91c1c"))
-    c.drawString(x + 242, y + 6, "STATUS: PRELIMINARY REVIEW ONLY  |  NOT FOR CONSTRUCTION")
+    c.drawString(x + 242, y + 6, f"STATUS: {drawing_quality_stamp()}  |  NOT FOR CONSTRUCTION")
 
     # Sheet Number Block
     c.setFillColor(BLACK)
@@ -279,8 +283,23 @@ def draw_title_block(
     c.drawCentredString(x + w - 85, y + 60, "SHEET NO.")
     c.setFont("Helvetica", 7)
     c.drawCentredString(x + w - 85, y + 20, "REV: P02 (APPROVED)")
-    c.drawCentredString(x + w - 85, y + 8, datetime.now().strftime("%d-%b-%Y").upper())
+    c.drawCentredString(x + w - 85, y + 8, DOCUMENT_DATE)
     c.restoreState()
+
+
+def drawing_quality_stamp() -> str:
+    """Read the Week 8 stamp without making the renderer authoritative."""
+
+    report_path = ROOT / "standard" / "week8-drawing-quality-report.json"
+    try:
+        with report_path.open(encoding="utf-8") as handle:
+            report = json.load(handle)
+        stamp = report.get("stamp")
+        if isinstance(stamp, str) and stamp:
+            return stamp
+    except (OSError, ValueError):
+        pass
+    return "PRELIMINARY REVIEW ONLY"
 
 
 def draw_legend(c: canvas.Canvas, x: float, y: float, mode: str) -> None:
@@ -1327,7 +1346,7 @@ def write_manifest(site: dict[str, Any], plans: dict[str, Any], outputs: list[st
         source_hash.update(path.read_bytes())
     data = {
         "project": site["project"]["name"],
-        "generatedUtc": datetime.now(timezone.utc).isoformat(),
+        "generatedUtc": DOCUMENT_GENERATED_UTC,
         "sourceSha256": source_hash.hexdigest(),
         "generator": "generate_standard_drawings.py",
         "status": "preliminary-review" if not validation else "fail",

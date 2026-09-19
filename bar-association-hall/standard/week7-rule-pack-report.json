@@ -1,0 +1,175 @@
+{
+  "reportVersion": "week7.rule-pack.v1",
+  "status": "pass",
+  "findingCounts": {},
+  "selectedRulePack": {
+    "id": "india-preliminary-review",
+    "version": "1.0.0",
+    "effectiveDate": "2026-09-19",
+    "jurisdiction": "India / preliminary planning review",
+    "description": "Configurable planning checks for preliminary review. This pack is not a code-compliance or approval determination.",
+    "universal": {
+      "requireUniqueIds": true,
+      "requireTraceableOpeningHosts": true,
+      "requirePositiveOpeningWidths": true,
+      "requireNumericSpaceRects": true
+    },
+    "accessibility": {
+      "doorMinWidth": 32.0,
+      "routeMinWidth": 44.0,
+      "stairMinWidth": 44.0
+    },
+    "egress": {
+      "minimumExteriorExitsByUse": {
+        "assembly": 1
+      },
+      "minimumExteriorExitWidth": 36.0
+    },
+    "daylight": {
+      "requiredWindowUses": [
+        "reception",
+        "office",
+        "library",
+        "assembly"
+      ]
+    },
+    "ventilation": {
+      "requiredWindowUses": [
+        "reception",
+        "office",
+        "library",
+        "assembly",
+        "service"
+      ]
+    },
+    "wetArea": {
+      "uses": [
+        "service"
+      ],
+      "minimumVentilationOpenings": 1
+    },
+    "service": {
+      "requireOpeningForUses": [
+        "service"
+      ]
+    },
+    "professionalReviewItems": [
+      "Have a licensed architect confirm the selected jurisdiction and applicable development rules.",
+      "Have an accessibility professional verify route widths, landings, door clearances, and fixtures.",
+      "Have a fire/life-safety professional verify occupancy, travel distance, exits, and fire separation.",
+      "Have structural, MEP, survey, and local-authority reviewers confirm assumptions before issue."
+    ],
+    "assumptions": [
+      "All dimensions are nominal planning dimensions in inches.",
+      "A passing check is not a permit, code, fire, accessibility, or construction certification.",
+      "Missing source information is reported as an assumption or warning rather than silently invented."
+    ]
+  },
+  "checks": [
+    {
+      "id": "UNIVERSAL-IDS",
+      "category": "geometry",
+      "source": "universal",
+      "status": "pass",
+      "detail": "Checked stable IDs across model collections.",
+      "rulePackId": null
+    },
+    {
+      "id": "UNIVERSAL-SPACE-RECTS",
+      "category": "geometry",
+      "source": "universal",
+      "status": "pass",
+      "detail": "All spaces have numeric rectangles.",
+      "rulePackId": null
+    },
+    {
+      "id": "UNIVERSAL-OPENING-HOSTS",
+      "category": "geometry",
+      "source": "universal",
+      "status": "pass",
+      "detail": "Every opening references a model space.",
+      "rulePackId": null
+    },
+    {
+      "id": "UNIVERSAL-OPENING-WIDTHS",
+      "category": "geometry",
+      "source": "universal",
+      "status": "pass",
+      "detail": "All openings have positive widths.",
+      "rulePackId": null
+    },
+    {
+      "id": "ACCESSIBILITY-DOOR-WIDTH",
+      "category": "accessibility",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Checked 20 openings against a 32 in minimum.",
+      "rulePackId": "india-preliminary-review"
+    },
+    {
+      "id": "ACCESSIBILITY-STAIR-WIDTH",
+      "category": "accessibility",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Checked 1 stairs against a 44 in minimum.",
+      "rulePackId": "india-preliminary-review"
+    },
+    {
+      "id": "EGRESS-EXITS",
+      "category": "egress",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Checked configured exterior exit requirements.",
+      "rulePackId": "india-preliminary-review"
+    },
+    {
+      "id": "DAYLIGHT-OPENINGS",
+      "category": "daylight",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Checked configured daylight opening assumptions.",
+      "rulePackId": "india-preliminary-review"
+    },
+    {
+      "id": "VENTILATION-OPENINGS",
+      "category": "ventilation",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Checked configured ventilation opening assumptions.",
+      "rulePackId": "india-preliminary-review"
+    },
+    {
+      "id": "WET-AREA-VENTILATION",
+      "category": "wet-area",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Wet-area ventilation assumptions are explicitly reported.",
+      "rulePackId": "india-preliminary-review"
+    },
+    {
+      "id": "SERVICE-ROUTES",
+      "category": "service",
+      "source": "jurisdictional",
+      "status": "pass",
+      "detail": "Service-route assumptions are explicitly reported.",
+      "rulePackId": "india-preliminary-review"
+    }
+  ],
+  "findings": [],
+  "assumptions": [
+    "All dimensions are nominal planning dimensions in inches.",
+    "A passing check is not a permit, code, fire, accessibility, or construction certification.",
+    "Missing source information is reported as an assumption or warning rather than silently invented."
+  ],
+  "professionalReviewItems": [
+    "Have a licensed architect confirm the selected jurisdiction and applicable development rules.",
+    "Have an accessibility professional verify route widths, landings, door clearances, and fixtures.",
+    "Have a fire/life-safety professional verify occupancy, travel distance, exits, and fire separation.",
+    "Have structural, MEP, survey, and local-authority reviewers confirm assumptions before issue."
+  ],
+  "separation": {
+    "universalRuleCount": 4,
+    "jurisdictionalRuleCount": 7,
+    "geometryChangedByPack": false
+  }
+}

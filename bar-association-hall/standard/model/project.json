@@ -4313,12 +4313,15 @@
     }
   },
   "enrichment": {
-    "version": "week56.enrichment.v1",
+    "version": "week78.enrichment.v1",
     "week3Report": "bar-association-hall/standard/week3-reachability-report.json",
     "week4Report": "bar-association-hall/standard/week4-openings-report.json",
     "openingSchedule": "bar-association-hall/standard/opening-schedule.json",
     "week5Report": "bar-association-hall/standard/week5-stair-coordination-report.json",
-    "week6Report": "bar-association-hall/standard/week6-program-report.json"
+    "week6Report": "bar-association-hall/standard/week6-program-report.json",
+    "week7Report": "bar-association-hall/standard/week7-rule-pack-report.json",
+    "week8Report": "bar-association-hall/standard/week8-drawing-quality-report.json",
+    "rulePack": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json"
   },
   "program": {
     "buildingType": "institutional",
@@ -4858,5 +4861,17 @@
       "distance": 6.0,
       "explanation": "Service rooms should not open directly into the public assembly zone. Observed near between Pantry and Main Assembly Hall."
     }
-  ]
+  ],
+  "rulePack": {
+    "id": "india-preliminary-review",
+    "version": "1.0.0",
+    "path": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+    "effectiveDate": "2026-09-19",
+    "jurisdiction": "India / preliminary planning review"
+  },
+  "drawingQuality": {
+    "report": "bar-association-hall/standard/week8-drawing-quality-report.json",
+    "stamp": "NOT ISSUABLE",
+    "deterministicSignature": "c2a57dbb9bf3ca93e57aae8c56e5a138bf8ecfebd4697cf7257e89b8a1a526ee"
+  }
 }

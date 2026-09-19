@@ -69,3 +69,41 @@ npm run validate:week5
 npm run validate:week6
 python -m unittest discover -s tests -p 'test_week*.py'
 ```
+
+## Week 7–8 task status
+
+**Applied on `main`:**
+
+- Week 7 adds the versioned `india-preliminary-review` rule pack under
+  `bar-association-hall/standard/rule-packs/`.
+- Universal geometry checks are separated from configurable accessibility,
+  egress, daylight, ventilation, wet-area, and service checks.
+- Reports now carry the selected pack, effective date, assumptions,
+  professional-review items, and deterministic finding metadata. A rule-pack
+  change changes findings without changing authoritative geometry.
+- Week 8 adds a deterministic technical-drawing quality contract covering
+  wall/layer hierarchy, hatches, labels, legends, title blocks, north arrows,
+  scales, sheet references, plan/section/elevation consistency, and traceability
+  from visible openings, spaces, and stairs back to model IDs.
+- Sheet status is explicit: `VALIDATED FOR PRELIMINARY REVIEW` only when all
+  upstream gates pass; otherwise `NOT ISSUABLE`.
+- Deterministic reports:
+  - `bar-association-hall/standard/week7-rule-pack-report.json`
+  - `bar-association-hall/standard/week8-drawing-quality-report.json`
+  - `bar-association-hall/standard/week78-enrichment-manifest.json`
+- The FastAPI `/analysis` response now includes Week 7 rule-pack data and Week
+  8 drawing-quality/stamp data.
+- Regression tests live in `tests/test_week78_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week78
+npm run validate:week7
+npm run validate:week8
+npm run test:week78
+```
+
+The Week 8 stamp is a preliminary-review gate, not a construction,
+accessibility, fire/life-safety, structural, MEP, survey, permit, or local-code
+certification.

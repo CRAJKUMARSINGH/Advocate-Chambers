@@ -1,0 +1,63 @@
+{
+  "id": "india-preliminary-review",
+  "version": "1.0.0",
+  "effectiveDate": "2026-09-19",
+  "jurisdiction": "India / preliminary planning review",
+  "description": "Configurable planning checks for preliminary review. This pack is not a code-compliance or approval determination.",
+  "universal": {
+    "requireUniqueIds": true,
+    "requireTraceableOpeningHosts": true,
+    "requirePositiveOpeningWidths": true,
+    "requireNumericSpaceRects": true
+  },
+  "accessibility": {
+    "doorMinWidth": 32.0,
+    "routeMinWidth": 44.0,
+    "stairMinWidth": 44.0
+  },
+  "egress": {
+    "minimumExteriorExitsByUse": {
+      "assembly": 1
+    },
+    "minimumExteriorExitWidth": 36.0
+  },
+  "daylight": {
+    "requiredWindowUses": [
+      "reception",
+      "office",
+      "library",
+      "assembly"
+    ]
+  },
+  "ventilation": {
+    "requiredWindowUses": [
+      "reception",
+      "office",
+      "library",
+      "assembly",
+      "service"
+    ]
+  },
+  "wetArea": {
+    "uses": [
+      "service"
+    ],
+    "minimumVentilationOpenings": 1
+  },
+  "service": {
+    "requireOpeningForUses": [
+      "service"
+    ]
+  },
+  "professionalReviewItems": [
+    "Have a licensed architect confirm the selected jurisdiction and applicable development rules.",
+    "Have an accessibility professional verify route widths, landings, door clearances, and fixtures.",
+    "Have a fire/life-safety professional verify occupancy, travel distance, exits, and fire separation.",
+    "Have structural, MEP, survey, and local-authority reviewers confirm assumptions before issue."
+  ],
+  "assumptions": [
+    "All dimensions are nominal planning dimensions in inches.",
+    "A passing check is not a permit, code, fire, accessibility, or construction certification.",
+    "Missing source information is reported as an assumption or warning rather than silently invented."
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "manifestVersion": "week78.enrichment-manifest.v1",
+  "status": "fail",
+  "rulePack": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+  "reports": {
+    "week7": "bar-association-hall/standard/week7-rule-pack-report.json",
+    "week8": "bar-association-hall/standard/week8-drawing-quality-report.json"
+  },
+  "drawingStamp": "NOT ISSUABLE",
+  "deterministicSignature": "c2a57dbb9bf3ca93e57aae8c56e5a138bf8ecfebd4697cf7257e89b8a1a526ee",
+  "counts": {
+    "levels": 2,
+    "spaces": 17,
+    "openings": 20,
+    "windows": 38,
+    "sheets": 4
+  },
+  "findingCounts": {
+    "BLOCKER": 35,
+    "ERROR": 1,
+    "WARNING": 2
+  }
+}
