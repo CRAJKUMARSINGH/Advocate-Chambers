@@ -317,3 +317,168 @@ The winning product experience is:
 not:
 
 **brief → decorate → export**
+
+
+---
+
+# Phase Two — Competitive product enrichment
+
+**Purpose:** Add the strongest useful capabilities observed in current AI floor-plan, interior-design, architectural-modelling, and plan-review products, without weakening the geometry and circulation discipline established in Phase One.
+
+**Schedule:** 8 weekly doses after Phase One.  
+**Positioning:** Make Advocate-Chambers easier and more visually capable than casual design tools, while making it more trustworthy than image-first AI generators.
+
+## 12. Feature intelligence taken from the named tools
+
+The following capabilities were checked against public product pages. They are used as feature patterns, not copied branding or code.
+
+| Product pattern | Capability to learn from it | Advocate-Chambers implementation | Superior version for this product |
+|---|---|---|---|
+| Maket | Generate a plan from a natural-language brief; draw from scratch; upload an existing plan; refine by text; view in 3D; export PDF/DXF | Brief compiler, editable model, import pipeline, conversational edit commands, technical exports | Every text edit becomes a reviewable model revision and is revalidated before export |
+| Planner 5D | Generate and compare layouts; furnish spaces; create moodboards, collages, colour palettes; modify images and improve visualizations | Candidate studio, presentation boards, materials, finishes, image/reference workflow | Compare alternatives using circulation, area, adjacency, clearance, and presentation scores—not appearance alone |
+| Floorplanner | Accurate 2D planning, real-time 3D, digital-twin workflow, extensive model library, high-resolution renders | Synchronized 2D/3D viewport, reusable object library, render queue | 2D, 3D, CAD geometry, validation findings, and route overlays all come from one canonical model |
+| Homestyler | Convert an uploaded plan or sketch into an editable 3D model; drag-and-drop furnishing; templates; cloud rendering | Plan recognition/import, furniture catalog, room templates, render service | Imported geometry is measured, tagged, and flagged for uncertainty before it can become authoritative |
+| Roomstyler | Build/furnish/decorate workflow; 2D/3D views; real furniture items; 3D photos; panoramas and VR-style presentation | Design modes, real-scale assets, camera presets, panorama export | Furniture placement checks door swings, route widths, occupancy, and room function before presentation |
+| Archistar | Site context, aerial/site information, building types, feasibility, environmental metrics, planning-rule checks, transparent plan-review reports, PDF/CAD/BIM review | Site feasibility workspace, rule packs, scorecards, visual review reports, future BIM bridge | Show the rule, source, calculation, confidence, and unresolved professional decision for every finding |
+| Archiagent | Millimetre-scale plans, live dimensions, multi-storey 3D, parametric walls/doors/windows/stairs/roofs, scaled furnishing, self-audit | Parametric object tools, live dimensions, 3D building view, furniture clearance audit | Self-audit runs after every material edit and blocks impossible geometry before it reaches the render stage |
+| 4Lines.ai | Browser CAD/BIM workflow, floors, stairs, slabs, roofs, snapping, sections/elevations/3D, IFC/DXF import, construction phases, model-to-render comparison | Multi-level model workspace, snapping, import/export, phase layers, section/elevation views, render comparison | Preserve explicit architectural semantics and validation provenance through every import, edit, and export |
+
+**Important limitation:** marketing pages describe product capabilities, not proof of code compliance or construction readiness. Advocate-Chambers must never convert a competitor feature into a compliance promise.
+
+## 13. Phase Two product objectives
+
+By the end of Phase Two, a user should be able to:
+
+1. Describe a building in plain language and receive a structured, editable brief.
+2. Upload a PDF, image, DXF, or supported BIM exchange file and see what was confidently recognized and what requires confirmation.
+3. Edit the model in 2D while seeing synchronized 3D, sections, elevations, dimensions, and route overlays.
+4. Generate several valid layout candidates and compare them on a transparent scorecard.
+5. Furnish a validated plan with scaled objects, clearances, materials, and presentation styles.
+6. Test site and rule-pack feasibility with visual, traceable reports.
+7. Share a client-friendly presentation without hiding technical warnings.
+8. Export a consistent technical package whose model, validation report, and render all refer to the same revision.
+
+## 14. Phase Two weekly doses
+
+### Week 11 — Competitive capability layer and product modes
+
+- Add explicit product modes: Brief, Model, Validate, Furnish, Present, and Export.
+- Add feature flags for import, 3D, candidate comparison, materials, site feasibility, and collaboration.
+- Create a capability matrix in the UI showing what is available, what is provisional, and what requires professional review.
+- Add telemetry-free local performance counters: model size, validation duration, render duration, and export duration.
+- Keep all new features behind the same canonical project model.
+
+**Gate:** a user can see where each feature operates and cannot accidentally treat a presentation-only object as authoritative building geometry.
+
+### Week 12 — Conversational brief compiler
+
+- Accept natural-language briefs in metric or imperial units.
+- Extract site dimensions, north, road/frontage, levels, floor-to-floor heights, room schedule, area targets, access intent, occupancy, adjacencies, style, and required outputs.
+- Display extracted facts, assumptions, ambiguities, and missing topology facts before generation.
+- Support commands such as “move the stair beside the lobby,” “give the library a public route,” and “remove the outer door unless a balcony is modeled.”
+- Convert every accepted command into a typed revision, not an untracked prompt mutation.
+
+**Gate:** the system asks for or marks missing facts that change circulation before generating a plan.
+
+### Week 13 — Import, recognition, and editable digital twin
+
+- Import PDF/image plans for assisted recognition and DXF for geometry-preserving import.
+- Add optional IFC/BIM exchange support behind a clear capability flag.
+- Recognize walls, rooms, doors, windows, stairs, text labels, dimensions, and north arrows with confidence values.
+- Put uncertain objects into a review queue; never silently promote uncertain recognition to authoritative geometry.
+- Show before/after comparison between source drawing and editable model.
+
+**Gate:** a plan can be imported, reviewed, corrected, and exported without losing scale, levels, openings, or source provenance.
+
+### Week 14 — Synchronized 2D, 3D, sections, and elevations
+
+- Add a real-time 2D/3D split view with shared selection and highlighting.
+- Add orbit, walk-through, camera presets, level visibility, section box, and isolated-room views.
+- Generate simple sections and elevations from the same model, including floor levels, openings, stairs, roofs, and key dimensions.
+- Add snapping to grid, endpoints, midpoints, intersections, walls, and reference lines.
+- Show route overlays and validation markers in every view.
+
+**Gate:** moving a wall, door, or stair updates all dependent views and reruns validation without stale geometry.
+
+### Week 15 — Parametric assets, furniture, and clearance-aware furnishing
+
+- Create a catalog system for furniture, fixtures, appliances, sanitaryware, seating rows, dais, library tables, counters, vehicles, and industrial equipment.
+- Store dimensions, rotation rules, preferred wall relationships, service-side requirements, occupancy, and clearance envelopes.
+- Support drag, rotate, duplicate, align, replace, and “find a valid position” operations.
+- Add room-type templates for residential, offices, chambers, halls, classrooms, libraries, healthcare, retail, and light industrial use.
+- Separate presentation furniture from construction geometry while preserving scale and access checks.
+
+**Gate:** one-click furnishing never places an object over a door swing, required route, stair, service zone, or minimum clear area.
+
+### Week 16 — Candidate studio, moodboards, materials, and render pipeline
+
+- Generate several layout candidates from the same brief with deterministic seeds.
+- Compare candidates using area fit, adjacency satisfaction, route quality, daylight/ventilation checks, vertical coordination, furniture fit, and visual quality.
+- Add moodboards, reference images, colour palettes, materials, finishes, lighting presets, and style tags.
+- Add non-destructive design layers so materials and decor cannot alter validated walls or openings.
+- Add 3D render, panorama, and presentation-sheet jobs with progress and artifact manifests.
+- Show technical plan beside presentation render so users can audit whether the image matches the model.
+
+**Gate:** the visually attractive candidate cannot win by hiding a BLOCKER; render output is traceable to a valid model revision.
+
+### Week 17 — Site feasibility, rule packs, and transparent plan review
+
+- Add a site workspace with plot, north, road/frontage, setbacks, access points, building footprint, levels, and context layers.
+- Add rule-pack checks for coverage, setbacks, height, floor-area targets, parking, accessibility, daylight, ventilation, egress, fire access, service access, and wet-area coordination where data is available.
+- Add a feasibility dashboard with pass, fail, unknown, and professional-review states.
+- Make every result inspectable: rule ID, input geometry, source, calculation, assumption, confidence, and suggested correction.
+- Support PDF/CAD review as a separate imported-review workflow; do not claim that automated review grants approval.
+
+**Gate:** a reviewer can reproduce why a site or plan received each result and can distinguish a failed rule from missing data.
+
+### Week 18 — Collaboration, revision history, and professional delivery
+
+- Add shareable review links with read-only technical and presentation views.
+- Add comments anchored to rooms, walls, openings, dimensions, validation findings, and render viewpoints.
+- Add revision compare: geometry changes, validation changes, area changes, opening changes, and furniture changes.
+- Add approval states: Draft, Review, Client Presentation, Preliminary Coordination, and Not Issuable.
+- Export a coordinated package: source JSON, validation report, technical PDF, coloured PDF, DXF, optional IFC, images, assumptions, rule-pack version, and manifest.
+- Add a release gate that rejects packages with unresolved BLOCKER findings unless the user explicitly exports a marked non-issuable review package.
+
+**Gate:** another professional can open the package, identify the exact model revision, understand all unresolved issues, and reproduce the drawing set.
+
+## 15. Phase Two acceptance tests
+
+1. Natural-language input with missing upper-floor access produces a clarification or BLOCKER before rendering.
+2. A PDF plan with an outer door and no balcony is recognized as an uncertain or invalid access condition, not beautified as a valid room.
+3. Moving a wall in 2D updates 3D, section, elevation, dimensions, furniture clearance, and validation findings.
+4. Importing a DXF preserves scale and opens a review queue for objects that cannot be semantically classified.
+5. Furniture search returns only objects that fit the room or explains why no valid position exists.
+6. Candidate comparison ranks a less attractive but fully reachable plan above an attractive plan with a blocked route.
+7. A render camera cannot show a door, stair, balcony, or roof that is absent from the authoritative model.
+8. A rule-pack report identifies whether a result is PASS, FAIL, UNKNOWN, or PROFESSIONAL REVIEW REQUIRED.
+9. Comments and findings remain anchored after a revision or are explicitly marked as displaced.
+10. Final export contains matching revision IDs and hashes for model, validation report, technical sheets, presentation sheets, and renders.
+
+## 16. Feature priority if engineering capacity is limited
+
+Build in this order:
+
+1. Self-audit after every edit.
+2. Conversational brief compiler with explicit assumptions.
+3. Import and recognition review queue.
+4. Synchronized 2D/3D and section views.
+5. Clearance-aware furniture catalog.
+6. Candidate comparison and transparent scoring.
+7. Site feasibility and rule-pack reports.
+8. Moodboards, high-resolution rendering, panorama, collaboration, and optional BIM exchange.
+
+Do not sacrifice reachability, dimensions, opening semantics, stair coordination, or validation provenance to ship a faster render.
+
+## 17. Public references checked for this Phase Two
+
+- [Maket features](https://www.maket.ai/features) and [Maket AI floor-plan generator](https://www.maket.ai/ai-floor-plan-generator)
+- [Planner 5D AI Interior Design Studio](https://ai.planner5d.com/)
+- [Floorplanner](https://floorplanner.com/)
+- [Homestyler](https://homestyler.com/partner)
+- [Roomstyler 3D Planner](https://roomstyler.com/3dplanner)
+- [Archistar AI plan review](https://www.archistar.ai/)
+- [Archiagent](https://www.archiagent.ai/)
+- [4Lines.ai](https://4lines.ai/)
+
+These references should be rechecked before implementing any integration or claiming feature parity, because product availability, pricing, and feature names change.
