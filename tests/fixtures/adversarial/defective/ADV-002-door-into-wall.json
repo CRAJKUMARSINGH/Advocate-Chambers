@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-002",
+  "title": "Door opening into a wall",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "opening", "severity": "BLOCKER", "description": "A door has no usable space on its opening side." },
+  "mutations": [{ "path": "openings.0.opensInto", "operation": "set", "value": "wall" }],
+  "expectedFinding": {
+    "ruleId": "OPENING.WALL.INTERSECTION",
+    "severity": "BLOCKER",
+    "affectedObjects": ["DOOR-FF-ROOM-01"],
+    "evidenceFields": ["openingId", "opensInto"],
+    "correction": "Move the opening to a real wall break."
+  }
+}
