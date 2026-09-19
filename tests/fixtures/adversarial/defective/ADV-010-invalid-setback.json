@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-010",
+  "title": "Invalid setback",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "site", "severity": "BLOCKER", "description": "The building envelope crosses the required west setback." },
+  "mutations": [{ "path": "site.buildingEnvelope.0", "operation": "set", "value": 0 }],
+  "expectedFinding": {
+    "ruleId": "SITE.SETBACKS",
+    "severity": "BLOCKER",
+    "affectedObjects": ["site.buildingEnvelope"],
+    "evidenceFields": ["plotBounds", "buildingEnvelope", "setbacks", "margins"],
+    "correction": "Move the building envelope inside the required setbacks."
+  }
+}
