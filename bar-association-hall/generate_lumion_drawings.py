@@ -98,33 +98,37 @@ PAGE_W, PAGE_H = landscape(A2)
 SCALE = 0.75   # pt per model-inch
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Lumion-grade Architectural Colour Palette
+# Lumion / maket.ai Architectural Colour Palette
 # ─────────────────────────────────────────────────────────────────────────────
 BLACK        = colors.HexColor("#0d1117")
 CHARCOAL     = colors.HexColor("#1e293b")
 DARK_GRAY    = colors.HexColor("#334155")
 GRAY         = colors.HexColor("#64748b")
 LIGHT_GRAY   = colors.HexColor("#cbd5e1")
-PALE_BG      = colors.HexColor("#f8fafc")
-PALE_PANEL   = colors.HexColor("#f1f5f9")
+PALE_BG      = colors.HexColor("#ffffff")   # pure white background
+PALE_PANEL   = colors.HexColor("#f8fafc")
 
-# Wall cut = dense graphite
+# Wall cut — very dark, crisp
 WALL_HATCH   = colors.HexColor("#1e293b")
-WALL_STROKE  = colors.HexColor("#0d1117")
-WALL_THICK   = 2.8   # pt outer perimeter
-PART_THICK   = 1.6   # pt partition
+WALL_STROKE  = colors.HexColor("#0a0f1a")
+WALL_THICK   = 3.2
+PART_THICK   = 2.0
 
-# Zone fills
-FILL_PUBLIC       = colors.HexColor("#fefce8")   # warm cream – assembly / library
-FILL_SERVICE      = colors.HexColor("#eff6ff")   # cool blue  – pantry / toilet / store
-FILL_CIRCULATION  = colors.HexColor("#faf5ff")   # soft lavender – stair / lobby
-FILL_DAIS         = colors.HexColor("#fff7ed")   # warm amber – dais / stage
-FILL_READING      = colors.HexColor("#f0fdf4")   # green tint – reading / study
+# Zone fills — rich warm palette (maket.ai style)
+FILL_HALL        = colors.HexColor("#fdf6e3")   # warm cream — assembly hall
+FILL_DAIS        = colors.HexColor("#fff7ed")   # amber tint — dais/stage
+FILL_SERVICE     = colors.HexColor("#e8f4f8")   # cool blue  — toilet/pantry
+FILL_CIRCULATION = colors.HexColor("#f0ebff")   # lavender   — stair/lobby
+FILL_READING     = colors.HexColor("#f0fdf4")   # green tint — library/study
+FILL_STAFF       = colors.HexColor("#fef3c7")   # yellow tint — offices
+
+# Backwards-compat aliases
+FILL_PUBLIC      = FILL_HALL
 
 ACCENT_BLUE  = colors.HexColor("#0284c7")
 GLASS_BLUE   = colors.HexColor("#38bdf8")
-GLASS_FILL   = colors.HexColor("#e0f2fe")
-DOOR_RED     = colors.HexColor("#b91c1c")
+GLASS_FILL   = colors.HexColor("#dbeafe")
+DOOR_RED     = colors.HexColor("#7f1d1d")
 DOOR_FILL    = colors.HexColor("#fee2e2")
 PORCH_AMBER  = colors.HexColor("#d97706")
 PORCH_FILL   = colors.HexColor("#fffbeb")
@@ -134,7 +138,7 @@ GRID_ALPHA   = colors.HexColor("#fef2f2")
 FURN_STROKE  = colors.HexColor("#475569")
 FURN_FILL    = colors.HexColor("#e2e8f0")
 FURN_SEAT    = colors.HexColor("#bfdbfe")
-FURN_WOOD    = colors.HexColor("#d97706")
+FURN_WOOD    = colors.HexColor("#92400e")
 FURN_FABRIC  = colors.HexColor("#818cf8")
 
 COL_FILL     = colors.HexColor("#1e293b")
@@ -1355,12 +1359,16 @@ def draw_columns_grid(c, origin, level):
 def zone_fill(space) -> object:
     n = space["name"]
     f = space.get("finish","public")
-    if "Dais" in n or "Speaker" in n: return FILL_DAIS
-    if "Assembly Hall" in n: return FILL_PUBLIC
-    if "Reading Room" in n or "Stack" in n or "Discussion" in n or "Computer" in n: return FILL_READING
+    if "Dais" in n or "Speaker" in n:     return FILL_DAIS
+    if "Assembly Hall" in n:               return FILL_HALL
+    if "Reading Room" in n or "Stack" in n or "Discussion" in n or "Computer" in n:
+        return FILL_READING
     if f == "circulation" or "Stair" in n: return FILL_CIRCULATION
-    if f == "service" or "Toilet" in n or "Pantry" in n or "Store" in n: return FILL_SERVICE
-    return FILL_PUBLIC
+    if f == "service" or "Toilet" in n or "Pantry" in n or "Store" in n:
+        return FILL_SERVICE
+    if f == "staff" or "President" in n or "Secretary" in n or "Librarian" in n or "Administration" in n:
+        return FILL_STAFF
+    return FILL_HALL
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1381,8 +1389,8 @@ def draw_floor_sheet(c, site, plans, level, sheet_no, sheet_title, mode):
     c.setTitle(f"{site['project']['name']} — {sheet_title} — {mode.upper()}")
     c.setAuthor("Bar Association Architectural Team, Banswara")
 
-    # ── Full-page Lumion background gradient feel
-    c.setFillColor(colors.HexColor("#f0f4f8"))
+    # ── Full-page pure white background (maket.ai style)
+    c.setFillColor(colors.white)
     c.rect(0, 0, PAGE_W, PAGE_H, stroke=0, fill=1)
 
     # Border (already drawn via title block; skip double-draw, draw subtle here)
@@ -1591,41 +1599,43 @@ def draw_floor_sheet(c, site, plans, level, sheet_no, sheet_title, mode):
     # ── 8. Entrance porch (East long wall)
     draw_porch(c, origin, plans, spaces, level)
 
-    # ── 9. Room badge labels (drawn last so they sit on top)
+    # ── 9. Room labels — maket.ai style: Bold CAPS, size below, NO box
     for space in spaces:
         x0_, y0_, x1_, y1_ = rect(space)
-        sw = (x1_-x0_)*SCALE
-        sh = (y1_-y0_)*SCALE
-        badge_cx = pp(origin, (x0_+x1_)/2, 0)[0]
-        badge_cy = pp(origin, 0, (y0_+y1_)/2)[1]
+        sw  = (x1_-x0_)*SCALE
+        sh  = (y1_-y0_)*SCALE
+        cx_ = pp(origin, (x0_+x1_)/2, 0)[0]
+        cy_ = pp(origin, 0, (y0_+y1_)/2)[1]
 
-        # Adjust badge Y for tall rooms
-        if "Assembly" in space["name"]:
-            badge_cy = pp(origin, 0, y0_+310)[1]
-        elif "Reading Room" in space["name"]:
-            badge_cy = pp(origin, 0, y0_+200)[1]
-        elif "Stack" in space["name"]:
-            badge_cy = pp(origin, 0, y0_+80)[1]
-        elif "Dais" in space["name"]:
-            badge_cy = pp(origin, 0, y0_+32)[1]
-        elif "Pantry" in space["name"]:
-            badge_cy = pp(origin, 0, y1_-22)[1]
-        elif "Toilet" in space["name"]:
-            badge_cy = pp(origin, 0, y1_-26)[1]
+        # Vertical adjustment for tall rooms
+        if "Assembly" in space["name"]:   cy_ = pp(origin, 0, y0_+310)[1]
+        elif "Reading Room" in space["name"]: cy_ = pp(origin, 0, y0_+200)[1]
+        elif "Stack" in space["name"]:    cy_ = pp(origin, 0, y0_+80)[1]
+        elif "Dais" in space["name"]:     cy_ = pp(origin, 0, y0_+40)[1]
+        elif "Pantry" in space["name"]:   cy_ = pp(origin, 0, y1_-20)[1]
+        elif "Toilet" in space["name"]:   cy_ = pp(origin, 0, y1_-24)[1]
+        elif "President" in space["name"]: cy_ = pp(origin, 0, y0_+60)[1]
+        elif "Stair" in space["name"]:    cy_ = pp(origin, 0, y1_-30)[1]
 
-        bw = min(sw-6, 160)
-        bh = 34
+        # Room name — bold caps, dark
+        name_parts = space["name"].upper().split(" / ")
+        font_sz = 7.5 if sw > 80 else 6.0
+        c.setFillColor(BLACK); c.setFont("Helvetica-Bold", font_sz)
+        if len(name_parts) == 1:
+            c.drawCentredString(cx_, cy_ + 6, name_parts[0][:22])
+        else:
+            c.drawCentredString(cx_, cy_ + 10, name_parts[0][:22])
+            c.setFont("Helvetica-Bold", font_sz-0.5)
+            c.drawCentredString(cx_, cy_ + 1, name_parts[1][:22])
 
-        c.setFillColor(colors.white); c.setStrokeColor(LIGHT_GRAY); c.setLineWidth(0.7)
-        c.roundRect(badge_cx-bw/2, badge_cy-bh/2, bw, bh, 3, stroke=1, fill=1)
-
-        c.setFillColor(BLACK); c.setFont("Helvetica-Bold", 7.5 if bw>120 else 6.5)
-        c.drawCentredString(badge_cx, badge_cy+8, space["name"].upper()[:26])
-        c.setFont("Helvetica-Bold", 6); c.setFillColor(DARK_GRAY)
+        # Size — medium gray below name
         x0_, y0_, x1_, y1_ = rect(space)
-        c.drawCentredString(badge_cx, badge_cy-0, f"{fmtft(x1_-x0_)} × {fmtft(y1_-y0_)}")
-        c.setFont("Helvetica", 5.8); c.setFillColor(GRAY)
-        c.drawCentredString(badge_cx, badge_cy-10, f"{space['id']}  ·  {sqft(space):,.1f} sq.ft.")
+        c.setFont("Helvetica", font_sz-1.5); c.setFillColor(DARK_GRAY)
+        c.drawCentredString(cx_, cy_ - 7, f"{fmtft(x1_-x0_)} × {fmtft(y1_-y0_)}")
+
+        # Area — lighter gray, smallest
+        c.setFont("Helvetica", font_sz-2.0); c.setFillColor(GRAY)
+        c.drawCentredString(cx_, cy_ - 16, f"{sqft(space):,.0f} sq.ft.")
 
     # ── 10. Overall Dimensions
     draw_dim(c, origin,

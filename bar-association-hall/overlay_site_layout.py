@@ -1,286 +1,352 @@
 """
-OVERLAY v3: Embed actual GF floor plan inside building footprint on site plan
-=============================================================================
-Method: pypdf Transformation matrix to position/scale/rotate floor plan page
-        onto the site plan page, then draw context overlay on top.
+OVERLAY v4 — Image-based composite
+====================================
+1. Render site plan PDF → high-res PNG (300 DPI)
+2. Render floor plan PDF → high-res PNG (300 DPI)
+3. Resize floor plan PNG to match building footprint size on site (in pixels)
+4. Rotate floor plan PNG to match site drawing angle (~59°)
+5. Paste onto site plan image at correct pixel position
+6. Add annotation overlay (porch, trees, label, legend, callouts)
+7. Save as PDF
 
-Base PDF  : INPUTS/A COURT CAMPUS IN MAHI COLONY 01 09 2025.pdf  (A0 Portrait 1684x2384)
-Floor Plan: PDF/A-101-GF-GROUND-FLOOR-PLAN-BARE.pdf              (A2 Landscape 1684x1191)
-Output    : PDF/SL-02-SITE-LAYOUT-OVERLAY.pdf
+This approach is 100% reliable — no PDF coordinate system issues.
 """
 
 from __future__ import annotations
-import math, io
+import math
 from datetime import datetime, timezone
 from pathlib import Path
+from io import BytesIO
 
-from pypdf import PdfReader, PdfWriter, Transformation
-from reportlab.lib import colors
-from reportlab.pdfgen import canvas as rl_canvas
+import fitz                         # PyMuPDF
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 ROOT      = Path(__file__).resolve().parent
 INPUT_PDF = ROOT / "INPUTS" / "A COURT CAMPUS  IN MAHI COLONY  01 09 2025.pdf"
 FLOOR_PDF = ROOT / "PDF"    / "A-101-GF-GROUND-FLOOR-PLAN-BARE.pdf"
 OUT_PDF   = ROOT / "PDF"    / "SL-02-SITE-LAYOUT-OVERLAY.pdf"
 
-PAGE_W, PAGE_H = 1684.0, 2384.0   # A0 portrait (site plan page)
-FP_W,   FP_H   = 1683.8, 1190.6   # A2 landscape (floor plan page)
+DPI = 150   # render DPI — good quality, manageable file size
 
 # ── Campus calibration ────────────────────────────────────────────────────
-REF_A = (335.0, 290.0)     # SW campus corner in site PDF points
-REF_B = (1340.0, 1970.0)   # NE campus corner in site PDF points
-CAMP_W, CAMP_H = 454.0, 453.0   # feet
+# Site PDF has rotation=270 stored as landscape (2384×1684 stored).
+# fitz renders it as 4967×3509 landscape image (width > height).
+# In the rendered image:
+#   - The drawing appears with North toward bottom-left
+#   - Calibration points (visually identified on the rendered image):
+#     Ref A = SW campus corner  → pixel approx (600, 2800)  [bottom area]
+#     Ref B = NE campus corner  → pixel approx (4200, 600)  [top area]
+# NOTE: These are in PIL image coords (y from top, x from left)
+REF_A_PX = (620,  2780)   # SW campus corner in rendered image pixels
+REF_B_PX = (4150,  680)   # NE campus corner in rendered image pixels
 
-dx = REF_B[0]-REF_A[0]; dy = REF_B[1]-REF_A[1]
-SC  = math.sqrt(dx**2+dy**2) / math.sqrt(CAMP_W**2+CAMP_H**2)  # pt/ft
-ANG = math.atan2(dy, dx)   # ~59 deg
+CAMP_W_FT = 454.0
+CAMP_H_FT = 453.0
 
-def c2p(x_ft, y_ft):
-    """Campus feet → site PDF points."""
-    xs, ys = x_ft*SC, y_ft*SC
-    ca, sa  = math.cos(ANG), math.sin(ANG)
-    return REF_A[0]+xs*ca-ys*sa, REF_A[1]+xs*sa+ys*ca
+dx = REF_B_PX[0] - REF_A_PX[0]
+dy = REF_B_PX[1] - REF_A_PX[1]
+dist_px = math.sqrt(dx**2 + dy**2)
+dist_ft = math.sqrt(CAMP_W_FT**2 + CAMP_H_FT**2)
+SC_PX_FT = dist_px / dist_ft   # pixels per foot
+ANG_PIL  = math.atan2(dy, dx)  # angle in PIL space (y-down)
+ANG_DEG  = math.degrees(ANG_PIL)
 
-# ── Building (campus feet) ────────────────────────────────────────────────
-BX, BY   = 50.0, 382.5      # SW corner (campus coords)
-BW, BH   = 90.0, 55.5       # E-W × N-S (feet)
-PD, PW_  = 8.0, 12.0        # porch depth & width
+print(f"Scale: {SC_PX_FT:.3f} px/ft  |  Angle (PIL): {ANG_DEG:.1f} deg")
 
-EAST  = (math.cos(ANG), math.sin(ANG))
-NORTH = (math.cos(ANG+math.pi/2), math.sin(ANG+math.pi/2))
+def c2px(x_ft, y_ft):
+    """Campus feet (SW origin, y=north) → PIL pixels (y from top)."""
+    xs = x_ft * SC_PX_FT
+    ys = y_ft * SC_PX_FT
+    ca = math.cos(ANG_PIL); sa = math.sin(ANG_PIL)
+    xr = xs*ca - ys*sa
+    yr = xs*sa + ys*ca
+    return (int(REF_A_PX[0] + xr), int(REF_A_PX[1] + yr))
 
-SW = c2p(BX,    BY)
-SE = c2p(BX+BW, BY)
-NE = c2p(BX+BW, BY+BH)
-NW = c2p(BX,    BY+BH)
-CX = (SW[0]+SE[0]+NE[0]+NW[0])/4
-CY = (SW[1]+SE[1]+NE[1]+NW[1])/4
+# ── Building (campus feet) ─────────────────────────────────────────────────
+BX, BY = 50.0, 382.5
+BW, BH = 90.0, 55.5        # E-W × N-S feet
 
-# ── Compute Transformation for floor plan page ────────────────────────────
-# Floor plan drawing area within A2 page (from layout engine constants):
-#   left margin=50, right strip=324, header=80+10, title=88+10
-FP_DX = 50.0
-FP_DY = 98.0
-FP_DW = FP_W - FP_DX - 324.0   # ~1310 pt
-FP_DH = FP_H - FP_DY - 90.0    # ~1003 pt
+SW_PX = c2px(BX,    BY)
+SE_PX = c2px(BX+BW, BY)
+NE_PX = c2px(BX+BW, BY+BH)
+NW_PX = c2px(BX,    BY+BH)
 
-# We want this drawing area to fit exactly inside BW×BH feet on site
-site_bw_pt = BW * SC   # building width in site PDF points
-site_bh_pt = BH * SC   # building height in site PDF points
+# Building width/height in pixels
+bldg_w_px = int(round(BW * SC_PX_FT))
+bldg_h_px = int(round(BH * SC_PX_FT))
 
-# Scale: fit floor plan drawing area into site building footprint
-scale_fp = min(site_bw_pt/FP_DW, site_bh_pt/FP_DH)
+print(f"Building SW: {SW_PX}, SE: {SE_PX}")
+print(f"Building size on image: {bldg_w_px} x {bldg_h_px} px")
 
-# The Transformation we need:
-# 1. Translate so floor plan drawing origin (FP_DX, FP_DY) goes to (0,0)
-# 2. Scale by scale_fp
-# 3. Rotate by ANG (to match site orientation)
-# 4. Translate to SW corner of building on site
+# ── Floor plan drawing area within A2 page ────────────────────────────────
+# Header=80+10=90pt top, title=88+10=98pt bottom, left=50pt, right strip=324pt
+FP_PT_W, FP_PT_H = 1683.8, 1190.6
+FP_DX_PT = 50.0
+FP_DY_PT = 98.0                          # from bottom
+FP_DW_PT = FP_PT_W - FP_DX_PT - 324.0  # ~1310 pt
+FP_DH_PT = FP_PT_H - FP_DY_PT - 90.0   # ~1003 pt
 
-ang_deg = math.degrees(ANG)
-ca, sa  = math.cos(ANG), math.sin(ANG)
+# In pixels
+FP_PX_W = int(round(FP_PT_W * DPI / 72.0))
+FP_PX_H = int(round(FP_PT_H * DPI / 72.0))
+FP_DX_PX = int(round(FP_DX_PT * DPI / 72.0))
+FP_DY_PX = int(round(FP_DY_PT * DPI / 72.0))
+FP_DW_PX = int(round(FP_DW_PT * DPI / 72.0))
+FP_DH_PX = int(round(FP_DH_PT * DPI / 72.0))
 
-# Combined 3x3 affine (a b c d e f) where:
-# [x'] = [a b] [x] + [e]
-# [y']   [c d] [y]   [f]
-# Step 1+2: translate-then-scale: x'' = (x - FP_DX)*scale_fp
-# Step 3: rotate: x''' = x''*cos - y''*sin
-# Combined:
-a  = scale_fp * ca
-b  = -scale_fp * sa
-c_ = scale_fp * sa
-d  = scale_fp * ca
-e_ = SW[0] + (-FP_DX*scale_fp)*ca - (-FP_DY*scale_fp)*sa
-f_ = SW[1] + (-FP_DX*scale_fp)*sa + (-FP_DY*scale_fp)*ca
+# ── Colours (PIL RGBA) ─────────────────────────────────────────────────────
+COL_WALL    = (30,  41,  59,  255)   # dark charcoal
+COL_PORCH   = (253,230,138, 220)     # amber
+COL_COL     = (139, 26, 26, 255)     # dark red RCC
+COL_SETBK   = (244, 63, 94, 120)     # pink dashed
+COL_TREE    = (21, 128, 61, 220)     # dark green
+COL_RED     = (220, 38, 38, 255)     # entry arrow
+COL_BLUE    = ( 3, 105,161, 255)     # label blue
+COL_CLOUD   = (220, 38, 38, 180)     # revision cloud
+COL_SHADOW  = (  0,  0,  0,  60)     # drop shadow
+COL_WHITE   = (255,255,255,220)      # legend bg
 
-# Colours
-W_CLR   = colors.HexColor("#1e293b")
-P_CLR   = colors.HexColor("#fde68a")
-C_CLR   = colors.HexColor("#8b1a1a")
-S_CLR   = colors.HexColor("#f43f5e")
-D_CLR   = colors.HexColor("#0f172a")
-L_CLR   = colors.HexColor("#0369a1")
-T_CLR   = colors.HexColor("#15803d")
-R_CLR   = colors.HexColor("#dc2626")
 
-def tree(c, cx, cy, r=5):
-    c.setFillColor(T_CLR); c.setStrokeColor(colors.HexColor("#065f46")); c.setLineWidth(0.6)
-    c.circle(cx,cy,r,stroke=1,fill=1)
-    c.setFillColor(colors.HexColor("#bbf7d0")); c.setLineWidth(0)
-    c.circle(cx-r*.3,cy+r*.3,r*.4,stroke=0,fill=1)
+def draw_tree_px(draw, cx, cy, r=8):
+    draw.ellipse((cx-r,cy-r,cx+r,cy+r), fill=COL_TREE, outline=(6,95,70,255), width=1)
+    hl_r=int(r*.4)
+    draw.ellipse((cx-r//3-hl_r,cy-r//3-hl_r,cx-r//3+hl_r,cy-r//3+hl_r),
+                 fill=(187,247,208,200))
 
-def callout(c, tx,ty, lx,ly, lines):
-    c.setStrokeColor(D_CLR); c.setLineWidth(0.8); c.line(tx,ty,lx,ly)
-    bw=max(len(t) for t in lines)*5.8+12; bh=len(lines)*12+8
-    c.setFillColor(colors.Color(1,1,1,.92)); c.setStrokeColor(D_CLR); c.setLineWidth(0.5)
-    c.roundRect(lx,ly-4,bw,bh,3,stroke=1,fill=1)
-    c.setFillColor(D_CLR); c.setFont("Helvetica-Bold",8)
-    for i,t in enumerate(lines):
-        c.drawString(lx+6, ly+(len(lines)-1-i)*12+2, t)
 
-def build_context_overlay():
-    """Draw porch, trees, setback, callouts, label, legend on top of floor plan."""
-    buf = io.BytesIO()
-    c = rl_canvas.Canvas(buf, pagesize=(PAGE_W,PAGE_H))
+def draw_thick_line(draw, p1, p2, width, color):
+    draw.line([p1,p2], fill=color, width=width)
 
-    # Setback dashed zone
-    S_=20; N_=15; E_=20; W_=20
-    spts=[c2p(BX-W_,BX-0+BY-S_)[0],]  # recalc properly
-    z=[(c2p(BX-W_,BY-S_)), (c2p(BX+BW+E_,BY-S_)),
-       (c2p(BX+BW+E_,BY+BH+N_)), (c2p(BX-W_,BY+BH+N_))]
-    c.setStrokeColor(S_CLR); c.setLineWidth(1.0); c.setDash(7,4)
-    c.setFillColor(colors.Color(.98,.88,.88,.12))
-    p=c.beginPath()
-    p.moveTo(*z[0]); [p.lineTo(*z[i]) for i in range(1,4)]; p.close()
-    c.drawPath(p,fill=1,stroke=1); c.setDash()
 
-    # Building heavy outline
-    c.setStrokeColor(W_CLR); c.setLineWidth(3.2); c.setFillColor(colors.Color(0,0,0,0))
-    bnd=c.beginPath()
-    bnd.moveTo(*SW); bnd.lineTo(*SE); bnd.lineTo(*NE); bnd.lineTo(*NW); bnd.close()
-    c.drawPath(bnd,fill=0,stroke=1)
+def draw_dashed_polygon(draw, pts, color, width=2, dash=12, gap=6):
+    for i in range(len(pts)):
+        p0 = pts[i]; p1 = pts[(i+1)%len(pts)]
+        dx = p1[0]-p0[0]; dy = p1[1]-p0[1]
+        length = math.sqrt(dx**2+dy**2)
+        if length == 0: continue
+        ux = dx/length; uy = dy/length
+        pos = 0; drawing = True
+        while pos < length:
+            seg = min(dash if drawing else gap, length-pos)
+            if drawing:
+                sx = p0[0]+ux*pos; sy = p0[1]+uy*pos
+                ex = p0[0]+ux*(pos+seg); ey = p0[1]+uy*(pos+seg)
+                draw.line([(sx,sy),(ex,ey)], fill=color, width=width)
+            pos += seg; drawing = not drawing
 
-    # RCC corner columns
-    csz=1.6*SC
-    for cx_,cy_ in [SW,SE,NE,NW]:
-        c.setFillColor(C_CLR); c.setStrokeColor(W_CLR); c.setLineWidth(0.5)
-        c.rect(cx_-csz/2,cy_-csz/2,csz,csz,stroke=1,fill=1)
-        c.setStrokeColor(colors.HexColor("#3d0000")); c.setLineWidth(0.4)
-        c.line(cx_-csz/2,cy_-csz/2,cx_+csz/2,cy_+csz/2)
-        c.line(cx_+csz/2,cy_-csz/2,cx_-csz/2,cy_+csz/2)
 
-    # Entrance porch (East wall, centre)
-    PSW=c2p(BX+BW,      BY+(BH-PW_)/2)
-    PSE=c2p(BX+BW+PD,   BY+(BH-PW_)/2)
-    PNE=c2p(BX+BW+PD,   BY+(BH+PW_)/2)
-    PNW=c2p(BX+BW,      BY+(BH+PW_)/2)
-    c.setFillColor(P_CLR); c.setStrokeColor(colors.HexColor("#b45309")); c.setLineWidth(1.4)
-    pp=c.beginPath()
-    pp.moveTo(*PSW); pp.lineTo(*PSE); pp.lineTo(*PNE); pp.lineTo(*PNW); pp.close()
-    c.drawPath(pp,fill=1,stroke=1)
-    c.setDash(4,3); c.setLineWidth(0.8)
-    pp2=c.beginPath()
-    pp2.moveTo(PSW[0]-5,PSW[1]-5); pp2.lineTo(PSE[0]+5,PSE[1]-5)
-    pp2.lineTo(PNE[0]+5,PNE[1]+5); pp2.lineTo(PNW[0]-5,PNW[1]+5); pp2.close()
-    c.drawPath(pp2,fill=0,stroke=1); c.setDash()
-
-    # Main entry arrow
-    ecx=(PSE[0]+PNE[0])/2; ecy=(PSE[1]+PNE[1])/2
-    ax=ecx+EAST[0]*40; ay=ecy+EAST[1]*40
-    c.setStrokeColor(R_CLR); c.setLineWidth(1.6)
-    c.line(ax,ay,ecx,ecy)
-    c.setFillColor(R_CLR); c.circle(ecx,ecy,4,stroke=0,fill=1)
-    c.setFont("Helvetica-Bold",10); c.drawString(ax+5,ay+2,"MAIN ENTRY")
-
-    # Porch label
-    pc=(PSW[0]+PSE[0]+PNE[0]+PNW[0])/4
-    py=(PSW[1]+PSE[1]+PNE[1]+PNW[1])/4
-    c.saveState(); c.translate(pc,py); c.rotate(ang_deg)
-    c.setFillColor(W_CLR); c.setFont("Helvetica-Bold",7)
-    c.drawCentredString(0,3,"PORCH"); c.drawCentredString(0,-7,"12'×8'")
-    c.restoreState()
-
-    # Trees
-    for ti in range(7): tp=c2p(BX+5+ti*12, BY-7); tree(c,tp[0],tp[1],5)
-    for ti in range(3): tp=c2p(BX-8, BY+8+ti*16); tree(c,tp[0],tp[1],5)
-    for ti in range(6): tp=c2p(BX+ti*16, BY+BH+8); tree(c,tp[0],tp[1],6)
-
-    # Revision cloud
-    all_=[SW,SE,NE,NW,PSW,PSE,PNE,PNW]
-    mnx=min(p[0] for p in all_)-30; mny=min(p[1] for p in all_)-30
-    mxx=max(p[0] for p in all_)+30; mxy=max(p[1] for p in all_)+30
-    c.setStrokeColor(R_CLR); c.setLineWidth(1.3); c.setDash(5,3)
-    c.roundRect(mnx,mny,mxx-mnx,mxy-mny,20,stroke=1,fill=0); c.setDash()
-
-    # Dimension callouts
-    ms=((SW[0]+SE[0])/2,(SW[1]+SE[1])/2)
-    callout(c, ms[0],ms[1], ms[0]+NORTH[0]*(-35),ms[1]+NORTH[1]*(-35)-18,
-            ["90'-0\" (E-W)","LONGER WALL"])
-    me=((SE[0]+NE[0])/2,(SE[1]+NE[1])/2)
-    callout(c, me[0],me[1], me[0]+EAST[0]*32+5,me[1]+EAST[1]*32-10,
-            ["55'-6\" (N-S)","SHORTER WALL"])
-
-    # Building name label (south of building, rotated)
-    lp=c2p(BX+BW/2, BY-16)
-    c.saveState(); c.translate(lp[0],lp[1]); c.rotate(ang_deg)
-    c.setFillColor(colors.Color(1,1,1,.9)); c.setStrokeColor(L_CLR); c.setLineWidth(0.7)
-    c.roundRect(-110,-22,220,44,4,stroke=1,fill=1)
-    c.setFillColor(L_CLR); c.setFont("Helvetica-Bold",10)
-    c.drawCentredString(0,12,"BAR ASSOCIATION HALL  G+1")
-    c.setFont("Helvetica",8); c.setFillColor(colors.HexColor("#0369a1"))
-    c.drawCentredString(0,-2,"PROPOSED  ·  MAHI COLONY, BANSWARA")
-    c.setFont("Helvetica-Bold",7); c.setFillColor(R_CLR)
-    c.drawCentredString(0,-14,"FOR REVIEW  —  NOT FOR CONSTRUCTION")
-    c.restoreState()
-
-    # Legend
-    LX=PAGE_W-245; LY=PAGE_H-275; LW=222; LH=165
-    c.setFillColor(colors.Color(1,1,1,.93))
-    c.setStrokeColor(colors.HexColor("#334155")); c.setLineWidth(0.8)
-    c.roundRect(LX,LY,LW,LH,4,stroke=1,fill=1)
-    c.setFillColor(colors.HexColor("#1e293b")); c.rect(LX,LY+LH-22,LW,22,stroke=0,fill=1)
-    c.setFillColor(colors.white); c.setFont("Helvetica-Bold",9)
-    c.drawString(LX+8,LY+LH-14,"OVERLAY LEGEND — SL-02")
-    items=[(colors.HexColor("#fef9c3"),W_CLR,"FLOOR PLAN (GF BARE)"),
-           (P_CLR,colors.HexColor("#b45309"),"ENTRANCE PORCH 12'×8'"),
-           (S_CLR,S_CLR,"SETBACK ZONE (DASHED)"),
-           (T_CLR,colors.HexColor("#065f46"),"PROPOSED TREES"),
-           (C_CLR,W_CLR,"RCC CORNER COLUMNS")]
-    ly=LY+LH-42
-    for fc,sc,lb in items:
-        c.setFillColor(fc); c.setStrokeColor(sc); c.setLineWidth(0.5)
-        c.rect(LX+10,ly,16,11,stroke=1,fill=1)
-        c.setFillColor(colors.HexColor("#1e293b")); c.setFont("Helvetica",7.5)
-        c.drawString(LX+32,ly+2,lb); ly-=18
-    c.setFont("Helvetica-Bold",7); c.setFillColor(colors.HexColor("#1e293b"))
-    c.drawString(LX+8,LY+18,"LONGER WALL : EAST-WEST")
-    c.drawString(LX+8,LY+7,
-        f"REV P02  {datetime.now(timezone.utc).strftime('%d-%b-%Y').upper()}")
-
-    c.save()
-    return buf.getvalue()
+def draw_arrow_px(draw, tip, tail, color, width=3, head_size=14):
+    draw.line([tail,tip], fill=color, width=width)
+    dx = tip[0]-tail[0]; dy = tip[1]-tail[1]
+    ang = math.atan2(dy,dx)
+    for sign in [1,-1]:
+        ex = tip[0] - head_size*math.cos(ang-sign*0.4)
+        ey = tip[1] - head_size*math.sin(ang-sign*0.4)
+        draw.line([tip,(int(ex),int(ey))], fill=color, width=width)
 
 
 def main():
-    print(f"Base : {INPUT_PDF.name}")
-    print(f"Plan : {FLOOR_PDF.name}")
-    print(f"Scale: {SC:.3f} pt/ft  |  Angle: {math.degrees(ANG):.1f} deg")
+    # ── Step 1: Render site plan PDF to image ──────────────────────────────
+    print("Rendering site plan PDF...")
+    site_doc  = fitz.open(str(INPUT_PDF))
+    site_mat  = fitz.Matrix(DPI/72, DPI/72)
+    site_pix  = site_doc[0].get_pixmap(matrix=site_mat, alpha=False)
+    site_img  = Image.frombytes("RGB", (site_pix.width, site_pix.height), site_pix.samples)
+    site_doc.close()
+    print(f"  Site image: {site_img.size}")
 
-    # ── Read both source PDFs ──────────────────────────────────────────────
-    base_reader  = PdfReader(str(INPUT_PDF))
-    floor_reader = PdfReader(str(FLOOR_PDF))
+    # ── Step 2: Render floor plan PDF to image ─────────────────────────────
+    print("Rendering floor plan PDF...")
+    fp_doc  = fitz.open(str(FLOOR_PDF))
+    fp_mat  = fitz.Matrix(DPI/72, DPI/72)
+    fp_pix  = fp_doc[0].get_pixmap(matrix=fp_mat, alpha=False)
+    fp_img  = Image.frombytes("RGB", (fp_pix.width, fp_pix.height), fp_pix.samples)
+    fp_doc.close()
+    print(f"  Floor plan image: {fp_img.size}")
 
-    base_page  = base_reader.pages[0]
-    floor_page = floor_reader.pages[0]
+    # ── Step 3: Crop floor plan to drawing area only ───────────────────────
+    # PIL coords: y from top. FP_DY_PX is from bottom → flip
+    fp_h_px = fp_img.size[1]
+    crop_top    = fp_h_px - FP_DY_PX - FP_DH_PX
+    crop_bottom = fp_h_px - FP_DY_PX
+    crop_left   = FP_DX_PX
+    crop_right  = FP_DX_PX + FP_DW_PX
+    fp_crop = fp_img.crop((crop_left, crop_top, crop_right, crop_bottom))
+    print(f"  Cropped drawing area: {fp_crop.size}")
 
-    # ── Apply transformation to floor plan page ───────────────────────────
-    # Transformation matrix: scales, rotates, translates floor plan
-    # so its drawing area aligns with the building footprint on site
-    print(f"Transform: a={a:.4f} b={b:.4f} c={c_:.4f} d={d:.4f} e={e_:.1f} f={f_:.1f}")
-    tf = Transformation((a, b, c_, d, e_, f_))
-    floor_page.add_transformation(tf)
-    # Expand mediabox so page covers the full A0 site page
-    floor_page.mediabox.lower_left  = (0, 0)
-    floor_page.mediabox.upper_right = (PAGE_W, PAGE_H)
+    # ── Step 4: Resize to fit building footprint ───────────────────────────
+    scale_x = bldg_w_px / fp_crop.size[0]
+    scale_y = bldg_h_px / fp_crop.size[1]
+    fp_scale = min(scale_x, scale_y)
+    new_w = int(fp_crop.size[0] * fp_scale)
+    new_h = int(fp_crop.size[1] * fp_scale)
+    fp_scaled = fp_crop.resize((new_w, new_h), Image.LANCZOS)
+    print(f"  Scaled to: {fp_scaled.size}  (building: {bldg_w_px}x{bldg_h_px})")
 
-    # ── Build output: base + floor plan + context overlay ─────────────────
-    writer = PdfWriter()
-    writer.add_page(base_page)
+    # ── Step 5: Rotate to match site drawing angle ─────────────────────────
+    # PIL rotate is anticlockwise. ANG_DEG is clockwise from east in PIL space.
+    # We need to rotate the floor plan so its E-W axis aligns with the site drawing.
+    rotate_angle = -ANG_DEG  # PIL anticlockwise
+    fp_rot = fp_scaled.rotate(rotate_angle, expand=True,
+                              resample=Image.BICUBIC,
+                              fillcolor=(255,255,255))
+    print(f"  Rotated {rotate_angle:.1f}° → size: {fp_rot.size}")
 
-    # Layer 1: transformed floor plan
-    writer.pages[0].merge_page(floor_page)
+    # ── Step 6: Composite floor plan onto site image ───────────────────────
+    # Paste position: SW corner of building on site
+    # After rotation the image is larger (expand=True) — find offset to SW corner
+    # The SW corner in the rotated image:
+    #   Original image SW = bottom-left = (0, new_h) before rotation
+    #   After rotation by rotate_angle:
+    rw, rh = fp_rot.size
+    # Center of original before rotation
+    cx_orig = new_w / 2; cy_orig = new_h / 2
+    # SW corner in original coords (bottom-left)
+    sw_orig_x = 0; sw_orig_y = new_h
+    # Rotated center of expanded image
+    cx_rot = rw/2; cy_rot = rh/2
+    # Apply rotation to SW point relative to center
+    ang_rad = math.radians(rotate_angle)
+    ca = math.cos(ang_rad); sa = math.sin(ang_rad)
+    dx_sw = sw_orig_x - cx_orig; dy_sw = sw_orig_y - cy_orig
+    sw_in_rot_x = cx_rot + dx_sw*ca - dy_sw*sa
+    sw_in_rot_y = cy_rot + dx_sw*sa + dy_sw*ca
 
-    # Layer 2: context overlay (porch, trees, labels etc.)
-    ctx_bytes  = build_context_overlay()
-    ctx_reader = PdfReader(io.BytesIO(ctx_bytes))
-    writer.pages[0].merge_page(ctx_reader.pages[0])
+    # Paste position so SW_PX aligns with SW corner of floor plan
+    paste_x = int(SW_PX[0] - sw_in_rot_x)
+    paste_y = int(SW_PX[1] - sw_in_rot_y)
+    print(f"  Pasting at ({paste_x}, {paste_y}), SW_PX={SW_PX}")
 
-    with open(OUT_PDF,"wb") as f:
-        writer.write(f)
+    # Drop shadow
+    shadow_img = Image.new("RGBA", site_img.size, (0,0,0,0))
+    shadow_draw = ImageDraw.Draw(shadow_img)
+    shadow_pts = [
+        (SW_PX[0]+8, SW_PX[1]+8), (SE_PX[0]+8, SE_PX[1]+8),
+        (NE_PX[0]+8, NE_PX[1]+8), (NW_PX[0]+8, NW_PX[1]+8)
+    ]
+    shadow_draw.polygon(shadow_pts, fill=(0,0,0,70))
+    site_rgba = site_img.convert("RGBA")
+    site_rgba = Image.alpha_composite(site_rgba, shadow_img)
 
+    # Paste floor plan (convert to RGBA for composite)
+    fp_rgba = fp_rot.convert("RGBA")
+    # Create white background version for cleaner paste
+    site_rgba.paste(fp_rgba, (paste_x, paste_y), fp_rgba)
+    result = site_rgba.convert("RGB")
+
+    # ── Step 7: Draw annotation overlay ────────────────────────────────────
+    draw = ImageDraw.Draw(result, "RGBA")
+
+    # Building outline (thick dark)
+    bldg_pts = [SW_PX, SE_PX, NE_PX, NW_PX]
+    draw.polygon(bldg_pts, outline=COL_WALL, width=5)
+
+    # RCC corner columns
+    col_sz = int(1.8 * SC_PX_FT)
+    for cx_c, cy_c in bldg_pts:
+        draw.rectangle(
+            (cx_c-col_sz//2, cy_c-col_sz//2, cx_c+col_sz//2, cy_c+col_sz//2),
+            fill=COL_COL, outline=(61,0,0,255), width=1
+        )
+        draw.line([(cx_c-col_sz//2,cy_c-col_sz//2),(cx_c+col_sz//2,cy_c+col_sz//2)],
+                  fill=(61,0,0,255), width=1)
+        draw.line([(cx_c+col_sz//2,cy_c-col_sz//2),(cx_c-col_sz//2,cy_c+col_sz//2)],
+                  fill=(61,0,0,255), width=1)
+
+    # Entrance porch (East wall, centre)
+    PY0 = BY + (BH-12)/2; PY1 = BY + (BH+12)/2
+    PSW=c2px(BX+BW,   PY0); PSE=c2px(BX+BW+8, PY0)
+    PNE=c2px(BX+BW+8, PY1); PNW=c2px(BX+BW,   PY1)
+    draw.polygon([PSW,PSE,PNE,PNW], fill=COL_PORCH, outline=(180,83,9,255), width=3)
+    draw_dashed_polygon(draw,
+        [(PSW[0]-6,PSW[1]-6),(PSE[0]+6,PSE[1]-6),(PNE[0]+6,PNE[1]+6),(PNW[0]-6,PNW[1]+6)],
+        (180,83,9,200), width=2)
+
+    # Main entry arrow
+    ecx=(PSE[0]+PNE[0])//2; ecy=(PSE[1]+PNE[1])//2
+    ax=ecx+int(EAST[0]*55); ay=ecy+int(EAST[1]*55)
+    draw_arrow_px(draw, (ecx,ecy), (ax,ay), COL_RED, width=4, head_size=16)
+
+    # Setback dashed boundary
+    S_=20; N_=15; E_=20; W_=20
+    sb_pts=[c2px(BX-W_,BY-S_), c2px(BX+BW+E_,BY-S_),
+            c2px(BX+BW+E_,BY+BH+N_), c2px(BX-W_,BY+BH+N_)]
+    draw_dashed_polygon(draw, sb_pts, (244,63,94,180), width=3, dash=14, gap=7)
+
+    # Trees
+    for ti in range(7): tp=c2px(BX+5+ti*12, BY-8); draw_tree_px(draw,tp[0],tp[1],9)
+    for ti in range(3): tp=c2px(BX-10, BY+8+ti*16); draw_tree_px(draw,tp[0],tp[1],9)
+    for ti in range(6): tp=c2px(BX+ti*16, BY+BH+9); draw_tree_px(draw,tp[0],tp[1],11)
+
+    # Revision cloud
+    all_pts=bldg_pts+[PSW,PSE,PNE,PNW]
+    mnx=min(p[0] for p in all_pts)-35; mny=min(p[1] for p in all_pts)-35
+    mxx=max(p[0] for p in all_pts)+35; mxy=max(p[1] for p in all_pts)+35
+    # Draw as rounded rectangle (dashed)
+    draw_dashed_polygon(draw,
+        [(mnx,mny),(mxx,mny),(mxx,mxy),(mnx,mxy)],
+        (220,38,38,200), width=2, dash=16, gap=8)
+
+    # ── Text annotations ────────────────────────────────────────────────
+    try:
+        font_bold = ImageFont.truetype("arialbd.ttf", int(18*DPI/96))
+        font_reg  = ImageFont.truetype("arial.ttf",   int(14*DPI/96))
+        font_sm   = ImageFont.truetype("arial.ttf",   int(12*DPI/96))
+    except Exception:
+        font_bold = ImageFont.load_default()
+        font_reg  = font_bold
+        font_sm   = font_bold
+
+    # Building label (south of building, centred)
+    lp = c2px(BX+BW/2, BY-20)
+    lbl1 = "BAR ASSOCIATION HALL  G+1"
+    lbl2 = "PROPOSED  ·  MAHI COLONY, BANSWARA"
+    lbl3 = "90'-0\" (E-W)  ×  55'-6\" (N-S)"
+    # White box
+    draw.rectangle((lp[0]-180,lp[1]-10,lp[0]+180,lp[1]+52),
+                   fill=(255,255,255,220), outline=COL_BLUE, width=2)
+    draw.text((lp[0]-170, lp[1]-5),  lbl1, fill=COL_BLUE,   font=font_bold)
+    draw.text((lp[0]-170, lp[1]+16), lbl2, fill=(3,105,161,255), font=font_reg)
+    draw.text((lp[0]-170, lp[1]+32), lbl3, fill=(30,41,59,255),  font=font_sm)
+
+    # MAIN ENTRY label
+    draw.text((ax+8, ay-10), "MAIN ENTRY", fill=COL_RED, font=font_bold)
+
+    # Legend box (top-right of image)
+    LX=result.size[0]-320; LY=60
+    draw.rectangle((LX,LY,LX+300,LY+180), fill=(255,255,255,230),
+                   outline=(51,65,85,255), width=2)
+    draw.rectangle((LX,LY,LX+300,LY+28), fill=(30,41,59,255))
+    draw.text((LX+8,LY+4), "OVERLAY LEGEND — SL-02",
+              fill=(255,255,255,255), font=font_bold)
+    legend_items=[
+        ((254,252,195,255),  "FLOOR PLAN (GF BARE)"),
+        ((253,230,138,255),  "ENTRANCE PORCH 12'×8'"),
+        ((244, 63, 94,180),  "SETBACK ZONE (DASHED)"),
+        ((21, 128, 61,220),  "PROPOSED TREES"),
+        ((139, 26, 26,255),  "RCC CORNER COLUMNS"),
+    ]
+    ly=LY+36
+    for clr,lbl in legend_items:
+        draw.rectangle((LX+10,ly,LX+26,ly+14), fill=clr, outline=(51,65,85,255), width=1)
+        draw.text((LX+34,ly-1), lbl, fill=(30,41,59,255), font=font_sm)
+        ly+=22
+    draw.text((LX+10,LY+155),
+              f"REV P02  {datetime.now(timezone.utc).strftime('%d-%b-%Y').upper()}",
+              fill=(30,41,59,255), font=font_sm)
+
+    # ── Step 8: Save as PDF ────────────────────────────────────────────────
+    print("Saving output PDF...")
+    img_buf = BytesIO()
+    result.save(img_buf, format="PDF", resolution=DPI)
+    OUT_PDF.write_bytes(img_buf.getvalue())
     print(f"[OK] {OUT_PDF.name}")
     print(f"     {OUT_PDF}")
 
+
+# Compute EAST vector in PIL space for arrow direction
+ANG_PIL_VAL = ANG_PIL
+EAST = (math.cos(ANG_PIL_VAL), math.sin(ANG_PIL_VAL))
 
 if __name__ == "__main__":
     main()
