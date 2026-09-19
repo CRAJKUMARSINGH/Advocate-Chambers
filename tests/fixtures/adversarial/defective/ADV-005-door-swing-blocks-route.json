@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-005",
+  "title": "Door swing blocks circulation",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "opening", "severity": "BLOCKER", "description": "The door swing conflicts with the required route." },
+  "mutations": [{ "path": "openings.0.swingConflict", "operation": "set", "value": true }],
+  "expectedFinding": {
+    "ruleId": "OPENING.SWING.CLEARANCE",
+    "severity": "BLOCKER",
+    "affectedObjects": ["DOOR-FF-ROOM-01"],
+    "evidenceFields": ["openingId", "swingConflict"],
+    "correction": "Reverse or relocate the door swing."
+  }
+}
