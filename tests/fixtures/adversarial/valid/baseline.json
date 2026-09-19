@@ -1,0 +1,101 @@
+{
+  "project": {
+    "id": "week22-adversarial-baseline",
+    "name": "Week 22 adversarial benchmark baseline",
+    "revision": 1
+  },
+  "site": {
+    "plotBounds": [0, 0, 100, 100],
+    "buildingEnvelope": [10, 10, 90, 90],
+    "setbacks": {
+      "north": 5,
+      "south": 5,
+      "east": 5,
+      "west": 5
+    },
+    "fireAccess": { "status": "verified" },
+    "serviceAccess": { "status": "verified" }
+  },
+  "spaces": [
+    { "id": "GF-ENTRY", "levelId": "GF", "requiresDoor": true, "roomUse": "entry" },
+    { "id": "FF-ROOM-01", "levelId": "FF", "requiresDoor": true, "roomUse": "bedroom" },
+    { "id": "FF-DAYLIGHT-01", "levelId": "FF", "requiresDoor": true, "requiresDaylight": true, "roomUse": "bedroom" },
+    { "id": "FF-VENT-01", "levelId": "FF", "requiresDoor": true, "requiresVentilation": true, "roomUse": "office" },
+    { "id": "GF-WET-01", "levelId": "GF", "requiresDoor": true, "roomUse": "toilet" }
+  ],
+  "routes": [
+    { "id": "ROUTE-FF-ROOM-01", "spaceId": "FF-ROOM-01", "connected": true }
+  ],
+  "openings": [
+    {
+      "id": "DOOR-FF-ROOM-01",
+      "hostSpace": "FF-ROOM-01",
+      "kind": "door",
+      "external": false,
+      "opensInto": "corridor",
+      "sideBKind": "corridor",
+      "landing": true,
+      "swingConflict": false
+    },
+    {
+      "id": "DOOR-FF-DAYLIGHT-01",
+      "hostSpace": "FF-DAYLIGHT-01",
+      "kind": "door",
+      "external": false,
+      "opensInto": "corridor",
+      "sideBKind": "corridor",
+      "landing": true,
+      "swingConflict": false
+    },
+    {
+      "id": "DOOR-FF-VENT-01",
+      "hostSpace": "FF-VENT-01",
+      "kind": "door",
+      "external": false,
+      "opensInto": "corridor",
+      "sideBKind": "corridor",
+      "landing": true,
+      "swingConflict": false
+    },
+    {
+      "id": "DOOR-GF-WET-01",
+      "hostSpace": "GF-WET-01",
+      "kind": "door",
+      "external": false,
+      "opensInto": "corridor",
+      "sideBKind": "corridor",
+      "landing": true,
+      "swingConflict": false
+    },
+    {
+      "id": "DOOR-EXTERNAL-01",
+      "hostSpace": "GF-ENTRY",
+      "kind": "door",
+      "external": true,
+      "opensInto": "porch",
+      "sideBKind": "exterior",
+      "landing": true,
+      "swingConflict": false
+    }
+  ],
+  "windows": [
+    { "id": "WINDOW-DAYLIGHT-01", "hostSpace": "FF-DAYLIGHT-01" },
+    { "id": "WINDOW-VENT-01", "hostSpace": "FF-VENT-01" }
+  ],
+  "furniture": [
+    { "id": "FURNITURE-01", "spaceId": "FF-ROOM-01", "blocksRoute": false }
+  ],
+  "stairs": [
+    { "id": "STAIR-01", "landing": true }
+  ],
+  "verticalConnectors": [
+    { "id": "VERTICAL-01", "fromLevel": "GF", "toLevel": "FF", "connected": true }
+  ],
+  "wetAreas": [
+    {
+      "id": "WET-AREA-01",
+      "spaceId": "GF-WET-01",
+      "coordination": { "status": "verified" }
+    }
+  ]
+}
