@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-014",
+  "title": "Room without serving door",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "reachability", "severity": "BLOCKER", "description": "A programmed room has no serving door." },
+  "mutations": [{ "path": "openings.0.hostSpace", "operation": "set", "value": "UNKNOWN-SPACE" }],
+  "expectedFinding": {
+    "ruleId": "ACCESS.SERVING.DOOR",
+    "severity": "BLOCKER",
+    "affectedObjects": ["FF-ROOM-01"],
+    "evidenceFields": ["spaceId", "servingDoor"],
+    "correction": "Add a serving door to valid circulation or exterior access."
+  }
+}
