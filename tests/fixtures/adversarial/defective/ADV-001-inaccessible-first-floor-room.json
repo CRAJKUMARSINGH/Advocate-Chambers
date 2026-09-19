@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-001",
+  "title": "Inaccessible first-floor room",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "reachability", "severity": "BLOCKER", "description": "The first-floor route is disconnected." },
+  "mutations": [{ "path": "routes.0.connected", "operation": "set", "value": false }],
+  "expectedFinding": {
+    "ruleId": "ACCESS.ROUTE.CONTINUITY",
+    "severity": "BLOCKER",
+    "affectedObjects": ["FF-ROOM-01", "ROUTE-FF-ROOM-01"],
+    "evidenceFields": ["spaceId", "routeId", "connected"],
+    "correction": "Connect the room to a valid internal route."
+  }
+}
