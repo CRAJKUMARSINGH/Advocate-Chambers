@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-015",
+  "title": "Missing service access",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "service-access", "severity": "BLOCKER", "description": "Service access is not verified." },
+  "mutations": [{ "path": "site.serviceAccess.status", "operation": "set", "value": "missing" }],
+  "expectedFinding": {
+    "ruleId": "SITE.SERVICE.ACCESS",
+    "severity": "BLOCKER",
+    "affectedObjects": ["site.serviceAccess"],
+    "evidenceFields": ["serviceAccess"],
+    "correction": "Provide a deliberate service entry, route, loading point, and service zone."
+  }
+}
