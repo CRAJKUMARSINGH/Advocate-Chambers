@@ -1,0 +1,24 @@
+{
+  "bestCandidateId": null,
+  "changelog": "bar-association-hall/standard/week910-changelog.md",
+  "failureScreenshots": [
+    {
+      "fixture": "synthetic-orphaned-room",
+      "path": "bar-association-hall/standard/failure-screenshots/week10-orphaned-room-fixture.svg",
+      "purpose": "Readable visual evidence for a blocked release case.",
+      "status": "generated"
+    }
+  ],
+  "findingCounts": {
+    "BLOCKER": 36,
+    "ERROR": 1,
+    "WARNING": 2
+  },
+  "manifestVersion": "week910.enrichment-manifest.v1",
+  "releaseChecklist": "bar-association-hall/standard/week10-release-checklist.json",
+  "reports": {
+    "week10": "bar-association-hall/standard/week10-candidate-qa-report.json",
+    "week9": "bar-association-hall/standard/week9-furniture-presentation-report.json"
+  },
+  "status": "fail"
+}

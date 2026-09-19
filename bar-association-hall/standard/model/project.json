@@ -4313,7 +4313,7 @@
     }
   },
   "enrichment": {
-    "version": "week78.enrichment.v1",
+    "version": "week910.enrichment.v1",
     "week3Report": "bar-association-hall/standard/week3-reachability-report.json",
     "week4Report": "bar-association-hall/standard/week4-openings-report.json",
     "openingSchedule": "bar-association-hall/standard/opening-schedule.json",
@@ -4321,7 +4321,10 @@
     "week6Report": "bar-association-hall/standard/week6-program-report.json",
     "week7Report": "bar-association-hall/standard/week7-rule-pack-report.json",
     "week8Report": "bar-association-hall/standard/week8-drawing-quality-report.json",
-    "rulePack": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json"
+    "rulePack": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+    "week9Report": "bar-association-hall/standard/week9-furniture-presentation-report.json",
+    "week10Report": "bar-association-hall/standard/week10-candidate-qa-report.json",
+    "releaseChecklist": "bar-association-hall/standard/week10-release-checklist.json"
   },
   "program": {
     "buildingType": "institutional",
@@ -4873,5 +4876,24 @@
     "report": "bar-association-hall/standard/week8-drawing-quality-report.json",
     "stamp": "NOT ISSUABLE",
     "deterministicSignature": "c2a57dbb9bf3ca93e57aae8c56e5a138bf8ecfebd4697cf7257e89b8a1a526ee"
+  },
+  "presentation": {
+    "version": "week9.presentation.v1",
+    "report": "bar-association-hall/standard/week9-furniture-presentation-report.json",
+    "furnitureLibraryVersion": "week9.furniture-library.v1",
+    "validatedModelRevision": 1,
+    "status": "pass",
+    "deterministicSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"
+  },
+  "candidateComparison": {
+    "version": "week10.candidate-comparison.v1",
+    "report": "bar-association-hall/standard/week10-candidate-qa-report.json",
+    "status": "fail",
+    "bestCandidateId": null,
+    "seeds": [
+      11,
+      23,
+      47
+    ]
   }
 }

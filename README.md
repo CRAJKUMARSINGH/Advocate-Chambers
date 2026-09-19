@@ -1,3 +1,41 @@
+# Week 9–10 architectural enrichment — applied
+
+The Week 9 and Week 10 enrichment from
+[`docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md`](docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md)
+has been implemented and merged into the canonical planning pipeline.
+
+## Delivered
+
+- **Week 9 — furniture and presentation:** a versioned furniture/equipment library
+  with scale, occupancy, and clearance envelopes; deterministic occupancy-aware
+  layouts; and a presentation layer that cannot mutate authoritative room, wall,
+  opening, stair, or route geometry.
+- **Week 10 — comparison and release discipline:** deterministic candidate seeds,
+  transparent scorecards for area, adjacency, route quality, daylight/ventilation,
+  structural/service coordination, and furniture fit; golden fixtures for
+  residential, commercial, institutional, and industrial programs; geometry
+  property checks; a release checklist; an export manifest; a changelog; and a
+  readable blocked-case SVG fixture.
+
+Run the enrichment and focused regression suite with:
+
+```bash
+npm run enrich:week910
+npm run test:week910
+```
+
+The generated artifacts are under
+`bar-association-hall/standard/`, including the Week 9 presentation report,
+Week 10 candidate/QA report, release checklist, manifest, changelog, and
+failure fixture.
+
+**Release note:** implementation is complete, but the current canonical Bar
+Association model remains **NOT ISSUABLE** when inherited Week 3–8 blockers are
+present. Week 10 intentionally does not mark a blocked candidate as “best”.
+These outputs are preliminary planning aids and still require review by the
+licensed architect, structural engineer, MEP consultant, fire/life-safety
+professional, surveyor, and local authority.
+
 # Advocate-Chambers
 
 Architectural planning intelligence for the Bar Association Hall project in

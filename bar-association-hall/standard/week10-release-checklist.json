@@ -1,0 +1,125 @@
+{
+  "checklist": [
+    {
+      "id": "canonical-model",
+      "message": "Canonical project model is present and remains the source of truth.",
+      "status": "pass"
+    },
+    {
+      "id": "presentation-separation",
+      "message": "Furniture is presentation-only and does not mutate room or wall geometry.",
+      "status": "pass"
+    },
+    {
+      "id": "candidate-determinism",
+      "message": "Candidate seeds and ranking are deterministic.",
+      "status": "pass"
+    },
+    {
+      "id": "golden-and-property-fixtures",
+      "message": "Golden building-type fixtures and geometry properties pass.",
+      "status": "pass"
+    },
+    {
+      "id": "blocker-gate",
+      "message": "No release candidate may contain a blocker or error.",
+      "status": "fail"
+    },
+    {
+      "id": "professional-review-boundary",
+      "message": "Exports remain preliminary and require qualified professional review.",
+      "status": "pass"
+    }
+  ],
+  "failureScreenshots": [
+    {
+      "fixture": "synthetic-orphaned-room",
+      "path": "bar-association-hall/standard/failure-screenshots/week10-orphaned-room-fixture.svg",
+      "purpose": "Readable visual evidence for a blocked release case.",
+      "status": "generated"
+    }
+  ],
+  "findingCounts": {},
+  "findings": [],
+  "goldenFixtures": {
+    "buildingTypes": [
+      "commercial",
+      "industrial",
+      "institutional",
+      "residential"
+    ],
+    "fixtures": [
+      {
+        "buildingType": "commercial",
+        "fixtureVersion": "week10.golden-fixture.v1",
+        "minimumLevels": 1,
+        "requiredUses": [
+          "reception",
+          "office",
+          "service"
+        ],
+        "routeRequired": true,
+        "status": "pass"
+      },
+      {
+        "buildingType": "industrial",
+        "fixtureVersion": "week10.golden-fixture.v1",
+        "minimumLevels": 1,
+        "requiredUses": [
+          "production",
+          "storage",
+          "service"
+        ],
+        "routeRequired": true,
+        "status": "pass"
+      },
+      {
+        "buildingType": "institutional",
+        "fixtureVersion": "week10.golden-fixture.v1",
+        "minimumLevels": 1,
+        "requiredUses": [
+          "reception",
+          "assembly",
+          "service",
+          "vertical-circulation"
+        ],
+        "routeRequired": true,
+        "status": "pass"
+      },
+      {
+        "buildingType": "residential",
+        "fixtureVersion": "week10.golden-fixture.v1",
+        "minimumLevels": 1,
+        "requiredUses": [
+          "living",
+          "kitchen",
+          "bedroom",
+          "bathroom"
+        ],
+        "routeRequired": true,
+        "status": "pass"
+      }
+    ],
+    "status": "pass",
+    "version": "week10.golden-fixtures.v1"
+  },
+  "propertyChecks": {
+    "cases": 64,
+    "failures": [],
+    "propertySet": [
+      "positive rectangles parse",
+      "contained rectangles remain contained"
+    ],
+    "seed": 910,
+    "status": "pass"
+  },
+  "releaseReady": false,
+  "status": "fail",
+  "traceability": {
+    "bestCandidateId": null,
+    "modelRevision": 1,
+    "presentationObjectsTraceToSpaces": true,
+    "presentationSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"
+  },
+  "version": "week10.qa-release.v1"
+}

@@ -1,0 +1,283 @@
+{
+  "candidates": {
+    "bestCandidateId": null,
+    "candidates": [
+      {
+        "blockingFindingCount": 36,
+        "eligibleForBest": false,
+        "id": "C-01",
+        "presentationSignature": "d2bf945b8e8d426f9a9c8512ba01d78e6fdeebad39b8e363d33f6e150bd6bbb7",
+        "rejectionReasons": [
+          "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
+          "OPENING_SIDE_B_MUST_BE_VALID",
+          "ROOM_ROUTE_UNREACHABLE",
+          "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
+          "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE"
+        ],
+        "scorecard": {
+          "components": {
+            "adjacency": 1.0,
+            "areaFit": 1.0,
+            "daylightVentilation": 0.7778,
+            "furnitureFit": 1.0,
+            "routeQuality": 0.28,
+            "structuralService": 1.0
+          },
+          "totalScore": 82.27,
+          "weights": {
+            "adjacency": 0.15,
+            "areaFit": 0.2,
+            "daylightVentilation": 0.15,
+            "furnitureFit": 0.15,
+            "routeQuality": 0.2,
+            "structuralService": 0.15
+          }
+        },
+        "seed": 11,
+        "status": "rejected"
+      },
+      {
+        "blockingFindingCount": 36,
+        "eligibleForBest": false,
+        "id": "C-02",
+        "presentationSignature": "e0e8bb79fd6d657a892c5d0a9e74f47f6620b13c6b554b46105013938b1be20f",
+        "rejectionReasons": [
+          "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
+          "OPENING_SIDE_B_MUST_BE_VALID",
+          "ROOM_ROUTE_UNREACHABLE",
+          "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
+          "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE"
+        ],
+        "scorecard": {
+          "components": {
+            "adjacency": 1.0,
+            "areaFit": 1.0,
+            "daylightVentilation": 0.7778,
+            "furnitureFit": 1.0,
+            "routeQuality": 0.28,
+            "structuralService": 1.0
+          },
+          "totalScore": 82.27,
+          "weights": {
+            "adjacency": 0.15,
+            "areaFit": 0.2,
+            "daylightVentilation": 0.15,
+            "furnitureFit": 0.15,
+            "routeQuality": 0.2,
+            "structuralService": 0.15
+          }
+        },
+        "seed": 23,
+        "status": "rejected"
+      },
+      {
+        "blockingFindingCount": 36,
+        "eligibleForBest": false,
+        "id": "C-03",
+        "presentationSignature": "a0b6061056513d6e21e12ecf7cd16b5c9839df41cd580cd41699ef7447f447f5",
+        "rejectionReasons": [
+          "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
+          "OPENING_SIDE_B_MUST_BE_VALID",
+          "ROOM_ROUTE_UNREACHABLE",
+          "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
+          "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE"
+        ],
+        "scorecard": {
+          "components": {
+            "adjacency": 1.0,
+            "areaFit": 1.0,
+            "daylightVentilation": 0.7778,
+            "furnitureFit": 1.0,
+            "routeQuality": 0.28,
+            "structuralService": 1.0
+          },
+          "totalScore": 82.27,
+          "weights": {
+            "adjacency": 0.15,
+            "areaFit": 0.2,
+            "daylightVentilation": 0.15,
+            "furnitureFit": 0.15,
+            "routeQuality": 0.2,
+            "structuralService": 0.15
+          }
+        },
+        "seed": 47,
+        "status": "rejected"
+      }
+    ],
+    "determinism": {
+      "algorithm": "stable scorecard with deterministic seeds",
+      "sameModelSameSeedsProduceSameRanking": true
+    },
+    "findingCounts": {
+      "BLOCKER": 1
+    },
+    "findings": [
+      {
+        "id": "VAL10-NO-BEST-CANDIDATE",
+        "message": "No candidate can be marked best because every candidate inherits a blocker or error.",
+        "rule": "BEST_CANDIDATE_MUST_HAVE_NO_BLOCKERS",
+        "severity": "BLOCKER",
+        "sourceModelIds": [
+          "proj-bar-association-hall"
+        ],
+        "spaceIds": [],
+        "suggestedFixes": [
+          "Resolve inherited validation blockers and rerun candidate comparison."
+        ]
+      }
+    ],
+    "ranking": [
+      "C-01",
+      "C-02",
+      "C-03"
+    ],
+    "scoreDimensions": [
+      "areaFit",
+      "adjacency",
+      "routeQuality",
+      "daylightVentilation",
+      "structuralService",
+      "furnitureFit"
+    ],
+    "seeds": [
+      11,
+      23,
+      47
+    ],
+    "status": "fail",
+    "version": "week10.candidate-comparison.v1"
+  },
+  "findingCounts": {
+    "BLOCKER": 36,
+    "ERROR": 1,
+    "WARNING": 2
+  },
+  "qa": {
+    "checklist": [
+      {
+        "id": "canonical-model",
+        "message": "Canonical project model is present and remains the source of truth.",
+        "status": "pass"
+      },
+      {
+        "id": "presentation-separation",
+        "message": "Furniture is presentation-only and does not mutate room or wall geometry.",
+        "status": "pass"
+      },
+      {
+        "id": "candidate-determinism",
+        "message": "Candidate seeds and ranking are deterministic.",
+        "status": "pass"
+      },
+      {
+        "id": "golden-and-property-fixtures",
+        "message": "Golden building-type fixtures and geometry properties pass.",
+        "status": "pass"
+      },
+      {
+        "id": "blocker-gate",
+        "message": "No release candidate may contain a blocker or error.",
+        "status": "fail"
+      },
+      {
+        "id": "professional-review-boundary",
+        "message": "Exports remain preliminary and require qualified professional review.",
+        "status": "pass"
+      }
+    ],
+    "failureScreenshots": [
+      {
+        "fixture": "synthetic-orphaned-room",
+        "path": "bar-association-hall/standard/failure-screenshots/week10-orphaned-room-fixture.svg",
+        "purpose": "Readable visual evidence for a blocked release case.",
+        "status": "generated"
+      }
+    ],
+    "findingCounts": {},
+    "findings": [],
+    "goldenFixtures": {
+      "buildingTypes": [
+        "commercial",
+        "industrial",
+        "institutional",
+        "residential"
+      ],
+      "fixtures": [
+        {
+          "buildingType": "commercial",
+          "fixtureVersion": "week10.golden-fixture.v1",
+          "minimumLevels": 1,
+          "requiredUses": [
+            "reception",
+            "office",
+            "service"
+          ],
+          "routeRequired": true,
+          "status": "pass"
+        },
+        {
+          "buildingType": "industrial",
+          "fixtureVersion": "week10.golden-fixture.v1",
+          "minimumLevels": 1,
+          "requiredUses": [
+            "production",
+            "storage",
+            "service"
+          ],
+          "routeRequired": true,
+          "status": "pass"
+        },
+        {
+          "buildingType": "institutional",
+          "fixtureVersion": "week10.golden-fixture.v1",
+          "minimumLevels": 1,
+          "requiredUses": [
+            "reception",
+            "assembly",
+            "service",
+            "vertical-circulation"
+          ],
+          "routeRequired": true,
+          "status": "pass"
+        },
+        {
+          "buildingType": "residential",
+          "fixtureVersion": "week10.golden-fixture.v1",
+          "minimumLevels": 1,
+          "requiredUses": [
+            "living",
+            "kitchen",
+            "bedroom",
+            "bathroom"
+          ],
+          "routeRequired": true,
+          "status": "pass"
+        }
+      ],
+      "status": "pass",
+      "version": "week10.golden-fixtures.v1"
+    },
+    "propertyChecks": {
+      "cases": 64,
+      "failures": [],
+      "propertySet": [
+        "positive rectangles parse",
+        "contained rectangles remain contained"
+      ],
+      "seed": 910,
+      "status": "pass"
+    },
+    "releaseReady": false,
+    "status": "fail",
+    "traceability": {
+      "bestCandidateId": null,
+      "modelRevision": 1,
+      "presentationObjectsTraceToSpaces": true,
+      "presentationSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"
+    },
+    "version": "week10.qa-release.v1"
+  },
+  "reportVersion": "week10.candidate-qa.v1",
+  "status": "fail"
+}
