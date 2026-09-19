@@ -16,6 +16,9 @@
     "draw:refined": "python bar-association-hall/generate_refined_cad.py",
     "draw:standard": "python bar-association-hall/generate_standard_drawings.py",
     "validate:standard": "python -c \"from bar_association_hall.drawing_model import load_model, validate_model; s,p=load_model(); e=validate_model(s,p); print('fail' if e else 'pass'); [print(x) for x in e]\"",
+    "validate:week1": "python scripts/week1.py validate --write-report",
+    "verify:week1": "python scripts/week1.py verify-manifest",
+    "test:week1": "python -m unittest discover -s tests -p 'test_week1*.py'",
     "docs:patch-guide": "start code-junction/future-react-cad-transformation-patch-guide/deliverables/TRANSFORMATION_PATCH_GUIDE.md"
   },
   "devDependencies": {

@@ -373,7 +373,8 @@ def draw_title_block(c, sheet_no, sheet_title, level_name, variant_tag, rev="P01
     c.drawString(dx, TB_Y+TB_H-52, f"LEVEL: {level_name.upper()}   SCALE: 1/8\" = 1'-0\"  (A2 LANDSCAPE)")
     c.setFillColor(BLACK); c.setFont("Helvetica-Bold", 7)
     c.drawString(dx, TB_Y+14, "STRUCTURE: RCC FRAME  IS 456:2000 / IS 1893:2016")
-    c.drawString(dx, TB_Y+4,  "STATUS: APPROVED SCHEMATIC — NOT FOR CONSTRUCTION")
+    c.setFillColor(colors.HexColor("#b91c1c"))
+    c.drawString(dx, TB_Y+4,  "STATUS: PRELIMINARY REVIEW ONLY — NOT FOR CONSTRUCTION")
 
     # ── Block 3: Sheet ID
     sx = col2 + (PAGE_W-36 - (col2-TB_X)) / 2
@@ -1733,7 +1734,7 @@ def draw_cover(c, site, plans):
         ("SCALE",            '1/8" = 1\'-0"  |  Sheet: A2 Landscape'),
         ("DATE",             datetime.now(timezone.utc).strftime("%d-%b-%Y").upper()),
         ("REVISION",         "P01 — Approved Schematic"),
-        ("STATUS",           "APPROVED SCHEMATIC DESIGN — NOT FOR CONSTRUCTION"),
+        ("STATUS",           "PRELIMINARY REVIEW ONLY — NOT FOR CONSTRUCTION"),
     ]
     box_x, box_y = 80, PAGE_H-480
     box_w = PAGE_W-160
@@ -1949,7 +1950,8 @@ def main():
         "generatedUtc": datetime.now(timezone.utc).isoformat(),
         "generator": "generate_lumion_drawings.py",
         "sourceSha256": hashlib.sha256(src_bytes).hexdigest(),
-        "status": "pass",
+        "status": "preliminary-review",
+        "professionalStatus": "PRELIMINARY / NOT FOR CONSTRUCTION",
         "adoptedSetbackEnvelopeAreaSqFt": 4427.5,
         "mainEntranceLocation": "East Long Wall — 12'-0\" × 8'-0\" Covered Porch",
         "fenestration": "4-Sided (North, South, East, West)",
@@ -1962,7 +1964,7 @@ def main():
         "sheetSize": "A2 Landscape",
         "scale": "1/8\" = 1'-0\" (approx)",
         "notes": [
-            "3 professional drawing sets produced from approved schematic source model.",
+            "3 coordinated drawing sets produced from the preliminary source model.",
             "Main entrance on East long wall with 12'-0\" × 8'-0\" covered accessible porch.",
             "Windows on all four facades approved per design directive.",
             "Old confusing drawing files removed before generation.",

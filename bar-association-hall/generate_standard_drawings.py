@@ -268,7 +268,8 @@ def draw_title_block(
     c.setFillColor(BLACK)
     c.drawString(x + 242, y + h - 54, f"LEVEL: {level_name.upper()}  |  SCALE: ~1/8\" = 1'-0\" (A2)")
     c.drawString(x + 242, y + 18, "MAIN ENTRY: EAST LONG WALL  |  4-SIDED FENESTRATION")
-    c.drawString(x + 242, y + 6, "STATUS: APPROVED SCHEMATIC REVIEW  |  NOT FOR CONSTRUCTION")
+    c.setFillColor(colors.HexColor("#b91c1c"))
+    c.drawString(x + 242, y + 6, "STATUS: PRELIMINARY REVIEW ONLY  |  NOT FOR CONSTRUCTION")
 
     # Sheet Number Block
     c.setFillColor(BLACK)
@@ -1091,6 +1092,9 @@ def draw_cover_sheet(c: canvas.Canvas, site: dict[str, Any], plans: dict[str, An
     c.setFont("Helvetica", 9.5)
     c.setFillColor(colors.HexColor("#e2e8f0"))
     c.drawCentredString(PAGE_W / 2, PAGE_H - 170, "DISTRICT COURT COMPLEX, BANSWARA, RAJASTHAN · SCHEMATIC DESIGN STAGE")
+    c.setFont("Helvetica-Bold", 10)
+    c.setFillColor(colors.HexColor("#fecaca"))
+    c.drawCentredString(PAGE_W / 2, PAGE_H - 188, "PRELIMINARY REVIEW ONLY · NOT FOR CONSTRUCTION")
 
     c.setFillColor(PALE_PANEL)
     c.setStrokeColor(colors.HexColor("#cbd5e1"))
@@ -1326,7 +1330,7 @@ def write_manifest(site: dict[str, Any], plans: dict[str, Any], outputs: list[st
         "generatedUtc": datetime.now(timezone.utc).isoformat(),
         "sourceSha256": source_hash.hexdigest(),
         "generator": "generate_standard_drawings.py",
-        "status": "pass" if not validation else "fail",
+        "status": "preliminary-review" if not validation else "fail",
         "adoptedSetbackEnvelopeAreaSqFt": 4427.50,
         "mainEntranceLocation": "East Long Wall",
         "fenestration": "4-Sided Approved (North, South, East, West)",
@@ -1334,7 +1338,8 @@ def write_manifest(site: dict[str, Any], plans: dict[str, Any], outputs: list[st
         "validationErrors": validation,
         "sheetSize": "A2 landscape",
         "declaredPlotScale": '1/8" = 1\'-0" approximate',
-        "professionalStatus": "approved-schematic",
+        "professionalStatus": "PRELIMINARY / NOT FOR CONSTRUCTION",
+        "issuePolicy": "PRELIMINARY / NOT FOR CONSTRUCTION",
         "notes": [
             "Includes 3 distinct coordinated sets: Bare Architectural, Presentation with Furniture, and Structural with Columns & Grid.",
             "Main entrance relocated to the East long wall with 12'-0\" x 8'-0\" covered porch.",

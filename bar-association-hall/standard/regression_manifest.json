@@ -1,0 +1,136 @@
+{
+  "manifestVersion": "week1.regression.v1",
+  "projectId": "bar-association-hall",
+  "fixture": {
+    "id": "bar-association-hall-week1-baseline",
+    "policy": "Source hashes are the golden fixture. Any intentional model change requires a new revision.",
+    "source": [
+      {
+        "path": "bar-association-hall/standard/source/site_plan.json",
+        "bytes": 1381,
+        "sha256": "bac6ccd9828e50f252b7d5ee9a213ce1b022350aac265106fed51795af9b00c0"
+      },
+      {
+        "path": "bar-association-hall/standard/source/preliminary_plans.json",
+        "bytes": 13256,
+        "sha256": "73b7a554cb871f4f200aee543cc0ed0e5a272cc321935a672c3aa82048dc3965"
+      }
+    ],
+    "expectedValidationStatus": "fail",
+    "requiredBaselineRule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR"
+  },
+  "validationReport": "bar-association-hall/standard/week1-validation-report.json",
+  "artifactRoots": [
+    "bar-association-hall/PDF",
+    "bar-association-hall/CAD"
+  ],
+  "artifacts": [
+    {
+      "path": "bar-association-hall/CAD/A-101-GF-bare.dxf",
+      "kind": "dxf",
+      "bytes": 24901,
+      "sha256": "7ece6c67e40d65d01281979f1e9910349ff7bf81be531a6ad55885de8b7ddca3"
+    },
+    {
+      "path": "bar-association-hall/CAD/A-102-FF-bare.dxf",
+      "kind": "dxf",
+      "bytes": 26799,
+      "sha256": "1e7a9c70bc58bdcc00f181680ca8fcaed5b79ebe18cec01865fcefd37f5f937e"
+    },
+    {
+      "path": "bar-association-hall/CAD/A-201-GF-furniture.dxf",
+      "kind": "dxf",
+      "bytes": 24901,
+      "sha256": "dce0c505f7b735ffeb30cbb61253138f0549a25d9af0850e46a271a3f87704a3"
+    },
+    {
+      "path": "bar-association-hall/CAD/A-202-FF-furniture.dxf",
+      "kind": "dxf",
+      "bytes": 26799,
+      "sha256": "ad10d9a9877e4a9fb4a4509353ad33c232b0b63b30209efc3783c1276bb42ae8"
+    },
+    {
+      "path": "bar-association-hall/CAD/S-101-GF-columns.dxf",
+      "kind": "dxf",
+      "bytes": 33520,
+      "sha256": "d2cd008d6a237f72589925cfcef94010ce8e272e6dd0aef3b13a859c413f1755"
+    },
+    {
+      "path": "bar-association-hall/CAD/S-102-FF-columns.dxf",
+      "kind": "dxf",
+      "bytes": 35850,
+      "sha256": "8bf1343632901102d7ac65efc9de88aedf7e82e6e7e8ce668466384b66a4416d"
+    },
+    {
+      "path": "bar-association-hall/PDF/A-101-GF-GROUND-FLOOR-PLAN-BARE.pdf",
+      "kind": "pdf",
+      "bytes": 28089,
+      "sha256": "540e0b916c37cbe1244719c36837e8ed3c54251980a041a239f097a8ac972be9"
+    },
+    {
+      "path": "bar-association-hall/PDF/A-102-FF-FIRST-FLOOR-PLAN-BARE.pdf",
+      "kind": "pdf",
+      "bytes": 30545,
+      "sha256": "87159318fd056834980e2acb147f675fa4419c9f503fb66fa5390ed1adae0c8d"
+    },
+    {
+      "path": "bar-association-hall/PDF/A-201-GF-GROUND-FLOOR-PLAN-FURNITURE.pdf",
+      "kind": "pdf",
+      "bytes": 117556,
+      "sha256": "ae5e9177c2b5262500e70778e396575943919b7de988a28611536cd10f3b55df"
+    },
+    {
+      "path": "bar-association-hall/PDF/A-202-FF-FIRST-FLOOR-PLAN-FURNITURE.pdf",
+      "kind": "pdf",
+      "bytes": 40004,
+      "sha256": "03cbbbf42a6c26c1d69e6f6055ee5da12d9729ee644c5a9f628e4fd2891f01a7"
+    },
+    {
+      "path": "bar-association-hall/PDF/Bar-Association-Lumion-Master-Review-Set.pdf",
+      "kind": "pdf",
+      "bytes": 280053,
+      "sha256": "82913a3811caae1dddaf8ca04280cf682697e9b9c7ec526874f40b9ecd168ed1"
+    },
+    {
+      "path": "bar-association-hall/PDF/S-101-GF-GROUND-FLOOR-PLAN-COLUMNS.pdf",
+      "kind": "pdf",
+      "bytes": 31542,
+      "sha256": "3247680c8c0e917aaa07606e739f93af16fd7d295a69c0f1ff748fa255d0455d"
+    },
+    {
+      "path": "bar-association-hall/PDF/S-102-FF-FIRST-FLOOR-PLAN-COLUMNS.pdf",
+      "kind": "pdf",
+      "bytes": 33763,
+      "sha256": "4d65e5c1d047e703a308886e1495cd04d64c1def8aa57fa6c098d253b2cfeaa0"
+    },
+    {
+      "path": "bar-association-hall/PDF/SL-01-PROPOSED-SITE-LAYOUT-PLAN.pdf",
+      "kind": "pdf",
+      "bytes": 7512,
+      "sha256": "6a83a744dd8eef8ad82548e1a981c6ec35479518dea60ec2d13e19352a25e976"
+    },
+    {
+      "path": "bar-association-hall/PDF/SP-101-GF-SEATING-ARRANGEMENT-PLAN.pdf",
+      "kind": "pdf",
+      "bytes": 205309,
+      "sha256": "c79f363021cbe8c3557eb2c72f022c4361853b2154da78de5449c06fa0ed4b18"
+    },
+    {
+      "path": "bar-association-hall/PDF/site_check.png",
+      "kind": "png",
+      "bytes": 1231507,
+      "sha256": "f96923109ff8cae2b19ed2a25d3e36339a0da311b7e0767c825d947bd04c80e8"
+    },
+    {
+      "path": "bar-association-hall/PDF/site_preview_800.png",
+      "kind": "png",
+      "bytes": 168624,
+      "sha256": "0ceb0ba48a186c9bb50f4fbba91db7ca1ffd5d5a63e3b76bd5fb3ded63f9e04d"
+    }
+  ],
+  "notes": [
+    "Legacy paths remain untouched during Week 1.",
+    "Hashes verify identity; they do not replace backups or Git LFS.",
+    "PRELIMINARY / NOT FOR CONSTRUCTION is the only issue status for this baseline."
+  ]
+}

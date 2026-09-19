@@ -199,6 +199,27 @@ The UI should explain why a room was placed, moved, rejected, or flagged. Avoid 
 
 Gate: the known inaccessible upper-floor-room example fails with a precise BLOCKER, and a valid fixture still renders unchanged.
 
+### Week 1 implementation note
+
+The first implementation slice is now wired into the repository:
+
+- `python scripts/week1.py validate --write-report` emits
+  `bar-association-hall/standard/week1-validation-report.json`.
+- `python -m unittest discover -s tests -p 'test_week1*.py'` covers orphan rooms,
+  unjustified upper-floor exterior doors, overlapping rooms, invalid openings,
+  and stair arithmetic.
+- `python scripts/week1.py manifest --write` records source and existing
+  CAD/PDF artifact SHA-256 hashes in
+  `bar-association-hall/standard/regression_manifest.json`.
+- `python scripts/week1.py verify-manifest` blocks a checksum mismatch or
+  missing artifact.
+- Generated title blocks use `PRELIMINARY REVIEW ONLY | NOT FOR CONSTRUCTION`.
+
+The current golden source intentionally reports `fail` because it contains the
+known upper-floor exterior-door condition (including `FF-07` / `D-FF-07`).
+This is a baseline finding, not a silent pass. Legacy binaries remain in place;
+no history rewrite or bulk move is part of Week 1.
+
 ### Week 2 — Schema foundation and migration
 
 - Add levels, room use, access intent, circulation zones, exterior zones, and vertical connector references.

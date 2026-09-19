@@ -7,6 +7,28 @@
 
 > Planning package only: dimensions, room layouts, structural notes, services, and cost figures must be verified by a licensed architect/engineer, site survey, and the competent local authority before construction or statutory submission.
 
+## Week 1 — Baseline, fixtures, and honest status: DONE
+
+Week 1 implementation is complete and included in the repository:
+
+- Structured validation findings with stable rule IDs and `BLOCKER` / `ERROR` severity.
+- Regression tests for orphan rooms, unjustified upper-floor exterior doors, overlapping rooms, invalid openings, and stair arithmetic.
+- Golden source and CAD/PDF artifact hashes in `standard/regression_manifest.json`.
+- Machine-readable validation output in `standard/week1-validation-report.json`.
+- Generated sheets marked `PRELIMINARY REVIEW ONLY — NOT FOR CONSTRUCTION`.
+- Existing legacy CAD/PDF paths preserved; no binary migration or history rewrite performed.
+
+Run the Week 1 checks from the repository root:
+
+    python3 -m unittest discover -s tests -p 'test_week1*.py'
+    python3 scripts/week1.py verify-manifest
+    python3 scripts/week1.py validate --write-report
+
+The current source correctly reports a non-issuable baseline because the known
+upper-floor external-door condition remains unresolved, including `FF-07 /
+D-FF-07`. This is recorded as a precise `ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR`
+`BLOCKER`, not treated as a pass.
+
 ## Refined preliminary plans
 
 - `ground_floor_preliminary.svg` - Coordinated ground-floor review plan.

@@ -3,7 +3,8 @@
   "generatedUtc": "2026-09-19T03:12:53.872298+00:00",
   "generator": "generate_lumion_drawings.py",
   "sourceSha256": "21ca5454bf080641a8618d4cb7ed708bea0bddb629f529afd11467476beb2267",
-  "status": "pass",
+  "status": "preliminary-review",
+  "professionalStatus": "PRELIMINARY / NOT FOR CONSTRUCTION",
   "adoptedSetbackEnvelopeAreaSqFt": 4427.5,
   "mainEntranceLocation": "East Long Wall \u2014 12'-0\" \u00d7 8'-0\" Covered Porch",
   "fenestration": "4-Sided (North, South, East, West)",
@@ -39,7 +40,7 @@
   "sheetSize": "A2 Landscape",
   "scale": "1/8\" = 1'-0\" (approx)",
   "notes": [
-    "3 professional drawing sets produced from approved schematic source model.",
+    "3 coordinated drawing sets produced from the preliminary source model.",
     "Main entrance on East long wall with 12'-0\" \u00d7 8'-0\" covered accessible porch.",
     "Windows on all four facades approved per design directive.",
     "Old confusing drawing files removed before generation.",
