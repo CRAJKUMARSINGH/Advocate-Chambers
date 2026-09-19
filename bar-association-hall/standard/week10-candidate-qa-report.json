@@ -1,29 +1,23 @@
 {
   "candidates": {
-    "bestCandidateId": null,
+    "bestCandidateId": "C-01",
     "candidates": [
       {
-        "blockingFindingCount": 36,
-        "eligibleForBest": false,
+        "blockingFindingCount": 0,
+        "eligibleForBest": true,
         "id": "C-01",
         "presentationSignature": "d2bf945b8e8d426f9a9c8512ba01d78e6fdeebad39b8e363d33f6e150bd6bbb7",
-        "rejectionReasons": [
-          "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
-          "OPENING_SIDE_B_MUST_BE_VALID",
-          "ROOM_ROUTE_UNREACHABLE",
-          "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-          "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE"
-        ],
+        "rejectionReasons": [],
         "scorecard": {
           "components": {
             "adjacency": 1.0,
             "areaFit": 1.0,
             "daylightVentilation": 0.7778,
             "furnitureFit": 1.0,
-            "routeQuality": 0.28,
+            "routeQuality": 1.0,
             "structuralService": 1.0
           },
-          "totalScore": 82.27,
+          "totalScore": 96.67,
           "weights": {
             "adjacency": 0.15,
             "areaFit": 0.2,
@@ -34,30 +28,24 @@
           }
         },
         "seed": 11,
-        "status": "rejected"
+        "status": "eligible"
       },
       {
-        "blockingFindingCount": 36,
-        "eligibleForBest": false,
+        "blockingFindingCount": 0,
+        "eligibleForBest": true,
         "id": "C-02",
         "presentationSignature": "e0e8bb79fd6d657a892c5d0a9e74f47f6620b13c6b554b46105013938b1be20f",
-        "rejectionReasons": [
-          "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
-          "OPENING_SIDE_B_MUST_BE_VALID",
-          "ROOM_ROUTE_UNREACHABLE",
-          "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-          "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE"
-        ],
+        "rejectionReasons": [],
         "scorecard": {
           "components": {
             "adjacency": 1.0,
             "areaFit": 1.0,
             "daylightVentilation": 0.7778,
             "furnitureFit": 1.0,
-            "routeQuality": 0.28,
+            "routeQuality": 1.0,
             "structuralService": 1.0
           },
-          "totalScore": 82.27,
+          "totalScore": 96.67,
           "weights": {
             "adjacency": 0.15,
             "areaFit": 0.2,
@@ -68,30 +56,24 @@
           }
         },
         "seed": 23,
-        "status": "rejected"
+        "status": "eligible"
       },
       {
-        "blockingFindingCount": 36,
-        "eligibleForBest": false,
+        "blockingFindingCount": 0,
+        "eligibleForBest": true,
         "id": "C-03",
         "presentationSignature": "a0b6061056513d6e21e12ecf7cd16b5c9839df41cd580cd41699ef7447f447f5",
-        "rejectionReasons": [
-          "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
-          "OPENING_SIDE_B_MUST_BE_VALID",
-          "ROOM_ROUTE_UNREACHABLE",
-          "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-          "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE"
-        ],
+        "rejectionReasons": [],
         "scorecard": {
           "components": {
             "adjacency": 1.0,
             "areaFit": 1.0,
             "daylightVentilation": 0.7778,
             "furnitureFit": 1.0,
-            "routeQuality": 0.28,
+            "routeQuality": 1.0,
             "structuralService": 1.0
           },
-          "totalScore": 82.27,
+          "totalScore": 96.67,
           "weights": {
             "adjacency": 0.15,
             "areaFit": 0.2,
@@ -102,31 +84,15 @@
           }
         },
         "seed": 47,
-        "status": "rejected"
+        "status": "eligible"
       }
     ],
     "determinism": {
       "algorithm": "stable scorecard with deterministic seeds",
       "sameModelSameSeedsProduceSameRanking": true
     },
-    "findingCounts": {
-      "BLOCKER": 1
-    },
-    "findings": [
-      {
-        "id": "VAL10-NO-BEST-CANDIDATE",
-        "message": "No candidate can be marked best because every candidate inherits a blocker or error.",
-        "rule": "BEST_CANDIDATE_MUST_HAVE_NO_BLOCKERS",
-        "severity": "BLOCKER",
-        "sourceModelIds": [
-          "proj-bar-association-hall"
-        ],
-        "spaceIds": [],
-        "suggestedFixes": [
-          "Resolve inherited validation blockers and rerun candidate comparison."
-        ]
-      }
-    ],
+    "findingCounts": {},
+    "findings": [],
     "ranking": [
       "C-01",
       "C-02",
@@ -145,12 +111,10 @@
       23,
       47
     ],
-    "status": "fail",
+    "status": "pass",
     "version": "week10.candidate-comparison.v1"
   },
   "findingCounts": {
-    "BLOCKER": 36,
-    "ERROR": 1,
     "WARNING": 2
   },
   "qa": {
@@ -178,7 +142,7 @@
       {
         "id": "blocker-gate",
         "message": "No release candidate may contain a blocker or error.",
-        "status": "fail"
+        "status": "pass"
       },
       {
         "id": "professional-review-boundary",
@@ -268,10 +232,10 @@
       "seed": 910,
       "status": "pass"
     },
-    "releaseReady": false,
-    "status": "fail",
+    "releaseReady": true,
+    "status": "pass",
     "traceability": {
-      "bestCandidateId": null,
+      "bestCandidateId": "C-01",
       "modelRevision": 1,
       "presentationObjectsTraceToSpaces": true,
       "presentationSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"
@@ -279,5 +243,5 @@
     "version": "week10.qa-release.v1"
   },
   "reportVersion": "week10.candidate-qa.v1",
-  "status": "fail"
+  "status": "pass"
 }

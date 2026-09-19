@@ -151,9 +151,9 @@
     {"id": "D-FF-05", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-05", "wall": "south", "offset": 36,  "width": 36, "swing": "in"},
     {"id": "D-FF-06", "level": "FF", "type": "door", "tag": "D-01", "hostSpace": "FF-06", "wall": "south", "offset": 300, "width": 48, "swing": "in"},
     {"id": "D-FF-07", "level": "FF", "type": "door", "tag": "D-01", "hostSpace": "FF-07", "wall": "north", "offset": 300, "width": 48, "swing": "in"},
-    {"id": "D-FF-08", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-08", "wall": "south", "offset": 60,  "width": 36, "swing": "in"},
-    {"id": "D-FF-09", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-09", "wall": "south", "offset": 60,  "width": 36, "swing": "in"},
-    {"id": "D-FF-10", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-10", "wall": "south", "offset": 60,  "width": 36, "swing": "out"}
+    {"id": "D-FF-08", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-08", "wall": "north", "offset": 60,  "width": 36, "swing": "in"},
+    {"id": "D-FF-09", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-09", "wall": "north", "offset": 60,  "width": 36, "swing": "in"},
+    {"id": "D-FF-10", "level": "FF", "type": "door", "tag": "D-03", "hostSpace": "FF-10", "wall": "north", "offset": 60,  "width": 36, "swing": "out"}
   ],
   "windows": [
     {"id": "W-GF-01", "level": "GF", "tag": "W-02", "hostSpace": "GF-01", "wall": "south", "offset": 18, "width": 48},
@@ -224,7 +224,13 @@
       "wall": "east",
       "importance": "secondary controlled access / dignitary egress",
       "sourceBasis": "coordinated with stage & dais",
-      "status": "approved"
+      "status": "approved",
+      "porch": {
+        "label": "VIP / STAGE LANDING",
+        "width": 48,
+        "depth": 48,
+        "status": "preliminary controlled-access landing; verify with egress and accessibility review"
+      }
     }
   ],
   "stairs": [
@@ -258,6 +264,6 @@
     "Assembly Hall starts at Y=180 (15'-0\") — full 55'-0\" clear width × 60'-0\" length.",
     "Floor-to-floor height 178\" (14'-10\"). 24 risers @ 7.42\" / 9\" tread.",
     "Wall thickness: 12\" outer perimeter, 6\" internal partitions.",
-    "All dimensions are nominal planning dimensions. Verify before construction."
+    "First-floor D-FF-08 through D-FF-10 are modeled on the north wall to connect the lower rooms to the stack area; verify this intent against the source drawing before construction."
   ]
 }

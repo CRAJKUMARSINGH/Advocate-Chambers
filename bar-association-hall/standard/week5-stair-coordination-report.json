@@ -1,29 +1,8 @@
 {
   "reportVersion": "week5.stair-coordination.v1",
-  "status": "fail",
-  "findingCounts": {
-    "BLOCKER": 1
-  },
-  "findings": [
-    {
-      "id": "VAL5-ROUTE-VC-STAIR-01",
-      "severity": "BLOCKER",
-      "rule": "UPPER_FLOOR_ROUTE_MUST_BE_REACHABLE",
-      "levelId": "FF",
-      "spaceIds": [
-        "GF-02",
-        "FF-02"
-      ],
-      "connectorIds": [
-        "VC-STAIR-01"
-      ],
-      "message": "STAIR-01 reaches FF-02, but the upper-floor route is not proven from an intentional entry.",
-      "suggestedFixes": [
-        "Connect the lower-floor departure to an entry.",
-        "Connect the upper-floor arrival to the occupied upper-floor route."
-      ]
-    }
-  ],
+  "status": "pass",
+  "findingCounts": {},
+  "findings": [],
   "connectors": [
     {
       "connectorId": "VC-STAIR-01",
@@ -47,9 +26,15 @@
       "route": {
         "spaceId": "FF-02",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01"
+        ],
         "firstBrokenEdge": null
       }
     }

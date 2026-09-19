@@ -1,8 +1,8 @@
 {
   "reportVersion": "week8.drawing-quality.v1",
-  "status": "fail",
-  "stamp": "NOT ISSUABLE",
-  "issuable": false,
+  "status": "pass",
+  "stamp": "VALIDATED FOR PRELIMINARY REVIEW",
+  "issuable": true,
   "findingCounts": {},
   "findings": [],
   "sheetCatalog": [
@@ -260,7 +260,7 @@
     ]
   },
   "validationGate": {
-    "week56Status": "fail",
+    "week56Status": "pass",
     "week7Status": "pass",
     "week8LocalStatus": "pass",
     "professionalReviewRequired": true,

@@ -1,9 +1,7 @@
 {
   "reportVersion": "week3.reachability.v1",
-  "status": "fail",
-  "findingCounts": {
-    "BLOCKER": 24
-  },
+  "status": "pass",
+  "findingCounts": {},
   "graph": {
     "nodes": [
       {
@@ -244,10 +242,46 @@
         "routeClass": "internal"
       },
       {
+        "id": "EDGE-OPENING-D-FF-02",
+        "kind": "opening",
+        "from": "FF-02",
+        "to": "FF-06",
+        "openingId": "D-FF-02",
+        "levelId": "FF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-FF-03",
+        "kind": "opening",
+        "from": "FF-03",
+        "to": "FF-06",
+        "openingId": "D-FF-03",
+        "levelId": "FF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-FF-04",
+        "kind": "opening",
+        "from": "FF-04",
+        "to": "FF-06",
+        "openingId": "D-FF-04",
+        "levelId": "FF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-FF-05",
+        "kind": "opening",
+        "from": "FF-05",
+        "to": "FF-06",
+        "openingId": "D-FF-05",
+        "levelId": "FF",
+        "routeClass": "internal"
+      },
+      {
         "id": "EDGE-OPENING-D-FF-06",
         "kind": "opening",
         "from": "FF-06",
-        "to": "FF-03",
+        "to": "FF-07",
         "openingId": "D-FF-06",
         "levelId": "FF",
         "routeClass": "internal"
@@ -256,7 +290,7 @@
         "id": "EDGE-OPENING-D-FF-07",
         "kind": "opening",
         "from": "FF-07",
-        "to": "FF-09",
+        "to": "FF-06",
         "openingId": "D-FF-07",
         "levelId": "FF",
         "routeClass": "internal"
@@ -298,6 +332,42 @@
         "routeClass": "internal"
       },
       {
+        "id": "EDGE-OPENING-D-GF-02",
+        "kind": "opening",
+        "from": "GF-02",
+        "to": "GF-06",
+        "openingId": "D-GF-02",
+        "levelId": "GF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-GF-03",
+        "kind": "opening",
+        "from": "GF-03",
+        "to": "GF-06",
+        "openingId": "D-GF-03",
+        "levelId": "GF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-GF-04",
+        "kind": "opening",
+        "from": "GF-04",
+        "to": "GF-06",
+        "openingId": "D-GF-04",
+        "levelId": "GF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-GF-05",
+        "kind": "opening",
+        "from": "GF-05",
+        "to": "GF-06",
+        "openingId": "D-GF-05",
+        "levelId": "GF",
+        "routeClass": "internal"
+      },
+      {
         "id": "EDGE-OPENING-D-GF-06",
         "kind": "opening",
         "from": "GF-06",
@@ -316,6 +386,24 @@
         "routeClass": "exterior-entry"
       },
       {
+        "id": "EDGE-OPENING-D-GF-08",
+        "kind": "opening",
+        "from": "GF-07",
+        "to": "GF-06",
+        "openingId": "D-GF-08",
+        "levelId": "GF",
+        "routeClass": "internal"
+      },
+      {
+        "id": "EDGE-OPENING-D-GF-09",
+        "kind": "opening",
+        "from": "GF-01",
+        "to": "GF-06",
+        "openingId": "D-GF-09",
+        "levelId": "GF",
+        "routeClass": "internal"
+      },
+      {
         "id": "EDGE-OPENING-D-GF-10",
         "kind": "opening",
         "from": "GF-03",
@@ -326,127 +414,232 @@
       }
     ],
     "entryRoots": [
-      "EXT-ENTRY-MAIN"
+      "EXT-ENTRY-MAIN",
+      "EXT-ENTRY-VIP"
     ],
     "routes": [
       {
         "spaceId": "FF-01",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-01"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-02",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-03",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-03"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-04",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-04"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-05",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-05"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-06",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-07",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-06"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-08",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-06",
+          "EDGE-OPENING-D-FF-08"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-09",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-06",
+          "EDGE-OPENING-D-FF-09"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "FF-10",
         "levelId": "FF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02",
+          "EDGE-CONNECTOR-VC-STAIR-01",
+          "EDGE-OPENING-D-FF-02",
+          "EDGE-OPENING-D-FF-06",
+          "EDGE-OPENING-D-FF-10"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "GF-01",
         "levelId": "GF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-09"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "GF-02",
         "levelId": "GF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-02"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "GF-03",
         "levelId": "GF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-03"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "GF-04",
         "levelId": "GF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-04"
+        ],
         "firstBrokenEdge": null
       },
       {
         "spaceId": "GF-05",
         "levelId": "GF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-MAIN"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-06",
+          "EDGE-OPENING-D-GF-05"
+        ],
         "firstBrokenEdge": null
       },
       {
@@ -464,443 +657,39 @@
       {
         "spaceId": "GF-07",
         "levelId": "GF",
-        "reachable": false,
-        "entryRoots": [],
-        "path": [],
+        "reachable": true,
+        "entryRoots": [
+          "EXT-ENTRY-VIP"
+        ],
+        "path": [
+          "EDGE-OPENING-D-GF-07"
+        ],
         "firstBrokenEdge": null
       }
     ],
     "components": [
       [
         "EXT-ENTRY-MAIN",
-        "GF-06"
-      ],
-      [
         "EXT-ENTRY-VIP",
-        "GF-07"
-      ],
-      [
         "FF-01",
         "FF-02",
-        "GF-01",
-        "GF-02",
-        "GF-03"
-      ],
-      [
         "FF-03",
-        "FF-06"
-      ],
-      [
-        "FF-04"
-      ],
-      [
-        "FF-05"
-      ],
-      [
+        "FF-04",
+        "FF-05",
+        "FF-06",
         "FF-07",
         "FF-08",
         "FF-09",
-        "FF-10"
-      ],
-      [
-        "GF-04"
-      ],
-      [
-        "GF-05"
+        "FF-10",
+        "GF-01",
+        "GF-02",
+        "GF-03",
+        "GF-04",
+        "GF-05",
+        "GF-06",
+        "GF-07"
       ]
     ]
   },
-  "findings": [
-    {
-      "id": "VAL3-UNREACHABLE-FF-01",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-01",
-      "openingIds": [
-        "D-FF-01"
-      ],
-      "connectorIds": [],
-      "message": "FF-01 (Librarian / Administration) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-01."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-03",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-03",
-      "openingIds": [
-        "D-FF-03"
-      ],
-      "connectorIds": [],
-      "message": "FF-03 (Secretary / Committee Room) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-03."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-04",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-04",
-      "openingIds": [
-        "D-FF-04"
-      ],
-      "connectorIds": [],
-      "message": "FF-04 (Pantry) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-04."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-05",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-05",
-      "openingIds": [
-        "D-FF-05"
-      ],
-      "connectorIds": [],
-      "message": "FF-05 (Toilet Block) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-05."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-06",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-06",
-      "openingIds": [
-        "D-FF-06"
-      ],
-      "connectorIds": [],
-      "message": "FF-06 (Library Reading Room) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-06."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-07",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-07",
-      "openingIds": [
-        "D-FF-07"
-      ],
-      "connectorIds": [],
-      "message": "FF-07 (Stack Area / Book Storage) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-07."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-08",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-08",
-      "openingIds": [
-        "D-FF-08"
-      ],
-      "connectorIds": [],
-      "message": "FF-08 (Discussion Room) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-08."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-09",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-09",
-      "openingIds": [
-        "D-FF-09"
-      ],
-      "connectorIds": [],
-      "message": "FF-09 (Computer / Internet) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-09."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-FF-10",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "FF",
-      "spaceId": "FF-10",
-      "openingIds": [
-        "D-FF-10"
-      ],
-      "connectorIds": [],
-      "message": "FF-10 (Store / Electrical) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-FF-10."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-GF-01",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "GF",
-      "spaceId": "GF-01",
-      "openingIds": [
-        "D-GF-01",
-        "D-GF-09"
-      ],
-      "connectorIds": [],
-      "message": "GF-01 (Reception / Records) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-GF-01."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-GF-03",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "GF",
-      "spaceId": "GF-03",
-      "openingIds": [
-        "D-GF-03",
-        "D-GF-10"
-      ],
-      "connectorIds": [],
-      "message": "GF-03 (President Chamber) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-GF-03."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-GF-04",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "GF",
-      "spaceId": "GF-04",
-      "openingIds": [
-        "D-GF-04"
-      ],
-      "connectorIds": [],
-      "message": "GF-04 (Pantry) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-GF-04."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-GF-05",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "GF",
-      "spaceId": "GF-05",
-      "openingIds": [
-        "D-GF-05"
-      ],
-      "connectorIds": [],
-      "message": "GF-05 (Toilet Block) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-GF-05."
-      ]
-    },
-    {
-      "id": "VAL3-UNREACHABLE-GF-07",
-      "severity": "BLOCKER",
-      "rule": "ROOM_ROUTE_UNREACHABLE",
-      "levelId": "GF",
-      "spaceId": "GF-07",
-      "openingIds": [
-        "D-GF-07",
-        "D-GF-08"
-      ],
-      "connectorIds": [],
-      "message": "GF-07 (Dais / Speaker Zone) has no proven route to an intentional entry.",
-      "suggestedFixes": [
-        "Connect the room to a reachable corridor or stair arrival.",
-        "Add an intentional exterior entry with a valid approach/landing.",
-        "Review first broken door edge D-GF-07."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-GF-02",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "GF",
-      "spaceId": "GF-02",
-      "openingIds": [
-        "D-GF-02"
-      ],
-      "connectorIds": [],
-      "message": "D-GF-02 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-GF-03",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "GF",
-      "spaceId": "GF-03",
-      "openingIds": [
-        "D-GF-03"
-      ],
-      "connectorIds": [],
-      "message": "D-GF-03 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-GF-04",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "GF",
-      "spaceId": "GF-04",
-      "openingIds": [
-        "D-GF-04"
-      ],
-      "connectorIds": [],
-      "message": "D-GF-04 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-GF-05",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "GF",
-      "spaceId": "GF-05",
-      "openingIds": [
-        "D-GF-05"
-      ],
-      "connectorIds": [],
-      "message": "D-GF-05 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-GF-08",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "GF",
-      "spaceId": "GF-07",
-      "openingIds": [
-        "D-GF-08"
-      ],
-      "connectorIds": [],
-      "message": "D-GF-08 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-GF-09",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "GF",
-      "spaceId": "GF-01",
-      "openingIds": [
-        "D-GF-09"
-      ],
-      "connectorIds": [],
-      "message": "D-GF-09 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-FF-02",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "FF",
-      "spaceId": "FF-02",
-      "openingIds": [
-        "D-FF-02"
-      ],
-      "connectorIds": [],
-      "message": "D-FF-02 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-FF-03",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "FF",
-      "spaceId": "FF-03",
-      "openingIds": [
-        "D-FF-03"
-      ],
-      "connectorIds": [],
-      "message": "D-FF-03 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-FF-04",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "FF",
-      "spaceId": "FF-04",
-      "openingIds": [
-        "D-FF-04"
-      ],
-      "connectorIds": [],
-      "message": "D-FF-04 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    },
-    {
-      "id": "VAL3-BROKEN-EDGE-D-FF-05",
-      "severity": "BLOCKER",
-      "rule": "ROUTE_EDGE_MUST_HAVE_TWO_VALID_SIDES",
-      "levelId": "FF",
-      "spaceId": "FF-05",
-      "openingIds": [
-        "D-FF-05"
-      ],
-      "connectorIds": [],
-      "message": "D-FF-05 cannot be used as a route edge because side B is not modeled.",
-      "suggestedFixes": [
-        "Name the adjacent space or attach an explicit exterior access zone."
-      ]
-    }
-  ]
+  "findings": []
 }

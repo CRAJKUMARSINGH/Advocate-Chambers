@@ -78,6 +78,29 @@ class Week34EnrichmentTests(unittest.TestCase):
         self.assertTrue(route["reachable"])
         self.assertIn("EDGE-OPENING-D-01", route["path"])
 
+    def test_south_door_connects_to_room_below(self):
+        plans = copy.deepcopy(self.plans)
+        plans["spaces"] = [
+            {"id": "GF-UPPER", "level": "GF", "name": "Upper room", "rect": [0, 0, 120, 120]},
+            {"id": "GF-LOWER", "level": "GF", "name": "Lower room", "rect": [0, 126, 120, 246]},
+        ]
+        plans["openings"] = [
+            {
+                "id": "D-INTERNAL",
+                "level": "GF",
+                "type": "door",
+                "tag": "D-INTERNAL",
+                "hostSpace": "GF-UPPER",
+                "wall": "south",
+                "offset": 42,
+                "width": 36,
+                "swing": "in",
+            }
+        ]
+        semantics = semantic_openings(self.site, plans)
+        self.assertEqual(semantics[0]["connectionType"], "internal")
+        self.assertEqual(semantics[0]["sideB"]["spaceId"], "GF-LOWER")
+
     def test_disconnected_room_reports_first_broken_edge(self):
         plans = copy.deepcopy(self.plans)
         plans["spaces"].append(

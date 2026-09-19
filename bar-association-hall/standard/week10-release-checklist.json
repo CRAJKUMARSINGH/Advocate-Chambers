@@ -23,7 +23,7 @@
     {
       "id": "blocker-gate",
       "message": "No release candidate may contain a blocker or error.",
-      "status": "fail"
+      "status": "pass"
     },
     {
       "id": "professional-review-boundary",
@@ -113,10 +113,10 @@
     "seed": 910,
     "status": "pass"
   },
-  "releaseReady": false,
-  "status": "fail",
+  "releaseReady": true,
+  "status": "pass",
   "traceability": {
-    "bestCandidateId": null,
+    "bestCandidateId": "C-01",
     "modelRevision": 1,
     "presentationObjectsTraceToSpaces": true,
     "presentationSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"

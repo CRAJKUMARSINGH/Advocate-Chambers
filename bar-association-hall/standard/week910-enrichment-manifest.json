@@ -1,5 +1,5 @@
 {
-  "bestCandidateId": null,
+  "bestCandidateId": "C-01",
   "changelog": "bar-association-hall/standard/week910-changelog.md",
   "failureScreenshots": [
     {
@@ -10,8 +10,6 @@
     }
   ],
   "findingCounts": {
-    "BLOCKER": 36,
-    "ERROR": 1,
     "WARNING": 2
   },
   "manifestVersion": "week910.enrichment-manifest.v1",
@@ -20,5 +18,5 @@
     "week10": "bar-association-hall/standard/week10-candidate-qa-report.json",
     "week9": "bar-association-hall/standard/week9-furniture-presentation-report.json"
   },
-  "status": "fail"
+  "status": "pass"
 }

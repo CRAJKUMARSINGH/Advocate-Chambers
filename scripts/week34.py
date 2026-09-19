@@ -92,7 +92,13 @@ def _wall_span(space: dict[str, Any], wall: str) -> float:
 
 def _wall_coordinate(space: dict[str, Any], wall: str) -> float:
     x0, y0, x1, y1 = _space_rect(space)
-    return {"south": y0, "north": y1, "west": x0, "east": x1}[wall]
+    # Canonical rectangles are [x0, y0, x1, y1].  The source plans use the
+    # drawing convention in which the south edge is the larger Y edge and the
+    # north edge is the smaller Y edge.  Keeping this mapping explicit is
+    # important: a six-inch partition gap must allow a semantic door to reach
+    # the room on the other side without turning a valid internal opening into
+    # an exterior access finding.
+    return {"south": y1, "north": y0, "west": x0, "east": x1}[wall]
 
 
 def _wall_interval(

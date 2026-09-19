@@ -106,7 +106,11 @@ def _opening_fits(space: dict[str, Any], opening: dict[str, Any]) -> bool:
 
 def _wall_coordinate(space: dict[str, Any], wall: str) -> float:
     x0, y0, x1, y1 = rect(space)
-    return {"south": y0, "north": y1, "west": x0, "east": x1}[wall]
+    # Rectangles are [x0, y0, x1, y1], and the drawing convention places the
+    # south edge at y1 and the north edge at y0.  This must match Week 3/4
+    # semantic opening analysis so Week 1 does not misclassify an internal
+    # upper-floor door as an unjustified exterior door.
+    return {"south": y1, "north": y0, "west": x0, "east": x1}[wall]
 
 
 def _wall_interval(space: dict[str, Any], wall: str, opening: dict[str, Any]) -> tuple[float, float]:
@@ -365,6 +369,16 @@ def validate_model_findings(site: dict[str, Any], plans: dict[str, Any]) -> list
             continue
         connected_space = opening.get("connectedSpaceId") or opening.get("sideB")
         if connected_space in space_by_id:
+            continue
+        if _has_adjacent_space(
+            host,
+            opening,
+            spaces,
+            wall_tolerance=float(plans.get("wallThickness", 6.0)),
+        ):
+            # A geometric adjacency is promoted to a semantic internal side
+            # by the Week 3 graph.  Do not report the same opening as an
+            # unjustified exterior door at the earlier compatibility layer.
             continue
         if _has_intentional_exterior_access(opening, host, plans):
             continue

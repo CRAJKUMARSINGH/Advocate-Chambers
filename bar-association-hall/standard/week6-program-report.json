@@ -463,10 +463,10 @@
       "roadFrontage": null,
       "serviceAccess": null,
       "setbacks": {
-        "west": 0,
-        "north": 60,
         "east": 5,
-        "south": 5
+        "north": 60,
+        "south": 5,
+        "west": 0
       },
       "plotBounds": {
         "minX": 0.0,

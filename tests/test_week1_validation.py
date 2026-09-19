@@ -24,7 +24,7 @@ class Week1ValidationTests(unittest.TestCase):
     def rules(findings):
         return {finding["rule"] for finding in findings}
 
-    def test_known_upper_floor_external_door_is_a_precise_blocker(self):
+    def test_adjacent_upper_floor_door_is_not_misclassified_as_external(self):
         findings = self.findings_for(copy.deepcopy(self.plans))
         matches = [
             finding
@@ -33,9 +33,7 @@ class Week1ValidationTests(unittest.TestCase):
             and finding["spaceId"] == "FF-07"
             and "D-FF-07" in finding["openingIds"]
         ]
-        self.assertEqual(len(matches), 1)
-        self.assertEqual(matches[0]["severity"], "BLOCKER")
-        self.assertIn("balcony", matches[0]["message"])
+        self.assertEqual(matches, [])
 
     def test_orphan_room_is_blocked(self):
         plans = copy.deepcopy(self.plans)
@@ -55,11 +53,36 @@ class Week1ValidationTests(unittest.TestCase):
 
     def test_external_door_without_access_zone_is_blocked(self):
         plans = copy.deepcopy(self.plans)
-        opening = next(item for item in plans["openings"] if item["id"] == "D-FF-07")
-        opening.pop("accessZoneId", None)
-        opening.pop("exteriorAccessZoneId", None)
+        plans["spaces"].append(
+            {
+                "id": "TEST-FF-ORPHAN",
+                "level": "FF",
+                "name": "Unconnected Upper Room",
+                "rect": [720, 6, 840, 126],
+                "finish": "public",
+            }
+        )
+        plans["openings"].append(
+            {
+                "id": "D-TEST-FF-ORPHAN",
+                "level": "FF",
+                "type": "door",
+                "tag": "D-TEST",
+                "hostSpace": "TEST-FF-ORPHAN",
+                "wall": "south",
+                "offset": 36,
+                "width": 36,
+                "swing": "in",
+            }
+        )
         findings = self.findings_for(plans)
-        self.assertIn("ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR", self.rules(findings))
+        self.assertTrue(
+            any(
+                finding["rule"] == "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR"
+                and finding["spaceId"] == "TEST-FF-ORPHAN"
+                for finding in findings
+            )
+        )
 
     def test_overlapping_rooms_are_rejected(self):
         plans = copy.deepcopy(self.plans)

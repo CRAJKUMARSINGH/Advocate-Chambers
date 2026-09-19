@@ -5,165 +5,9 @@
     "site": "bar-association-hall/standard/source/site_plan.json",
     "plans": "bar-association-hall/standard/source/preliminary_plans.json"
   },
-  "status": "fail",
-  "findingCounts": {
-    "BLOCKER": 9
-  },
-  "findings": [
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-01",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-01",
-      "openingIds": [
-        "D-FF-01"
-      ],
-      "connectorIds": [],
-      "message": "FF-01 (Librarian / Administration) is on upper level FF and D-FF-01 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-03",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-03",
-      "openingIds": [
-        "D-FF-03"
-      ],
-      "connectorIds": [],
-      "message": "FF-03 (Secretary / Committee Room) is on upper level FF and D-FF-03 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-04",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-04",
-      "openingIds": [
-        "D-FF-04"
-      ],
-      "connectorIds": [],
-      "message": "FF-04 (Pantry) is on upper level FF and D-FF-04 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-05",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-05",
-      "openingIds": [
-        "D-FF-05"
-      ],
-      "connectorIds": [],
-      "message": "FF-05 (Toilet Block) is on upper level FF and D-FF-05 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-06",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-06",
-      "openingIds": [
-        "D-FF-06"
-      ],
-      "connectorIds": [],
-      "message": "FF-06 (Library Reading Room) is on upper level FF and D-FF-06 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-07",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-07",
-      "openingIds": [
-        "D-FF-07"
-      ],
-      "connectorIds": [],
-      "message": "FF-07 (Stack Area / Book Storage) is on upper level FF and D-FF-07 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-08",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-08",
-      "openingIds": [
-        "D-FF-08"
-      ],
-      "connectorIds": [],
-      "message": "FF-08 (Discussion Room) is on upper level FF and D-FF-08 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-09",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-09",
-      "openingIds": [
-        "D-FF-09"
-      ],
-      "connectorIds": [],
-      "message": "FF-09 (Computer / Internet) is on upper level FF and D-FF-09 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    },
-    {
-      "id": "VAL-GRAPH-EXTERIOR-DOOR-D-FF-10",
-      "severity": "BLOCKER",
-      "rule": "ROOM_HAS_UNJUSTIFIED_EXTERNAL_DOOR",
-      "levelId": "FF",
-      "spaceId": "FF-10",
-      "openingIds": [
-        "D-FF-10"
-      ],
-      "connectorIds": [],
-      "message": "FF-10 (Store / Electrical) is on upper level FF and D-FF-10 opens to the exterior without a modeled balcony, landing, stair, corridor, porch, terrace, or other intentional access zone.",
-      "suggestedFixes": [
-        "Connect the room to an internal corridor or reachable stair arrival.",
-        "Model an intentional balcony/landing/exterior access zone and its approach.",
-        "Remove or relocate the exterior door."
-      ]
-    }
-  ],
+  "status": "pass",
+  "findingCounts": {},
+  "findings": [],
   "checkedObjects": {
     "spaces": 17,
     "openings": 20,
@@ -171,7 +15,7 @@
     "stairs": 1
   },
   "policy": {
-    "issueReadyOutputAllowed": false,
+    "issueReadyOutputAllowed": true,
     "professionalStatus": "PRELIMINARY / NOT FOR CONSTRUCTION"
   }
 }

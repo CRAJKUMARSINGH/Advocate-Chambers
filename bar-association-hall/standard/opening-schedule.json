@@ -1,6 +1,6 @@
 {
   "scheduleVersion": "week4.opening-schedule.v1",
-  "status": "fail",
+  "status": "pass",
   "openings": [
     {
       "tag": "D-02",
@@ -46,8 +46,13 @@
         "levelId": "GF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 42.0,
       "swing": "in",
@@ -73,8 +78,13 @@
         "levelId": "GF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 42.0,
       "swing": "in",
@@ -100,8 +110,13 @@
         "levelId": "GF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 36.0,
       "swing": "in",
@@ -127,8 +142,13 @@
         "levelId": "GF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 36.0,
       "swing": "in",
@@ -194,7 +214,7 @@
         "zoneId": "EXT-ENTRY-VIP",
         "levelId": "GF",
         "source": "explicit-entry",
-        "isNamedZone": false
+        "isNamedZone": true
       },
       "connectionType": "exterior",
       "wall": "east",
@@ -205,7 +225,7 @@
         "requiredWidth": 36.0,
         "requiredDepth": 42.0,
         "landingRequired": true,
-        "landingValid": false,
+        "landingValid": true,
         "zoneId": "EXT-ENTRY-VIP"
       },
       "entryIds": [
@@ -224,8 +244,13 @@
         "levelId": "GF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "north",
       "width": 42.0,
       "swing": "out",
@@ -251,8 +276,13 @@
         "levelId": "GF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 42.0,
       "swing": "in",
@@ -342,8 +372,13 @@
         "levelId": "FF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-06",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 42.0,
       "swing": "in",
@@ -369,8 +404,13 @@
         "levelId": "FF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-06",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 42.0,
       "swing": "in",
@@ -396,8 +436,13 @@
         "levelId": "FF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-06",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 36.0,
       "swing": "in",
@@ -423,8 +468,13 @@
         "levelId": "FF",
         "valid": true
       },
-      "sideB": null,
-      "connectionType": "unconnected",
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-06",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
       "wall": "south",
       "width": 36.0,
       "swing": "in",
@@ -452,7 +502,7 @@
       },
       "sideB": {
         "kind": "space",
-        "spaceId": "FF-03",
+        "spaceId": "FF-07",
         "levelId": "FF",
         "source": "geometric-adjacency"
       },
@@ -484,7 +534,7 @@
       },
       "sideB": {
         "kind": "space",
-        "spaceId": "FF-09",
+        "spaceId": "FF-06",
         "levelId": "FF",
         "source": "geometric-adjacency"
       },
@@ -521,7 +571,7 @@
         "source": "geometric-adjacency"
       },
       "connectionType": "internal",
-      "wall": "south",
+      "wall": "north",
       "width": 36.0,
       "swing": "in",
       "wallBreak": true,
@@ -553,7 +603,7 @@
         "source": "geometric-adjacency"
       },
       "connectionType": "internal",
-      "wall": "south",
+      "wall": "north",
       "width": 36.0,
       "swing": "in",
       "wallBreak": true,
@@ -585,7 +635,7 @@
         "source": "geometric-adjacency"
       },
       "connectionType": "internal",
-      "wall": "south",
+      "wall": "north",
       "width": 36.0,
       "swing": "out",
       "wallBreak": true,

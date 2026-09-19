@@ -215,10 +215,12 @@ The first implementation slice is now wired into the repository:
   missing artifact.
 - Generated title blocks use `PRELIMINARY REVIEW ONLY | NOT FOR CONSTRUCTION`.
 
-The current golden source intentionally reports `fail` because it contains the
-known upper-floor exterior-door condition (including `FF-07` / `D-FF-07`).
-This is a baseline finding, not a silent pass. Legacy binaries remain in place;
-no history rewrite or bulk move is part of Week 1.
+The golden source now reports `pass` after the Week 3–8 topology correction
+pass. `FF-07` / `D-FF-07` is recognized as an internal opening to the library
+stack route rather than being misclassified as an exterior door. Synthetic
+orphan fixtures continue to prove that the original blocker is still detected
+when the adjacent route is absent. Legacy binaries remain in place; no history
+rewrite or bulk move is part of Week 1.
 
 ### Week 2 — Schema foundation and migration
 
@@ -248,8 +250,9 @@ The Week 2 foundation is now implemented:
   compatibility-shaped view to geometry generators.
 
 The existing Week 1 source remains the auditable legacy input. Week 2 does not
-silently repair the known upper-floor access blockers; those findings remain
-visible until the Week 3 reachability work resolves them.
+silently repair topology; the explicit Week 3–5 correction pass resolves
+reachable internal openings and the stair arrival route while preserving the
+legacy round-trip.
 
 ### Week 3 — Reachability graph
 
@@ -285,9 +288,10 @@ Week 3 and Week 4 enrichment is now applied:
 - FastAPI `/analysis` exposes the graph, routes, findings, and opening schedule
   to the React viewport. Unreachable rooms are visibly marked and route edges
   are overlaid.
-- The current legacy fixture remains intentionally failing where access intent,
-  landing data, or connected openings are absent. This is the expected
-  auditable baseline for the next planning correction pass.
+- The current legacy fixture passes the route and opening gates after the
+  correction pass. Synthetic fixtures still fail when access intent, landing
+  data, or connected openings are absent, preserving the expected auditable
+  blocker behavior.
 
 ### Week 5 — Stairs and floor-to-floor coordination
 
@@ -326,10 +330,9 @@ Week 5 and Week 6 enrichment is now applied:
   `adjacencies` layer, while `/analysis` exposes the same data to the React
   viewport.
 
-The current legacy fixture intentionally retains the Week 3–5 access findings
-until the underlying plan is corrected. Week 6 passes the institutional
-program completeness and dimension gate while warning about unconfirmed site
-frontage and service access.
+The current legacy fixture passes the Week 3–5 access and stair gates. Week 6
+passes the institutional program completeness and dimension gate while warning
+about unconfirmed site frontage and service access.
 
 ### Week 7 — Rule packs and professional disclaimers
 

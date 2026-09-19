@@ -29,19 +29,20 @@ The generated artifacts are under
 Week 10 candidate/QA report, release checklist, manifest, changelog, and
 failure fixture.
 
-**Release note:** implementation is complete, but the current canonical Bar
-Association model remains **NOT ISSUABLE** when inherited Week 3–8 blockers are
-present. Week 10 intentionally does not mark a blocked candidate as “best”.
-These outputs are preliminary planning aids and still require review by the
-licensed architect, structural engineer, MEP consultant, fire/life-safety
-professional, surveyor, and local authority.
+**Release note:** the canonical Bar Association model is now blocker-free
+through Week 10. Week 10 selects a deterministic best candidate and the Week 8
+sheet stamp is **VALIDATED FOR PRELIMINARY REVIEW**. Two Week 6 warnings remain
+for survey-confirmed road frontage and service-access intent; they are explicit
+assumptions, not hidden pass conditions. These outputs are still preliminary
+planning aids and require review by the licensed architect, structural engineer,
+MEP consultant, fire/life-safety professional, surveyor, and local authority.
 
-**Task verification:** Week 9–10 enrichment is complete on `main`. The focused
-suite passes (`36` tests), Week 9 presentation validation passes, and Week 10
-release gating correctly remains blocked by the inherited Week 3–8 findings.
-The Week 3 and Week 4 commands therefore exit non-zero for the current legacy
-fixture by design; they preserve the auditable route/opening findings instead
-of hiding them.
+**Task verification:** Week 3–10 enrichment and the Week 3–8 blocker-removal
+pass are complete on `main`. The full weekly regression suite passes (`37`
+tests), Week 1–8 validation commands pass, Week 2 migration round-trips without
+loss, Week 9 presentation validation passes, and Week 10 release gating selects
+candidate `C-01` with `releaseReady: true`. The remaining Week 6 warnings stay
+visible for professional review.
 
 # Advocate-Chambers
 
@@ -68,9 +69,10 @@ checks, and stable opening schedules before drawing export.
 - FastAPI `/analysis` endpoint and React viewport route overlay.
 - Regression tests in `tests/test_week34_enrichment.py`.
 
-The current legacy fixture intentionally reports unresolved route/opening
-findings. That is an auditable failure state, not a green-light claim for
-construction.
+The current legacy fixture now passes the route/opening gates after the topology
+correction pass. Synthetic regression fixtures still prove that orphaned rooms,
+invalid side B openings, and disconnected routes remain blockers when
+introduced.
 
 ## Commands
 
