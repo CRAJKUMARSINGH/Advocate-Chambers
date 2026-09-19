@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-009",
+  "title": "Missing fire access",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "fire-access", "severity": "BLOCKER", "description": "Fire-appliance access is not verified." },
+  "mutations": [{ "path": "site.fireAccess.status", "operation": "set", "value": "missing" }],
+  "expectedFinding": {
+    "ruleId": "SITE.FIRE.ACCESS",
+    "severity": "BLOCKER",
+    "affectedObjects": ["site.fireAccess"],
+    "evidenceFields": ["fireAccess"],
+    "correction": "Provide verified fire-appliance access and turning geometry."
+  }
+}
