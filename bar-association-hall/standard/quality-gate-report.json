@@ -2,29 +2,30 @@
   "errors": [],
   "hardGates": {
     "baselineRegression": "PASS",
-    "criticalDefectDetection": "INCOMPLETE",
-    "dangerousFalseNegatives": "INCOMPLETE",
+    "criticalDefectDetection": "PASS",
+    "dangerousFalseNegatives": "PASS",
     "performanceBenchmark": "INCOMPLETE",
     "professionalReview": "INCOMPLETE",
     "reproducibility": "INCOMPLETE"
   },
   "professionalReviewRequired": true,
   "releaseReady": false,
-  "reportSignature": "033eb305fd83835e96d0422d9bbdae35de35eec6149debd25401c7124ebf38cb",
+  "reportSignature": "780ff18dc74d588f37a05aa2525c175e1728779e16a7f6b2989a31d31a966da4",
   "score": null,
   "status": "INCOMPLETE",
   "tracks": {
     "adversarial": {
-      "message": "adversarial benchmark evidence has not been supplied",
-      "missingEvidence": true,
-      "requiredFields": [
-        "totalCriticalDefects",
-        "detectedCriticalDefects",
-        "missedCriticalDefects",
-        "dangerousFalseNegatives",
-        "completeFindings"
-      ],
-      "status": "INCOMPLETE"
+      "allCriticalFindingsComplete": true,
+      "completeFindings": 15,
+      "criticalRecall": 1.0,
+      "dangerousFalseNegatives": 0,
+      "detectedCriticalDefects": 15,
+      "falsePositiveCount": 0,
+      "missedCriticalDefects": 0,
+      "sourceReport": "bar-association-hall/standard/week22-adversarial-foundation-report.json",
+      "status": "PASS",
+      "totalCriticalDefects": 15,
+      "zeroDangerousFalseNegatives": true
     },
     "performance": {
       "message": "performance benchmark evidence has not been supplied",
@@ -53,11 +54,12 @@
     "regression": {
       "command": "python3 -m unittest discover -s tests -p 'test_week*.py'",
       "failed": 0,
-      "passed": 69,
+      "passed": 75,
+      "previousWeek21BaselineTests": 69,
       "status": "PASS",
       "suite": "full weekly regression",
-      "tests": 69,
-      "verification": "Week 21 baseline recorded from the current regression run"
+      "tests": 75,
+      "verification": "Current regression suite recorded from the Week 22 run"
     }
   },
   "version": "week21.quality-gate.v1",
