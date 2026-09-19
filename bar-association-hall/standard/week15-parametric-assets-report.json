@@ -1,0 +1,407 @@
+{
+  "authoritativeGeometryUnchanged": true,
+  "catalogVersion": "week15.parametric-assets.v1",
+  "determinism": {
+    "algorithm": "sha256",
+    "signature": "42abe7ae245d0b081b9b2f924e66b019aa2e6e56a325ccfeeda9bb9ffb56f71e"
+  },
+  "findings": [],
+  "placements": [
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        12.0,
+        12.0,
+        96.0,
+        96.0
+      ],
+      "geometry": {
+        "rect": [
+          18.0,
+          18.0,
+          90.0,
+          54.0
+        ]
+      },
+      "hostSpaceId": "GF-01",
+      "id": "GF-01-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        162.0,
+        12.0,
+        246.0,
+        96.0
+      ],
+      "geometry": {
+        "rect": [
+          168.0,
+          18.0,
+          240.0,
+          54.0
+        ]
+      },
+      "hostSpaceId": "GF-02",
+      "id": "GF-02-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        294.0,
+        12.0,
+        378.0,
+        96.0
+      ],
+      "geometry": {
+        "rect": [
+          300.0,
+          18.0,
+          372.0,
+          54.0
+        ]
+      },
+      "hostSpaceId": "GF-03",
+      "id": "GF-03-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "visitor-chair",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        444.0,
+        12.0,
+        476.0,
+        62.0
+      ],
+      "geometry": {
+        "rect": [
+          450.0,
+          18.0,
+          470.0,
+          38.0
+        ]
+      },
+      "hostSpaceId": "GF-04",
+      "id": "GF-04-visitor-chair",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "visitor-chair",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        558.0,
+        12.0,
+        590.0,
+        62.0
+      ],
+      "geometry": {
+        "rect": [
+          564.0,
+          18.0,
+          584.0,
+          38.0
+        ]
+      },
+      "hostSpaceId": "GF-05",
+      "id": "GF-05-visitor-chair",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "lectern",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        12.0,
+        186.0,
+        48.0,
+        248.0
+      ],
+      "geometry": {
+        "rect": [
+          18.0,
+          192.0,
+          42.0,
+          212.0
+        ]
+      },
+      "hostSpaceId": "GF-06",
+      "id": "GF-06-lectern",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        12.0,
+        912.0,
+        96.0,
+        996.0
+      ],
+      "geometry": {
+        "rect": [
+          18.0,
+          918.0,
+          90.0,
+          954.0
+        ]
+      },
+      "hostSpaceId": "GF-07",
+      "id": "GF-07-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        12.0,
+        12.0,
+        96.0,
+        96.0
+      ],
+      "geometry": {
+        "rect": [
+          18.0,
+          18.0,
+          90.0,
+          54.0
+        ]
+      },
+      "hostSpaceId": "FF-01",
+      "id": "FF-01-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        162.0,
+        12.0,
+        246.0,
+        96.0
+      ],
+      "geometry": {
+        "rect": [
+          168.0,
+          18.0,
+          240.0,
+          54.0
+        ]
+      },
+      "hostSpaceId": "FF-02",
+      "id": "FF-02-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "visitor-chair",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        294.0,
+        12.0,
+        326.0,
+        62.0
+      ],
+      "geometry": {
+        "rect": [
+          300.0,
+          18.0,
+          320.0,
+          38.0
+        ]
+      },
+      "hostSpaceId": "FF-03",
+      "id": "FF-03-visitor-chair",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "visitor-chair",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        444.0,
+        12.0,
+        476.0,
+        62.0
+      ],
+      "geometry": {
+        "rect": [
+          450.0,
+          18.0,
+          470.0,
+          38.0
+        ]
+      },
+      "hostSpaceId": "FF-04",
+      "id": "FF-04-visitor-chair",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        558.0,
+        12.0,
+        642.0,
+        96.0
+      ],
+      "geometry": {
+        "rect": [
+          564.0,
+          18.0,
+          636.0,
+          54.0
+        ]
+      },
+      "hostSpaceId": "FF-05",
+      "id": "FF-05-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "library-shelf",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        12.0,
+        186.0,
+        96.0,
+        242.0
+      ],
+      "geometry": {
+        "rect": [
+          18.0,
+          192.0,
+          90.0,
+          206.0
+        ]
+      },
+      "hostSpaceId": "FF-06",
+      "id": "FF-06-library-shelf",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "library-table",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        6.0,
+        774.0,
+        126.0,
+        882.0
+      ],
+      "geometry": {
+        "rect": [
+          30.0,
+          810.0,
+          102.0,
+          846.0
+        ]
+      },
+      "hostSpaceId": "FF-07",
+      "id": "FF-07-library-table",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "executive-desk",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        12.0,
+        1002.0,
+        96.0,
+        1086.0
+      ],
+      "geometry": {
+        "rect": [
+          18.0,
+          1008.0,
+          90.0,
+          1044.0
+        ]
+      },
+      "hostSpaceId": "FF-08",
+      "id": "FF-08-executive-desk",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "visitor-chair",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        234.0,
+        1002.0,
+        266.0,
+        1052.0
+      ],
+      "geometry": {
+        "rect": [
+          240.0,
+          1008.0,
+          260.0,
+          1028.0
+        ]
+      },
+      "hostSpaceId": "FF-09",
+      "id": "FF-09-visitor-chair",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    },
+    {
+      "assetId": "visitor-chair",
+      "authoritative": false,
+      "clearanceEnvelope": [
+        456.0,
+        1002.0,
+        488.0,
+        1052.0
+      ],
+      "geometry": {
+        "rect": [
+          462.0,
+          1008.0,
+          482.0,
+          1028.0
+        ]
+      },
+      "hostSpaceId": "FF-10",
+      "id": "FF-10-visitor-chair",
+      "modelRevision": 1,
+      "presentationOnly": true,
+      "rotation": 0
+    }
+  ],
+  "presentationOnly": true,
+  "seed": 1516,
+  "skipped": [],
+  "status": "pass",
+  "version": "week15.parametric-assets.v1"
+}

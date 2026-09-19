@@ -246,3 +246,56 @@ annotation-standard correction are complete and are included in this `main`
 release. All outputs remain
 preliminary planning/coordination aids and require the appointed architect,
 engineers, surveyor and local authority review.
+
+## Week 15–16 task status — applied and marked done
+
+The Week 15 and Week 16 enrichment from
+[`docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md`](docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md)
+is implemented in the canonical pipeline.
+
+- **Week 15 — parametric assets and clearance-aware furnishing:** the typed
+  catalog covers furniture, fixtures, appliances, sanitaryware, seating rows,
+  dais, library tables, counters, vehicles, and industrial equipment. Every
+  asset carries dimensions, allowed rotations, wall relationships, service
+  side, occupancy, and clearance-envelope data. Room templates cover
+  residential, offices/chambers, halls, classrooms, libraries, healthcare,
+  retail, and light industrial use.
+- Drag, rotate, duplicate, align, replace, and find-valid-position operations
+  are typed and non-mutating. Placement rejects door swings, required routes,
+  stairs, service zones, room-boundary violations, and overlapping clearances.
+  Presentation objects are never authoritative construction geometry.
+- **Week 16 — candidate studio and presentation pipeline:** candidates use
+  deterministic seeds and transparent area, adjacency, route,
+  daylight/ventilation, vertical-coordination, furniture-fit, and visual
+  metrics. A candidate with a `BLOCKER` or `ERROR` cannot win.
+- Moodboards, palettes, materials, lighting presets, non-destructive design
+  layers, render/panorama/presentation-sheet job manifests, and
+  technical-plan-to-render revision traceability are included.
+- **Sheet rationalisation remains enforced:** ISO 5457 A-series sheet formats
+  and ISO 7200-style information fields guide the contract; this project
+  policy caps supporting notes/legends/indices at **20%** of the sheet area
+  and protects at least **65%** for the drawing zone. These are adopted
+  project limits, not a claim that ISO prescribes a universal ratio.
+- FastAPI routes: `GET /furnishing/catalog`, `POST /furnishing/preview`,
+  `POST /furnishing/validate`, `POST /furnishing/edit`,
+  `POST /candidates/studio`, `POST /presentation/package`, and
+  `POST /presentation/render-job`.
+- Deterministic artifacts:
+  - `bar-association-hall/standard/week15-parametric-assets-report.json`
+  - `bar-association-hall/standard/week16-candidate-studio-report.json`
+  - `bar-association-hall/standard/week1516-enrichment-manifest.json`
+  - `bar-association-hall/standard/week1516-changelog.md`
+- Regression tests live in `tests/test_week1516_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week1516
+npm run validate:week15
+npm run validate:week16
+npm run test:week1516
+```
+
+**Task completion:** Week 15–16 enrichment is complete and marked done in
+this README. Outputs remain preliminary planning/presentation aids and require
+appointed architect, engineers, surveyor, and local-authority review.

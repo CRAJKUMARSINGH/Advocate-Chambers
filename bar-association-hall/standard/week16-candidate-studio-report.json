@@ -1,0 +1,235 @@
+{
+  "candidateStudio": {
+    "bestCandidateId": "C-15-02",
+    "candidates": [
+      {
+        "blockerCount": 0,
+        "eligibleForBest": true,
+        "furnishingSignature": "42abe7ae245d0b081b9b2f924e66b019aa2e6e56a325ccfeeda9bb9ffb56f71e",
+        "id": "C-15-01",
+        "metrics": {
+          "adjacencySatisfaction": 1.0,
+          "areaFit": 1.0,
+          "daylightVentilation": 0.5,
+          "furnitureFit": 1.0,
+          "routeQuality": 1.0,
+          "verticalCoordination": 1.0,
+          "visualQuality": 0.75
+        },
+        "presentationRenderMustMatchModel": true,
+        "score": 0.8929,
+        "seed": 1516,
+        "technicalPlanRevision": 1
+      },
+      {
+        "blockerCount": 0,
+        "eligibleForBest": true,
+        "furnishingSignature": "4b8aa470aad62cea826a5c4a51efd7d1e2bee4a49f293554a87cf96a951ba7e2",
+        "id": "C-15-02",
+        "metrics": {
+          "adjacencySatisfaction": 1.0,
+          "areaFit": 1.0,
+          "daylightVentilation": 0.5,
+          "furnitureFit": 1.0,
+          "routeQuality": 1.0,
+          "verticalCoordination": 1.0,
+          "visualQuality": 0.82
+        },
+        "presentationRenderMustMatchModel": true,
+        "score": 0.9029,
+        "seed": 1523,
+        "technicalPlanRevision": 1
+      },
+      {
+        "blockerCount": 0,
+        "eligibleForBest": true,
+        "furnishingSignature": "48a9ada066786cc560fec8b68382c189ac6e94e721a276b86cdb47b0b07eb3b2",
+        "id": "C-15-03",
+        "metrics": {
+          "adjacencySatisfaction": 1.0,
+          "areaFit": 1.0,
+          "daylightVentilation": 0.5,
+          "furnitureFit": 1.0,
+          "routeQuality": 1.0,
+          "verticalCoordination": 1.0,
+          "visualQuality": 0.72
+        },
+        "presentationRenderMustMatchModel": true,
+        "score": 0.8886,
+        "seed": 1547,
+        "technicalPlanRevision": 1
+      }
+    ],
+    "comparisonMetrics": [
+      "areaFit",
+      "adjacencySatisfaction",
+      "routeQuality",
+      "daylightVentilation",
+      "verticalCoordination",
+      "furnitureFit",
+      "visualQuality"
+    ],
+    "findings": [],
+    "ranking": [
+      "C-15-02",
+      "C-15-01",
+      "C-15-03"
+    ],
+    "seeds": [
+      1516,
+      1523,
+      1547
+    ],
+    "status": "pass",
+    "version": "week16.candidate-studio.v1"
+  },
+  "designPackage": {
+    "authoritativeGeometryChanged": false,
+    "candidateId": "C-15-02",
+    "designLayers": [
+      {
+        "authoritative": false,
+        "id": "materials",
+        "kind": "presentation",
+        "materialIds": [
+          "stone-light",
+          "wood-oak",
+          "metal-bronze"
+        ],
+        "sourceModelRevision": 1
+      },
+      {
+        "authoritative": false,
+        "id": "decor",
+        "kind": "presentation",
+        "sourceModelRevision": 1,
+        "visible": true
+      },
+      {
+        "authoritative": false,
+        "id": "lighting",
+        "kind": "presentation",
+        "preset": "daylight-soft",
+        "sourceModelRevision": 1
+      }
+    ],
+    "materials": [
+      {
+        "colour": "#D8D2C4",
+        "finish": "matte",
+        "id": "stone-light",
+        "label": "Light stone"
+      },
+      {
+        "colour": "#A9794F",
+        "finish": "satin",
+        "id": "wood-oak",
+        "label": "Oak timber"
+      },
+      {
+        "colour": "#8A6544",
+        "finish": "brushed",
+        "id": "metal-bronze",
+        "label": "Bronze metal"
+      }
+    ],
+    "modelRevision": 1,
+    "moodboard": {
+      "lightingPresets": [
+        "daylight-soft",
+        "evening-neutral"
+      ],
+      "materials": [
+        {
+          "colour": "#D8D2C4",
+          "finish": "matte",
+          "id": "stone-light",
+          "label": "Light stone"
+        },
+        {
+          "colour": "#A9794F",
+          "finish": "satin",
+          "id": "wood-oak",
+          "label": "Oak timber"
+        },
+        {
+          "colour": "#8A6544",
+          "finish": "brushed",
+          "id": "metal-bronze",
+          "label": "Bronze metal"
+        }
+      ],
+      "palette": [
+        "#17324D",
+        "#D8B26E",
+        "#F4F0E8",
+        "#6A7B6B"
+      ],
+      "referenceImages": [],
+      "styleTags": [
+        "institutional",
+        "warm-modern",
+        "professional"
+      ]
+    },
+    "renderJobs": [
+      {
+        "artifactManifest": {
+          "artifactId": "render-1432fcbcc104-artifact",
+          "kind": "render",
+          "traceableTo": {
+            "candidateId": "C-15-02",
+            "modelRevision": 1,
+            "seed": 1516
+          }
+        },
+        "candidateId": "C-15-02",
+        "jobId": "render-1432fcbcc104",
+        "kind": "render",
+        "modelRevision": 1,
+        "progress": 0,
+        "status": "queued"
+      },
+      {
+        "artifactManifest": {
+          "artifactId": "render-fffe312fab76-artifact",
+          "kind": "panorama",
+          "traceableTo": {
+            "candidateId": "C-15-02",
+            "modelRevision": 1,
+            "seed": 1516
+          }
+        },
+        "candidateId": "C-15-02",
+        "jobId": "render-fffe312fab76",
+        "kind": "panorama",
+        "modelRevision": 1,
+        "progress": 0,
+        "status": "queued"
+      },
+      {
+        "artifactManifest": {
+          "artifactId": "render-79615d674a04-artifact",
+          "kind": "presentation-sheet",
+          "traceableTo": {
+            "candidateId": "C-15-02",
+            "modelRevision": 1,
+            "seed": 1516
+          }
+        },
+        "candidateId": "C-15-02",
+        "jobId": "render-79615d674a04",
+        "kind": "presentation-sheet",
+        "modelRevision": 1,
+        "progress": 0,
+        "status": "queued"
+      }
+    ],
+    "technicalPlanSideBySide": {
+      "candidateId": "C-15-02",
+      "modelRevision": 1,
+      "required": true
+    },
+    "version": "week16.render-pipeline.v1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "bestCandidateId": "C-15-02",
+  "candidateVersion": "week16.candidate-studio.v1",
+  "catalogVersion": "week15.parametric-assets.v1",
+  "changelog": "bar-association-hall/standard/week1516-changelog.md",
+  "manifestVersion": "week1516.enrichment-manifest.v1",
+  "reports": {
+    "week15": "bar-association-hall/standard/week15-parametric-assets-report.json",
+    "week16": "bar-association-hall/standard/week16-candidate-studio-report.json"
+  },
+  "status": "pass"
+}

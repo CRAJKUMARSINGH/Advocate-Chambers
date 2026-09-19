@@ -167,7 +167,7 @@
       "id": "CIRC-GF-02",
       "kind": "circulation-zone",
       "legacy": {
-        "comment": "10'-6\" wide x 14'-0\" \u2014 compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
+        "comment": "10'-6\" wide x 14'-0\" — compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
         "finish": "circulation",
         "id": "GF-02",
         "level": "GF",
@@ -548,9 +548,9 @@
   "notes": [
     "Service core redesigned: ALL units flush at south Y=6 and north Y=174 (14'-6\").",
     "West to East: Reception(12') | Stair(10'-6\") | President Chamber(12') | Pantry(9') | Toilet(9'-6\").",
-    "Staircase: 4' landing at south wall, 2 flights of 12 treads\u00d79\"=9'-0\" each, 4' void at north.",
-    "Main entrance relocated to East long wall with 12'-0\"\u00d78'-0\" covered porch.",
-    "Assembly Hall starts at Y=180 (15'-0\") \u2014 full 55'-0\" clear width \u00d7 60'-0\" length.",
+    "Staircase: 4' landing at south wall, 2 flights of 12 treads×9\"=9'-0\" each, 4' void at north.",
+    "Main entrance relocated to East long wall with 12'-0\"×8'-0\" covered porch.",
+    "Assembly Hall starts at Y=180 (15'-0\") — full 55'-0\" clear width × 60'-0\" length.",
     "Floor-to-floor height 178\" (14'-10\"). 24 risers @ 7.42\" / 9\" tread.",
     "Wall thickness: 12\" outer perimeter, 6\" internal partitions.",
     "First-floor D-FF-08 through D-FF-10 are modeled on the north wall to connect the lower rooms to the stack area; verify this intent against the source drawing before construction."
@@ -2838,7 +2838,7 @@
       "id": "GF-02",
       "kind": "space",
       "legacy": {
-        "comment": "10'-6\" wide x 14'-0\" \u2014 compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
+        "comment": "10'-6\" wide x 14'-0\" — compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
         "finish": "circulation",
         "id": "GF-02",
         "level": "GF",
@@ -2885,7 +2885,7 @@
       "id": "GF-03",
       "kind": "space",
       "legacy": {
-        "comment": "12'-0\" x 14'-0\" \u2014 President's private chamber east of stair",
+        "comment": "12'-0\" x 14'-0\" — President's private chamber east of stair",
         "finish": "staff",
         "id": "GF-03",
         "level": "GF",
@@ -2930,7 +2930,7 @@
       "id": "GF-04",
       "kind": "space",
       "legacy": {
-        "comment": "9'-0\" x 14'-0\" \u2014 flush north wall with all service units",
+        "comment": "9'-0\" x 14'-0\" — flush north wall with all service units",
         "finish": "service",
         "id": "GF-04",
         "level": "GF",
@@ -2975,7 +2975,7 @@
       "id": "GF-05",
       "kind": "space",
       "legacy": {
-        "comment": "9'-6\" x 14'-0\" \u2014 Male / Female / Accessible, flush north wall",
+        "comment": "9'-6\" x 14'-0\" — Male / Female / Accessible, flush north wall",
         "finish": "service",
         "id": "GF-05",
         "level": "GF",
@@ -3020,7 +3020,7 @@
       "id": "GF-06",
       "kind": "space",
       "legacy": {
-        "comment": "55'-0\" x 60'-0\" \u2014 main audience hall",
+        "comment": "55'-0\" x 60'-0\" — main audience hall",
         "finish": "public",
         "id": "GF-06",
         "level": "GF",
@@ -3065,7 +3065,7 @@
       "id": "GF-07",
       "kind": "space",
       "legacy": {
-        "comment": "55'-0\" x 14'-6\" \u2014 raised dais, +1'-6\" FFL",
+        "comment": "55'-0\" x 14'-6\" — raised dais, +1'-6\" FFL",
         "finish": "public",
         "id": "GF-07",
         "level": "GF",
@@ -3198,7 +3198,7 @@
       "id": "FF-03",
       "kind": "space",
       "legacy": {
-        "comment": "12'-0\" x 14'-0\" \u2014 stacked above President Chamber",
+        "comment": "12'-0\" x 14'-0\" — stacked above President Chamber",
         "finish": "staff",
         "id": "FF-03",
         "level": "FF",
@@ -3555,7 +3555,7 @@
       "id": "STAIR-01",
       "kind": "stair",
       "legacy": {
-        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end \u2014 all within 14'-6\" box",
+        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end — all within 14'-6\" box",
         "direction": "up",
         "flightCount": 2,
         "floorToFloor": 178,
@@ -3630,7 +3630,7 @@
       "id": "VC-STAIR-01",
       "kind": "vertical-connector",
       "legacy": {
-        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end \u2014 all within 14'-6\" box",
+        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end — all within 14'-6\" box",
         "direction": "up",
         "flightCount": 2,
         "floorToFloor": 178,
@@ -5171,5 +5171,1255 @@
       "tag": "W-02",
       "wall": "north"
     }
-  ]
+  ],
+  "parametricAssets": {
+    "version": "week15.parametric-assets.v1",
+    "report": "bar-association-hall/standard/week15-parametric-assets-report.json",
+    "catalog": {
+      "version": "week15.parametric-assets.v1",
+      "assets": {
+        "work-desk": {
+          "label": "Work desk",
+          "category": "furniture",
+          "dimensions": {
+            "width": 60,
+            "depth": 30,
+            "height": 30,
+            "unit": "inch"
+          },
+          "width": 60,
+          "depth": 30,
+          "height": 30,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": null,
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "office",
+            "chamber"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "executive-desk": {
+          "label": "Executive desk",
+          "category": "furniture",
+          "dimensions": {
+            "width": 72,
+            "depth": 36,
+            "height": 30,
+            "unit": "inch"
+          },
+          "width": 72,
+          "depth": 36,
+          "height": 30,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": null,
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 42,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "office",
+            "chamber"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "visitor-chair": {
+          "label": "Visitor chair",
+          "category": "seating",
+          "dimensions": {
+            "width": 20,
+            "depth": 20,
+            "height": 32,
+            "unit": "inch"
+          },
+          "width": 20,
+          "depth": 20,
+          "height": 32,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 24,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "office",
+            "chamber",
+            "waiting"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "audience-chair": {
+          "label": "Audience chair",
+          "category": "seating",
+          "dimensions": {
+            "width": 18,
+            "depth": 18,
+            "height": 32,
+            "unit": "inch"
+          },
+          "width": 18,
+          "depth": 18,
+          "height": 32,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 18,
+            "back": 12,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "hall",
+            "assembly",
+            "classroom"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "bench-row": {
+          "label": "Bench seating row",
+          "category": "seating",
+          "dimensions": {
+            "width": 96,
+            "depth": 20,
+            "height": 32,
+            "unit": "inch"
+          },
+          "width": 96,
+          "depth": 20,
+          "height": 32,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 4,
+          "clearanceEnvelope": {
+            "front": 48,
+            "back": 18,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "hall",
+            "assembly"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "library-table": {
+          "label": "Library table",
+          "category": "library",
+          "dimensions": {
+            "width": 72,
+            "depth": 36,
+            "height": 30,
+            "unit": "inch"
+          },
+          "width": 72,
+          "depth": 36,
+          "height": 30,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 6,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 36,
+            "left": 24,
+            "right": 24
+          },
+          "roomUses": [
+            "library"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "library-shelf": {
+          "label": "Library shelf",
+          "category": "library",
+          "dimensions": {
+            "width": 72,
+            "depth": 14,
+            "height": 84,
+            "unit": "inch"
+          },
+          "width": 72,
+          "depth": 14,
+          "height": 84,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": null,
+          "occupancy": 0,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "library"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "reception-counter": {
+          "label": "Reception counter",
+          "category": "counter",
+          "dimensions": {
+            "width": 72,
+            "depth": 30,
+            "height": 42,
+            "unit": "inch"
+          },
+          "width": 72,
+          "depth": 30,
+          "height": 42,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": "front",
+          "occupancy": 2,
+          "clearanceEnvelope": {
+            "front": 48,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "reception",
+            "lobby"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "service-counter": {
+          "label": "Service counter",
+          "category": "counter",
+          "dimensions": {
+            "width": 60,
+            "depth": 24,
+            "height": 36,
+            "unit": "inch"
+          },
+          "width": 60,
+          "depth": 24,
+          "height": 36,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": "front",
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "service",
+            "pantry"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "sanitary-ware": {
+          "label": "Accessible sanitary fixture",
+          "category": "sanitaryware",
+          "dimensions": {
+            "width": 30,
+            "depth": 54,
+            "height": 32,
+            "unit": "inch"
+          },
+          "width": 30,
+          "depth": 54,
+          "height": 32,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": "right",
+          "occupancy": 0,
+          "clearanceEnvelope": {
+            "front": 60,
+            "back": 6.0,
+            "left": 12,
+            "right": 12
+          },
+          "roomUses": [
+            "service",
+            "healthcare"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "lavatory-fixture": {
+          "label": "Lavatory fixture",
+          "category": "fixtures",
+          "dimensions": {
+            "width": 24,
+            "depth": 20,
+            "height": 32,
+            "unit": "inch"
+          },
+          "width": 24,
+          "depth": 20,
+          "height": 32,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": "back",
+          "occupancy": 0,
+          "clearanceEnvelope": {
+            "front": 42,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "service",
+            "healthcare"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "appliance-block": {
+          "label": "Appliance block",
+          "category": "appliance",
+          "dimensions": {
+            "width": 36,
+            "depth": 30,
+            "height": 36,
+            "unit": "inch"
+          },
+          "width": 36,
+          "depth": 30,
+          "height": 36,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": "back",
+          "occupancy": 0,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "service",
+            "retail"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "dais": {
+          "label": "Dais",
+          "category": "dais",
+          "dimensions": {
+            "width": 144,
+            "depth": 60,
+            "height": 18,
+            "unit": "inch"
+          },
+          "width": 144,
+          "depth": 60,
+          "height": 18,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [
+            "back"
+          ],
+          "serviceSide": null,
+          "occupancy": 4,
+          "clearanceEnvelope": {
+            "front": 60,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "hall",
+            "assembly"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "lectern": {
+          "label": "Lectern",
+          "category": "dais",
+          "dimensions": {
+            "width": 24,
+            "depth": 20,
+            "height": 42,
+            "unit": "inch"
+          },
+          "width": 24,
+          "depth": 20,
+          "height": 42,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 6.0,
+            "left": 6.0,
+            "right": 6.0
+          },
+          "roomUses": [
+            "hall",
+            "assembly"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "vehicle-bay": {
+          "label": "Vehicle bay",
+          "category": "vehicle",
+          "dimensions": {
+            "width": 108,
+            "depth": 216,
+            "height": 60,
+            "unit": "inch"
+          },
+          "width": 108,
+          "depth": 216,
+          "height": 60,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 0,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 36,
+            "left": 24,
+            "right": 24
+          },
+          "roomUses": [
+            "industrial",
+            "retail"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "equipment-bench": {
+          "label": "Industrial equipment bench",
+          "category": "industrial-equipment",
+          "dimensions": {
+            "width": 96,
+            "depth": 36,
+            "height": 36,
+            "unit": "inch"
+          },
+          "width": 96,
+          "depth": 36,
+          "height": 36,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": "back",
+          "occupancy": 0,
+          "clearanceEnvelope": {
+            "front": 48,
+            "back": 24,
+            "left": 18,
+            "right": 18
+          },
+          "roomUses": [
+            "industrial"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        },
+        "patient-bed": {
+          "label": "Patient bed",
+          "category": "healthcare",
+          "dimensions": {
+            "width": 42,
+            "depth": 84,
+            "height": 24,
+            "unit": "inch"
+          },
+          "width": 42,
+          "depth": 84,
+          "height": 24,
+          "rotationRules": {
+            "allowedDegrees": [
+              0,
+              90
+            ],
+            "stepDegrees": 90
+          },
+          "preferredWallRelationships": [],
+          "serviceSide": null,
+          "occupancy": 1,
+          "clearanceEnvelope": {
+            "front": 36,
+            "back": 6.0,
+            "left": 36,
+            "right": 36
+          },
+          "roomUses": [
+            "healthcare"
+          ],
+          "authoritative": false,
+          "presentationOnly": true
+        }
+      },
+      "roomTemplates": {
+        "residential": {
+          "recommendedAssets": [
+            "work-desk",
+            "visitor-chair"
+          ],
+          "minimumClearRoute": 36
+        },
+        "office": {
+          "recommendedAssets": [
+            "executive-desk",
+            "visitor-chair"
+          ],
+          "minimumClearRoute": 36
+        },
+        "chamber": {
+          "recommendedAssets": [
+            "executive-desk",
+            "visitor-chair"
+          ],
+          "minimumClearRoute": 36
+        },
+        "hall": {
+          "recommendedAssets": [
+            "audience-chair",
+            "bench-row",
+            "dais",
+            "lectern"
+          ],
+          "minimumClearRoute": 48
+        },
+        "classroom": {
+          "recommendedAssets": [
+            "library-table",
+            "visitor-chair"
+          ],
+          "minimumClearRoute": 36
+        },
+        "library": {
+          "recommendedAssets": [
+            "library-shelf",
+            "library-table"
+          ],
+          "minimumClearRoute": 36
+        },
+        "healthcare": {
+          "recommendedAssets": [
+            "patient-bed",
+            "sanitary-ware"
+          ],
+          "minimumClearRoute": 48
+        },
+        "retail": {
+          "recommendedAssets": [
+            "reception-counter",
+            "appliance-block"
+          ],
+          "minimumClearRoute": 48
+        },
+        "light-industrial": {
+          "recommendedAssets": [
+            "vehicle-bay",
+            "equipment-bench"
+          ],
+          "minimumClearRoute": 48
+        }
+      }
+    },
+    "presentation": {
+      "version": "week15.parametric-assets.v1",
+      "seed": 1516,
+      "placements": [
+        {
+          "id": "GF-01-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "GF-01",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              18.0,
+              18.0,
+              90.0,
+              54.0
+            ]
+          },
+          "clearanceEnvelope": [
+            12.0,
+            12.0,
+            96.0,
+            96.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "GF-02-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "GF-02",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              168.0,
+              18.0,
+              240.0,
+              54.0
+            ]
+          },
+          "clearanceEnvelope": [
+            162.0,
+            12.0,
+            246.0,
+            96.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "GF-03-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "GF-03",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              300.0,
+              18.0,
+              372.0,
+              54.0
+            ]
+          },
+          "clearanceEnvelope": [
+            294.0,
+            12.0,
+            378.0,
+            96.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "GF-04-visitor-chair",
+          "assetId": "visitor-chair",
+          "hostSpaceId": "GF-04",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              450.0,
+              18.0,
+              470.0,
+              38.0
+            ]
+          },
+          "clearanceEnvelope": [
+            444.0,
+            12.0,
+            476.0,
+            62.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "GF-05-visitor-chair",
+          "assetId": "visitor-chair",
+          "hostSpaceId": "GF-05",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              564.0,
+              18.0,
+              584.0,
+              38.0
+            ]
+          },
+          "clearanceEnvelope": [
+            558.0,
+            12.0,
+            590.0,
+            62.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "GF-06-lectern",
+          "assetId": "lectern",
+          "hostSpaceId": "GF-06",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              18.0,
+              192.0,
+              42.0,
+              212.0
+            ]
+          },
+          "clearanceEnvelope": [
+            12.0,
+            186.0,
+            48.0,
+            248.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "GF-07-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "GF-07",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              18.0,
+              918.0,
+              90.0,
+              954.0
+            ]
+          },
+          "clearanceEnvelope": [
+            12.0,
+            912.0,
+            96.0,
+            996.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-01-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "FF-01",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              18.0,
+              18.0,
+              90.0,
+              54.0
+            ]
+          },
+          "clearanceEnvelope": [
+            12.0,
+            12.0,
+            96.0,
+            96.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-02-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "FF-02",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              168.0,
+              18.0,
+              240.0,
+              54.0
+            ]
+          },
+          "clearanceEnvelope": [
+            162.0,
+            12.0,
+            246.0,
+            96.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-03-visitor-chair",
+          "assetId": "visitor-chair",
+          "hostSpaceId": "FF-03",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              300.0,
+              18.0,
+              320.0,
+              38.0
+            ]
+          },
+          "clearanceEnvelope": [
+            294.0,
+            12.0,
+            326.0,
+            62.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-04-visitor-chair",
+          "assetId": "visitor-chair",
+          "hostSpaceId": "FF-04",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              450.0,
+              18.0,
+              470.0,
+              38.0
+            ]
+          },
+          "clearanceEnvelope": [
+            444.0,
+            12.0,
+            476.0,
+            62.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-05-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "FF-05",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              564.0,
+              18.0,
+              636.0,
+              54.0
+            ]
+          },
+          "clearanceEnvelope": [
+            558.0,
+            12.0,
+            642.0,
+            96.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-06-library-shelf",
+          "assetId": "library-shelf",
+          "hostSpaceId": "FF-06",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              18.0,
+              192.0,
+              90.0,
+              206.0
+            ]
+          },
+          "clearanceEnvelope": [
+            12.0,
+            186.0,
+            96.0,
+            242.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-07-library-table",
+          "assetId": "library-table",
+          "hostSpaceId": "FF-07",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              30.0,
+              810.0,
+              102.0,
+              846.0
+            ]
+          },
+          "clearanceEnvelope": [
+            6.0,
+            774.0,
+            126.0,
+            882.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-08-executive-desk",
+          "assetId": "executive-desk",
+          "hostSpaceId": "FF-08",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              18.0,
+              1008.0,
+              90.0,
+              1044.0
+            ]
+          },
+          "clearanceEnvelope": [
+            12.0,
+            1002.0,
+            96.0,
+            1086.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-09-visitor-chair",
+          "assetId": "visitor-chair",
+          "hostSpaceId": "FF-09",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              240.0,
+              1008.0,
+              260.0,
+              1028.0
+            ]
+          },
+          "clearanceEnvelope": [
+            234.0,
+            1002.0,
+            266.0,
+            1052.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        },
+        {
+          "id": "FF-10-visitor-chair",
+          "assetId": "visitor-chair",
+          "hostSpaceId": "FF-10",
+          "rotation": 0,
+          "geometry": {
+            "rect": [
+              462.0,
+              1008.0,
+              482.0,
+              1028.0
+            ]
+          },
+          "clearanceEnvelope": [
+            456.0,
+            1002.0,
+            488.0,
+            1052.0
+          ],
+          "authoritative": false,
+          "presentationOnly": true,
+          "modelRevision": 1
+        }
+      ],
+      "skipped": [],
+      "findings": [],
+      "status": "pass",
+      "authoritativeGeometryUnchanged": true,
+      "presentationOnly": true,
+      "catalogVersion": "week15.parametric-assets.v1",
+      "determinism": {
+        "algorithm": "sha256",
+        "signature": "42abe7ae245d0b081b9b2f924e66b019aa2e6e56a325ccfeeda9bb9ffb56f71e"
+      }
+    }
+  },
+  "candidateStudio": {
+    "version": "week16.candidate-studio.v1",
+    "report": "bar-association-hall/standard/week16-candidate-studio-report.json",
+    "bestCandidateId": "C-15-02",
+    "status": "pass",
+    "seeds": [
+      1516,
+      1523,
+      1547
+    ]
+  },
+  "designPresentation": {
+    "version": "week16.render-pipeline.v1",
+    "candidateId": "C-15-02",
+    "modelRevision": 1,
+    "moodboard": {
+      "styleTags": [
+        "institutional",
+        "warm-modern",
+        "professional"
+      ],
+      "palette": [
+        "#17324D",
+        "#D8B26E",
+        "#F4F0E8",
+        "#6A7B6B"
+      ],
+      "referenceImages": [],
+      "materials": [
+        {
+          "id": "stone-light",
+          "label": "Light stone",
+          "finish": "matte",
+          "colour": "#D8D2C4"
+        },
+        {
+          "id": "wood-oak",
+          "label": "Oak timber",
+          "finish": "satin",
+          "colour": "#A9794F"
+        },
+        {
+          "id": "metal-bronze",
+          "label": "Bronze metal",
+          "finish": "brushed",
+          "colour": "#8A6544"
+        }
+      ],
+      "lightingPresets": [
+        "daylight-soft",
+        "evening-neutral"
+      ]
+    },
+    "materials": [
+      {
+        "id": "stone-light",
+        "label": "Light stone",
+        "finish": "matte",
+        "colour": "#D8D2C4"
+      },
+      {
+        "id": "wood-oak",
+        "label": "Oak timber",
+        "finish": "satin",
+        "colour": "#A9794F"
+      },
+      {
+        "id": "metal-bronze",
+        "label": "Bronze metal",
+        "finish": "brushed",
+        "colour": "#8A6544"
+      }
+    ],
+    "designLayers": [
+      {
+        "id": "materials",
+        "kind": "presentation",
+        "authoritative": false,
+        "sourceModelRevision": 1,
+        "materialIds": [
+          "stone-light",
+          "wood-oak",
+          "metal-bronze"
+        ]
+      },
+      {
+        "id": "decor",
+        "kind": "presentation",
+        "authoritative": false,
+        "sourceModelRevision": 1,
+        "visible": true
+      },
+      {
+        "id": "lighting",
+        "kind": "presentation",
+        "authoritative": false,
+        "sourceModelRevision": 1,
+        "preset": "daylight-soft"
+      }
+    ],
+    "renderJobs": [
+      {
+        "jobId": "render-1432fcbcc104",
+        "kind": "render",
+        "status": "queued",
+        "progress": 0,
+        "modelRevision": 1,
+        "candidateId": "C-15-02",
+        "artifactManifest": {
+          "artifactId": "render-1432fcbcc104-artifact",
+          "kind": "render",
+          "traceableTo": {
+            "modelRevision": 1,
+            "candidateId": "C-15-02",
+            "seed": 1516
+          }
+        }
+      },
+      {
+        "jobId": "render-fffe312fab76",
+        "kind": "panorama",
+        "status": "queued",
+        "progress": 0,
+        "modelRevision": 1,
+        "candidateId": "C-15-02",
+        "artifactManifest": {
+          "artifactId": "render-fffe312fab76-artifact",
+          "kind": "panorama",
+          "traceableTo": {
+            "modelRevision": 1,
+            "candidateId": "C-15-02",
+            "seed": 1516
+          }
+        }
+      },
+      {
+        "jobId": "render-79615d674a04",
+        "kind": "presentation-sheet",
+        "status": "queued",
+        "progress": 0,
+        "modelRevision": 1,
+        "candidateId": "C-15-02",
+        "artifactManifest": {
+          "artifactId": "render-79615d674a04-artifact",
+          "kind": "presentation-sheet",
+          "traceableTo": {
+            "modelRevision": 1,
+            "candidateId": "C-15-02",
+            "seed": 1516
+          }
+        }
+      }
+    ],
+    "technicalPlanSideBySide": {
+      "required": true,
+      "modelRevision": 1,
+      "candidateId": "C-15-02"
+    },
+    "authoritativeGeometryChanged": false
+  }
 }

@@ -75,6 +75,27 @@ except Exception:  # pragma: no cover
     build_synchronized_views = None  # type: ignore
     recognize_import = None  # type: ignore
 
+try:
+    from week1516 import (  # type: ignore
+        ASSET_CATALOG,
+        ROOM_TEMPLATES,
+        candidate_studio,
+        design_package,
+        edit_placements,
+        furnish_model,
+        render_job,
+        validate_placement,
+    )
+except Exception:  # pragma: no cover
+    ASSET_CATALOG = None  # type: ignore
+    ROOM_TEMPLATES = None  # type: ignore
+    candidate_studio = None  # type: ignore
+    design_package = None  # type: ignore
+    edit_placements = None  # type: ignore
+    furnish_model = None  # type: ignore
+    render_job = None  # type: ignore
+    validate_placement = None  # type: ignore
+
 
 app = FastAPI(
     title="Advocate-Chambers CAD API",
@@ -83,7 +104,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-week14",
+    version="1.0.0-week16",
 )
 
 app.add_middleware(
@@ -143,6 +164,40 @@ class ImportRecognizeRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     sourcePath: str | None = Field(default=None, max_length=500)
     content: str | None = Field(default=None, max_length=2_000_000)
+
+
+class FurnishRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    seed: int = Field(default=1516, ge=0, le=2_147_483_647)
+
+
+class PlacementValidationRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    placement: dict[str, Any]
+    existing: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class PlacementEditRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    placements: list[dict[str, Any]]
+    operation: dict[str, Any]
+
+
+class CandidateStudioRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    seeds: list[int] = Field(default_factory=lambda: [1516, 1523, 1547], min_length=1, max_length=12)
+    inheritedFindings: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class DesignPackageRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    candidateId: str | None = None
+    seed: int = Field(default=1516, ge=0, le=2_147_483_647)
+    model: dict[str, Any]
 
 
 class GenerateRequest(BaseModel):
@@ -440,6 +495,73 @@ def sheet_standard() -> dict[str, Any]:
         return build_sheet_report(load_canonical_model())
     except Exception as exc:  # pragma: no cover
         raise HTTPException(status_code=500, detail=f"sheet standard failed: {exc}") from exc
+
+
+@app.get("/furnishing/catalog", tags=["furnishing"])
+def furnishing_catalog() -> dict[str, Any]:
+    """Return the Week 15 parametric asset and room-template catalog."""
+    if ASSET_CATALOG is None or ROOM_TEMPLATES is None:
+        raise HTTPException(status_code=503, detail="parametric asset layer unavailable")
+    return {"version": "week15.parametric-assets.v1", "assets": ASSET_CATALOG, "roomTemplates": ROOM_TEMPLATES}
+
+
+@app.post("/furnishing/preview", tags=["furnishing"])
+def furnishing_preview(req: FurnishRequest) -> dict[str, Any]:
+    """Place presentation assets without mutating authoritative geometry."""
+    if furnish_model is None:
+        raise HTTPException(status_code=503, detail="parametric furnishing layer unavailable")
+    return furnish_model(req.model, seed=req.seed)
+
+
+@app.post("/furnishing/validate", tags=["furnishing"])
+def furnishing_validate(req: PlacementValidationRequest) -> dict[str, Any]:
+    """Check a placement against room, opening, route, stair and service geometry."""
+    if validate_placement is None:
+        raise HTTPException(status_code=503, detail="parametric furnishing layer unavailable")
+    findings = validate_placement(req.model, req.placement, existing=req.existing)
+    return {"status": "blocked" if findings else "pass", "findings": findings}
+
+
+@app.post("/furnishing/edit", tags=["furnishing"])
+def furnishing_edit(req: PlacementEditRequest) -> dict[str, Any]:
+    """Apply one typed drag, rotate, duplicate, align, replace or auto-place edit."""
+    if edit_placements is None:
+        raise HTTPException(status_code=503, detail="parametric furnishing layer unavailable")
+    try:
+        return edit_placements(req.model, req.placements, req.operation)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/candidates/studio", tags=["candidates"])
+def candidates_studio(req: CandidateStudioRequest) -> dict[str, Any]:
+    """Compare deterministic candidates; blockers always disqualify a winner."""
+    if candidate_studio is None:
+        raise HTTPException(status_code=503, detail="candidate studio unavailable")
+    return candidate_studio(req.model, seeds=req.seeds, inherited_findings=req.inheritedFindings)
+
+
+@app.post("/presentation/package", tags=["presentation"])
+def presentation_package(req: DesignPackageRequest) -> dict[str, Any]:
+    """Return moodboard, materials, non-destructive layers and render manifests."""
+    if design_package is None or candidate_studio is None:
+        raise HTTPException(status_code=503, detail="presentation pipeline unavailable")
+    candidate_id = req.candidateId
+    if candidate_id is None:
+        candidate_id = candidate_studio(req.model, seeds=[req.seed])["bestCandidateId"]
+    return design_package(req.model, candidate_id, seed=req.seed)
+
+
+@app.post("/presentation/render-job", tags=["presentation"])
+def presentation_render_job(req: DesignPackageRequest) -> dict[str, Any]:
+    """Create a deterministic queued render, panorama or presentation-sheet job."""
+    if render_job is None:
+        raise HTTPException(status_code=503, detail="render pipeline unavailable")
+    kind = str(req.model.get("renderKind", "render"))
+    try:
+        return render_job(kind, req.model.get("project", {}).get("revision"), req.candidateId, req.seed)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @app.post("/generate", tags=["jobs"], response_model=JobResponse)
