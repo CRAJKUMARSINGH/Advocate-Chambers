@@ -1,0 +1,392 @@
+{
+  "reportVersion": "week12.brief-compiler.v1",
+  "status": "pass",
+  "fixture": {
+    "compilerVersion": "week12.brief-compiler.v1",
+    "input": "Design a 2 level advocate chambers on a site 60m x 30m. North is north and road frontage is east. Floor-to-floor is 3.6m. Include 1 reception, 2 offices, a library area target of 60m2, and an assembly hall for 120 people. Use public access, library near lobby, style contemporary, outputs PDF and DXF.",
+    "facts": {
+      "units": {
+        "detected": "unspecified",
+        "default": "metric",
+        "canonical": "inch"
+      },
+      "site": {
+        "width": {
+          "value": 2362.204724,
+          "unit": "inch",
+          "sourceUnit": "m",
+          "display": "60"
+        },
+        "depth": {
+          "value": 1181.102362,
+          "unit": "inch",
+          "sourceUnit": "m",
+          "display": "30"
+        }
+      },
+      "north": {
+        "direction": "north",
+        "source": "brief"
+      },
+      "roadFrontage": {
+        "side": "east",
+        "source": "brief"
+      },
+      "levels": 2,
+      "floorToFloor": {
+        "value": 141.732283,
+        "unit": "inch",
+        "sourceUnit": "m",
+        "display": "3.6"
+      },
+      "roomSchedule": [
+        {
+          "roomUse": "assembly",
+          "label": "assembly hall",
+          "count": 1
+        },
+        {
+          "roomUse": "reception",
+          "label": "reception",
+          "count": 1,
+          "areaTarget": {
+            "value": 645.8346,
+            "unit": "sqft",
+            "sourceUnit": "m2",
+            "display": "area target of 60m2"
+          }
+        },
+        {
+          "roomUse": "office",
+          "label": "offices",
+          "count": 2,
+          "areaTarget": {
+            "value": 645.8346,
+            "unit": "sqft",
+            "sourceUnit": "m2",
+            "display": "area target of 60m2"
+          }
+        },
+        {
+          "roomUse": "library",
+          "label": "library",
+          "count": 1,
+          "areaTarget": {
+            "value": 645.8346,
+            "unit": "sqft",
+            "sourceUnit": "m2",
+            "display": "area target of 60m2"
+          }
+        },
+        {
+          "roomUse": "library",
+          "label": "library",
+          "count": 1
+        },
+        {
+          "roomUse": "lobby",
+          "label": "lobby",
+          "count": 1
+        },
+        {
+          "roomUse": "assembly",
+          "label": "hall",
+          "count": 1
+        }
+      ],
+      "areaTargets": [],
+      "accessIntent": {
+        "value": "public",
+        "source": "brief"
+      },
+      "occupancy": {
+        "people": 120
+      },
+      "adjacencies": [
+        {
+          "left": "library",
+          "relationship": "near",
+          "right": "lobby"
+        }
+      ],
+      "style": "contemporary",
+      "requiredOutputs": [
+        "dxf",
+        "pdf"
+      ]
+    },
+    "assumptions": [
+      "Dimensions without units use the requested default unit: metric."
+    ],
+    "ambiguities": [],
+    "missingTopologyFacts": [
+      "Identify which stair, lift, or ramp connects each level."
+    ],
+    "readyForGeneration": false,
+    "status": "needs-review",
+    "performance": {
+      "compileDurationMs": 5.85,
+      "telemetry": "local-only"
+    }
+  },
+  "commandExamples": [
+    {
+      "compilerVersion": "week12.brief-compiler.v1",
+      "status": "needs-review",
+      "command": {
+        "type": "move_connector",
+        "targetKind": "stair",
+        "relation": "beside",
+        "destinationLabel": "lobby",
+        "sourceText": "move the stair beside the lobby"
+      },
+      "targetObjects": [
+        {
+          "collection": "verticalConnectors",
+          "id": "VC-STAIR-01"
+        },
+        {
+          "collection": "stairs",
+          "id": "STAIR-01"
+        }
+      ],
+      "revision": {
+        "id": "rev-1829ffc87d66",
+        "author": "brief-compiler",
+        "timestamp": "2026-01-01T00:00:00+00:00",
+        "beforeRevision": 1,
+        "afterRevision": 2,
+        "command": {
+          "type": "move_connector",
+          "targetKind": "stair",
+          "relation": "beside",
+          "destinationLabel": "lobby",
+          "sourceText": "move the stair beside the lobby"
+        },
+        "changedObjectIds": [
+          "STAIR-01",
+          "VC-STAIR-01"
+        ],
+        "validationDelta": {
+          "status": "needs-review",
+          "findings": [
+            {
+              "severity": "WARNING",
+              "rule": "COMMAND_DESTINATION_NOT_FOUND",
+              "message": "No canonical object matched destination 'lobby'."
+            }
+          ]
+        },
+        "accepted": false
+      },
+      "findings": [
+        {
+          "severity": "WARNING",
+          "rule": "COMMAND_DESTINATION_NOT_FOUND",
+          "message": "No canonical object matched destination 'lobby'."
+        }
+      ],
+      "canonicalModelUnchanged": true
+    },
+    {
+      "compilerVersion": "week12.brief-compiler.v1",
+      "status": "ready",
+      "command": {
+        "type": "set_access_intent",
+        "targetLabel": "library",
+        "accessIntent": "public",
+        "sourceText": "give the library a public route"
+      },
+      "targetObjects": [
+        {
+          "collection": "spaces",
+          "id": "FF-06"
+        },
+        {
+          "collection": "spaces",
+          "id": "FF-07"
+        }
+      ],
+      "revision": {
+        "id": "rev-3fe3c4010a59",
+        "author": "brief-compiler",
+        "timestamp": "2026-01-01T00:00:00+00:00",
+        "beforeRevision": 1,
+        "afterRevision": 2,
+        "command": {
+          "type": "set_access_intent",
+          "targetLabel": "library",
+          "accessIntent": "public",
+          "sourceText": "give the library a public route"
+        },
+        "changedObjectIds": [
+          "FF-06"
+        ],
+        "validationDelta": {
+          "status": "ready",
+          "findings": []
+        },
+        "accepted": false
+      },
+      "findings": [],
+      "canonicalModelUnchanged": true
+    },
+    {
+      "compilerVersion": "week12.brief-compiler.v1",
+      "status": "ready",
+      "command": {
+        "type": "conditional_remove_opening",
+        "targetLabel": "outer door",
+        "condition": {
+          "kind": "intentional-access-path",
+          "acceptedKinds": [
+            "balcony",
+            "landing",
+            "stair",
+            "terrace",
+            "porch"
+          ]
+        },
+        "sourceText": "remove the outer door unless a balcony is modeled"
+      },
+      "targetObjects": [
+        {
+          "collection": "openings",
+          "id": "D-GF-01"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-02"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-03"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-04"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-05"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-06"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-07"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-08"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-09"
+        },
+        {
+          "collection": "openings",
+          "id": "D-GF-10"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-01"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-02"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-03"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-04"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-05"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-06"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-07"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-08"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-09"
+        },
+        {
+          "collection": "openings",
+          "id": "D-FF-10"
+        }
+      ],
+      "revision": {
+        "id": "rev-ece15b2a8d4b",
+        "author": "brief-compiler",
+        "timestamp": "2026-01-01T00:00:00+00:00",
+        "beforeRevision": 1,
+        "afterRevision": 2,
+        "command": {
+          "type": "conditional_remove_opening",
+          "targetLabel": "outer door",
+          "condition": {
+            "kind": "intentional-access-path",
+            "acceptedKinds": [
+              "balcony",
+              "landing",
+              "stair",
+              "terrace",
+              "porch"
+            ]
+          },
+          "sourceText": "remove the outer door unless a balcony is modeled"
+        },
+        "changedObjectIds": [
+          "D-FF-01",
+          "D-FF-02",
+          "D-FF-03",
+          "D-FF-04",
+          "D-FF-05",
+          "D-FF-06",
+          "D-FF-07",
+          "D-FF-08",
+          "D-FF-09",
+          "D-FF-10",
+          "D-GF-01",
+          "D-GF-02",
+          "D-GF-03",
+          "D-GF-04",
+          "D-GF-05",
+          "D-GF-06",
+          "D-GF-07",
+          "D-GF-08",
+          "D-GF-09",
+          "D-GF-10"
+        ],
+        "validationDelta": {
+          "status": "ready",
+          "findings": []
+        },
+        "accepted": false
+      },
+      "findings": [],
+      "canonicalModelUnchanged": true
+    }
+  ],
+  "gate": {
+    "missingFactsAreShownBeforeGeneration": true,
+    "acceptedCommandsBecomeTypedRevisions": true,
+    "canonicalModelIsNotMutatedByPreview": true
+  }
+}

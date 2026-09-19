@@ -12,8 +12,8 @@
       },
       {
         "path": "bar-association-hall/standard/source/preliminary_plans.json",
-        "bytes": 13256,
-        "sha256": "73b7a554cb871f4f200aee543cc0ed0e5a272cc321935a672c3aa82048dc3965"
+        "bytes": 13570,
+        "sha256": "82e0c426527f4b39f80c1032129d056d6fede0fd18d7dc1788ffaeb4e8d6c84c"
       }
     ],
     "expectedValidationStatus": "fail",

@@ -66,6 +66,14 @@
     "North is shown toward the top of the sheet; confirm orientation against the site survey.",
     "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets."
   ],
+  "briefCompiler": {
+    "version": "week12.brief-compiler.v1",
+    "report": "bar-association-hall/standard/week12-brief-compiler-report.json",
+    "lastCompiledStatus": "needs-review",
+    "missingTopologyFacts": [
+      "Identify which stair, lift, or ramp connects each level."
+    ]
+  },
   "candidateComparison": {
     "bestCandidateId": "C-01",
     "report": "bar-association-hall/standard/week10-candidate-qa-report.json",
@@ -77,6 +85,74 @@
     "status": "pass",
     "version": "week10.candidate-comparison.v1"
   },
+  "capabilityFlags": [
+    {
+      "available": false,
+      "id": "import",
+      "label": "Plan import",
+      "modes": [
+        "brief",
+        "model"
+      ],
+      "review": "Imported geometry must be measured and reviewed before becoming authoritative.",
+      "status": "provisional"
+    },
+    {
+      "available": false,
+      "id": "threeD",
+      "label": "3D synchronized view",
+      "modes": [
+        "model",
+        "present"
+      ],
+      "review": "The current release exposes the canonical 2D model; synchronized 3D is not yet implemented.",
+      "status": "provisional"
+    },
+    {
+      "available": true,
+      "id": "candidateComparison",
+      "label": "Candidate comparison",
+      "modes": [
+        "present",
+        "validate"
+      ],
+      "review": "Ranking is a transparent planning score, not a construction recommendation.",
+      "status": "available"
+    },
+    {
+      "available": false,
+      "id": "materials",
+      "label": "Materials and finishes",
+      "modes": [
+        "furnish",
+        "present"
+      ],
+      "review": "Presentation materials never alter authoritative geometry.",
+      "status": "provisional"
+    },
+    {
+      "available": true,
+      "id": "siteFeasibility",
+      "label": "Site feasibility",
+      "modes": [
+        "brief",
+        "validate"
+      ],
+      "review": "Survey, planning permission, and local professional review remain required.",
+      "status": "available"
+    },
+    {
+      "available": false,
+      "id": "collaboration",
+      "label": "Collaboration and revisions",
+      "modes": [
+        "model",
+        "export"
+      ],
+      "review": "Local typed revision previews are available; shared persistence is not yet implemented.",
+      "status": "provisional"
+    }
+  ],
   "circulationZones": [
     {
       "accessIntent": "vertical",
@@ -2025,6 +2101,23 @@
     },
     "source": "explicit"
   },
+  "performanceCounters": {
+    "scope": "local-only",
+    "modelBytes": 77106,
+    "objectCounts": {
+      "levels": 2,
+      "spaces": 17,
+      "walls": 0,
+      "openings": 20,
+      "windows": 38,
+      "stairs": 1,
+      "verticalConnectors": 1,
+      "entries": 2
+    },
+    "validationDurationMs": 0.0,
+    "renderDurationMs": 0.0,
+    "exportDurationMs": 0.0
+  },
   "presentation": {
     "deterministicSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c",
     "furnitureLibraryVersion": "week9.furniture-library.v1",
@@ -2033,6 +2126,63 @@
     "validatedModelRevision": 1,
     "version": "week9.presentation.v1"
   },
+  "productModes": [
+    {
+      "canonicalSources": [
+        "briefCompiler"
+      ],
+      "description": "Compile a natural-language brief into typed planning facts.",
+      "id": "brief",
+      "label": "Brief"
+    },
+    {
+      "canonicalSources": [
+        "spaces",
+        "openings",
+        "verticalConnectors",
+        "entries"
+      ],
+      "description": "Review authoritative rooms, openings, levels, and routes.",
+      "id": "model",
+      "label": "Model"
+    },
+    {
+      "canonicalSources": [
+        "enrichment",
+        "findings",
+        "rulePack"
+      ],
+      "description": "Inspect deterministic findings and professional-review items.",
+      "id": "validate",
+      "label": "Validate"
+    },
+    {
+      "canonicalSources": [
+        "presentation"
+      ],
+      "description": "Place scaled presentation objects without changing building geometry.",
+      "id": "furnish",
+      "label": "Furnish"
+    },
+    {
+      "canonicalSources": [
+        "candidateComparison",
+        "presentation"
+      ],
+      "description": "Compare and explain candidates without hiding blockers.",
+      "id": "present",
+      "label": "Present"
+    },
+    {
+      "canonicalSources": [
+        "enrichment",
+        "project.revision"
+      ],
+      "description": "Prepare revision-matched technical and presentation outputs.",
+      "id": "export",
+      "label": "Export"
+    }
+  ],
   "program": {
     "adjacencyEvaluations": [
       {

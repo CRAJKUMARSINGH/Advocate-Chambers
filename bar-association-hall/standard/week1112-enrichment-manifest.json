@@ -1,0 +1,17 @@
+{
+  "manifestVersion": "week1112.enrichment-manifest.v1",
+  "status": "pass",
+  "canonicalModel": "bar-association-hall/standard/model/project.json",
+  "capabilityMatrix": "bar-association-hall/standard/week11-capability-matrix.json",
+  "briefCompilerReport": "bar-association-hall/standard/week12-brief-compiler-report.json",
+  "changelog": "bar-association-hall/standard/week1112-changelog.md",
+  "modes": [
+    "brief",
+    "model",
+    "validate",
+    "furnish",
+    "present",
+    "export"
+  ],
+  "compilerVersion": "week12.brief-compiler.v1"
+}

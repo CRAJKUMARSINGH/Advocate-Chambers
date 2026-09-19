@@ -1,0 +1,135 @@
+{
+  "reportVersion": "week11.product-modes.v1",
+  "status": "pass",
+  "canonicalModel": "bar-association-hall/standard/model/project.json",
+  "modes": [
+    {
+      "id": "brief",
+      "label": "Brief",
+      "description": "Compile a natural-language brief into typed planning facts.",
+      "canonicalSources": [
+        "briefCompiler"
+      ]
+    },
+    {
+      "id": "model",
+      "label": "Model",
+      "description": "Review authoritative rooms, openings, levels, and routes.",
+      "canonicalSources": [
+        "spaces",
+        "openings",
+        "verticalConnectors",
+        "entries"
+      ]
+    },
+    {
+      "id": "validate",
+      "label": "Validate",
+      "description": "Inspect deterministic findings and professional-review items.",
+      "canonicalSources": [
+        "enrichment",
+        "findings",
+        "rulePack"
+      ]
+    },
+    {
+      "id": "furnish",
+      "label": "Furnish",
+      "description": "Place scaled presentation objects without changing building geometry.",
+      "canonicalSources": [
+        "presentation"
+      ]
+    },
+    {
+      "id": "present",
+      "label": "Present",
+      "description": "Compare and explain candidates without hiding blockers.",
+      "canonicalSources": [
+        "candidateComparison",
+        "presentation"
+      ]
+    },
+    {
+      "id": "export",
+      "label": "Export",
+      "description": "Prepare revision-matched technical and presentation outputs.",
+      "canonicalSources": [
+        "enrichment",
+        "project.revision"
+      ]
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "import",
+      "label": "Plan import",
+      "status": "provisional",
+      "available": false,
+      "modes": [
+        "brief",
+        "model"
+      ],
+      "review": "Imported geometry must be measured and reviewed before becoming authoritative."
+    },
+    {
+      "id": "threeD",
+      "label": "3D synchronized view",
+      "status": "provisional",
+      "available": false,
+      "modes": [
+        "model",
+        "present"
+      ],
+      "review": "The current release exposes the canonical 2D model; synchronized 3D is not yet implemented."
+    },
+    {
+      "id": "candidateComparison",
+      "label": "Candidate comparison",
+      "status": "available",
+      "available": true,
+      "modes": [
+        "present",
+        "validate"
+      ],
+      "review": "Ranking is a transparent planning score, not a construction recommendation."
+    },
+    {
+      "id": "materials",
+      "label": "Materials and finishes",
+      "status": "provisional",
+      "available": false,
+      "modes": [
+        "furnish",
+        "present"
+      ],
+      "review": "Presentation materials never alter authoritative geometry."
+    },
+    {
+      "id": "siteFeasibility",
+      "label": "Site feasibility",
+      "status": "available",
+      "available": true,
+      "modes": [
+        "brief",
+        "validate"
+      ],
+      "review": "Survey, planning permission, and local professional review remain required."
+    },
+    {
+      "id": "collaboration",
+      "label": "Collaboration and revisions",
+      "status": "provisional",
+      "available": false,
+      "modes": [
+        "model",
+        "export"
+      ],
+      "review": "Local typed revision previews are available; shared persistence is not yet implemented."
+    }
+  ],
+  "policy": [
+    "Presentation objects are not authoritative geometry.",
+    "Provisional capabilities are visible but cannot be represented as complete.",
+    "Professional-review capabilities show their unresolved decision explicitly."
+  ]
+}

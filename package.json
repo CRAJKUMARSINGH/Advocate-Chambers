@@ -15,7 +15,7 @@
     "typecheck:web": "npm --prefix apps/web run typecheck",
     "draw:refined": "python bar-association-hall/generate_refined_cad.py",
     "draw:standard": "python bar-association-hall/generate_standard_drawings.py",
-    "validate:standard": "python -c \"from bar_association_hall.drawing_model import load_model, validate_model; s,p=load_model(); e=validate_model(s,p); print('fail' if e else 'pass'); [print(x) for x in e]\"",
+    "validate:standard": "python -c \"import sys; sys.path.insert(0, 'bar-association-hall'); from drawing_model import load_model, validate_model; s,p=load_model(); e=validate_model(s,p); print('fail' if e else 'pass'); [print(x) for x in e]\"",
     "validate:week1": "python scripts/week1.py validate --write-report",
     "verify:week1": "python scripts/week1.py verify-manifest",
     "test:week1": "python -m unittest discover -s tests -p 'test_week1*.py'",
@@ -39,6 +39,10 @@
     "validate:week9": "python scripts/week910.py validate",
     "validate:week10": "python scripts/week910.py validate",
     "test:week910": "python -m unittest discover -s tests -p 'test_week910*.py'",
+    "enrich:week1112": "python scripts/week1112.py report",
+    "validate:week11": "python scripts/week1112.py validate",
+    "validate:week12": "python scripts/week1112.py validate",
+    "test:week1112": "python -m unittest discover -s tests -p 'test_week1112*.py'",
     "docs:patch-guide": "start code-junction/future-react-cad-transformation-patch-guide/deliverables/TRANSFORMATION_PATCH_GUIDE.md"
   },
   "devDependencies": {

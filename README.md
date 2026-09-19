@@ -154,3 +154,44 @@ npm run test:week78
 The Week 8 stamp is a preliminary-review gate, not a construction,
 accessibility, fire/life-safety, structural, MEP, survey, permit, or local-code
 certification.
+
+## Week 11–12 task status
+
+**Applied and marked done:**
+
+- Week 11 adds explicit **Brief, Model, Validate, Furnish, Present, and Export**
+  product modes in the web editor.
+- The capability matrix distinguishes available, provisional, and
+  professional-review features for import, 3D, candidate comparison, materials,
+  site feasibility, and collaboration.
+- Local-only performance counters report model size, object counts, validation
+  duration, render duration, and export duration without telemetry.
+- Week 12 adds a deterministic conversational brief compiler for metric and
+  imperial units. It extracts site dimensions, north, frontage, levels,
+  floor-to-floor heights, room schedules, area targets, access intent,
+  occupancy, adjacencies, style, and requested outputs.
+- Briefs show assumptions, ambiguities, and missing topology facts before plan
+  generation. Supported commands become typed revision previews with changed
+  object IDs and validation deltas; conditional outer-door removal is blocked
+  until an intentional access path is modeled.
+- FastAPI routes: `GET /capabilities`, `GET /performance`,
+  `POST /brief/compile`, and `POST /brief/command`.
+- Deterministic artifacts:
+  - `bar-association-hall/standard/week11-capability-matrix.json`
+  - `bar-association-hall/standard/week12-brief-compiler-report.json`
+  - `bar-association-hall/standard/week1112-enrichment-manifest.json`
+  - `bar-association-hall/standard/week1112-changelog.md`
+- Regression tests live in `tests/test_week1112_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week1112
+npm run validate:week11
+npm run validate:week12
+npm run test:week1112
+```
+
+The brief compiler and product modes are preliminary planning aids. They do
+not provide survey, code, permit, accessibility, fire/life-safety, structural,
+MEP, or construction certification.

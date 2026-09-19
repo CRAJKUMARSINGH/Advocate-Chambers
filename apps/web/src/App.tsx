@@ -4,6 +4,7 @@ import { Viewport2D } from './components/Viewport2D';
 import { PropertyInspector } from './components/PropertyInspector';
 import { ValidationPanel } from './components/ValidationPanel';
 import { ArtifactPanel } from './components/ArtifactPanel';
+import { ProductModePanel } from './components/ProductModePanel';
 
 type LevelId = 'GF' | 'FF';
 
@@ -71,6 +72,7 @@ export function App(): React.JSX.Element {
 
       <div style={bodyStyle}>
         <aside style={sidebarColStyle}>
+          <ProductModePanel />
           <ProjectLevelSelector level={level} onChange={setLevel} />
           <ValidationPanel projectId={projectId} level={level} />
           <ArtifactPanel projectId={projectId} level={level} />

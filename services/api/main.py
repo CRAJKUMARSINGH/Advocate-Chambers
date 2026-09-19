@@ -47,6 +47,21 @@ except Exception:  # pragma: no cover
     week56_enrichment_report = None  # type: ignore
     week78_enrichment_report = None  # type: ignore
 
+try:
+    from week1112 import (  # type: ignore
+        accept_revision,
+        build_capability_report,
+        command_preview,
+        compile_brief,
+        performance_counters,
+    )
+except Exception:  # pragma: no cover
+    accept_revision = None  # type: ignore
+    build_capability_report = None  # type: ignore
+    command_preview = None  # type: ignore
+    compile_brief = None  # type: ignore
+    performance_counters = None  # type: ignore
+
 
 app = FastAPI(
     title="Advocate-Chambers CAD API",
@@ -55,7 +70,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-week8",
+    version="1.0.0-week12",
 )
 
 app.add_middleware(
@@ -96,6 +111,19 @@ class ValidateResponse(BaseModel):
     errors: list[str] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     checkedAt: str
+
+
+class BriefCompileRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    text: str = Field(..., min_length=1, max_length=12000)
+    defaultUnits: str = Field(default="inch", pattern="^(inch|imperial|metric|in|ft|m|cm|mm)$")
+
+
+class CommandPreviewRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    command: str = Field(..., min_length=1, max_length=2000)
+    author: str = Field(default="brief-compiler", min_length=1, max_length=120)
+    accept: bool = False
 
 
 class GenerateRequest(BaseModel):
@@ -293,6 +321,60 @@ def analysis(level: str | None = None) -> dict[str, Any]:
         "rulePack": enriched["week7"]["selectedRulePack"],
         "drawingQuality": enriched["week8"],
     }
+
+
+@app.get("/capabilities", tags=["product"])
+def capabilities() -> dict[str, Any]:
+    """Describe product modes without implying that provisional features exist."""
+    if build_capability_report is None:
+        raise HTTPException(status_code=503, detail="product capability layer unavailable")
+    return build_capability_report()
+
+
+@app.post("/brief/compile", tags=["brief"])
+def compile_brief_endpoint(req: BriefCompileRequest) -> dict[str, Any]:
+    """Compile a brief into facts and topology questions without generating geometry."""
+    if compile_brief is None:
+        raise HTTPException(status_code=503, detail="brief compiler unavailable")
+    return compile_brief(req.text, default_units=req.defaultUnits)
+
+
+@app.post("/brief/command", tags=["brief"])
+def command_endpoint(req: CommandPreviewRequest) -> dict[str, Any]:
+    """Preview a typed command against the canonical model.
+
+    Acceptance is intentionally in-memory at this stage. A future persistence
+    worker can save the returned revision after the same validation contract
+    has passed; the API never treats a prompt string as an implicit mutation.
+    """
+    if command_preview is None or accept_revision is None:
+        raise HTTPException(status_code=503, detail="brief command layer unavailable")
+    try:
+        from week2 import load_canonical_model  # type: ignore
+
+        canonical = load_canonical_model()
+        preview = command_preview(canonical, req.command, author=req.author)
+        if req.accept and preview["status"] != "blocked":
+            accepted = accept_revision(canonical, preview)
+            preview["acceptedRevision"] = accepted["revision"]
+            preview["acceptedModelRevision"] = accepted["model"]["project"]["revision"]
+            preview["canonicalModelUnchanged"] = False
+        return preview
+    except Exception as exc:  # pragma: no cover - surfaced as an API diagnostic
+        raise HTTPException(status_code=500, detail=f"brief command failed: {exc}") from exc
+
+
+@app.get("/performance", tags=["product"])
+def performance() -> dict[str, Any]:
+    """Return local-only counters for the current canonical model."""
+    if performance_counters is None:
+        raise HTTPException(status_code=503, detail="performance counters unavailable")
+    try:
+        from week2 import load_canonical_model  # type: ignore
+
+        return performance_counters(load_canonical_model())
+    except Exception as exc:  # pragma: no cover - surfaced as an API diagnostic
+        raise HTTPException(status_code=500, detail=f"performance counters failed: {exc}") from exc
 
 
 @app.post("/generate", tags=["jobs"], response_model=JobResponse)

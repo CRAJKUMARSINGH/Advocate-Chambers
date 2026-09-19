@@ -1,4 +1,5 @@
 node_modules/
+apps/web/dist/
 __pycache__/
 *.pyc
 *.log
