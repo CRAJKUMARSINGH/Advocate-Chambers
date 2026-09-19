@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-003",
+  "title": "Door opening into a private room",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "opening", "severity": "BLOCKER", "description": "A room is accessed through a private or locked room." },
+  "mutations": [{ "path": "openings.0.sideBKind", "operation": "set", "value": "private-room" }],
+  "expectedFinding": {
+    "ruleId": "OPENING.PRIVATE.ACCESS",
+    "severity": "BLOCKER",
+    "affectedObjects": ["DOOR-FF-ROOM-01"],
+    "evidenceFields": ["openingId", "sideBKind"],
+    "correction": "Connect the room to public circulation."
+  }
+}
