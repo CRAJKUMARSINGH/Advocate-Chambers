@@ -482,3 +482,208 @@ Do not sacrifice reachability, dimensions, opening semantics, stair coordination
 - [4Lines.ai](https://4lines.ai/)
 
 These references should be rechecked before implementing any integration or claiming feature parity, because product availability, pricing, and feature names change.
+
+
+---
+
+# Phase Two Addendum — Post-Planning Edit Library
+
+## Why this is required
+
+A professional planning engine must also feel as immediate as modern 3D home-design software. After a plan is generated, the user should be able to select a wall, move a door, add a window, drag furniture, or change a room layout and see the result immediately in both 2D and 3D.
+
+The difference is that Advocate-Chambers must make these edits semantically and safely. A visual edit is not complete until the geometry, access graph, dimensions, schedules, and validation findings have been updated.
+
+## Two-layer editing architecture
+
+### Authoritative planning layer
+
+This layer controls valid building geometry and contains:
+
+- walls, rooms, doors, windows, stairs, balconies, corridors, and service zones;
+- structural and vertical coordination objects;
+- dimensions, levels, areas, and schedules;
+- public, private, staff, service, accessible, and emergency routes;
+- validation findings and professional-review status.
+
+### Presentation layer
+
+This layer controls non-authoritative visual design and contains:
+
+- furniture, fixtures, equipment, materials, colours, lighting, decor, cameras, and renders;
+- moodboards, style presets, and presentation layouts;
+- client-facing images and walkthroughs.
+
+Presentation objects may improve appearance, but they must never hide a blocker or silently change the authoritative walls, openings, routes, or levels.
+
+## Required feature-library categories
+
+### 1. Wall editing
+
+- Select, move, split, extend, offset, trim, join, and delete walls.
+- Drag wall ends with live dimensions.
+- Snap to grid, corners, midpoints, columns, reference lines, and existing walls.
+- Preserve wall thickness and room boundaries.
+- Warn before a wall edit disconnects a room, corridor, stair, or service route.
+- Support lock, group, hide, isolate, and undo/redo.
+
+### 2. Door library
+
+Include main entrance, single, double, sliding, folding, fire, service, accessible, balcony, and internal doors.
+
+Every door object must store:
+
+- width, height, frame, sill or threshold where applicable;
+- hinge side, swing direction, opening arc, and clear approach zone;
+- host wall and side A/side B connections;
+- access intent: public, private, staff, service, emergency, or exterior;
+- clearance envelope and validation state.
+
+Dragging a door onto a wall must create a real wall opening. It must not be a decorative line laid over an unbroken wall.
+
+### 3. Window library
+
+Include sliding, casement, fixed, clerestory, ventilator, bay, skylight, and louvered windows.
+
+Every window object must store:
+
+- width, height, sill, head, and opening direction;
+- host wall and wall span position;
+- daylight and ventilation intent;
+- opening type, tag, and schedule data.
+
+The editor must warn when a window conflicts with a corner, column, door, another opening, or a required service zone.
+
+### 4. Furniture and equipment library
+
+Include beds, sofas, tables, desks, wardrobes, kitchen units, toilets, showers, counters, reception desks, library shelves, courtroom seating, dais, waiting-area furniture, vehicles, and industrial equipment.
+
+Every item must include:
+
+- real-world dimensions and scale;
+- rotation and mirroring rules;
+- occupancy or user count where relevant;
+- preferred wall or service-side relationships;
+- clearance envelope;
+- door, route, stair, and emergency-path conflict rules;
+- searchable room type, category, style, and manufacturer-neutral metadata.
+
+Support drag, rotate, duplicate, align, distribute, mirror, group, replace, and find-valid-position operations.
+
+### 5. Room-type furnishing tools
+
+Provide one-click starting layouts for:
+
+- bedrooms, living rooms, kitchens, toilets, offices, chambers, reception areas;
+- bar association halls, courtrooms, libraries, classrooms, waiting rooms, retail areas;
+- healthcare rooms, service spaces, workshops, warehouses, and light industrial areas.
+
+One-click furnishing is a starting suggestion only. The engine must run clearance and route checks before marking it valid.
+
+## Instant 2D and 3D synchronization
+
+Every accepted edit must update the following from the same canonical model:
+
+- 2D floor plan;
+- real-time 3D building view;
+- section and elevation views;
+- dimensions and area schedule;
+- door and window schedules;
+- furniture and equipment clearances;
+- circulation and egress graph;
+- validation panel and route overlays;
+- export manifest and revision record.
+
+A 3D view must never show an object that is absent from the authoritative model, and a 2D plan must never show stale geometry after a 3D edit.
+
+## Edit transaction workflow
+
+Implement every user edit as a transaction:
+
+1. Select an object or editing tool.
+2. Show dimensions, properties, constraints, and connected objects.
+3. Preview the proposed movement or replacement.
+4. Apply the edit to a temporary model.
+5. Run lightweight geometry, opening, clearance, and reachability checks.
+6. Show a green valid state, yellow professional-review state, or red blocked state.
+7. Let the user accept, cancel, or undo.
+8. Save an immutable revision with author, timestamp, changed object IDs, and validation delta.
+9. Queue heavier rendering and export jobs only after acceptance.
+
+## Example command behaviour
+
+For the command: “Move this door to the corridor,” the system must:
+
+1. locate a valid host wall;
+2. create a real opening;
+3. check width, swing, approach, and landing clearance;
+4. identify both connected spaces;
+5. update the route graph;
+6. verify that the room remains reachable;
+7. update the 2D plan, 3D scene, schedules, and dimensions;
+8. show any new warning or blocker before export.
+
+For the command: “Furnish this library,” the system must:
+
+1. identify the room and its use;
+2. load a library-specific furniture template;
+3. place shelves, tables, chairs, and circulation aisles to scale;
+4. preserve door swings, accessible routes, and emergency paths;
+5. show capacity and remaining clear area;
+6. allow the user to edit the arrangement;
+7. save furniture as a presentation or planning revision according to user choice.
+
+## Phase Two implementation sequence
+
+### Edit Library Dose A — Core manipulation
+
+- Selection, snapping, dimensions, properties, multi-select, lock, hide, undo, and redo.
+- Wall move, split, join, offset, and trim.
+- Temporary preview model and lightweight validation.
+
+### Edit Library Dose B — Openings
+
+- Door and window catalog.
+- True wall breaks, swings, dimensions, tags, schedules, and clearance envelopes.
+- Exterior-access and balcony/landing validation.
+
+### Edit Library Dose C — Furniture
+
+- Parametric furniture blocks.
+- Drag, rotate, align, duplicate, replace, and find-valid-position.
+- Room templates, clearance envelopes, route conflict checks, and occupancy.
+
+### Edit Library Dose D — Synchronized 3D
+
+- Shared object selection between 2D and 3D.
+- Orbit, walk-through, camera presets, level visibility, section box, and isolated-room mode.
+- Live updates to sections, elevations, dimensions, and validation overlays.
+
+### Edit Library Dose E — Revision and export
+
+- Transaction history, revision comparison, comments, accepted/rejected edits, and source provenance.
+- Coordinated export of JSON, validation report, technical PDF, presentation PDF, DXF, optional IFC, and renders.
+- Reject issue-ready export when unresolved BLOCKER findings remain.
+
+## Acceptance tests
+
+1. Moving a wall updates room area, dimensions, 2D, 3D, section, furniture clearances, and validation findings.
+2. Dragging a door onto a wall creates a real wall break and a valid side A/side B connection.
+3. A door cannot be accepted if its swing blocks the only route or another required opening.
+4. A first-floor external door cannot be accepted without a modeled balcony, landing, stair, terrace, porch, or other intentional access path.
+5. A window cannot be placed outside a host wall or over an incompatible opening.
+6. Furniture cannot be accepted when it blocks the only room entrance, accessible route, stair, or required clearance.
+7. The user can undo a combined edit and restore the exact prior model revision.
+8. Presentation mode cannot hide a blocker produced by an authoritative planning edit.
+9. Identical edits on the same model and seed produce identical geometry, IDs, validation findings, and exports.
+10. Every accepted edit appears in the revision history with changed object IDs and a validation delta.
+
+## Product principle
+
+Give users the simplicity of a 3D home-design editor, but keep the intelligence of an architectural planning system underneath:
+
+**select → edit → preview → validate → accept → synchronize → export**
+
+Never allow:
+
+**select → decorate → hide the problem → export**
