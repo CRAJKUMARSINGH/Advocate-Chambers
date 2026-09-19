@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-006",
+  "title": "Stair without landing",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "stairs", "severity": "BLOCKER", "description": "The stair has no valid approach or discharge landing." },
+  "mutations": [{ "path": "stairs.0.landing", "operation": "set", "value": false }],
+  "expectedFinding": {
+    "ruleId": "STAIR.LANDING.REQUIRED",
+    "severity": "BLOCKER",
+    "affectedObjects": ["STAIR-01"],
+    "evidenceFields": ["stairId", "landing"],
+    "correction": "Add and dimension a valid stair landing."
+  }
+}
