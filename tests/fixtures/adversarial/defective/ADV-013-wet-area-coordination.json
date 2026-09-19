@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-013",
+  "title": "Wet-area coordination failure",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "wet-area", "severity": "BLOCKER", "description": "Wet-area MEP coordination is not verified." },
+  "mutations": [{ "path": "wetAreas.0.coordination.status", "operation": "set", "value": "missing" }],
+  "expectedFinding": {
+    "ruleId": "WET-AREA.COORDINATION",
+    "severity": "BLOCKER",
+    "affectedObjects": ["WET-AREA-01", "GF-WET-01"],
+    "evidenceFields": ["wetAreaId", "coordination"],
+    "correction": "Coordinate shafts, drainage, falls, waterproofing, ventilation, and MEP."
+  }
+}
