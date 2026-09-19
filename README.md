@@ -51,6 +51,25 @@ Banswara. The Week 2 canonical model remains the source of truth for geometry;
 the Week 3–4 enrichment adds explainable routes, semantic openings, clearance
 checks, and stable opening schedules before drawing export.
 
+## Post-Week-20 validation program
+
+The next enrichment phase is an evidence-based validation program rather than
+another feature-only phase. It adds a weekly plan for adversarial architectural
+fixtures, independent professional review, performance benchmarks, and
+reproducibility gates.
+
+See
+[`docs/VALIDATION_AND_BENCHMARK_WEEKLY_PROGRAM.md`](docs/VALIDATION_AND_BENCHMARK_WEEKLY_PROGRAM.md)
+for the Week 21–27 execution plan, acceptance thresholds, benchmark workload
+profiles, reviewer scorecard, release classifications, and proposed evidence
+layout.
+
+The target release statement is: **100% detection of known critical defects,
+zero dangerous false negatives, reproducible professional findings, measured
+performance, and no loss of a valid project revision.** Until those gates are
+met, generated plans remain preliminary planning and coordination aids and are
+not automatically issuable.
+
 ## Week 3–4 task status
 
 **Applied on `main`:**
