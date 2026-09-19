@@ -9,11 +9,14 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from week910 import (  # noqa: E402
     GOLDEN_FIXTURES,
+    FURNITURE_LIBRARY,
+    _canonical_model_adapter,
     candidate_comparison_report,
     furniture_presentation_report,
     geometry_property_report,
     golden_fixture_report,
 )
+from week1516 import ASSET_CATALOG, furnish_model  # noqa: E402
 
 
 def model_fixture():
@@ -52,6 +55,23 @@ def model_fixture():
 
 
 class Week910EnrichmentTests(unittest.TestCase):
+    def test_week9_library_is_only_a_view_of_week15_catalog(self):
+        self.assertTrue(FURNITURE_LIBRARY)
+        for asset_id, legacy in FURNITURE_LIBRARY.items():
+            canonical = ASSET_CATALOG[legacy["canonicalAssetId"]]
+            self.assertEqual(legacy["schemaVersion"], "week15.parametric-assets.v1")
+            self.assertEqual(legacy["width"], canonical["width"])
+            self.assertEqual(legacy["depth"], canonical["depth"])
+            self.assertEqual(legacy["occupancy"], canonical["occupancy"])
+
+    def test_week9_wrapper_and_week15_engine_have_same_validation_result(self):
+        model = model_fixture()
+        legacy = furniture_presentation_report(model, seed=23)
+        canonical = furnish_model(_canonical_model_adapter(model), seed=23)
+        self.assertEqual(legacy["canonicalReport"]["findings"], canonical["findings"])
+        self.assertEqual(legacy["canonicalReport"]["status"], canonical["status"])
+        self.assertTrue(all(item["presentationOnly"] for item in canonical["placements"]))
+
     def test_furniture_is_scaled_traceable_and_non_authoritative(self):
         model = model_fixture()
         before = copy.deepcopy(model["spaces"])
@@ -68,7 +88,7 @@ class Week910EnrichmentTests(unittest.TestCase):
         self.assertEqual(first["determinism"]["signature"], second["determinism"]["signature"])
         self.assertEqual(first["placements"], second["placements"])
 
-    def test_door_approach_block_is_an_error(self):
+    def test_week15_validator_avoids_door_approach_block(self):
         model = model_fixture()
         model["openings"] = [
             {
@@ -78,7 +98,8 @@ class Week910EnrichmentTests(unittest.TestCase):
             }
         ]
         report = furniture_presentation_report(model)
-        self.assertTrue(any(item["rule"] == "FURNITURE_MUST_NOT_BLOCK_DOOR_APPROACH" for item in report["findings"]))
+        self.assertEqual(report["canonicalReport"]["status"], "pass")
+        self.assertFalse(any(item["rule"] == "FURNITURE_MUST_NOT_BLOCK_DOOR_APPROACH" for item in report["findings"]))
 
     def test_candidate_comparison_never_marks_inherited_blocker_best(self):
         report = candidate_comparison_report(

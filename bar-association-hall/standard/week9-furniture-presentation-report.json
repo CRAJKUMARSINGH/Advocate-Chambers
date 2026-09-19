@@ -1,46 +1,506 @@
 {
   "authoritativeGeometryUnchanged": true,
+  "canonicalReport": {
+    "authoritativeGeometryUnchanged": true,
+    "catalogVersion": "week15.parametric-assets.v1",
+    "determinism": {
+      "algorithm": "sha256",
+      "signature": "50a6f89e437eb755527d55001e88a7a2f47d400438b9054e157ab0cfa4f6944b"
+    },
+    "findings": [],
+    "placements": [
+      {
+        "assetId": "visitor-chair",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          12.0,
+          12.0,
+          44.0,
+          62.0
+        ],
+        "geometry": {
+          "rect": [
+            18.0,
+            18.0,
+            38.0,
+            38.0
+          ]
+        },
+        "hostSpaceId": "GF-01",
+        "id": "GF-01-visitor-chair",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          162.0,
+          12.0,
+          246.0,
+          96.0
+        ],
+        "geometry": {
+          "rect": [
+            168.0,
+            18.0,
+            240.0,
+            54.0
+          ]
+        },
+        "hostSpaceId": "GF-02",
+        "id": "GF-02-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "visitor-chair",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          294.0,
+          12.0,
+          326.0,
+          62.0
+        ],
+        "geometry": {
+          "rect": [
+            300.0,
+            18.0,
+            320.0,
+            38.0
+          ]
+        },
+        "hostSpaceId": "GF-03",
+        "id": "GF-03-visitor-chair",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "visitor-chair",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          444.0,
+          12.0,
+          476.0,
+          62.0
+        ],
+        "geometry": {
+          "rect": [
+            450.0,
+            18.0,
+            470.0,
+            38.0
+          ]
+        },
+        "hostSpaceId": "GF-04",
+        "id": "GF-04-visitor-chair",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          558.0,
+          12.0,
+          642.0,
+          96.0
+        ],
+        "geometry": {
+          "rect": [
+            564.0,
+            18.0,
+            636.0,
+            54.0
+          ]
+        },
+        "hostSpaceId": "GF-05",
+        "id": "GF-05-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "lectern",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          12.0,
+          186.0,
+          48.0,
+          248.0
+        ],
+        "geometry": {
+          "rect": [
+            18.0,
+            192.0,
+            42.0,
+            212.0
+          ]
+        },
+        "hostSpaceId": "GF-06",
+        "id": "GF-06-lectern",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          12.0,
+          912.0,
+          96.0,
+          996.0
+        ],
+        "geometry": {
+          "rect": [
+            18.0,
+            918.0,
+            90.0,
+            954.0
+          ]
+        },
+        "hostSpaceId": "GF-07",
+        "id": "GF-07-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          12.0,
+          12.0,
+          96.0,
+          96.0
+        ],
+        "geometry": {
+          "rect": [
+            18.0,
+            18.0,
+            90.0,
+            54.0
+          ]
+        },
+        "hostSpaceId": "FF-01",
+        "id": "FF-01-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          162.0,
+          12.0,
+          246.0,
+          96.0
+        ],
+        "geometry": {
+          "rect": [
+            168.0,
+            18.0,
+            240.0,
+            54.0
+          ]
+        },
+        "hostSpaceId": "FF-02",
+        "id": "FF-02-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          294.0,
+          12.0,
+          378.0,
+          96.0
+        ],
+        "geometry": {
+          "rect": [
+            300.0,
+            18.0,
+            372.0,
+            54.0
+          ]
+        },
+        "hostSpaceId": "FF-03",
+        "id": "FF-03-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          444.0,
+          12.0,
+          528.0,
+          96.0
+        ],
+        "geometry": {
+          "rect": [
+            450.0,
+            18.0,
+            522.0,
+            54.0
+          ]
+        },
+        "hostSpaceId": "FF-04",
+        "id": "FF-04-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "visitor-chair",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          558.0,
+          12.0,
+          590.0,
+          62.0
+        ],
+        "geometry": {
+          "rect": [
+            564.0,
+            18.0,
+            584.0,
+            38.0
+          ]
+        },
+        "hostSpaceId": "FF-05",
+        "id": "FF-05-visitor-chair",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "library-shelf",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          12.0,
+          186.0,
+          96.0,
+          242.0
+        ],
+        "geometry": {
+          "rect": [
+            18.0,
+            192.0,
+            90.0,
+            206.0
+          ]
+        },
+        "hostSpaceId": "FF-06",
+        "id": "FF-06-library-shelf",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "library-table",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          6.0,
+          774.0,
+          126.0,
+          882.0
+        ],
+        "geometry": {
+          "rect": [
+            30.0,
+            810.0,
+            102.0,
+            846.0
+          ]
+        },
+        "hostSpaceId": "FF-07",
+        "id": "FF-07-library-table",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "visitor-chair",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          12.0,
+          1002.0,
+          44.0,
+          1052.0
+        ],
+        "geometry": {
+          "rect": [
+            18.0,
+            1008.0,
+            38.0,
+            1028.0
+          ]
+        },
+        "hostSpaceId": "FF-08",
+        "id": "FF-08-visitor-chair",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "executive-desk",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          234.0,
+          1002.0,
+          318.0,
+          1086.0
+        ],
+        "geometry": {
+          "rect": [
+            240.0,
+            1008.0,
+            312.0,
+            1044.0
+          ]
+        },
+        "hostSpaceId": "FF-09",
+        "id": "FF-09-executive-desk",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      },
+      {
+        "assetId": "visitor-chair",
+        "authoritative": false,
+        "clearanceEnvelope": [
+          456.0,
+          1002.0,
+          488.0,
+          1052.0
+        ],
+        "geometry": {
+          "rect": [
+            462.0,
+            1008.0,
+            482.0,
+            1028.0
+          ]
+        },
+        "hostSpaceId": "FF-10",
+        "id": "FF-10-visitor-chair",
+        "modelRevision": 1,
+        "presentationOnly": true,
+        "rotation": 0
+      }
+    ],
+    "presentationOnly": true,
+    "seed": 910,
+    "skipped": [],
+    "status": "pass",
+    "version": "week15.parametric-assets.v1"
+  },
   "determinism": {
     "algorithm": "sha256",
     "sameModelSameSeedProducesSamePlacements": true,
-    "signature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"
+    "signature": "05f4306a9f54005f0d54c580bb3752464bb6022d70dc770fa851e756885feb77"
   },
   "findingCounts": {},
   "findings": [],
-  "furnitureLibraryVersion": "week9.furniture-library.v1",
+  "furnitureLibraryVersion": "week15.parametric-assets.v1",
   "library": {
+    "appliance-block": {
+      "canonicalAssetId": "appliance-block",
+      "category": "appliance",
+      "clearance": 36,
+      "depth": 30,
+      "height": 36,
+      "label": "Appliance block",
+      "occupancy": 0,
+      "roomUses": [
+        "service",
+        "retail"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 36
+    },
     "audience-chair": {
+      "canonicalAssetId": "audience-chair",
       "category": "seating",
-      "clearance": 12.0,
-      "depth": 18.0,
-      "height": 32.0,
+      "clearance": 18,
+      "depth": 18,
+      "height": 32,
       "label": "Audience chair",
       "occupancy": 1,
       "roomUses": [
+        "hall",
+        "assembly",
+        "classroom"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 18
+    },
+    "bench-row": {
+      "canonicalAssetId": "bench-row",
+      "category": "seating",
+      "clearance": 48,
+      "depth": 20,
+      "height": 32,
+      "label": "Bench seating row",
+      "occupancy": 4,
+      "roomUses": [
+        "hall",
         "assembly"
       ],
-      "width": 18.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 96
     },
     "chair": {
+      "canonicalAssetId": "chair",
       "category": "seating",
-      "clearance": 6.0,
-      "depth": 18.0,
-      "height": 32.0,
+      "clearance": 18,
+      "depth": 18,
+      "height": 32,
       "label": "Stacking chair",
       "occupancy": 1,
       "roomUses": [
+        "hall",
         "assembly",
         "waiting",
         "discussion",
         "classroom"
       ],
-      "width": 18.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 18
+    },
+    "dais": {
+      "canonicalAssetId": "dais",
+      "category": "dais",
+      "clearance": 60,
+      "depth": 60,
+      "height": 18,
+      "label": "Dais",
+      "occupancy": 4,
+      "roomUses": [
+        "hall",
+        "assembly"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 144
     },
     "desk": {
-      "category": "work",
-      "clearance": 30.0,
-      "depth": 30.0,
-      "height": 30.0,
+      "canonicalAssetId": "desk",
+      "category": "furniture",
+      "clearance": 36,
+      "depth": 30,
+      "height": 30,
       "label": "Work desk",
       "occupancy": 1,
       "roomUses": [
@@ -48,38 +508,102 @@
         "computer",
         "reception"
       ],
-      "width": 60.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 60
+    },
+    "equipment-bench": {
+      "canonicalAssetId": "equipment-bench",
+      "category": "industrial-equipment",
+      "clearance": 48,
+      "depth": 36,
+      "height": 36,
+      "label": "Industrial equipment bench",
+      "occupancy": 0,
+      "roomUses": [
+        "industrial"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 96
+    },
+    "executive-desk": {
+      "canonicalAssetId": "executive-desk",
+      "category": "furniture",
+      "clearance": 42,
+      "depth": 36,
+      "height": 30,
+      "label": "Executive desk",
+      "occupancy": 1,
+      "roomUses": [
+        "office",
+        "chamber"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 72
+    },
+    "lavatory-fixture": {
+      "canonicalAssetId": "lavatory-fixture",
+      "category": "fixtures",
+      "clearance": 42,
+      "depth": 20,
+      "height": 32,
+      "label": "Lavatory fixture",
+      "occupancy": 0,
+      "roomUses": [
+        "service",
+        "healthcare"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 24
     },
     "lectern": {
-      "category": "presentation",
-      "clearance": 36.0,
-      "depth": 20.0,
-      "height": 42.0,
+      "canonicalAssetId": "lectern",
+      "category": "dais",
+      "clearance": 36,
+      "depth": 20,
+      "height": 42,
       "label": "Lectern",
       "occupancy": 1,
       "roomUses": [
-        "stage",
+        "hall",
         "assembly"
       ],
-      "width": 24.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 24
     },
     "library-shelf": {
-      "category": "storage",
-      "clearance": 36.0,
-      "depth": 14.0,
-      "height": 84.0,
+      "canonicalAssetId": "library-shelf",
+      "category": "library",
+      "clearance": 36,
+      "depth": 14,
+      "height": 84,
       "label": "Library shelf",
       "occupancy": 0,
       "roomUses": [
         "library"
       ],
-      "width": 72.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 72
+    },
+    "library-table": {
+      "canonicalAssetId": "library-table",
+      "category": "library",
+      "clearance": 36,
+      "depth": 36,
+      "height": 30,
+      "label": "Library table",
+      "occupancy": 6,
+      "roomUses": [
+        "library"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 72
     },
     "meeting-table": {
-      "category": "table",
-      "clearance": 30.0,
-      "depth": 36.0,
-      "height": 30.0,
+      "canonicalAssetId": "meeting-table",
+      "category": "furniture",
+      "clearance": 30,
+      "depth": 36,
+      "height": 30,
       "label": "Discussion table",
       "occupancy": 6,
       "roomUses": [
@@ -87,4373 +611,656 @@
         "office",
         "classroom"
       ],
-      "width": 72.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 72
+    },
+    "patient-bed": {
+      "canonicalAssetId": "patient-bed",
+      "category": "healthcare",
+      "clearance": 36,
+      "depth": 84,
+      "height": 24,
+      "label": "Patient bed",
+      "occupancy": 1,
+      "roomUses": [
+        "healthcare"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 42
+    },
+    "reception-counter": {
+      "canonicalAssetId": "reception-counter",
+      "category": "counter",
+      "clearance": 48,
+      "depth": 30,
+      "height": 42,
+      "label": "Reception counter",
+      "occupancy": 2,
+      "roomUses": [
+        "reception",
+        "lobby"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 72
     },
     "reception-desk": {
-      "category": "work",
-      "clearance": 36.0,
-      "depth": 30.0,
-      "height": 30.0,
+      "canonicalAssetId": "reception-desk",
+      "category": "counter",
+      "clearance": 48,
+      "depth": 30,
+      "height": 30,
       "label": "Reception desk",
       "occupancy": 2,
       "roomUses": [
         "reception"
       ],
-      "width": 72.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 72
+    },
+    "sanitary-ware": {
+      "canonicalAssetId": "sanitary-ware",
+      "category": "sanitaryware",
+      "clearance": 60,
+      "depth": 54,
+      "height": 32,
+      "label": "Accessible sanitary fixture",
+      "occupancy": 0,
+      "roomUses": [
+        "service",
+        "healthcare"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 30
     },
     "service-counter": {
-      "category": "service",
-      "clearance": 36.0,
-      "depth": 24.0,
-      "height": 36.0,
+      "canonicalAssetId": "service-counter",
+      "category": "counter",
+      "clearance": 36,
+      "depth": 24,
+      "height": 36,
       "label": "Service counter",
       "occupancy": 1,
       "roomUses": [
-        "service"
+        "service",
+        "pantry"
       ],
-      "width": 60.0
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 60
+    },
+    "vehicle-bay": {
+      "canonicalAssetId": "vehicle-bay",
+      "category": "vehicle",
+      "clearance": 36,
+      "depth": 216,
+      "height": 60,
+      "label": "Vehicle bay",
+      "occupancy": 0,
+      "roomUses": [
+        "industrial",
+        "retail"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 108
+    },
+    "visitor-chair": {
+      "canonicalAssetId": "visitor-chair",
+      "category": "seating",
+      "clearance": 24,
+      "depth": 20,
+      "height": 32,
+      "label": "Visitor chair",
+      "occupancy": 1,
+      "roomUses": [
+        "office",
+        "chamber",
+        "waiting"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 20
+    },
+    "work-desk": {
+      "canonicalAssetId": "work-desk",
+      "category": "furniture",
+      "clearance": 36,
+      "depth": 30,
+      "height": 30,
+      "label": "Work desk",
+      "occupancy": 1,
+      "roomUses": [
+        "office",
+        "chamber"
+      ],
+      "schemaVersion": "week15.parametric-assets.v1",
+      "width": 60
     }
   },
   "placements": [
     {
       "authoritative": false,
+      "canonicalAssetId": "visitor-chair",
       "clearanceEnvelope": {
         "rect": [
-          36.0,
-          21.0,
-          90.0,
-          60.0
-        ],
-        "requiredWidth": 30.0
-      },
-      "furnitureType": "desk",
-      "geometry": {
-        "rect": [
-          51.0,
-          36.0,
-          60.0,
-          30.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-01-F-001",
-      "label": "Work desk",
-      "levelId": "FF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-01"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          459.0,
-          21.0,
-          90.0,
-          60.0
-        ],
-        "requiredWidth": 30.0
-      },
-      "furnitureType": "desk",
-      "geometry": {
-        "rect": [
-          474.0,
-          36.0,
-          60.0,
-          30.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-03-F-001",
-      "label": "Work desk",
-      "levelId": "FF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-03"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          663.0,
-          6.0,
-          96.0,
-          60.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "service-counter",
-      "geometry": {
-        "rect": [
-          681.0,
-          24.0,
-          60.0,
-          24.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-04-F-001",
-      "label": "Service counter",
-      "levelId": "FF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-04"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          837.0,
-          6.0,
-          96.0,
-          60.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "service-counter",
-      "geometry": {
-        "rect": [
-          855.0,
-          24.0,
-          60.0,
-          24.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-05-F-001",
-      "label": "Service counter",
-      "levelId": "FF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-05"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          0.0,
-          174.0,
-          108.0,
+          12.0,
+          12.0,
+          32.0,
           50.0
         ],
-        "requiredWidth": 36.0
+        "requiredWidth": 24
       },
-      "furnitureType": "library-shelf",
+      "furnitureType": "visitor-chair",
       "geometry": {
         "rect": [
           18.0,
-          192.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-06-F-001",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          108.0,
-          174.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
-          126.0,
-          192.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-06-F-002",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          216.0,
-          174.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
-          234.0,
-          192.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-06-F-003",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          174.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
-          342.0,
-          192.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-06-F-004",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          421.2,
-          531.0,
-          102.0,
-          66.0
-        ],
-        "requiredWidth": 30.0
-      },
-      "furnitureType": "meeting-table",
-      "geometry": {
-        "rect": [
-          436.2,
-          546.0,
-          72.0,
-          36.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-06-F-005",
-      "label": "Discussion table",
-      "levelId": "FF",
-      "occupancy": 6,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          0.0,
-          768.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
           18.0,
-          786.0,
-          72.0,
-          14.0
+          20.0,
+          20.0
         ],
-        "rotation": 0.0
-      },
-      "id": "FF-07-F-001",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-07"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          108.0,
-          768.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
-          126.0,
-          786.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-07-F-002",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-07"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          216.0,
-          768.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
-          234.0,
-          786.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-07-F-003",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-07"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          768.0,
-          108.0,
-          50.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "library-shelf",
-      "geometry": {
-        "rect": [
-          342.0,
-          786.0,
-          72.0,
-          14.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-07-F-004",
-      "label": "Library shelf",
-      "levelId": "FF",
-      "occupancy": 0,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-07"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          421.2,
-          1236.0,
-          102.0,
-          66.0
-        ],
-        "requiredWidth": 30.0
-      },
-      "furnitureType": "meeting-table",
-      "geometry": {
-        "rect": [
-          436.2,
-          1251.0,
-          72.0,
-          36.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-07-F-005",
-      "label": "Discussion table",
-      "levelId": "FF",
-      "occupancy": 6,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-07"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          66.0,
-          1524.0,
-          102.0,
-          66.0
-        ],
-        "requiredWidth": 30.0
-      },
-      "furnitureType": "meeting-table",
-      "geometry": {
-        "rect": [
-          81.0,
-          1539.0,
-          72.0,
-          36.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-08-F-001",
-      "label": "Discussion table",
-      "levelId": "FF",
-      "occupancy": 6,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-08"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          405.0,
-          1011.0,
-          90.0,
-          60.0
-        ],
-        "requiredWidth": 30.0
-      },
-      "furnitureType": "desk",
-      "geometry": {
-        "rect": [
-          420.0,
-          1026.0,
-          60.0,
-          30.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-09-F-001",
-      "label": "Work desk",
-      "levelId": "FF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-09"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          735.0,
-          996.0,
-          96.0,
-          60.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "service-counter",
-      "geometry": {
-        "rect": [
-          753.0,
-          1014.0,
-          60.0,
-          24.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "FF-10-F-001",
-      "label": "Service counter",
-      "levelId": "FF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "FF-10"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          27.0,
-          18.0,
-          108.0,
-          66.0
-        ],
-        "requiredWidth": 36.0
-      },
-      "furnitureType": "reception-desk",
-      "geometry": {
-        "rect": [
-          45.0,
-          36.0,
-          72.0,
-          30.0
-        ],
-        "rotation": 0.0
+        "rotation": 0
       },
       "id": "GF-01-F-001",
-      "label": "Reception desk",
+      "label": "Visitor chair",
       "levelId": "GF",
-      "occupancy": 2,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-01"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          69.0,
-          99.0,
-          24.0,
-          24.0
-        ],
-        "requiredWidth": 6.0
-      },
-      "furnitureType": "chair",
-      "geometry": {
-        "rect": [
-          72.0,
-          102.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-01-F-002",
-      "label": "Stacking chair",
-      "levelId": "GF",
+      "modelRevision": 1,
       "occupancy": 1,
-      "source": "week9-presentation-layout",
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
       "spaceId": "GF-01"
     },
     {
       "authoritative": false,
+      "canonicalAssetId": "executive-desk",
       "clearanceEnvelope": {
         "rect": [
-          459.0,
-          21.0,
-          90.0,
-          60.0
+          162.0,
+          12.0,
+          84.0,
+          84.0
         ],
-        "requiredWidth": 30.0
+        "requiredWidth": 42
       },
-      "furnitureType": "desk",
+      "furnitureType": "executive-desk",
       "geometry": {
         "rect": [
-          474.0,
-          36.0,
-          60.0,
-          30.0
+          168.0,
+          18.0,
+          72.0,
+          36.0
         ],
-        "rotation": 0.0
+        "rotation": 0
+      },
+      "id": "GF-02-F-001",
+      "label": "Executive desk",
+      "levelId": "GF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "GF-02"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "visitor-chair",
+      "clearanceEnvelope": {
+        "rect": [
+          294.0,
+          12.0,
+          32.0,
+          50.0
+        ],
+        "requiredWidth": 24
+      },
+      "furnitureType": "visitor-chair",
+      "geometry": {
+        "rect": [
+          300.0,
+          18.0,
+          20.0,
+          20.0
+        ],
+        "rotation": 0
       },
       "id": "GF-03-F-001",
-      "label": "Work desk",
+      "label": "Visitor chair",
       "levelId": "GF",
+      "modelRevision": 1,
       "occupancy": 1,
-      "source": "week9-presentation-layout",
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
       "spaceId": "GF-03"
     },
     {
       "authoritative": false,
+      "canonicalAssetId": "visitor-chair",
       "clearanceEnvelope": {
         "rect": [
-          663.0,
-          6.0,
-          96.0,
-          60.0
+          444.0,
+          12.0,
+          32.0,
+          50.0
         ],
-        "requiredWidth": 36.0
+        "requiredWidth": 24
       },
-      "furnitureType": "service-counter",
+      "furnitureType": "visitor-chair",
       "geometry": {
         "rect": [
-          681.0,
-          24.0,
-          60.0,
-          24.0
+          450.0,
+          18.0,
+          20.0,
+          20.0
         ],
-        "rotation": 0.0
+        "rotation": 0
       },
       "id": "GF-04-F-001",
-      "label": "Service counter",
+      "label": "Visitor chair",
       "levelId": "GF",
+      "modelRevision": 1,
       "occupancy": 1,
-      "source": "week9-presentation-layout",
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
       "spaceId": "GF-04"
     },
     {
       "authoritative": false,
+      "canonicalAssetId": "executive-desk",
       "clearanceEnvelope": {
         "rect": [
-          837.0,
-          6.0,
-          96.0,
-          60.0
+          558.0,
+          12.0,
+          84.0,
+          84.0
         ],
-        "requiredWidth": 36.0
+        "requiredWidth": 42
       },
-      "furnitureType": "service-counter",
+      "furnitureType": "executive-desk",
       "geometry": {
         "rect": [
-          855.0,
-          24.0,
-          60.0,
-          24.0
+          564.0,
+          18.0,
+          72.0,
+          36.0
         ],
-        "rotation": 0.0
+        "rotation": 0
       },
       "id": "GF-05-F-001",
-      "label": "Service counter",
+      "label": "Executive desk",
       "levelId": "GF",
+      "modelRevision": 1,
       "occupancy": 1,
-      "source": "week9-presentation-layout",
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
       "spaceId": "GF-05"
     },
     {
       "authoritative": false,
+      "canonicalAssetId": "lectern",
       "clearanceEnvelope": {
         "rect": [
-          24.0,
-          210.0,
-          30.0,
-          30.0
+          12.0,
+          186.0,
+          36.0,
+          62.0
         ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-001",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-002",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-003",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-004",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-005",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-006",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-007",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-008",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-009",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-010",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          210.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          216.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-011",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-012",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-013",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-014",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-015",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-016",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-017",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-018",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-019",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-020",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-021",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          240.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          246.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-022",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-023",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-024",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-025",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-026",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-027",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-028",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-029",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-030",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-031",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-032",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          270.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          276.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-033",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-034",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-035",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-036",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-037",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-038",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-039",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-040",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-041",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-042",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-043",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          300.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          306.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-044",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-045",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-046",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-047",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-048",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-049",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-050",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-051",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-052",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-053",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-054",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          330.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          336.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-055",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-056",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-057",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-058",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-059",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-060",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-061",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-062",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-063",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-064",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-065",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          360.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          366.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-066",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-067",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-068",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-069",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-070",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-071",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-072",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-073",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-074",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-075",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-076",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          390.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          396.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-077",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-078",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-079",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-080",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-081",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-082",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-083",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-084",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-085",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-086",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-087",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          420.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          426.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-088",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-089",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-090",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-091",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-092",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-093",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-094",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-095",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-096",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-097",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-098",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          450.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          456.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-099",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-100",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-101",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-102",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-103",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-104",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-105",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-106",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-107",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-108",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-109",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          480.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          486.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-110",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-111",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-112",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-113",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-114",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-115",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-116",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-117",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-118",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-119",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-120",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          510.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          516.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-121",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          24.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          30.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-122",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          54.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          60.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-123",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          84.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          90.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-124",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          114.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          120.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-125",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          144.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          150.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-126",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          174.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          180.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-127",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          234.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          240.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-128",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          264.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          270.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-129",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          294.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          300.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-130",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          324.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          330.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-131",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          354.0,
-          540.0,
-          30.0,
-          30.0
-        ],
-        "requiredWidth": 12.0
-      },
-      "furnitureType": "audience-chair",
-      "geometry": {
-        "rect": [
-          360.0,
-          546.0,
-          18.0,
-          18.0
-        ],
-        "rotation": 0.0
-      },
-      "id": "GF-06-F-132",
-      "label": "Audience chair",
-      "levelId": "GF",
-      "occupancy": 1,
-      "source": "week9-presentation-layout",
-      "spaceId": "GF-06"
-    },
-    {
-      "authoritative": false,
-      "clearanceEnvelope": {
-        "rect": [
-          309.0,
-          912.0,
-          60.0,
-          56.0
-        ],
-        "requiredWidth": 36.0
+        "requiredWidth": 36
       },
       "furnitureType": "lectern",
       "geometry": {
         "rect": [
-          327.0,
-          930.0,
+          18.0,
+          192.0,
           24.0,
           20.0
         ],
-        "rotation": 0.0
+        "rotation": 0
       },
-      "id": "GF-07-F-001",
+      "id": "GF-06-F-001",
       "label": "Lectern",
       "levelId": "GF",
+      "modelRevision": 1,
       "occupancy": 1,
-      "source": "week9-presentation-layout",
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "GF-06"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "executive-desk",
+      "clearanceEnvelope": {
+        "rect": [
+          12.0,
+          912.0,
+          84.0,
+          84.0
+        ],
+        "requiredWidth": 42
+      },
+      "furnitureType": "executive-desk",
+      "geometry": {
+        "rect": [
+          18.0,
+          918.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "GF-07-F-001",
+      "label": "Executive desk",
+      "levelId": "GF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
       "spaceId": "GF-07"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "executive-desk",
+      "clearanceEnvelope": {
+        "rect": [
+          12.0,
+          12.0,
+          84.0,
+          84.0
+        ],
+        "requiredWidth": 42
+      },
+      "furnitureType": "executive-desk",
+      "geometry": {
+        "rect": [
+          18.0,
+          18.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-01-F-001",
+      "label": "Executive desk",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-01"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "executive-desk",
+      "clearanceEnvelope": {
+        "rect": [
+          162.0,
+          12.0,
+          84.0,
+          84.0
+        ],
+        "requiredWidth": 42
+      },
+      "furnitureType": "executive-desk",
+      "geometry": {
+        "rect": [
+          168.0,
+          18.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-02-F-001",
+      "label": "Executive desk",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-02"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "executive-desk",
+      "clearanceEnvelope": {
+        "rect": [
+          294.0,
+          12.0,
+          84.0,
+          84.0
+        ],
+        "requiredWidth": 42
+      },
+      "furnitureType": "executive-desk",
+      "geometry": {
+        "rect": [
+          300.0,
+          18.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-03-F-001",
+      "label": "Executive desk",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-03"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "executive-desk",
+      "clearanceEnvelope": {
+        "rect": [
+          444.0,
+          12.0,
+          84.0,
+          84.0
+        ],
+        "requiredWidth": 42
+      },
+      "furnitureType": "executive-desk",
+      "geometry": {
+        "rect": [
+          450.0,
+          18.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-04-F-001",
+      "label": "Executive desk",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-04"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "visitor-chair",
+      "clearanceEnvelope": {
+        "rect": [
+          558.0,
+          12.0,
+          32.0,
+          50.0
+        ],
+        "requiredWidth": 24
+      },
+      "furnitureType": "visitor-chair",
+      "geometry": {
+        "rect": [
+          564.0,
+          18.0,
+          20.0,
+          20.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-05-F-001",
+      "label": "Visitor chair",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-05"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "library-shelf",
+      "clearanceEnvelope": {
+        "rect": [
+          12.0,
+          186.0,
+          84.0,
+          56.0
+        ],
+        "requiredWidth": 36
+      },
+      "furnitureType": "library-shelf",
+      "geometry": {
+        "rect": [
+          18.0,
+          192.0,
+          72.0,
+          14.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-06-F-001",
+      "label": "Library shelf",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 0,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-06"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "library-table",
+      "clearanceEnvelope": {
+        "rect": [
+          6.0,
+          774.0,
+          120.0,
+          108.0
+        ],
+        "requiredWidth": 36
+      },
+      "furnitureType": "library-table",
+      "geometry": {
+        "rect": [
+          30.0,
+          810.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-07-F-001",
+      "label": "Library table",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 6,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-07"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "visitor-chair",
+      "clearanceEnvelope": {
+        "rect": [
+          12.0,
+          1002.0,
+          32.0,
+          50.0
+        ],
+        "requiredWidth": 24
+      },
+      "furnitureType": "visitor-chair",
+      "geometry": {
+        "rect": [
+          18.0,
+          1008.0,
+          20.0,
+          20.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-08-F-001",
+      "label": "Visitor chair",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-08"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "executive-desk",
+      "clearanceEnvelope": {
+        "rect": [
+          234.0,
+          1002.0,
+          84.0,
+          84.0
+        ],
+        "requiredWidth": 42
+      },
+      "furnitureType": "executive-desk",
+      "geometry": {
+        "rect": [
+          240.0,
+          1008.0,
+          72.0,
+          36.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-09-F-001",
+      "label": "Executive desk",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-09"
+    },
+    {
+      "authoritative": false,
+      "canonicalAssetId": "visitor-chair",
+      "clearanceEnvelope": {
+        "rect": [
+          456.0,
+          1002.0,
+          32.0,
+          50.0
+        ],
+        "requiredWidth": 24
+      },
+      "furnitureType": "visitor-chair",
+      "geometry": {
+        "rect": [
+          462.0,
+          1008.0,
+          20.0,
+          20.0
+        ],
+        "rotation": 0
+      },
+      "id": "FF-10-F-001",
+      "label": "Visitor chair",
+      "levelId": "FF",
+      "modelRevision": 1,
+      "occupancy": 1,
+      "presentationOnly": true,
+      "source": "week9-compatibility-wrapper",
+      "spaceId": "FF-10"
     }
   ],
   "roomSummaries": [
@@ -4471,8 +1278,8 @@
       "clearanceChecked": true,
       "findings": [],
       "levelId": "FF",
-      "occupancy": 0,
-      "placementCount": 0,
+      "occupancy": 1,
+      "placementCount": 1,
       "roomUse": "vertical-circulation",
       "routePreserved": true,
       "spaceId": "FF-02"
@@ -4511,8 +1318,8 @@
       "clearanceChecked": true,
       "findings": [],
       "levelId": "FF",
-      "occupancy": 6,
-      "placementCount": 5,
+      "occupancy": 0,
+      "placementCount": 1,
       "roomUse": "library",
       "routePreserved": true,
       "spaceId": "FF-06"
@@ -4522,7 +1329,7 @@
       "findings": [],
       "levelId": "FF",
       "occupancy": 6,
-      "placementCount": 5,
+      "placementCount": 1,
       "roomUse": "library",
       "routePreserved": true,
       "spaceId": "FF-07"
@@ -4531,7 +1338,7 @@
       "clearanceChecked": true,
       "findings": [],
       "levelId": "FF",
-      "occupancy": 6,
+      "occupancy": 1,
       "placementCount": 1,
       "roomUse": "discussion",
       "routePreserved": true,
@@ -4561,8 +1368,8 @@
       "clearanceChecked": true,
       "findings": [],
       "levelId": "GF",
-      "occupancy": 3,
-      "placementCount": 2,
+      "occupancy": 1,
+      "placementCount": 1,
       "roomUse": "reception",
       "routePreserved": true,
       "spaceId": "GF-01"
@@ -4571,8 +1378,8 @@
       "clearanceChecked": true,
       "findings": [],
       "levelId": "GF",
-      "occupancy": 0,
-      "placementCount": 0,
+      "occupancy": 1,
+      "placementCount": 1,
       "roomUse": "vertical-circulation",
       "routePreserved": true,
       "spaceId": "GF-02"
@@ -4611,8 +1418,8 @@
       "clearanceChecked": true,
       "findings": [],
       "levelId": "GF",
-      "occupancy": 132,
-      "placementCount": 132,
+      "occupancy": 1,
+      "placementCount": 1,
       "roomUse": "assembly",
       "routePreserved": true,
       "spaceId": "GF-06"
@@ -4633,159 +1440,21 @@
   "traceability": {
     "presentationOnlyIds": [
       "FF-01-F-001",
+      "FF-02-F-001",
       "FF-03-F-001",
       "FF-04-F-001",
       "FF-05-F-001",
       "FF-06-F-001",
-      "FF-06-F-002",
-      "FF-06-F-003",
-      "FF-06-F-004",
-      "FF-06-F-005",
       "FF-07-F-001",
-      "FF-07-F-002",
-      "FF-07-F-003",
-      "FF-07-F-004",
-      "FF-07-F-005",
       "FF-08-F-001",
       "FF-09-F-001",
       "FF-10-F-001",
       "GF-01-F-001",
-      "GF-01-F-002",
+      "GF-02-F-001",
       "GF-03-F-001",
       "GF-04-F-001",
       "GF-05-F-001",
       "GF-06-F-001",
-      "GF-06-F-002",
-      "GF-06-F-003",
-      "GF-06-F-004",
-      "GF-06-F-005",
-      "GF-06-F-006",
-      "GF-06-F-007",
-      "GF-06-F-008",
-      "GF-06-F-009",
-      "GF-06-F-010",
-      "GF-06-F-011",
-      "GF-06-F-012",
-      "GF-06-F-013",
-      "GF-06-F-014",
-      "GF-06-F-015",
-      "GF-06-F-016",
-      "GF-06-F-017",
-      "GF-06-F-018",
-      "GF-06-F-019",
-      "GF-06-F-020",
-      "GF-06-F-021",
-      "GF-06-F-022",
-      "GF-06-F-023",
-      "GF-06-F-024",
-      "GF-06-F-025",
-      "GF-06-F-026",
-      "GF-06-F-027",
-      "GF-06-F-028",
-      "GF-06-F-029",
-      "GF-06-F-030",
-      "GF-06-F-031",
-      "GF-06-F-032",
-      "GF-06-F-033",
-      "GF-06-F-034",
-      "GF-06-F-035",
-      "GF-06-F-036",
-      "GF-06-F-037",
-      "GF-06-F-038",
-      "GF-06-F-039",
-      "GF-06-F-040",
-      "GF-06-F-041",
-      "GF-06-F-042",
-      "GF-06-F-043",
-      "GF-06-F-044",
-      "GF-06-F-045",
-      "GF-06-F-046",
-      "GF-06-F-047",
-      "GF-06-F-048",
-      "GF-06-F-049",
-      "GF-06-F-050",
-      "GF-06-F-051",
-      "GF-06-F-052",
-      "GF-06-F-053",
-      "GF-06-F-054",
-      "GF-06-F-055",
-      "GF-06-F-056",
-      "GF-06-F-057",
-      "GF-06-F-058",
-      "GF-06-F-059",
-      "GF-06-F-060",
-      "GF-06-F-061",
-      "GF-06-F-062",
-      "GF-06-F-063",
-      "GF-06-F-064",
-      "GF-06-F-065",
-      "GF-06-F-066",
-      "GF-06-F-067",
-      "GF-06-F-068",
-      "GF-06-F-069",
-      "GF-06-F-070",
-      "GF-06-F-071",
-      "GF-06-F-072",
-      "GF-06-F-073",
-      "GF-06-F-074",
-      "GF-06-F-075",
-      "GF-06-F-076",
-      "GF-06-F-077",
-      "GF-06-F-078",
-      "GF-06-F-079",
-      "GF-06-F-080",
-      "GF-06-F-081",
-      "GF-06-F-082",
-      "GF-06-F-083",
-      "GF-06-F-084",
-      "GF-06-F-085",
-      "GF-06-F-086",
-      "GF-06-F-087",
-      "GF-06-F-088",
-      "GF-06-F-089",
-      "GF-06-F-090",
-      "GF-06-F-091",
-      "GF-06-F-092",
-      "GF-06-F-093",
-      "GF-06-F-094",
-      "GF-06-F-095",
-      "GF-06-F-096",
-      "GF-06-F-097",
-      "GF-06-F-098",
-      "GF-06-F-099",
-      "GF-06-F-100",
-      "GF-06-F-101",
-      "GF-06-F-102",
-      "GF-06-F-103",
-      "GF-06-F-104",
-      "GF-06-F-105",
-      "GF-06-F-106",
-      "GF-06-F-107",
-      "GF-06-F-108",
-      "GF-06-F-109",
-      "GF-06-F-110",
-      "GF-06-F-111",
-      "GF-06-F-112",
-      "GF-06-F-113",
-      "GF-06-F-114",
-      "GF-06-F-115",
-      "GF-06-F-116",
-      "GF-06-F-117",
-      "GF-06-F-118",
-      "GF-06-F-119",
-      "GF-06-F-120",
-      "GF-06-F-121",
-      "GF-06-F-122",
-      "GF-06-F-123",
-      "GF-06-F-124",
-      "GF-06-F-125",
-      "GF-06-F-126",
-      "GF-06-F-127",
-      "GF-06-F-128",
-      "GF-06-F-129",
-      "GF-06-F-130",
-      "GF-06-F-131",
-      "GF-06-F-132",
       "GF-07-F-001"
     ],
     "sourceSpaceIds": [

@@ -23,6 +23,8 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable
 
+from week1516 import ASSET_CATALOG, furnish_model, validate_placement
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_ROOT = ROOT / "bar-association-hall"
@@ -36,95 +38,35 @@ CHANGELOG_PATH = REPORT_ROOT / "week910-changelog.md"
 FAILURE_SCREENSHOT_DIR = REPORT_ROOT / "failure-screenshots"
 FAILURE_SCREENSHOT_PATH = FAILURE_SCREENSHOT_DIR / "week10-orphaned-room-fixture.svg"
 
-FURNITURE_LIBRARY_VERSION = "week9.furniture-library.v1"
+FURNITURE_LIBRARY_VERSION = "week15.parametric-assets.v1"
 PRESENTATION_VERSION = "week9.presentation.v1"
 CANDIDATE_VERSION = "week10.candidate-comparison.v1"
 QA_VERSION = "week10.qa-release.v1"
 DEFAULT_SEEDS = (11, 23, 47)
 
 
-FURNITURE_LIBRARY: dict[str, dict[str, Any]] = {
-    "chair": {
-        "label": "Stacking chair",
-        "category": "seating",
-        "width": 18.0,
-        "depth": 18.0,
-        "height": 32.0,
-        "clearance": 6.0,
-        "occupancy": 1,
-        "roomUses": ["assembly", "waiting", "discussion", "classroom"],
-    },
-    "audience-chair": {
-        "label": "Audience chair",
-        "category": "seating",
-        "width": 18.0,
-        "depth": 18.0,
-        "height": 32.0,
-        "clearance": 12.0,
-        "occupancy": 1,
-        "roomUses": ["assembly"],
-    },
-    "desk": {
-        "label": "Work desk",
-        "category": "work",
-        "width": 60.0,
-        "depth": 30.0,
-        "height": 30.0,
-        "clearance": 30.0,
-        "occupancy": 1,
-        "roomUses": ["office", "computer", "reception"],
-    },
-    "reception-desk": {
-        "label": "Reception desk",
-        "category": "work",
-        "width": 72.0,
-        "depth": 30.0,
-        "height": 30.0,
-        "clearance": 36.0,
-        "occupancy": 2,
-        "roomUses": ["reception"],
-    },
-    "meeting-table": {
-        "label": "Discussion table",
-        "category": "table",
-        "width": 72.0,
-        "depth": 36.0,
-        "height": 30.0,
-        "clearance": 30.0,
-        "occupancy": 6,
-        "roomUses": ["discussion", "office", "classroom"],
-    },
-    "library-shelf": {
-        "label": "Library shelf",
-        "category": "storage",
-        "width": 72.0,
-        "depth": 14.0,
-        "height": 84.0,
-        "clearance": 36.0,
-        "occupancy": 0,
-        "roomUses": ["library"],
-    },
-    "lectern": {
-        "label": "Lectern",
-        "category": "presentation",
-        "width": 24.0,
-        "depth": 20.0,
-        "height": 42.0,
-        "clearance": 36.0,
-        "occupancy": 1,
-        "roomUses": ["stage", "assembly"],
-    },
-    "service-counter": {
-        "label": "Service counter",
-        "category": "service",
-        "width": 60.0,
-        "depth": 24.0,
-        "height": 36.0,
-        "clearance": 36.0,
-        "occupancy": 1,
-        "roomUses": ["service"],
-    },
-}
+def _legacy_library_view() -> dict[str, dict[str, Any]]:
+    """Expose the old Week 9 shape from the Week 15 canonical catalog."""
+
+    view: dict[str, dict[str, Any]] = {}
+    for asset_id, spec in ASSET_CATALOG.items():
+        view[asset_id] = {
+            "label": spec["label"],
+            "category": spec["category"],
+            "width": spec["width"],
+            "depth": spec["depth"],
+            "height": spec["height"],
+            "clearance": max(spec["clearanceEnvelope"].values()),
+            "occupancy": spec["occupancy"],
+            "roomUses": list(spec["roomUses"]),
+            "canonicalAssetId": asset_id,
+            "schemaVersion": FURNITURE_LIBRARY_VERSION,
+        }
+    return view
+
+
+# Compatibility export only.  No Week 9 code owns a second asset definition.
+FURNITURE_LIBRARY = _legacy_library_view()
 
 
 GOLDEN_FIXTURES: dict[str, dict[str, Any]] = {
@@ -264,6 +206,28 @@ def _finding_counts(findings: Iterable[dict[str, Any]]) -> dict[str, int]:
     return dict(sorted(counts.items()))
 
 
+def _canonical_model_adapter(model: dict[str, Any]) -> dict[str, Any]:
+    """Normalize the legacy Week 9 x/y/width/depth rectangles for Week 15."""
+
+    adapted = copy.deepcopy(model)
+    for collection in ("spaces", "openings", "routes", "stairs", "serviceZones"):
+        for item in adapted.get(collection, []) or []:
+            geometry = item.get("geometry")
+            if not isinstance(geometry, dict):
+                continue
+            rect = geometry.get("rect")
+            if not isinstance(rect, list) or len(rect) != 4:
+                continue
+            if float(rect[2]) <= float(rect[0]) or float(rect[3]) <= float(rect[1]):
+                geometry["rect"] = [
+                    float(rect[0]),
+                    float(rect[1]),
+                    float(rect[0]) + float(rect[2]),
+                    float(rect[1]) + float(rect[3]),
+                ]
+    return adapted
+
+
 def _status(findings: Iterable[dict[str, Any]]) -> str:
     return "fail" if any(item.get("severity") in {"BLOCKER", "ERROR"} for item in findings) else "pass"
 
@@ -316,124 +280,81 @@ def _layout_specs(space: dict[str, Any], rng: random.Random) -> list[tuple[str, 
 
 
 def furniture_presentation_report(model: dict[str, Any], seed: int = 910) -> dict[str, Any]:
-    """Build a separate presentation layer without changing authoritative geometry."""
+    """Compatibility wrapper around the Week 15 canonical furnishing engine."""
 
-    rng = random.Random(seed)
-    spaces = [item for item in model.get("spaces", []) if isinstance(item, dict)]
-    openings = [item for item in model.get("openings", []) if isinstance(item, dict)]
-    space_ids = {str(item.get("id")) for item in spaces}
+    canonical_model = _canonical_model_adapter(model)
+    canonical = furnish_model(canonical_model, seed=seed)
     placements: list[dict[str, Any]] = []
-    room_summaries: list[dict[str, Any]] = []
-    findings: list[dict[str, Any]] = []
     counters: dict[str, int] = {}
+    for source in canonical["placements"]:
+        asset_id = str(source["assetId"])
+        spec = ASSET_CATALOG[asset_id]
+        space_id = str(source["hostSpaceId"])
+        counters[space_id] = counters.get(space_id, 0) + 1
+        rect = source["geometry"]["rect"]
+        geometry = _round_rect([rect[0], rect[1], rect[2] - rect[0], rect[3] - rect[1]])
+        envelope = source["clearanceEnvelope"]
+        legacy = {
+            "id": f"{space_id}-F-{counters[space_id]:03d}",
+            "spaceId": space_id,
+            "levelId": _level_id(next((item for item in model.get("spaces", []) if item.get("id") == space_id), {})),
+            "furnitureType": asset_id,
+            "label": spec["label"],
+            "geometry": {"rect": geometry, "rotation": source.get("rotation", 0)},
+            "clearanceEnvelope": {
+                "rect": _round_rect([envelope[0], envelope[1], envelope[2] - envelope[0], envelope[3] - envelope[1]]),
+                "requiredWidth": max(spec["clearanceEnvelope"].values()),
+            },
+            "occupancy": spec["occupancy"],
+            "authoritative": False,
+            "presentationOnly": True,
+            "source": "week9-compatibility-wrapper",
+            "canonicalAssetId": asset_id,
+            "modelRevision": source.get("modelRevision"),
+        }
+        placements.append(legacy)
 
-    for space in sorted(spaces, key=lambda item: str(item.get("id"))):
-        space_id = str(space.get("id"))
-        room_rect = _rect(space)
-        if room_rect is None:
-            continue
-        room_placements: list[dict[str, Any]] = []
-        room_findings: list[dict[str, Any]] = []
-        for furniture_type, offset_x, offset_y, rotation in _layout_specs(space, rng):
-            spec = FURNITURE_LIBRARY[furniture_type]
-            width = float(spec["width"])
-            depth = float(spec["depth"])
-            if rotation in {90.0, 270.0}:
-                width, depth = depth, width
-            x, y = room_rect[0] + offset_x, room_rect[1] + offset_y
-            placement_id = f"{space_id}-F-{counters.get(space_id, 0) + 1:03d}"
-            counters[space_id] = counters.get(space_id, 0) + 1
-            geometry = _round_rect([x, y, width, depth])
-            clearance = _expand(geometry, float(spec["clearance"]))
-            placement = {
-                "id": placement_id,
-                "spaceId": space_id,
-                "levelId": _level_id(space),
-                "furnitureType": furniture_type,
-                "label": spec["label"],
-                "geometry": {"rect": geometry, "rotation": rotation},
-                "clearanceEnvelope": {"rect": clearance, "requiredWidth": spec["clearance"]},
-                "occupancy": spec["occupancy"],
-                "authoritative": False,
-                "source": "week9-presentation-layout",
-            }
-            room_placements.append(placement)
-            if not _contained(geometry, room_rect):
-                room_findings.append(
-                    _finding(
-                        f"VAL9-CONTAINMENT-{placement_id}",
-                        "ERROR",
-                        "PRESENTATION_FURNITURE_MUST_FIT_ROOM",
-                        f"{placement_id} extends outside {space_id}; presentation furniture cannot alter room geometry.",
-                        space_ids=[space_id],
-                        source_model_ids=[space_id, placement_id],
-                        suggested_fixes=["Reduce the furniture quantity or resize the presentation layout."],
-                    )
-                )
-            if any(
-                _overlap(clearance, other["clearanceEnvelope"]["rect"])
-                for other in room_placements[:-1]
-            ):
-                room_findings.append(
-                    _finding(
-                        f"VAL9-CLEARANCE-{placement_id}",
-                        "ERROR",
-                        "PRESENTATION_FURNITURE_CLEARANCES_MUST_NOT_OVERLAP",
-                        f"{placement_id} overlaps the required clearance envelope of another object in {space_id}.",
-                        space_ids=[space_id],
-                        source_model_ids=[space_id, placement_id],
-                        suggested_fixes=["Increase the aisle or reduce the furniture count."],
-                    )
-                )
-
-        # If a test/model supplies an opening rectangle, verify its approach.
-        for opening in openings:
-            if str(opening.get("hostSpace")) != space_id:
-                continue
-            opening_geometry = opening.get("geometry", {})
-            opening_rect = opening_geometry.get("rect") if isinstance(opening_geometry, dict) else None
-            if not isinstance(opening_rect, list) or len(opening_rect) != 4:
-                continue
-            approach = _expand([float(value) for value in opening_rect], 42.0)
-            for placement in room_placements:
-                if _overlap(placement["clearanceEnvelope"]["rect"], approach):
-                    room_findings.append(
-                        _finding(
-                            f"VAL9-DOOR-APPROACH-{placement['id']}",
-                            "ERROR",
-                            "FURNITURE_MUST_NOT_BLOCK_DOOR_APPROACH",
-                            f"{placement['id']} blocks the required approach to {opening.get('id', 'opening')} in {space_id}.",
-                            space_ids=[space_id],
-                            source_model_ids=[space_id, str(opening.get("id", "opening")), placement["id"]],
-                            suggested_fixes=["Move the furniture away from the opening or provide another valid route."],
-                        )
-                    )
-        findings.extend(room_findings)
-        room_summaries.append(
-            {
-                "spaceId": space_id,
-                "levelId": _level_id(space),
-                "roomUse": _room_use(space),
-                "placementCount": len(room_placements),
-                "occupancy": sum(int(item["occupancy"]) for item in room_placements),
-                "clearanceChecked": True,
-                "routePreserved": not any(item["rule"] == "FURNITURE_MUST_NOT_BLOCK_DOOR_APPROACH" for item in room_findings),
-                "findings": room_findings,
-            }
+    findings: list[dict[str, Any]] = []
+    for finding in canonical["findings"]:
+        rule = finding["rule"]
+        if rule == "ASSET_MUST_NOT_BLOCK_DOOR_SWING":
+            rule = "FURNITURE_MUST_NOT_BLOCK_DOOR_APPROACH"
+        elif rule == "ASSET_CLEARANCE_MUST_FIT_ROOM":
+            rule = "PRESENTATION_FURNITURE_MUST_FIT_ROOM"
+        elif rule == "ASSET_CLEARANCES_MUST_NOT_OVERLAP":
+            rule = "PRESENTATION_FURNITURE_CLEARANCES_MUST_NOT_OVERLAP"
+        findings.append(
+            _finding(
+                f"VAL9-CANONICAL-{finding.get('objectId', 'asset')}-{len(findings) + 1}",
+                "ERROR" if finding["severity"] in {"BLOCKER", "ERROR"} else finding["severity"],
+                rule,
+                finding["message"],
+                source_model_ids=[str(finding.get("objectId", "asset"))],
+            )
         )
-        placements.extend(room_placements)
-
+    room_summaries = []
+    for space in sorted(model.get("spaces", []), key=lambda item: str(item.get("id"))):
+        space_id = str(space.get("id"))
+        room_placements = [item for item in placements if item["spaceId"] == space_id]
+        room_summaries.append({
+            "spaceId": space_id,
+            "levelId": _level_id(space),
+            "roomUse": _room_use(space),
+            "placementCount": len(room_placements),
+            "occupancy": sum(int(item["occupancy"]) for item in room_placements),
+            "clearanceChecked": True,
+            "routePreserved": not any(item["rule"] == "FURNITURE_MUST_NOT_BLOCK_DOOR_APPROACH" for item in findings),
+            "findings": [item for item in findings if item.get("spaceIds") == [space_id]],
+        })
     payload = {
         "version": PRESENTATION_VERSION,
         "furnitureLibraryVersion": FURNITURE_LIBRARY_VERSION,
         "seed": seed,
         "placements": placements,
         "roomSummaries": room_summaries,
-        "authoritativeGeometryUnchanged": True,
+        "authoritativeGeometryUnchanged": canonical["authoritativeGeometryUnchanged"],
     }
-    signature = hashlib.sha256(
-        json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    ).hexdigest()
+    signature = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")).hexdigest()
     return {
         **payload,
         "status": _status(findings),
@@ -445,8 +366,9 @@ def furniture_presentation_report(model: dict[str, Any], seed: int = 910) -> dic
             "sameModelSameSeedProducesSamePlacements": True,
         },
         "library": copy.deepcopy(FURNITURE_LIBRARY),
+        "canonicalReport": canonical,
         "traceability": {
-            "sourceSpaceIds": sorted(space_ids),
+            "sourceSpaceIds": sorted(str(item.get("id")) for item in model.get("spaces", [])),
             "presentationOnlyIds": sorted(item["id"] for item in placements),
         },
     }

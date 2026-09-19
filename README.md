@@ -299,3 +299,21 @@ npm run test:week1516
 **Task completion:** Week 15–16 enrichment is complete and marked done in
 this README. Outputs remain preliminary planning/presentation aids and require
 appointed architect, engineers, surveyor, and local-authority review.
+
+## Furnishing architecture consolidation — applied
+
+The Week 15 parametric asset schema is now the single furnishing authority.
+The former Week 9 `FURNITURE_LIBRARY` is a compatibility view generated from
+that catalog; it no longer owns independent dimensions, occupancy, or
+clearance values. Week 9 presentation and candidate functions delegate to the
+Week 15 furnishing engine and translate only the legacy response shape.
+
+- One placement/clearance validator handles room fit, door swings, routes,
+  stairs, service zones, and furniture clearances.
+- Week 9-to-Week 15 rectangle adaptation preserves older callers while
+  canonical model rectangles remain authoritative.
+- Materials, decoration, lighting, and render jobs remain in the separate
+  non-authoritative Week 16 presentation layer.
+- Migration tests verify that the Week 9 compatibility wrapper and Week 15
+  engine return the same placement-validation result and that legacy library
+  values are sourced from the Week 15 catalog.

@@ -6,7 +6,7 @@
         "blockingFindingCount": 0,
         "eligibleForBest": true,
         "id": "C-01",
-        "presentationSignature": "d2bf945b8e8d426f9a9c8512ba01d78e6fdeebad39b8e363d33f6e150bd6bbb7",
+        "presentationSignature": "2ea45481380ab58dc5b842ec703a258e94a678aa8a3b38e5252ba8eee0bbfd51",
         "rejectionReasons": [],
         "scorecard": {
           "components": {
@@ -34,7 +34,7 @@
         "blockingFindingCount": 0,
         "eligibleForBest": true,
         "id": "C-02",
-        "presentationSignature": "e0e8bb79fd6d657a892c5d0a9e74f47f6620b13c6b554b46105013938b1be20f",
+        "presentationSignature": "0d3afba50eab27b1a7e61f40cc051d42e9a4bca1a2bfafd369561be42a6112d1",
         "rejectionReasons": [],
         "scorecard": {
           "components": {
@@ -62,7 +62,7 @@
         "blockingFindingCount": 0,
         "eligibleForBest": true,
         "id": "C-03",
-        "presentationSignature": "a0b6061056513d6e21e12ecf7cd16b5c9839df41cd580cd41699ef7447f447f5",
+        "presentationSignature": "20a8107c1291996178e9588d631c846d1c529e409cb2f2fb83c2c3fd68bd2cfc",
         "rejectionReasons": [],
         "scorecard": {
           "components": {
@@ -238,7 +238,7 @@
       "bestCandidateId": "C-01",
       "modelRevision": 1,
       "presentationObjectsTraceToSpaces": true,
-      "presentationSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c"
+      "presentationSignature": "05f4306a9f54005f0d54c580bb3752464bb6022d70dc770fa851e756885feb77"
     },
     "version": "week10.qa-release.v1"
   },
