@@ -1,0 +1,10 @@
+{
+  "canonicalModel": "bar-association-hall/standard/model/project.json",
+  "changelog": "bar-association-hall/standard/week1314-changelog.md",
+  "importRecognitionReport": "bar-association-hall/standard/week13-import-recognition-report.json",
+  "manifestVersion": "week1314.enrichment-manifest.v1",
+  "reviewFirstImport": true,
+  "sheetLayoutStandard": "bar-association-hall/standard/sheet-layout-standard.json",
+  "status": "pass",
+  "synchronizedViewsReport": "bar-association-hall/standard/week14-synchronized-views-report.json"
+}

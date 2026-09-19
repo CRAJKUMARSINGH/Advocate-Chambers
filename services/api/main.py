@@ -62,6 +62,19 @@ except Exception:  # pragma: no cover
     compile_brief = None  # type: ignore
     performance_counters = None  # type: ignore
 
+try:
+    from week1314 import (  # type: ignore
+        build_editable_twin,
+        build_sheet_report,
+        build_synchronized_views,
+        recognize_import,
+    )
+except Exception:  # pragma: no cover
+    build_editable_twin = None  # type: ignore
+    build_sheet_report = None  # type: ignore
+    build_synchronized_views = None  # type: ignore
+    recognize_import = None  # type: ignore
+
 
 app = FastAPI(
     title="Advocate-Chambers CAD API",
@@ -70,7 +83,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-week12",
+    version="1.0.0-week14",
 )
 
 app.add_middleware(
@@ -124,6 +137,12 @@ class CommandPreviewRequest(BaseModel):
     command: str = Field(..., min_length=1, max_length=2000)
     author: str = Field(default="brief-compiler", min_length=1, max_length=120)
     accept: bool = False
+
+
+class ImportRecognizeRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    sourcePath: str | None = Field(default=None, max_length=500)
+    content: str | None = Field(default=None, max_length=2_000_000)
 
 
 class GenerateRequest(BaseModel):
@@ -375,6 +394,52 @@ def performance() -> dict[str, Any]:
         return performance_counters(load_canonical_model())
     except Exception as exc:  # pragma: no cover - surfaced as an API diagnostic
         raise HTTPException(status_code=500, detail=f"performance counters failed: {exc}") from exc
+
+
+@app.post("/import/recognize", tags=["import"])
+def import_recognize(req: ImportRecognizeRequest) -> dict[str, Any]:
+    """Inspect a plan source without promoting uncertain recognition to geometry."""
+    if recognize_import is None or build_editable_twin is None:
+        raise HTTPException(status_code=503, detail="import recognition layer unavailable")
+    try:
+        from week2 import load_canonical_model  # type: ignore
+
+        report = recognize_import(source_path=req.sourcePath, content=req.content)
+        model = load_canonical_model()
+        report["editableTwin"] = build_editable_twin(model, report)
+        return report
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=f"source not found: {exc}") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except Exception as exc:  # pragma: no cover
+        raise HTTPException(status_code=500, detail=f"import recognition failed: {exc}") from exc
+
+
+@app.get("/views/synchronized", tags=["views"])
+def synchronized_views() -> dict[str, Any]:
+    """Return the shared-revision 2D/3D/section/elevation view contract."""
+    if build_synchronized_views is None:
+        raise HTTPException(status_code=503, detail="synchronized view layer unavailable")
+    try:
+        from week2 import load_canonical_model  # type: ignore
+
+        return build_synchronized_views(load_canonical_model())
+    except Exception as exc:  # pragma: no cover
+        raise HTTPException(status_code=500, detail=f"synchronized views failed: {exc}") from exc
+
+
+@app.get("/sheet-standard", tags=["export"])
+def sheet_standard() -> dict[str, Any]:
+    """Return the paper-space policy used by future PDF and DXF exports."""
+    if build_sheet_report is None:
+        raise HTTPException(status_code=503, detail="sheet layout standard unavailable")
+    try:
+        from week2 import load_canonical_model  # type: ignore
+
+        return build_sheet_report(load_canonical_model())
+    except Exception as exc:  # pragma: no cover
+        raise HTTPException(status_code=500, detail=f"sheet standard failed: {exc}") from exc
 
 
 @app.post("/generate", tags=["jobs"], response_model=JobResponse)

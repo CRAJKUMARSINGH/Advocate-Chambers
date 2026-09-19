@@ -1,0 +1,101 @@
+{
+  "annotationStyles": {
+    "dimension": {
+      "minHeightPt": 6.5,
+      "paperHeightMm": 2.5,
+      "weight": "regular"
+    },
+    "generalNote": {
+      "minHeightPt": 6.5,
+      "paperHeightMm": 2.5,
+      "weight": "regular"
+    },
+    "keynote": {
+      "minHeightPt": 6.5,
+      "paperHeightMm": 2.5,
+      "weight": "bold"
+    },
+    "minimumReadable": {
+      "minHeightPt": 6.5,
+      "paperHeightMm": 2.5
+    },
+    "roomLabel": {
+      "minHeightPt": 6.5,
+      "paperHeightMm": 2.5,
+      "weight": "regular"
+    },
+    "subtitle": {
+      "minHeightPt": 8.0,
+      "paperHeightMm": 3.5,
+      "weight": "bold"
+    },
+    "title": {
+      "minHeightPt": 12.0,
+      "paperHeightMm": 5.0,
+      "weight": "bold"
+    }
+  },
+  "errors": [],
+  "professionalReview": "Final sheet composition, legibility and code compliance require the appointed architect/engineer.",
+  "references": {
+    "ratiosAreProjectPolicy": true,
+    "sheetFormat": "ISO 5457 A-series",
+    "titleBlock": "ISO 7200 information fields"
+  },
+  "reportVersion": "week13.sheet-layout.v1",
+  "sampleA2Landscape": {
+    "areaRatios": {
+      "drawingZone": 0.7933,
+      "reservedNonDrawing": 0.2067,
+      "supportingContent": 0.0926,
+      "titleBlock": 0.114
+    },
+    "drawingZone": {
+      "height": 567.89,
+      "width": 1138.55,
+      "x": 26.0,
+      "y": 200.0
+    },
+    "margin": 26.0,
+    "origin": [
+      434.556,
+      214.167
+    ],
+    "page": {
+      "height": 841.89,
+      "width": 1190.55
+    },
+    "scale": 0.47833,
+    "supportingBand": {
+      "height": 78.0,
+      "width": 1138.55,
+      "x": 26.0,
+      "y": 122.0
+    },
+    "titleBlock": {
+      "height": 96.0,
+      "width": 1138.55,
+      "x": 26.0,
+      "y": 26.0
+    }
+  },
+  "standard": {
+    "drawingZoneMinAreaRatio": 0.65,
+    "formatFamily": "ISO 5457 A-series",
+    "innerMarginPt": 8.0,
+    "pageMarginPt": 26.0,
+    "policy": [
+      "Plan/elevation/section geometry gets the primary drawing zone.",
+      "Notes, legends, schedules, and sheet indices live in a shared supporting band, not an unbounded side rail.",
+      "A title block is structured and compact; it must not displace the primary drawing.",
+      "Annotation sizes are model-independent paper sizes and are scaled only by the selected sheet scale."
+    ],
+    "status": "project-adopted preliminary drawing standard",
+    "supportingBandHeightPt": 78.0,
+    "supportingContentMaxAreaRatio": 0.2,
+    "titleBlockHeightPt": 96.0,
+    "titleBlockReference": "ISO 7200 information fields",
+    "version": "week13.sheet-layout.v1"
+  },
+  "status": "pass"
+}

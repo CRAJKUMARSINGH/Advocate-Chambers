@@ -67,12 +67,12 @@
     "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets."
   ],
   "briefCompiler": {
-    "version": "week12.brief-compiler.v1",
-    "report": "bar-association-hall/standard/week12-brief-compiler-report.json",
     "lastCompiledStatus": "needs-review",
     "missingTopologyFacts": [
       "Identify which stair, lift, or ramp connects each level."
-    ]
+    ],
+    "report": "bar-association-hall/standard/week12-brief-compiler-report.json",
+    "version": "week12.brief-compiler.v1"
   },
   "candidateComparison": {
     "bestCandidateId": "C-01",
@@ -167,7 +167,7 @@
       "id": "CIRC-GF-02",
       "kind": "circulation-zone",
       "legacy": {
-        "comment": "10'-6\" wide x 14'-0\" — compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
+        "comment": "10'-6\" wide x 14'-0\" \u2014 compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
         "finish": "circulation",
         "id": "GF-02",
         "level": "GF",
@@ -474,6 +474,12 @@
       "zoneType": "porch"
     }
   ],
+  "importRecognition": {
+    "editableTwinId": "proj-bar-association-hall-editable-twin",
+    "report": "bar-association-hall/standard/week13-import-recognition-report.json",
+    "status": "review-required",
+    "version": "week13.import-recognition.v1"
+  },
   "legacyMetadata": {
     "plans": {
       "projectId": "bar-association-hall",
@@ -542,9 +548,9 @@
   "notes": [
     "Service core redesigned: ALL units flush at south Y=6 and north Y=174 (14'-6\").",
     "West to East: Reception(12') | Stair(10'-6\") | President Chamber(12') | Pantry(9') | Toilet(9'-6\").",
-    "Staircase: 4' landing at south wall, 2 flights of 12 treads×9\"=9'-0\" each, 4' void at north.",
-    "Main entrance relocated to East long wall with 12'-0\"×8'-0\" covered porch.",
-    "Assembly Hall starts at Y=180 (15'-0\") — full 55'-0\" clear width × 60'-0\" length.",
+    "Staircase: 4' landing at south wall, 2 flights of 12 treads\u00d79\"=9'-0\" each, 4' void at north.",
+    "Main entrance relocated to East long wall with 12'-0\"\u00d78'-0\" covered porch.",
+    "Assembly Hall starts at Y=180 (15'-0\") \u2014 full 55'-0\" clear width \u00d7 60'-0\" length.",
     "Floor-to-floor height 178\" (14'-10\"). 24 risers @ 7.42\" / 9\" tread.",
     "Wall thickness: 12\" outer perimeter, 6\" internal partitions.",
     "First-floor D-FF-08 through D-FF-10 are modeled on the north wall to connect the lower rooms to the stack area; verify this intent against the source drawing before construction."
@@ -2102,21 +2108,21 @@
     "source": "explicit"
   },
   "performanceCounters": {
-    "scope": "local-only",
+    "exportDurationMs": 0.0,
     "modelBytes": 77106,
     "objectCounts": {
+      "entries": 2,
       "levels": 2,
-      "spaces": 17,
-      "walls": 0,
       "openings": 20,
-      "windows": 38,
+      "spaces": 17,
       "stairs": 1,
       "verticalConnectors": 1,
-      "entries": 2
+      "walls": 0,
+      "windows": 38
     },
-    "validationDurationMs": 0.0,
     "renderDurationMs": 0.0,
-    "exportDurationMs": 0.0
+    "scope": "local-only",
+    "validationDurationMs": 0.0
   },
   "presentation": {
     "deterministicSignature": "6eb10ce3396ae91829d0164500ec830f990e930ecc0722777ca50e5fce9d529c",
@@ -2673,6 +2679,12 @@
     "version": "1.0.0"
   },
   "schemaVersion": "advocate-chambers.project.v2",
+  "sheetLayoutStandard": {
+    "drawingZoneMinAreaRatio": 0.65,
+    "report": "bar-association-hall/standard/sheet-layout-standard.json",
+    "supportingContentMaxAreaRatio": 0.2,
+    "version": "week13.sheet-layout.v1"
+  },
   "site": {
     "geometry": {
       "north": "up",
@@ -2826,7 +2838,7 @@
       "id": "GF-02",
       "kind": "space",
       "legacy": {
-        "comment": "10'-6\" wide x 14'-0\" — compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
+        "comment": "10'-6\" wide x 14'-0\" \u2014 compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north",
         "finish": "circulation",
         "id": "GF-02",
         "level": "GF",
@@ -2873,7 +2885,7 @@
       "id": "GF-03",
       "kind": "space",
       "legacy": {
-        "comment": "12'-0\" x 14'-0\" — President's private chamber east of stair",
+        "comment": "12'-0\" x 14'-0\" \u2014 President's private chamber east of stair",
         "finish": "staff",
         "id": "GF-03",
         "level": "GF",
@@ -2918,7 +2930,7 @@
       "id": "GF-04",
       "kind": "space",
       "legacy": {
-        "comment": "9'-0\" x 14'-0\" — flush north wall with all service units",
+        "comment": "9'-0\" x 14'-0\" \u2014 flush north wall with all service units",
         "finish": "service",
         "id": "GF-04",
         "level": "GF",
@@ -2963,7 +2975,7 @@
       "id": "GF-05",
       "kind": "space",
       "legacy": {
-        "comment": "9'-6\" x 14'-0\" — Male / Female / Accessible, flush north wall",
+        "comment": "9'-6\" x 14'-0\" \u2014 Male / Female / Accessible, flush north wall",
         "finish": "service",
         "id": "GF-05",
         "level": "GF",
@@ -3008,7 +3020,7 @@
       "id": "GF-06",
       "kind": "space",
       "legacy": {
-        "comment": "55'-0\" x 60'-0\" — main audience hall",
+        "comment": "55'-0\" x 60'-0\" \u2014 main audience hall",
         "finish": "public",
         "id": "GF-06",
         "level": "GF",
@@ -3053,7 +3065,7 @@
       "id": "GF-07",
       "kind": "space",
       "legacy": {
-        "comment": "55'-0\" x 14'-6\" — raised dais, +1'-6\" FFL",
+        "comment": "55'-0\" x 14'-6\" \u2014 raised dais, +1'-6\" FFL",
         "finish": "public",
         "id": "GF-07",
         "level": "GF",
@@ -3186,7 +3198,7 @@
       "id": "FF-03",
       "kind": "space",
       "legacy": {
-        "comment": "12'-0\" x 14'-0\" — stacked above President Chamber",
+        "comment": "12'-0\" x 14'-0\" \u2014 stacked above President Chamber",
         "finish": "staff",
         "id": "FF-03",
         "level": "FF",
@@ -3543,7 +3555,7 @@
       "id": "STAIR-01",
       "kind": "stair",
       "legacy": {
-        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end — all within 14'-6\" box",
+        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end \u2014 all within 14'-6\" box",
         "direction": "up",
         "flightCount": 2,
         "floorToFloor": 178,
@@ -3602,6 +3614,12 @@
       "verticalConnectorId": "VC-STAIR-01"
     }
   ],
+  "synchronizedViews": {
+    "modelRevision": 1,
+    "report": "bar-association-hall/standard/week14-synchronized-views-report.json",
+    "synchronizationKey": "project-revision-1",
+    "version": "week14.synchronized-views.v1"
+  },
   "units": "inch",
   "verticalConnectors": [
     {
@@ -3612,7 +3630,7 @@
       "id": "VC-STAIR-01",
       "kind": "vertical-connector",
       "legacy": {
-        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end — all within 14'-6\" box",
+        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end \u2014 all within 14'-6\" box",
         "direction": "up",
         "flightCount": 2,
         "floorToFloor": 178,

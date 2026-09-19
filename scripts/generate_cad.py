@@ -26,6 +26,10 @@ import matplotlib.pyplot as plt
 import pymupdf
 from pypdf import PdfWriter
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "bar-association-hall"))
+from sheet_layout import dxf_text_height
+
 BASE_DIR = Path(r"e:\Rajkumar\Advocate-Chambers")
 DXF_DIR = BASE_DIR / "CAD-Drawings" / "DXF"
 PDF_DIR = BASE_DIR / "CAD-Drawings" / "PDF"
@@ -126,11 +130,13 @@ def fill_rect(msp, x1, y1, x2, y2, hatch="SOLID", layer="A-HATCH"):
         pass
 
 
-def text_msp(msp, txt, x, y, h=1.25 * FT, layer="A-TEXT", style="SIMPLEX",
+def text_msp(msp, txt, x, y, h=None, layer="A-TEXT", style="SIMPLEX",
              align=TextEntityAlignment.MIDDLE_CENTER, rot=0.0):
     """Add clean text with exact alignment and zero missing glyph boxes."""
     if not txt:
         return None
+    if h is None:
+        h = dxf_text_height("generalNote")
     clean_txt = str(txt).replace("—", "-").replace("–", "-").replace("→", "->").replace("✓", "[OK]").replace("►", ">").replace("◄", "<").replace("★", "*")
     lines = clean_txt.split("\n")
     if len(lines) > 1:
@@ -224,11 +230,11 @@ def draw_sheet_frame_and_titleblock(msp, sw, sh, sheet_no, sheet_title, scale_tx
              sw / 2.0, cap_y1 + 1.4 * FT, h=0.55 * FT, layer="A-TEXT-TTL")
 
     # --------------------------------------------------------------------------
-    # BOTTOM TITLE BLOCK (Bottom Right: Width 56 ft, Height 8.5 ft)
+    # BOTTOM TITLE BLOCK (full-width ISO-style information band)
     # --------------------------------------------------------------------------
-    tb_w = 56.0 * FT
+    tb_w = sw - 2.0 * ib
     tb_h = 8.6 * FT
-    tb_x1 = sw - ib - tb_w
+    tb_x1 = ib
     tb_y1 = ib
     tb_x2 = sw - ib
     tb_y2 = ib + tb_h
@@ -270,15 +276,18 @@ def draw_sheet_frame_and_titleblock(msp, sw, sh, sheet_no, sheet_title, scale_tx
     nx, ny = sw - ib - 4.5 * FT, sh - ib - 9.0 * FT
     draw_north_arrow(msp, nx, ny, size=2.6 * FT)
 
-    # Notes Box along bottom left
+    # Compact supporting band above the title block.  Notes/index content is
+    # bounded instead of creating a permanent right rail that wastes the sheet.
     if notes:
         nb_x1 = ib + 0.5 * FT
-        nb_y1 = ib + 0.5 * FT
-        nb_w = 54.0 * FT
-        nb_h = 8.0 * FT
+        nb_y1 = tb_y2 + 0.5 * FT
+        nb_w = sw - 2.0 * ib - 1.0 * FT
+        nb_h = 5.0 * FT
         rect(msp, nb_x1, nb_y1, nb_x1 + nb_w, nb_y1 + nb_h, layer="A-TTLB", lw=20)
         text_msp(msp, "GENERAL NOTES & COMPLIANCE:", nb_x1 + 0.6 * FT, nb_y1 + nb_h - 0.6 * FT, h=0.50 * FT, layer="A-TEXT-TTL", align=TextEntityAlignment.LEFT)
         for i, n in enumerate(notes):
+            if i >= 5:
+                break
             text_msp(msp, f"* {n}", nb_x1 + 0.6 * FT, nb_y1 + nb_h - 1.4 * FT - (i * 0.60 * FT), h=0.40 * FT, layer="A-TEXT", align=TextEntityAlignment.LEFT)
 
 

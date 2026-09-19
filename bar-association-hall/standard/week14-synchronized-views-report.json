@@ -1,0 +1,210 @@
+{
+  "cameraPresets": [
+    "plan",
+    "axonometric",
+    "perspective",
+    "section-box",
+    "north",
+    "south",
+    "east",
+    "west"
+  ],
+  "derivedGeometry": {
+    "elevationsInclude": [
+      "floorLevels",
+      "openings",
+      "roofEnvelope",
+      "keyDimensions"
+    ],
+    "sectionsInclude": [
+      "floorLevels",
+      "openings",
+      "stairs",
+      "keyDimensions"
+    ],
+    "source": "one canonical model revision"
+  },
+  "gate": {
+    "movingWallDoorOrStairInvalidatesViews": true,
+    "sharedRevisionAcrossViews": true,
+    "staleGeometryIsNotSilentlyDisplayed": true,
+    "validationRerunsAfterAcceptedEdit": true
+  },
+  "isolatedRoom": {
+    "enabled": true,
+    "requiresSelection": true
+  },
+  "levelVisibility": {
+    "default": [
+      "GF",
+      "FF"
+    ],
+    "sharedAcrossViews": true
+  },
+  "modelRevision": 1,
+  "reportVersion": "week14.synchronized-views.v1",
+  "routeOverlays": {
+    "availableInViews": true,
+    "source": "canonical circulation graph"
+  },
+  "sectionBox": {
+    "clipsAllDerivedViews": true,
+    "enabled": true
+  },
+  "selection": {
+    "highlightByObjectId": true,
+    "sharedAcrossViews": true
+  },
+  "snapping": {
+    "enabled": true,
+    "targetCount": 136,
+    "targets": [
+      "grid",
+      "endpoint",
+      "midpoint",
+      "intersection",
+      "wall",
+      "reference-line"
+    ]
+  },
+  "status": "pass",
+  "synchronizationKey": "project-revision-1",
+  "validationMarkers": {
+    "availableInViews": true,
+    "rerunOnAcceptedEdit": true
+  },
+  "views": [
+    {
+      "id": "plan-GF",
+      "kind": "2d-plan",
+      "levelId": "GF",
+      "objectIds": [
+        "GF-01",
+        "GF-02",
+        "GF-03",
+        "GF-04",
+        "GF-05",
+        "GF-06",
+        "GF-07"
+      ],
+      "selectionGroup": "level-GF"
+    },
+    {
+      "id": "model-GF",
+      "kind": "3d",
+      "levelId": "GF",
+      "objectIds": [
+        "GF-01",
+        "GF-02",
+        "GF-03",
+        "GF-04",
+        "GF-05",
+        "GF-06",
+        "GF-07"
+      ],
+      "selectionGroup": "level-GF"
+    },
+    {
+      "id": "section-GF",
+      "kind": "section",
+      "levelId": "GF",
+      "objectIds": [
+        "GF-01",
+        "GF-02",
+        "GF-03",
+        "GF-04",
+        "GF-05",
+        "GF-06",
+        "GF-07"
+      ],
+      "selectionGroup": "level-GF"
+    },
+    {
+      "id": "elevation-GF",
+      "kind": "elevation",
+      "levelId": "GF",
+      "objectIds": [
+        "GF-01",
+        "GF-02",
+        "GF-03",
+        "GF-04",
+        "GF-05",
+        "GF-06",
+        "GF-07"
+      ],
+      "selectionGroup": "level-GF"
+    },
+    {
+      "id": "plan-FF",
+      "kind": "2d-plan",
+      "levelId": "FF",
+      "objectIds": [
+        "FF-01",
+        "FF-02",
+        "FF-03",
+        "FF-04",
+        "FF-05",
+        "FF-06",
+        "FF-07",
+        "FF-08",
+        "FF-09",
+        "FF-10"
+      ],
+      "selectionGroup": "level-FF"
+    },
+    {
+      "id": "model-FF",
+      "kind": "3d",
+      "levelId": "FF",
+      "objectIds": [
+        "FF-01",
+        "FF-02",
+        "FF-03",
+        "FF-04",
+        "FF-05",
+        "FF-06",
+        "FF-07",
+        "FF-08",
+        "FF-09",
+        "FF-10"
+      ],
+      "selectionGroup": "level-FF"
+    },
+    {
+      "id": "section-FF",
+      "kind": "section",
+      "levelId": "FF",
+      "objectIds": [
+        "FF-01",
+        "FF-02",
+        "FF-03",
+        "FF-04",
+        "FF-05",
+        "FF-06",
+        "FF-07",
+        "FF-08",
+        "FF-09",
+        "FF-10"
+      ],
+      "selectionGroup": "level-FF"
+    },
+    {
+      "id": "elevation-FF",
+      "kind": "elevation",
+      "levelId": "FF",
+      "objectIds": [
+        "FF-01",
+        "FF-02",
+        "FF-03",
+        "FF-04",
+        "FF-05",
+        "FF-06",
+        "FF-07",
+        "FF-08",
+        "FF-09",
+        "FF-10"
+      ],
+      "selectionGroup": "level-FF"
+    }
+  ]
+}

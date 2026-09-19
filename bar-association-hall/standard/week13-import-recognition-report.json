@@ -1,0 +1,819 @@
+{
+  "confidence": {
+    "dimensions": 0.72,
+    "doors": 0.86,
+    "stairs": 0.55,
+    "textLabels": 0.9,
+    "walls": 0.95,
+    "windows": 0.86
+  },
+  "editableTwin": {
+    "exportPolicy": "only reviewed objects may become authoritative export geometry",
+    "id": "proj-bar-association-hall-editable-twin",
+    "levelsPreserved": true,
+    "modelRevision": 1,
+    "objects": [
+      {
+        "authoritative": false,
+        "collection": "levels",
+        "objectId": "GF",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "levels",
+        "objectId": "FF",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-05",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-06",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "GF-07",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-05",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-06",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-07",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-08",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-09",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "spaces",
+        "objectId": "FF-10",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-05",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-06",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-07",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-08",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-09",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-GF-10",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-05",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-06",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-07",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-08",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-09",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "openings",
+        "objectId": "D-FF-10",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-GF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-GF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-GF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-05",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-06",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-07",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-08",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-09",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-10",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-11",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-12",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-13",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-14",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-GF-15",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-FF-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-FF-02",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-FF-03",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-05",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-06",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-07",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-08",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-09",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-10",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-11",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-12",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-13",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-14",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-15",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "V-FF-04",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "windows",
+        "objectId": "W-FF-16",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "verticalConnectors",
+        "objectId": "VC-STAIR-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "stairs",
+        "objectId": "STAIR-01",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "entries",
+        "objectId": "ENTRY-MAIN",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      },
+      {
+        "authoritative": false,
+        "collection": "entries",
+        "objectId": "ENTRY-VIP",
+        "reviewStatus": "needs-review",
+        "sourcePath": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+        "sourceSha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+      }
+    ],
+    "openingsPreserved": true,
+    "reviewQueue": [
+      {
+        "objectType": "stairs",
+        "reason": "DXF semantics need human confirmation"
+      },
+      {
+        "objectType": "dimensions",
+        "reason": "dimension style and units need confirmation"
+      }
+    ],
+    "scale": {
+      "preserved": true,
+      "units": "inch"
+    },
+    "sourceProvenance": {
+      "bytes": 79575,
+      "format": "dxf",
+      "path": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+      "sha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+    }
+  },
+  "observed": {
+    "entityCounts": {
+      "0": 46,
+      "1": 2,
+      "10": 7,
+      "100": 23,
+      "142": 1,
+      "143": 1,
+      "146": 1,
+      "171": 12,
+      "173": 2,
+      "174": 12,
+      "175": 11,
+      "176": 439,
+      "177": 13,
+      "178": 13,
+      "179": 12,
+      "272": 1,
+      "276": 12,
+      "277": 12,
+      "280": 22,
+      "281": 28,
+      "282": 12,
+      "283": 12,
+      "284": 12,
+      "286": 12,
+      "288": 12,
+      "289": 1,
+      "290": 1,
+      "296": 1,
+      "297": 1,
+      "3": 22,
+      "340": 11,
+      "370": 1,
+      "371": 1,
+      "40": 71,
+      "42": 28,
+      "43": 1,
+      "45": 3,
+      "46": 1,
+      "49": 54,
+      "6": 3,
+      "62": 21,
+      "65": 1,
+      "70": 27,
+      "71": 15,
+      "72": 14,
+      "73": 15,
+      "74": 14,
+      "75": 15,
+      "76": 13,
+      "77": 15,
+      "78": 5,
+      "9": 61,
+      "90": 26,
+      "91": 8,
+      "98": 3,
+      "ACDBDICTIONARYWDFLT": 1,
+      "ACDBPLACEHOLDER": 1,
+      "APPID": 3,
+      "BLOCK": 5,
+      "BLOCK_RECORD": 5,
+      "CIRCLE": 7,
+      "CLASS": 15,
+      "DICTIONARY": 12,
+      "DICTIONARYVAR": 2,
+      "DIMSTYLE": 12,
+      "ENDBLK": 5,
+      "HATCH": 3,
+      "LAYER": 21,
+      "LAYOUT": 2,
+      "LINE": 88,
+      "LTYPE": 21,
+      "LWPOLYLINE": 2,
+      "MATERIAL": 3,
+      "MLEADERSTYLE": 1,
+      "MLINESTYLE": 1,
+      "SOLID": 1,
+      "STYLE": 28,
+      "TEXT": 44,
+      "VISUALSTYLE": 25,
+      "VPORT": 1
+    },
+    "geometryPreserved": true,
+    "layerCounts": {
+      "": 3,
+      "0": 14,
+      "100": 1,
+      "176": 25,
+      "177": 1,
+      "285": 12,
+      "330": 1,
+      "6": 1,
+      "79": 1,
+      "9": 2,
+      "A-BAY": 12,
+      "A-DIM": 18,
+      "A-FURN": 15,
+      "A-GRID": 8,
+      "A-HATCH": 2,
+      "A-ROOF": 4,
+      "A-SITE": 12,
+      "A-TEXT": 8,
+      "A-TEXT-TTL": 24,
+      "A-TTLB": 31,
+      "A-WALL": 8
+    },
+    "parser": "ascii-dxf-group-code-reader"
+  },
+  "promotionPolicy": {
+    "humanReviewRequiredBeforeExport": true,
+    "minimumConfidenceForSuggestedReview": 0.8,
+    "uncertainObjectsRemainNonAuthoritative": true
+  },
+  "reportVersion": "week13.import-recognition.v1",
+  "reviewQueue": [
+    {
+      "objectType": "stairs",
+      "reason": "DXF semantics need human confirmation"
+    },
+    {
+      "objectType": "dimensions",
+      "reason": "dimension style and units need confirmation"
+    }
+  ],
+  "source": {
+    "bytes": 79575,
+    "format": "dxf",
+    "path": "CAD-Drawings/DXF/01-Site-Master-Plan-Plots-1-and-2.dxf",
+    "sha256": "e21c178b3b3b31e577802ddad46b69f223b7c2033d7733358b113e43532a4b33"
+  },
+  "status": "review-required"
+}

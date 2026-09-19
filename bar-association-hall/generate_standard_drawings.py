@@ -30,6 +30,7 @@ from reportlab.lib.pagesizes import A2, landscape
 from reportlab.pdfgen import canvas
 
 from drawing_model import area, inches_feet, load_model, rect, validate_model
+from sheet_layout import dxf_text_height, layout_for_extent
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "standard" / "source" if (ROOT / "standard" / "source").exists() else ROOT / "source"
@@ -239,7 +240,9 @@ def draw_title_block(
     level_name: str,
     drawing_variant: str,
 ) -> None:
-    x, y, w, h = 760, 32, PAGE_W - 796, 128
+    # The title block is a compact full-width ISO-style information band.
+    # Keeping it out of a permanent right rail protects the drawing zone.
+    x, y, w, h = 26, 26, PAGE_W - 52, 96
     c.saveState()
     c.setStrokeColor(BLACK)
     c.setLineWidth(1.2)
@@ -260,7 +263,7 @@ def draw_title_block(
     c.drawString(x + 14, y + h - 50, "RAJASTHAN, INDIA")
     c.setFillColor(BLACK)
     c.setFont("Helvetica-Bold", 7.5)
-    c.drawString(x + 14, y + 14, "ADOPTED PLANNING SETBACK ENVELOPE: 4,427.50 SQ.FT.")
+    c.drawString(x + 14, y + 14, "PRELIMINARY REVIEW ONLY · VERIFY SURVEY, CODE AND ENGINEERING")
 
     # Drawing Title Block
     c.setFont("Helvetica-Bold", 12)
@@ -354,6 +357,37 @@ def draw_legend(c: canvas.Canvas, x: float, y: float, mode: str) -> None:
         c.setStrokeColor(FURN_OUTLINE)
         c.rect(x + 300, y + 11, 10, 10, stroke=1, fill=1)
         c.drawString(x + 316, y + 14, "FURNITURE")
+    c.restoreState()
+
+
+def draw_supporting_band(c: canvas.Canvas, layout: Any, sheet: dict[str, Any], mode: str) -> None:
+    """Place only compact notes and an index in the protected support band."""
+
+    band = layout.supportingBand
+    x, y, width, height = band["x"], band["y"], band["width"], band["height"]
+    c.saveState()
+    c.setStrokeColor(LIGHT_GRAY)
+    c.setFillColor(PALE_PANEL)
+    c.rect(x, y, width, height, stroke=1, fill=1)
+    c.setFillColor(BLACK)
+    c.setFont("Helvetica-Bold", 7.5)
+    c.drawString(x + 10, y + height - 15, "SHEET INDEX / GENERAL NOTES")
+    c.setFont("Helvetica", 6.5)
+    c.setFillColor(DARK_GRAY)
+    notes = [
+        "1. Preliminary planning aid; not for construction.",
+        "2. Dimensions, openings and levels are linked to one model revision.",
+        "3. Verify survey, scale, code, accessibility, fire/life-safety and engineering.",
+    ]
+    for index, note in enumerate(notes):
+        c.drawString(x + 10, y + height - 28 - index * 11, note)
+    c.setFont("Helvetica-Bold", 6.5)
+    c.setFillColor(BLACK)
+    c.drawString(x + width * 0.66, y + height - 15, f"{sheet['number']} · {mode.upper()}")
+    c.setFont("Helvetica", 6.5)
+    c.setFillColor(DARK_GRAY)
+    c.drawString(x + width * 0.66, y + height - 28, "A2 ISO 5457 format · structured ISO 7200-style title block")
+    c.drawString(x + width * 0.66, y + height - 39, "Notes/index area is capped by project sheet policy.")
     c.restoreState()
 
 
@@ -977,7 +1011,16 @@ def draw_plan_sheet(
     c.setFillColor(GRAY)
     c.drawString(60, PAGE_H - 82, "COORDINATED ARCHITECTURAL SCHEMATIC · BANSWARA DISTRICT COURT COMPLEX")
 
-    origin = (108, 160)
+    min_x = min(rect(s)[0] for s in spaces)
+    min_y = min(rect(s)[1] for s in spaces)
+    max_x = max(rect(s)[2] for s in spaces)
+    max_y = max(rect(s)[3] for s in spaces)
+    layout = layout_for_extent(PAGE_W, PAGE_H, (min_x, min_y, max_x, max_y))
+    # Existing drawing primitives intentionally share this value so furniture,
+    # stairs, dimensions and openings all use the same fitted scale.
+    global SCALE
+    SCALE = layout.scale
+    origin = layout.origin
 
     # 1. Draw Space Rectangles & Floor Finishes
     c.saveState()
@@ -1040,10 +1083,6 @@ def draw_plan_sheet(
         c.drawCentredString(badge_cx, badge_cy - 12, f'{space["id"]}  ·  {area(space):,.1f} SQ.FT.')
 
     # 2. Outer Cut-Wall Perimeter
-    min_x = min(rect(s)[0] for s in spaces)
-    min_y = min(rect(s)[1] for s in spaces)
-    max_x = max(rect(s)[2] for s in spaces)
-    max_y = max(rect(s)[3] for s in spaces)
     px, py = pdf_point(origin, min_x, min_y)
     c.setStrokeColor(BLACK)
     c.setLineWidth(2.5)
@@ -1079,11 +1118,7 @@ def draw_plan_sheet(
     draw_north(c, 700, PAGE_H - 120)
     draw_scale_bar(c, 780, PAGE_H - 120)
 
-    draw_legend(c, 760, PAGE_H - 340, mode)
-    if mode == "columns":
-        draw_column_schedule(c, 760, 185, COLUMNS_GF if level == "GF" else COLUMNS_FF)
-    else:
-        draw_schedule(c, 760, 185, spaces)
+    draw_supporting_band(c, layout, sheet, mode)
 
     level_full_name = site["levels"][0 if level == "GF" else 1]["name"]
     draw_title_block(c, sheet, level_full_name, variant_text)
@@ -1243,8 +1278,8 @@ def create_dxf(
     for space in spaces:
         x0, y0, x1, y1 = rect(space)
         msp.add_lwpolyline([(x0, y0), (x1, y0), (x1, y1), (x0, y1), (x0, y0)], dxfattribs={"layer": "A-WALL", "closed": True})
-        msp.add_text(space["name"].upper(), dxfattribs={"layer": "A-TEXT", "height": 8}).set_placement(((x0 + x1) / 2, (y0 + y1) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
-        msp.add_text(space["id"], dxfattribs={"layer": "A-TEXT", "height": 5}).set_placement(((x0 + x1) / 2, (y0 + y1) / 2 - 12), align=TextEntityAlignment.MIDDLE_CENTER)
+        msp.add_text(space["name"].upper(), dxfattribs={"layer": "A-TEXT", "height": dxf_text_height("roomLabel")}).set_placement(((x0 + x1) / 2, (y0 + y1) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
+        msp.add_text(space["id"], dxfattribs={"layer": "A-TEXT", "height": dxf_text_height("keynote")}).set_placement(((x0 + x1) / 2, (y0 + y1) / 2 - 12), align=TextEntityAlignment.MIDDLE_CENTER)
 
     for opening in plans["openings"]:
         if opening["level"] != level:
@@ -1254,7 +1289,7 @@ def create_dxf(
             continue
         a, b = wall_segment(space, opening["wall"], opening["offset"], opening["width"])
         msp.add_line(a, b, dxfattribs={"layer": "A-DOOR"})
-        msp.add_text(opening["tag"], dxfattribs={"layer": "A-DOOR", "height": 5}).set_placement(((a[0] + b[0]) / 2, (a[1] + b[1]) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
+        msp.add_text(opening["tag"], dxfattribs={"layer": "A-DOOR", "height": dxf_text_height("keynote")}).set_placement(((a[0] + b[0]) / 2, (a[1] + b[1]) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
 
     for window in plans["windows"]:
         if window["level"] != level:
@@ -1264,7 +1299,7 @@ def create_dxf(
             continue
         a, b = wall_segment(space, window["wall"], window["offset"], window["width"])
         msp.add_line(a, b, dxfattribs={"layer": "A-WINDOW"})
-        msp.add_text(window["tag"], dxfattribs={"layer": "A-WINDOW", "height": 5}).set_placement(((a[0] + b[0]) / 2, (a[1] + b[1]) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
+        msp.add_text(window["tag"], dxfattribs={"layer": "A-WINDOW", "height": dxf_text_height("keynote")}).set_placement(((a[0] + b[0]) / 2, (a[1] + b[1]) / 2), align=TextEntityAlignment.MIDDLE_CENTER)
 
     for entry in plans.get("entries", []):
         if entry["level"] != level or entry["kind"] != "main" or not entry.get("porch"):

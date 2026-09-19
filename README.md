@@ -195,3 +195,54 @@ npm run test:week1112
 The brief compiler and product modes are preliminary planning aids. They do
 not provide survey, code, permit, accessibility, fire/life-safety, structural,
 MEP, or construction certification.
+
+## Week 13–14 task status — applied and marked done
+
+The Week 13 and Week 14 enrichment from
+[`docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md`](docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md)
+is implemented in the canonical pipeline.
+
+- **Week 13 — import, recognition and editable digital twin:** DXF source
+  inspection preserves source hash, entity/layer counts and geometry-preserved
+  status; PDF/image recognition is explicitly assisted and review-required;
+  uncertain objects remain non-authoritative; editable-twin links preserve
+  units, levels, openings and source provenance; IFC/BIM remains capability-gated.
+- **Week 14 — synchronised views:** 2D plans, 3D, sections and elevations share
+  one model revision and selection key, with camera presets, level visibility,
+  section-box and isolated-room contracts, snapping targets, route overlays and
+  validation markers.
+- **Sheet coverage rationalisation:** PDF and DXF export code now uses one
+  paper-space layout contract. It is based on ISO 5457 A-series sheet formats
+  and ISO 7200-style title-block information fields. The drawing zone is
+  protected first; notes, legends and indices share a bounded band, with a
+  project policy of **supporting content ≤ 20%** and **drawing zone ≥ 65%**.
+  These ratios are project policy, not a claim that ISO prescribes a universal
+  percentage.
+- **Annotation standard:** future labels, dimensions, keynotes and general
+  notes use a shared paper-space type scale with a 2.5 mm minimum readable
+  target for ordinary annotations; DXF model-space heights derive from that
+  same policy instead of scattered constants.
+- **FastAPI routes:** `POST /import/recognize`, `GET /views/synchronized`, and
+  `GET /sheet-standard`.
+- **Deterministic artifacts:**
+  - `bar-association-hall/standard/week13-import-recognition-report.json`
+  - `bar-association-hall/standard/week14-synchronized-views-report.json`
+  - `bar-association-hall/standard/sheet-layout-standard.json`
+  - `bar-association-hall/standard/week1314-enrichment-manifest.json`
+  - `bar-association-hall/standard/week1314-changelog.md`
+- Regression tests: `tests/test_week1314_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week1314
+npm run validate:week13
+npm run validate:week14
+npm run test:week1314
+```
+
+**Task completion:** Week 13–14 enrichment and the sheet-coverage/
+annotation-standard correction are complete and are included in this `main`
+release. All outputs remain
+preliminary planning/coordination aids and require the appointed architect,
+engineers, surveyor and local authority review.
