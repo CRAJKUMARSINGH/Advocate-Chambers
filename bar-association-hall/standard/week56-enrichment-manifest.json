@@ -1,0 +1,20 @@
+{
+  "manifestVersion": "week56.enrichment-manifest.v1",
+  "status": "fail",
+  "reports": {
+    "week5": "bar-association-hall/standard/week5-stair-coordination-report.json",
+    "week6": "bar-association-hall/standard/week6-program-report.json"
+  },
+  "counts": {
+    "levels": 2,
+    "stairs": 1,
+    "connectors": 1,
+    "spaces": 17,
+    "adjacencyRules": 4
+  },
+  "findingCounts": {
+    "BLOCKER": 35,
+    "ERROR": 1,
+    "WARNING": 2
+  }
+}

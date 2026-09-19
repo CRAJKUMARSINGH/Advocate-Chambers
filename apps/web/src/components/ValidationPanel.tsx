@@ -18,6 +18,8 @@ type Analysis = {
   status: string;
   findingCounts: Record<string, number>;
   findings: Finding[];
+  week5?: { status: string; findingCounts: Record<string, number> };
+  week6?: { status: string; findingCounts: Record<string, number> };
 };
 
 export function ValidationPanel({ projectId, level }: Props): React.JSX.Element {
@@ -49,7 +51,7 @@ export function ValidationPanel({ projectId, level }: Props): React.JSX.Element 
     <section>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
         <h2 style={{ margin: 0, fontSize: 12, textTransform: 'uppercase', letterSpacing: 1.2, color: '#65717a' }}>
-          Week 3–4 Validation
+          Week 3–6 Validation
         </h2>
         <button
           onClick={() => void query.refetch()}
@@ -77,6 +79,20 @@ export function ValidationPanel({ projectId, level }: Props): React.JSX.Element 
           </span>
         )}
       </div>
+      {(result?.week5 || result?.week6) && (
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 10 }}>
+          {result?.week5 && (
+            <span style={pill(result.week5.status === 'pass')}>
+              W5 {result.week5.status === 'pass' ? 'PASS' : 'REVIEW'}
+            </span>
+          )}
+          {result?.week6 && (
+            <span style={pill(result.week6.status === 'pass')}>
+              W6 {result.week6.status === 'pass' ? 'PASS' : 'REVIEW'}
+            </span>
+          )}
+        </div>
+      )}
 
       {query.isError && (
         <div style={{ fontSize: 11, color: '#8b3c32', marginBottom: 8 }}>
@@ -105,7 +121,7 @@ export function ValidationPanel({ projectId, level }: Props): React.JSX.Element 
         </div>
       )}
       {!query.isLoading && !query.isError && findings.length === 0 && (
-        <div style={{ fontSize: 11, color: '#2d5c36' }}>All Week 3–4 gates cleared.</div>
+        <div style={{ fontSize: 11, color: '#2d5c36' }}>All Week 3–6 gates cleared.</div>
       )}
     </section>
   );

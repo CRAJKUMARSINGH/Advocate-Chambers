@@ -41,3 +41,31 @@ npm run build:web
 All dimensions are nominal planning dimensions in inches. Outputs remain
 preliminary review material and require qualified architectural, structural,
 fire/life-safety, accessibility, and local-code review before construction.
+
+## Week 5–6 task status
+
+**Applied on `main`:**
+
+- Week 5 stair and floor-to-floor coordination validates connector endpoints,
+  level elevations, riser arithmetic, tread, landing, width, direction, and
+  route continuity. It keeps future-ready connector semantics for ramps and
+  lifts without pretending they are validated stairs.
+- Week 6 adds an inspectable institutional program template, required room-use
+  completeness, area/dimension checks, required/preferred/forbidden
+  adjacencies, and site orientation/frontage/service-access assumptions.
+- Deterministic reports:
+  - `bar-association-hall/standard/week5-stair-coordination-report.json`
+  - `bar-association-hall/standard/week6-program-report.json`
+  - `bar-association-hall/standard/week56-enrichment-manifest.json`
+- The FastAPI `/analysis` response now includes Week 5 connectors and Week 6
+  program, orientation, adjacency, and finding data.
+- Regression tests live in `tests/test_week56_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week56
+npm run validate:week5
+npm run validate:week6
+python -m unittest discover -s tests -p 'test_week*.py'
+```

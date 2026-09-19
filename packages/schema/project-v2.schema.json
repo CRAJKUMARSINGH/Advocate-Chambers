@@ -41,13 +41,18 @@
     "assumptions": {"type": "array", "items": {"type": "string"}},
     "notes": {"type": "array", "items": {"type": "string"}},
     "revisions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/revision"}},
+    "program": {"$ref": "#/$defs/program"},
+    "orientation": {"$ref": "#/$defs/orientation"},
+    "adjacencies": {"$ref": "#/$defs/adjacencies"},
     "enrichment": {
       "type": "object",
       "properties": {
         "version": {"type": "string"},
         "week3Report": {"type": "string"},
         "week4Report": {"type": "string"},
-        "openingSchedule": {"type": "string"}
+        "openingSchedule": {"type": "string"},
+        "week5Report": {"type": "string"},
+        "week6Report": {"type": "string"}
       },
       "additionalProperties": false
     },
@@ -303,6 +308,40 @@
         "legacy": {"type": "object"}
       },
       "additionalProperties": false
+    },
+    "program": {
+      "type": "object",
+      "required": ["buildingType", "templateVersion", "requiredUses", "adjacencyRules"],
+      "properties": {
+        "buildingType": {"type": "string"},
+        "templateVersion": {"type": "string"},
+        "templateLabel": {"type": "string"},
+        "requiredUses": {"type": "array", "items": {"type": "object"}},
+        "adjacencyRules": {"type": "array", "items": {"type": "object"}},
+        "counts": {"type": "object"},
+        "completeness": {"type": "array", "items": {"type": "object"}},
+        "spaceChecks": {"type": "array", "items": {"type": "object"}},
+        "adjacencyEvaluations": {"type": "array", "items": {"type": "object"}},
+        "orientation": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "orientation": {
+      "type": "object",
+      "properties": {
+        "north": {"type": ["string", "number", "null"]},
+        "roadFrontage": {"type": ["string", "null"]},
+        "serviceAccess": {"type": ["string", "null"]},
+        "setbacks": {"type": "object"},
+        "plotBounds": {"type": "object"},
+        "source": {"type": "string"},
+        "assumptions": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "adjacencies": {
+      "type": "array",
+      "items": {"type": "object"}
     },
     "rect": {
       "type": "array",

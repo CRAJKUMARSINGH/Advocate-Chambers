@@ -307,6 +307,30 @@ Gate: an upper-floor room is reachable through a validated connector, and stair 
 
 Gate: the generator can explain why a room is near or away from another room and flags missing program elements before rendering.
 
+### Week 5–6 implementation note
+
+Week 5 and Week 6 enrichment is now applied:
+
+- `scripts/week5.py` and `scripts/week56.py` validate stair endpoints,
+  floor-to-floor arithmetic, risers, treads, landings, widths, direction,
+  connector graph edges, and upper-floor route continuity.
+- `scripts/week6.py` and `scripts/week56.py` add versioned building-type
+  templates, required room-use completeness, area/dimension checks,
+  required/preferred/forbidden adjacency evaluation, and site
+  north/frontage/service-access assumptions.
+- Reports are written to
+  `bar-association-hall/standard/week5-stair-coordination-report.json`,
+  `bar-association-hall/standard/week6-program-report.json`, and
+  `bar-association-hall/standard/week56-enrichment-manifest.json`.
+- The canonical model stores the additive `program`, `orientation`, and
+  `adjacencies` layer, while `/analysis` exposes the same data to the React
+  viewport.
+
+The current legacy fixture intentionally retains the Week 3–5 access findings
+until the underlying plan is corrected. Week 6 passes the institutional
+program completeness and dimension gate while warning about unconfirmed site
+frontage and service access.
+
 ### Week 7 — Rule packs and professional disclaimers
 
 - Move dimensions and planning assumptions into versioned, inspectable rule packs.

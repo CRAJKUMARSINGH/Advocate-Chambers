@@ -1,0 +1,486 @@
+{
+  "reportVersion": "week6.program.v1",
+  "status": "pass",
+  "findingCounts": {
+    "WARNING": 2
+  },
+  "findings": [
+    {
+      "id": "VAL6-ORIENTATION-FRONTAGE",
+      "severity": "WARNING",
+      "rule": "SITE_ROAD_FRONTAGE_MUST_BE_CONFIRMED",
+      "levelId": null,
+      "spaceIds": [],
+      "connectorIds": [],
+      "message": "Road/frontage is not explicitly defined in the site model.",
+      "suggestedFixes": [
+        "Record the public road or frontage edge before final entry and setback decisions."
+      ]
+    },
+    {
+      "id": "VAL6-SERVICE-ACCESS",
+      "severity": "WARNING",
+      "rule": "SERVICE_ACCESS_INTENT_MUST_BE_CONFIRMED",
+      "levelId": null,
+      "spaceIds": [],
+      "connectorIds": [],
+      "message": "No dedicated service-access intent is recorded.",
+      "suggestedFixes": [
+        "Identify the service approach and keep it separate from public entry where required."
+      ]
+    }
+  ],
+  "program": {
+    "buildingType": "institutional",
+    "templateVersion": "week6.program-template.v1",
+    "templateLabel": "Institutional / civic building",
+    "requiredUses": [
+      {
+        "roomUse": "reception",
+        "label": "Reception / records",
+        "minCount": 1,
+        "minAreaSqFt": 100,
+        "minWidth": 96,
+        "minDepth": 96
+      },
+      {
+        "roomUse": "vertical-circulation",
+        "label": "Vertical circulation",
+        "minCount": 1,
+        "minAreaSqFt": 100,
+        "minWidth": 44,
+        "minDepth": 48
+      },
+      {
+        "roomUse": "assembly",
+        "label": "Assembly / public hall",
+        "minCount": 1,
+        "minAreaSqFt": 300,
+        "minWidth": 120,
+        "minDepth": 120
+      },
+      {
+        "roomUse": "service",
+        "label": "Service support",
+        "minCount": 1,
+        "minAreaSqFt": 40,
+        "minWidth": 36,
+        "minDepth": 36
+      }
+    ],
+    "adjacencyRules": [
+      {
+        "id": "assembly-stage",
+        "kind": "required",
+        "left": "assembly",
+        "right": "stage",
+        "label": "Assembly should directly support the stage/dais."
+      },
+      {
+        "id": "reception-circulation",
+        "kind": "preferred",
+        "left": "reception",
+        "right": "vertical-circulation",
+        "label": "Reception should be near the main circulation node."
+      },
+      {
+        "id": "library-computer",
+        "kind": "preferred",
+        "left": "library",
+        "right": "computer",
+        "label": "Library and computer/internet support should be near."
+      },
+      {
+        "id": "service-assembly",
+        "kind": "forbidden",
+        "left": "service",
+        "right": "assembly",
+        "label": "Service rooms should not open directly into the public assembly zone."
+      }
+    ],
+    "counts": {
+      "reception": 1,
+      "vertical-circulation": 2,
+      "office": 3,
+      "service": 5,
+      "assembly": 1,
+      "stage": 1,
+      "library": 2,
+      "discussion": 1,
+      "computer": 1
+    },
+    "completeness": [
+      {
+        "roomUse": "reception",
+        "label": "Reception / records",
+        "requiredCount": 1,
+        "actualCount": 1,
+        "status": "pass"
+      },
+      {
+        "roomUse": "vertical-circulation",
+        "label": "Vertical circulation",
+        "requiredCount": 1,
+        "actualCount": 2,
+        "status": "pass"
+      },
+      {
+        "roomUse": "assembly",
+        "label": "Assembly / public hall",
+        "requiredCount": 1,
+        "actualCount": 1,
+        "status": "pass"
+      },
+      {
+        "roomUse": "service",
+        "label": "Service support",
+        "requiredCount": 1,
+        "actualCount": 5,
+        "status": "pass"
+      }
+    ],
+    "spaceChecks": [
+      {
+        "spaceId": "GF-01",
+        "levelId": "GF",
+        "roomUse": "reception",
+        "name": "Reception / Records",
+        "width": 144.0,
+        "depth": 168.0,
+        "areaSqFt": 168.0,
+        "minimums": {
+          "width": 96,
+          "depth": 96,
+          "areaSqFt": 100
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "GF-02",
+        "levelId": "GF",
+        "roomUse": "vertical-circulation",
+        "name": "Main Stair",
+        "width": 126.0,
+        "depth": 168.0,
+        "areaSqFt": 147.0,
+        "minimums": {
+          "width": 44,
+          "depth": 48,
+          "areaSqFt": 100
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "GF-03",
+        "levelId": "GF",
+        "roomUse": "office",
+        "name": "President Chamber",
+        "width": 144.0,
+        "depth": 168.0,
+        "areaSqFt": 168.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "GF-04",
+        "levelId": "GF",
+        "roomUse": "service",
+        "name": "Pantry",
+        "width": 108.0,
+        "depth": 168.0,
+        "areaSqFt": 126.0,
+        "minimums": {
+          "width": 36,
+          "depth": 36,
+          "areaSqFt": 40
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "GF-05",
+        "levelId": "GF",
+        "roomUse": "service",
+        "name": "Toilet Block",
+        "width": 114.0,
+        "depth": 168.0,
+        "areaSqFt": 133.0,
+        "minimums": {
+          "width": 36,
+          "depth": 36,
+          "areaSqFt": 40
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "roomUse": "assembly",
+        "name": "Main Assembly Hall",
+        "width": 660.0,
+        "depth": 720.0,
+        "areaSqFt": 3300.0,
+        "minimums": {
+          "width": 120,
+          "depth": 120,
+          "areaSqFt": 300
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "GF-07",
+        "levelId": "GF",
+        "roomUse": "stage",
+        "name": "Dais / Speaker Zone",
+        "width": 660.0,
+        "depth": 174.0,
+        "areaSqFt": 797.5,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-01",
+        "levelId": "FF",
+        "roomUse": "office",
+        "name": "Librarian / Administration",
+        "width": 144.0,
+        "depth": 168.0,
+        "areaSqFt": 168.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-02",
+        "levelId": "FF",
+        "roomUse": "vertical-circulation",
+        "name": "Main Stair",
+        "width": 126.0,
+        "depth": 168.0,
+        "areaSqFt": 147.0,
+        "minimums": {
+          "width": 44,
+          "depth": 48,
+          "areaSqFt": 100
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-03",
+        "levelId": "FF",
+        "roomUse": "office",
+        "name": "Secretary / Committee Room",
+        "width": 144.0,
+        "depth": 168.0,
+        "areaSqFt": 168.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-04",
+        "levelId": "FF",
+        "roomUse": "service",
+        "name": "Pantry",
+        "width": 108.0,
+        "depth": 168.0,
+        "areaSqFt": 126.0,
+        "minimums": {
+          "width": 36,
+          "depth": 36,
+          "areaSqFt": 40
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-05",
+        "levelId": "FF",
+        "roomUse": "service",
+        "name": "Toilet Block",
+        "width": 114.0,
+        "depth": 168.0,
+        "areaSqFt": 133.0,
+        "minimums": {
+          "width": 36,
+          "depth": 36,
+          "areaSqFt": 40
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-06",
+        "levelId": "FF",
+        "roomUse": "library",
+        "name": "Library Reading Room",
+        "width": 660.0,
+        "depth": 588.0,
+        "areaSqFt": 2695.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-07",
+        "levelId": "FF",
+        "roomUse": "library",
+        "name": "Stack Area / Book Storage",
+        "width": 660.0,
+        "depth": 216.0,
+        "areaSqFt": 990.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-08",
+        "levelId": "FF",
+        "roomUse": "discussion",
+        "name": "Discussion Room",
+        "width": 216.0,
+        "depth": 126.0,
+        "areaSqFt": 189.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-09",
+        "levelId": "FF",
+        "roomUse": "computer",
+        "name": "Computer / Internet",
+        "width": 216.0,
+        "depth": 126.0,
+        "areaSqFt": 189.0,
+        "minimums": {
+          "width": null,
+          "depth": null,
+          "areaSqFt": null
+        },
+        "status": "pass"
+      },
+      {
+        "spaceId": "FF-10",
+        "levelId": "FF",
+        "roomUse": "service",
+        "name": "Store / Electrical",
+        "width": 216.0,
+        "depth": 126.0,
+        "areaSqFt": 189.0,
+        "minimums": {
+          "width": 36,
+          "depth": 36,
+          "areaSqFt": 40
+        },
+        "status": "pass"
+      }
+    ],
+    "adjacencyEvaluations": [
+      {
+        "id": "assembly-stage",
+        "kind": "required",
+        "left": "assembly",
+        "right": "stage",
+        "label": "Assembly should directly support the stage/dais.",
+        "relationship": "near",
+        "satisfied": true,
+        "spaceIds": [
+          "GF-06",
+          "GF-07"
+        ],
+        "distance": 6.0,
+        "explanation": "Assembly should directly support the stage/dais. Observed near between Main Assembly Hall and Dais / Speaker Zone."
+      },
+      {
+        "id": "reception-circulation",
+        "kind": "preferred",
+        "left": "reception",
+        "right": "vertical-circulation",
+        "label": "Reception should be near the main circulation node.",
+        "relationship": "near",
+        "satisfied": true,
+        "spaceIds": [
+          "GF-01",
+          "GF-02"
+        ],
+        "distance": 6.0,
+        "explanation": "Reception should be near the main circulation node. Observed near between Reception / Records and Main Stair."
+      },
+      {
+        "id": "library-computer",
+        "kind": "preferred",
+        "left": "library",
+        "right": "computer",
+        "label": "Library and computer/internet support should be near.",
+        "relationship": "near",
+        "satisfied": true,
+        "spaceIds": [
+          "FF-07",
+          "FF-09"
+        ],
+        "distance": 6.0,
+        "explanation": "Library and computer/internet support should be near. Observed near between Stack Area / Book Storage and Computer / Internet."
+      },
+      {
+        "id": "service-assembly",
+        "kind": "forbidden",
+        "left": "service",
+        "right": "assembly",
+        "label": "Service rooms should not open directly into the public assembly zone.",
+        "relationship": "near",
+        "satisfied": true,
+        "spaceIds": [
+          "GF-04",
+          "GF-06"
+        ],
+        "distance": 6.0,
+        "explanation": "Service rooms should not open directly into the public assembly zone. Observed near between Pantry and Main Assembly Hall."
+      }
+    ],
+    "orientation": {
+      "north": "up",
+      "roadFrontage": null,
+      "serviceAccess": null,
+      "setbacks": {
+        "west": 0,
+        "north": 60,
+        "east": 5,
+        "south": 5
+      },
+      "plotBounds": {
+        "minX": 0.0,
+        "minY": 0.0,
+        "maxX": 60.0,
+        "maxY": 98.0,
+        "width": 60.0,
+        "depth": 98.0
+      },
+      "source": "explicit",
+      "assumptions": [
+        "North and frontage must be confirmed against a licensed site survey.",
+        "Setbacks are planning inputs, not a jurisdictional compliance determination."
+      ]
+    }
+  }
+}
