@@ -70,6 +70,35 @@ performance, and no loss of a valid project revision.** Until those gates are
 met, generated plans remain preliminary planning and coordination aids and are
 not automatically issuable.
 
+## Week 21 task status — applied
+
+Week 21 establishes the machine-readable quality-gate contract and records the
+current regression baseline before adversarial, professional-review, and
+performance evidence is supplied.
+
+- Added `scripts/quality_gate.py` with `PASS`, `REVIEW_REQUIRED`, `BLOCKED`,
+  and `INCOMPLETE` states.
+- Added schemas for adversarial benchmark, professional review, and performance
+  benchmark results under `packages/schema/`.
+- Added tamper detection through a deterministic report signature.
+- Added `tests/test_quality_gate.py` covering missing evidence, critical false
+  negatives, professional uncertainty, performance failures, passing gates, and
+  report tampering.
+- Added the baseline artifact:
+  `bar-association-hall/standard/quality-gate-report.json`.
+
+The current Week 21 report is intentionally `INCOMPLETE` because the Week 22–25
+evidence tracks have not yet been executed. Missing benchmark evidence is not
+treated as a pass.
+
+Run the Week 21 contract checks with:
+
+```bash
+npm run enrich:week21
+npm run validate:week21
+npm run test:week21
+```
+
 ## Week 3–4 task status
 
 **Applied on `main`:**

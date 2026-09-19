@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CRAJKUMARSINGH/Advocate-Chambers/blob/main/packages/schema/week21-professional-review-result.schema.json",
+  "title": "Week 21 independent professional review result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "reviewers",
+    "plansReviewed",
+    "usableAgreement",
+    "criticalDefectsAcceptedAsUsable",
+    "criticalFindingsReproducible"
+  ],
+  "properties": {
+    "reviewers": { "type": "integer", "minimum": 1 },
+    "plansReviewed": { "type": "integer", "minimum": 1 },
+    "usableAgreement": { "type": "number", "minimum": 0, "maximum": 1 },
+    "criticalDefectsAcceptedAsUsable": { "type": "integer", "minimum": 0 },
+    "criticalFindingsReproducible": { "type": "boolean" },
+    "findings": { "type": "array", "items": { "type": "object" } }
+  }
+}

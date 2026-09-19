@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/CRAJKUMARSINGH/Advocate-Chambers/blob/main/packages/schema/week21-adversarial-result.schema.json",
+  "title": "Week 21 adversarial benchmark result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "totalCriticalDefects",
+    "detectedCriticalDefects",
+    "missedCriticalDefects",
+    "dangerousFalseNegatives",
+    "completeFindings"
+  ],
+  "properties": {
+    "totalCriticalDefects": { "type": "integer", "minimum": 0 },
+    "detectedCriticalDefects": { "type": "integer", "minimum": 0 },
+    "missedCriticalDefects": { "type": "integer", "minimum": 0 },
+    "dangerousFalseNegatives": { "type": "integer", "minimum": 0 },
+    "completeFindings": { "type": "integer", "minimum": 0 },
+    "falsePositiveCount": { "type": "integer", "minimum": 0 },
+    "fixtures": { "type": "array", "items": { "type": "object" } }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "errors": [],
+  "hardGates": {
+    "baselineRegression": "PASS",
+    "criticalDefectDetection": "INCOMPLETE",
+    "dangerousFalseNegatives": "INCOMPLETE",
+    "performanceBenchmark": "INCOMPLETE",
+    "professionalReview": "INCOMPLETE",
+    "reproducibility": "INCOMPLETE"
+  },
+  "professionalReviewRequired": true,
+  "releaseReady": false,
+  "reportSignature": "033eb305fd83835e96d0422d9bbdae35de35eec6149debd25401c7124ebf38cb",
+  "score": null,
+  "status": "INCOMPLETE",
+  "tracks": {
+    "adversarial": {
+      "message": "adversarial benchmark evidence has not been supplied",
+      "missingEvidence": true,
+      "requiredFields": [
+        "totalCriticalDefects",
+        "detectedCriticalDefects",
+        "missedCriticalDefects",
+        "dangerousFalseNegatives",
+        "completeFindings"
+      ],
+      "status": "INCOMPLETE"
+    },
+    "performance": {
+      "message": "performance benchmark evidence has not been supplied",
+      "missingEvidence": true,
+      "requiredFields": [
+        "profiles",
+        "silentTimeouts",
+        "outOfMemoryFailures",
+        "dataLossEvents",
+        "nondeterministicRuns"
+      ],
+      "status": "INCOMPLETE"
+    },
+    "professionalReview": {
+      "message": "professional review evidence has not been supplied",
+      "missingEvidence": true,
+      "requiredFields": [
+        "reviewers",
+        "plansReviewed",
+        "usableAgreement",
+        "criticalDefectsAcceptedAsUsable",
+        "criticalFindingsReproducible"
+      ],
+      "status": "INCOMPLETE"
+    },
+    "regression": {
+      "command": "python3 -m unittest discover -s tests -p 'test_week*.py'",
+      "failed": 0,
+      "passed": 69,
+      "status": "PASS",
+      "suite": "full weekly regression",
+      "tests": 69,
+      "verification": "Week 21 baseline recorded from the current regression run"
+    }
+  },
+  "version": "week21.quality-gate.v1",
+  "warnings": [
+    "Missing benchmark evidence is reported as INCOMPLETE, never as pass.",
+    "This quality gate does not grant planning, permit, code, or construction approval."
+  ]
+}

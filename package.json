@@ -59,6 +59,9 @@
     "validate:week19": "python scripts/week1920.py validate",
     "validate:week20": "python scripts/week1920.py validate",
     "test:week1920": "python -m unittest discover -s tests -p 'test_week1920*.py'",
+    "enrich:week21": "python scripts/quality_gate.py report",
+    "validate:week21": "python scripts/quality_gate.py validate",
+    "test:week21": "python -m unittest discover -s tests -p 'test_quality_gate.py'",
     "docs:patch-guide": "start code-junction/future-react-cad-transformation-patch-guide/deliverables/TRANSFORMATION_PATCH_GUIDE.md"
   },
   "devDependencies": {
