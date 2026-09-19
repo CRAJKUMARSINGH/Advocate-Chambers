@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactElement } from 'react';
 import { useMutation } from '@tanstack/react-query';
 
 interface Props {
@@ -17,7 +17,7 @@ const SAMPLE_SELECTION: Record<string, { kind: string; props: [string, string][]
   'GF-STAIR': { kind: 'stair (dog-leg 180°)', props: [['Compartment', "9'-0\" W × 33'-0\" L"], ['Risers', '2×13 = 26 @ 6.85"'], ['Treads', '12" with 1.5" nosing']] },
 };
 
-export function PropertyInspector({ projectId, level, selectedId }: Props): JSX.Element {
+export function PropertyInspector({ projectId, level, selectedId }: Props): ReactElement {
   const empty = !selectedId;
 
   const info = selectedId ? SAMPLE_SELECTION[selectedId] : undefined;

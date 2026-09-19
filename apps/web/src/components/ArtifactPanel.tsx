@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 
 interface Props {
@@ -16,7 +17,7 @@ type JobStatus = {
   error: string | null;
 };
 
-export function ArtifactPanel({ projectId, level }: Props): JSX.Element {
+export function ArtifactPanel({ projectId, level }: Props): ReactElement {
   const [jobId, setJobId] = useState<string | null>(null);
 
   const start = useMutation({

@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 interface Props {
   projectId: string;
@@ -7,65 +8,119 @@ interface Props {
   onSelect: (id: string | null) => void;
 }
 
-export function Viewport2D({ projectId, level, selectedId, onSelect }: Props): JSX.Element {
-  const vpStyle: React.CSSProperties = useMemo(
-    () => ({
-      width: '100%',
-      height: '100%',
-      background:
-        'radial-gradient(circle at 20% 20%, #ffffff 0%, #eef4f4 100%)',
-      position: 'relative' as const,
-      overflow: 'hidden',
-    }),
-    [],
+type Space = {
+  id: string;
+  levelId: string;
+  name: string;
+  roomUse?: string;
+  rect: [number, number, number, number];
+};
+
+type GraphNode = {
+  id: string;
+  kind: string;
+  rect?: [number, number, number, number];
+};
+
+type GraphEdge = {
+  id: string;
+  from: string;
+  to: string;
+  kind: string;
+  openingId?: string;
+};
+
+type Route = {
+  spaceId: string;
+  reachable: boolean;
+};
+
+type Analysis = {
+  status: string;
+  spaces: Space[];
+  graph: {
+    nodes: GraphNode[];
+    edges: GraphEdge[];
+    routes: Route[];
+  };
+  openings: { tag: string; openingId: string; connectionType: string }[];
+};
+
+const FALLBACK: Analysis = {
+  status: 'unavailable',
+  spaces: [],
+  graph: { nodes: [], edges: [], routes: [] },
+  openings: [],
+};
+
+export function Viewport2D({ projectId, level, selectedId, onSelect }: Props): React.JSX.Element {
+  const analysis = useQuery<Analysis>({
+    queryKey: ['analysis', projectId, level],
+    queryFn: async () => {
+      const response = await fetch(`/analysis?level=${level}`);
+      if (!response.ok) throw new Error('Analysis API unavailable');
+      return (await response.json()) as Analysis;
+    },
+  });
+  const data = analysis.data ?? FALLBACK;
+  const nodes = useMemo(
+    () => new Map(data.graph.nodes.map((node) => [node.id, node])),
+    [data.graph.nodes],
+  );
+  const reachableIds = useMemo(
+    () =>
+      new Set(
+        data.graph.routes
+          .filter((route) => route.reachable)
+          .map((route) => route.spaceId),
+      ),
+    [data.graph.routes],
   );
 
-  const plan: { spaces: { id: string; name: string; x: number; y: number; w: number; h: number }[] } = useMemo(() => {
-    if (level === 'GF') {
-      return {
-        spaces: [
-          { id: 'GF-01', name: 'Entry Lobby', x: 40, y: 40, w: 420, h: 110 },
-          { id: 'GF-02', name: 'Bar Office', x: 40, y: 160, w: 210, h: 120 },
-          { id: 'GF-03', name: 'Common Toilet', x: 260, y: 160, w: 210, h: 120 },
-          { id: 'GF-04', name: 'Main Hall', x: 40, y: 300, w: 640, h: 620 },
-          { id: 'GF-05', name: 'President', x: 40, y: 930, w: 224, h: 168 },
-          { id: 'GF-06', name: 'Secretary', x: 272, y: 930, w: 210, h: 168 },
-          { id: 'GF-STAIR', name: 'ST-01 Dog-Leg', x: 690, y: 300, w: 126, h: 462 },
-        ],
-      };
+  const center = (nodeId: string): [number, number] => {
+    const node = nodes.get(nodeId);
+    if (node?.rect) {
+      const [x0, y0, x1, y1] = node.rect;
+      return [(x0 + x1) / 2, (y0 + y1) / 2];
     }
-    return {
-      spaces: [
-        { id: 'FF-01', name: 'FF Lobby', x: 40, y: 40, w: 420, h: 110 },
-        { id: 'FF-02', name: 'Pantry', x: 40, y: 160, w: 210, h: 120 },
-        { id: 'FF-03', name: 'Store', x: 260, y: 160, w: 210, h: 120 },
-        { id: 'FF-EDP', name: 'EDP Centre', x: 40, y: 330, w: 210, h: 200 },
-        { id: 'FF-04', name: 'Library Reading', x: 260, y: 330, w: 434, h: 690 },
-        { id: 'FF-05', name: 'Librarian Cabin', x: 40, y: 550, w: 210, h: 210 },
-        { id: 'FF-06', name: 'Admin Office', x: 40, y: 780, w: 210, h: 280 },
-        { id: 'FF-STAIR', name: 'ST-01 Stacked', x: 690, y: 300, w: 126, h: 462 },
-      ],
-    };
-  }, [level]);
+    const edge = data.graph.edges.find(
+      (candidate) => candidate.from === nodeId || candidate.to === nodeId,
+    );
+    const host = edge ? nodes.get(edge.from === nodeId ? edge.to : edge.from) : undefined;
+    if (host?.rect) {
+      const [, y0, x1, y1] = host.rect;
+      return [x1 + 30, (y0 + y1) / 2];
+    }
+    return [0, 0];
+  };
 
-  const titleBarStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: 12,
-    left: 16,
-    right: 16,
-    display: 'flex',
-    justifyContent: 'space-between',
-    fontSize: 11,
-    color: '#65717a',
-    pointerEvents: 'none' as const,
+  const vpStyle: React.CSSProperties = {
+    width: '100%',
+    height: '100%',
+    background: 'radial-gradient(circle at 20% 20%, #ffffff 0%, #eef4f4 100%)',
+    position: 'relative',
+    overflow: 'hidden',
   };
 
   return (
     <div style={vpStyle} onClick={() => onSelect(null)}>
-      <div style={titleBarStyle}>
+      <div
+        style={{
+          position: 'absolute',
+          top: 12,
+          left: 16,
+          right: 16,
+          display: 'flex',
+          justifyContent: 'space-between',
+          fontSize: 11,
+          color: '#65717a',
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      >
         <div>
           <strong style={{ color: '#192530' }}>2D VIEWPORT</strong> ·{' '}
-          <span>patch 3 shell · SVG placeholder · geometry authoritative on Python</span>
+          <span>Week 3 route graph · Week 4 semantic openings</span>
         </div>
         <div>
           {level} · <code>{projectId}</code>
@@ -73,7 +128,7 @@ export function Viewport2D({ projectId, level, selectedId, onSelect }: Props): J
       </div>
 
       <svg
-        viewBox="0 0 880 1140"
+        viewBox="0 0 760 1180"
         preserveAspectRatio="xMidYMid meet"
         style={{
           position: 'absolute',
@@ -81,7 +136,6 @@ export function Viewport2D({ projectId, level, selectedId, onSelect }: Props): J
           width: 'calc(100% - 96px)',
           height: 'calc(100% - 96px)',
           border: '1px solid #aebac0',
-          boxShadow: '0 1px 0 rgba(25,37,48,0.04) inset',
           background: '#ffffff',
         }}
       >
@@ -92,54 +146,92 @@ export function Viewport2D({ projectId, level, selectedId, onSelect }: Props): J
         </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
 
-        {plan.spaces.map((s) => {
-          const isSel = selectedId === s.id;
+        {data.graph.edges.map((edge) => {
+          const [x1, y1] = center(edge.from);
+          const [x2, y2] = center(edge.to);
+          const vertical = edge.kind === 'vertical-connector';
+          return (
+            <g key={edge.id} pointerEvents="none">
+              <line
+                x1={x1}
+                y1={y1}
+                x2={x2}
+                y2={y2}
+                stroke={vertical ? '#8b3c32' : '#2e5c62'}
+                strokeWidth={vertical ? 3 : 2}
+                strokeDasharray={vertical ? '6 4' : undefined}
+                opacity={0.82}
+              />
+              {edge.openingId && (
+                <text x={(x1 + x2) / 2} y={(y1 + y2) / 2 - 4} textAnchor="middle" fontSize={8} fill="#2e5c62">
+                  {edge.openingId}
+                </text>
+              )}
+            </g>
+          );
+        })}
+
+        {data.spaces.map((space) => {
+          const [x0, y0, x1, y1] = space.rect;
+          const isSelected = selectedId === space.id;
+          const isReachable = reachableIds.has(space.id);
           return (
             <g
-              key={s.id}
-              onClick={(e) => {
-                e.stopPropagation();
-                onSelect(s.id);
+              key={space.id}
+              onClick={(event) => {
+                event.stopPropagation();
+                onSelect(space.id);
               }}
               style={{ cursor: 'pointer' }}
             >
               <rect
-                x={s.x}
-                y={s.y}
-                width={s.w}
-                height={s.h}
-                fill={isSel ? '#f4e9d9' : s.id.includes('STAIR') ? '#f5eee5' : '#f6f8f8'}
-                stroke={isSel ? '#8b3c32' : '#718087'}
-                strokeWidth={isSel ? 2.4 : 1.1}
+                x={x0}
+                y={y0}
+                width={x1 - x0}
+                height={y1 - y0}
+                fill={isSelected ? '#f4e9d9' : isReachable ? '#f6f8f8' : '#f8eeee'}
+                stroke={isSelected ? '#8b3c32' : isReachable ? '#718087' : '#b66b61'}
+                strokeWidth={isSelected ? 2.4 : 1.1}
                 rx={2}
               />
               <text
-                x={s.x + s.w / 2}
-                y={s.y + s.h / 2}
+                x={(x0 + x1) / 2}
+                y={(y0 + y1) / 2}
                 textAnchor="middle"
                 fontSize={11}
                 fontWeight={600}
                 fill="#192530"
               >
-                {s.name}
+                {space.name}
               </text>
               <text
-                x={s.x + s.w / 2}
-                y={s.y + s.h / 2 + 14}
+                x={(x0 + x1) / 2}
+                y={(y0 + y1) / 2 + 14}
                 textAnchor="middle"
                 fontSize={9}
                 fill="#65717a"
               >
-                {s.id}
+                {space.id} · {isReachable ? 'route proven' : 'route broken'}
               </text>
             </g>
           );
         })}
 
-        <text x="16" y="1120" fontSize="9" fill="#65717a">
-          1" = 1'-0" approx · review on Python-generated PDF/DXF for signed dimensions
+        <text x="16" y="1148" fontSize="9" fill="#65717a">
+          Red rooms have no proven route to an intentional entry · blue lines are semantic opening edges
         </text>
       </svg>
+
+      {analysis.isLoading && (
+        <div style={{ position: 'absolute', bottom: 18, right: 22, fontSize: 11, color: '#65717a' }}>
+          Loading authoritative model…
+        </div>
+      )}
+      {analysis.isError && (
+        <div style={{ position: 'absolute', bottom: 18, right: 22, fontSize: 11, color: '#8b3c32' }}>
+          Analysis API unavailable
+        </div>
+      )}
     </div>
   );
 }

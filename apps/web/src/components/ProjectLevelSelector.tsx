@@ -12,7 +12,7 @@ const OPTIONS: { id: LevelId; label: string; hint: string }[] = [
   { id: 'FF', label: 'FIRST FLOOR', hint: 'Library · EDP · Admin · Librarian' },
 ];
 
-export function ProjectLevelSelector({ level, onChange }: Props): JSX.Element {
+export function ProjectLevelSelector({ level, onChange }: Props): React.JSX.Element {
   const card = (opt: typeof OPTIONS[number]): React.CSSProperties => ({
     padding: '14px 14px',
     borderRadius: 6,

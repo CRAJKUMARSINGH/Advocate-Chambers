@@ -1,0 +1,185 @@
+{
+  "reportVersion": "week4.openings.v1",
+  "status": "fail",
+  "findingCounts": {
+    "BLOCKER": 10,
+    "ERROR": 1
+  },
+  "findings": [
+    {
+      "id": "VAL4-SIDE-B-D-GF-02",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "GF",
+      "spaceId": "GF-02",
+      "openingIds": [
+        "D-GF-02"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-02 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-GF-03",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "GF",
+      "spaceId": "GF-03",
+      "openingIds": [
+        "D-GF-03"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-03 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-GF-04",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "GF",
+      "spaceId": "GF-04",
+      "openingIds": [
+        "D-GF-04"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-04 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-GF-05",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "GF",
+      "spaceId": "GF-05",
+      "openingIds": [
+        "D-GF-05"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-05 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-LANDING-D-GF-07",
+      "severity": "ERROR",
+      "rule": "EXTERIOR_DOOR_REQUIRES_VALID_LANDING",
+      "levelId": "GF",
+      "spaceId": "GF-07",
+      "openingIds": [
+        "D-GF-07"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-07 opens to an entry route without a landing/porch at least as wide as the door and 48 in deep.",
+      "suggestedFixes": [
+        "Model a landing or porch with a valid width and clear depth."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-GF-08",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "GF",
+      "spaceId": "GF-07",
+      "openingIds": [
+        "D-GF-08"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-08 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-GF-09",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "GF",
+      "spaceId": "GF-01",
+      "openingIds": [
+        "D-GF-09"
+      ],
+      "connectorIds": [],
+      "message": "D-GF-09 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-FF-02",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "FF",
+      "spaceId": "FF-02",
+      "openingIds": [
+        "D-FF-02"
+      ],
+      "connectorIds": [],
+      "message": "D-FF-02 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-FF-03",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "FF",
+      "spaceId": "FF-03",
+      "openingIds": [
+        "D-FF-03"
+      ],
+      "connectorIds": [],
+      "message": "D-FF-03 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-FF-04",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "FF",
+      "spaceId": "FF-04",
+      "openingIds": [
+        "D-FF-04"
+      ],
+      "connectorIds": [],
+      "message": "D-FF-04 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    },
+    {
+      "id": "VAL4-SIDE-B-D-FF-05",
+      "severity": "BLOCKER",
+      "rule": "OPENING_SIDE_B_MUST_BE_VALID",
+      "levelId": "FF",
+      "spaceId": "FF-05",
+      "openingIds": [
+        "D-FF-05"
+      ],
+      "connectorIds": [],
+      "message": "D-FF-05 has no named adjacent space, connector approach, or intentional exterior zone on side B.",
+      "suggestedFixes": [
+        "Connect the door to a named space.",
+        "Add a porch, landing, balcony, terrace, or explicit exterior access zone."
+      ]
+    }
+  ]
+}

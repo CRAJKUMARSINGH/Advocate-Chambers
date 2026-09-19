@@ -1,0 +1,19 @@
+{
+  "manifestVersion": "week34.enrichment-manifest.v1",
+  "status": "fail",
+  "reports": {
+    "week3": "bar-association-hall/standard/week3-reachability-report.json",
+    "week4": "bar-association-hall/standard/week4-openings-report.json",
+    "openingSchedule": "bar-association-hall/standard/opening-schedule.json"
+  },
+  "counts": {
+    "spaces": 17,
+    "openings": 20,
+    "graphNodes": 19,
+    "graphEdges": 11
+  },
+  "findingCounts": {
+    "BLOCKER": 34,
+    "ERROR": 1
+  }
+}

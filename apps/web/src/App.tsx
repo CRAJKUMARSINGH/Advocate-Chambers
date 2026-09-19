@@ -7,7 +7,7 @@ import { ArtifactPanel } from './components/ArtifactPanel';
 
 type LevelId = 'GF' | 'FF';
 
-export function App(): JSX.Element {
+export function App(): React.JSX.Element {
   const [projectId] = useState<string>('proj-banswara-bar-association');
   const [level, setLevel] = useState<LevelId>('GF');
   const [selectedId, setSelectedId] = useState<string | null>(null);

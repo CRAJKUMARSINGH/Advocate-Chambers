@@ -38,6 +38,11 @@ except Exception:  # pragma: no cover
     validate_model = None  # type: ignore
     load_model = None  # type: ignore
 
+try:
+    from week34 import enrichment_report  # type: ignore
+except Exception:  # pragma: no cover
+    enrichment_report = None  # type: ignore
+
 
 app = FastAPI(
     title="Advocate-Chambers CAD API",
@@ -46,7 +51,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-patch2",
+    version="1.0.0-week4",
 )
 
 app.add_middleware(
@@ -183,6 +188,74 @@ def validate(req: ValidateRequest) -> ValidateResponse:
         warnings=warnings,
         checkedAt=datetime.now(timezone.utc).isoformat(),
     )
+
+
+@app.get("/analysis", tags=["validation"])
+def analysis(level: str | None = None) -> dict[str, Any]:
+    """Return the Week 3 graph and Week 4 opening semantics for the viewport."""
+
+    if load_model is None or enrichment_report is None:
+        raise HTTPException(status_code=503, detail="analysis engine unavailable")
+    try:
+        site, plans = load_model()
+        report = enrichment_report(site, plans)
+    except Exception as exc:  # pragma: no cover - surfaced as an API diagnostic
+        raise HTTPException(status_code=500, detail=f"analysis failed: {exc}") from exc
+
+    selected_level = level if level in {"GF", "FF"} else None
+    spaces = [
+        {
+            "id": space.get("id"),
+            "levelId": space.get("level"),
+            "name": space.get("name"),
+            "rect": space.get("rect"),
+            "roomUse": space.get("roomUse"),
+        }
+        for space in plans.get("spaces", [])
+        if selected_level is None or space.get("level") == selected_level
+    ]
+    graph = report["week3"]["graph"]
+    graph["nodes"] = [
+        node
+        for node in graph["nodes"]
+        if selected_level is None
+        or node.get("levelId") == selected_level
+        or node.get("kind") == "exterior-zone"
+    ]
+    node_ids = {node["id"] for node in graph["nodes"]}
+    graph["edges"] = [
+        edge
+        for edge in graph["edges"]
+        if edge.get("from") in node_ids and edge.get("to") in node_ids
+    ]
+    graph["routes"] = [
+        route
+        for route in graph["routes"]
+        if selected_level is None or route.get("levelId") == selected_level
+    ]
+    schedule = [
+        item
+        for item in report["week4"]["schedule"]
+        if selected_level is None or item.get("levelId") == selected_level
+    ]
+    findings = [
+        finding
+        for finding in report["findings"]
+        if selected_level is None or finding.get("levelId") == selected_level
+    ]
+    return {
+        "reportVersion": report["reportVersion"],
+        "status": report["status"],
+        "findingCounts": {
+            severity: sum(1 for finding in findings if finding["severity"] == severity)
+            for severity in ("BLOCKER", "ERROR", "WARNING")
+            if any(finding["severity"] == severity for finding in findings)
+        },
+        "spaces": spaces,
+        "graph": graph,
+        "openings": schedule,
+        "findings": findings,
+    }
 
 
 @app.post("/generate", tags=["jobs"], response_model=JobResponse)

@@ -16,6 +16,7 @@ export default defineConfig({
       '/health': 'http://localhost:8000',
       '/projects': 'http://localhost:8000',
       '/validate': 'http://localhost:8000',
+      '/analysis': 'http://localhost:8000',
       '/generate': 'http://localhost:8000',
       '/jobs': 'http://localhost:8000',
       '/artifacts': 'http://localhost:8000',

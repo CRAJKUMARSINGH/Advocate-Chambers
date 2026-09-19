@@ -1,39 +1,39 @@
 import React from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
 
 interface Props {
   projectId: string;
   level: 'GF' | 'FF';
 }
 
-const BASELINE: { ok: boolean; errors: string[]; warnings: string[] } = {
-  ok: true,
-  errors: [],
-  warnings: [
-    'Stair ST-01: verify landing depth ≥ width at site scale',
-    'West wall: 0\' setback — no fenestration permitted',
-    'Review RPwD door clear width against NBC 2016 Table 13',
-  ],
+type Finding = {
+  id: string;
+  severity: string;
+  rule: string;
+  message: string;
+  suggestedFixes: string[];
 };
 
-export function ValidationPanel({ projectId, level }: Props): JSX.Element {
-  const mut = useMutation({
-    mutationFn: async () => {
-      const res = await fetch('/validate', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          project: { id: projectId, level },
-          plans: { spaces: [], openings: [] },
-        }),
-      });
-      if (!res.ok) return BASELINE;
-      const data = await res.json().catch(() => BASELINE);
-      return data ?? BASELINE;
+type Analysis = {
+  status: string;
+  findingCounts: Record<string, number>;
+  findings: Finding[];
+};
+
+export function ValidationPanel({ projectId, level }: Props): React.JSX.Element {
+  const query = useQuery<Analysis>({
+    queryKey: ['analysis-validation', projectId, level],
+    queryFn: async () => {
+      const response = await fetch(`/analysis?level=${level}`);
+      if (!response.ok) throw new Error('Analysis API unavailable');
+      return (await response.json()) as Analysis;
     },
   });
-
-  const result = mut.data ?? BASELINE;
+  const result = query.data;
+  const findings = result?.findings ?? [];
+  const blockers = findings.filter((finding) => finding.severity === 'BLOCKER');
+  const errors = findings.filter((finding) => finding.severity === 'ERROR');
+  const warnings = findings.filter((finding) => finding.severity === 'WARNING');
 
   const pill = (ok: boolean): React.CSSProperties => ({
     display: 'inline-block',
@@ -49,11 +49,11 @@ export function ValidationPanel({ projectId, level }: Props): JSX.Element {
     <section>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
         <h2 style={{ margin: 0, fontSize: 12, textTransform: 'uppercase', letterSpacing: 1.2, color: '#65717a' }}>
-          Validation
+          Week 3–4 Validation
         </h2>
         <button
-          onClick={() => mut.mutate()}
-          disabled={mut.isPending}
+          onClick={() => void query.refetch()}
+          disabled={query.isFetching}
           style={{
             fontSize: 10,
             padding: '3px 10px',
@@ -63,35 +63,49 @@ export function ValidationPanel({ projectId, level }: Props): JSX.Element {
             cursor: 'pointer',
           }}
         >
-          {mut.isPending ? 'running…' : 'Re-run'}
+          {query.isFetching ? 'running…' : 'Re-run'}
         </button>
       </div>
 
       <div style={{ marginBottom: 10 }}>
-        <span style={pill(result.ok && !result.errors.length)}>
-          {result.errors.length ? `${result.errors.length} ERRORS` : result.ok ? 'PASS' : 'FAIL'}
+        <span style={pill(!query.isError && blockers.length === 0 && errors.length === 0)}>
+          {query.isLoading ? 'LOADING' : blockers.length || errors.length ? `${blockers.length + errors.length} BLOCKING` : 'PASS'}
         </span>
-        {result.warnings.length > 0 && (
+        {warnings.length > 0 && (
           <span style={{ ...pill(false), marginLeft: 6, background: '#faf0de', color: '#7a5a12' }}>
-            {result.warnings.length} W
+            {warnings.length} W
           </span>
         )}
       </div>
 
-      {result.errors.length > 0 && (
+      {query.isError && (
         <div style={{ fontSize: 11, color: '#8b3c32', marginBottom: 8 }}>
-          {result.errors.map((e, i) => (
-            <div key={i} style={{ padding: '4px 0' }}>• {e}</div>
-          ))}
+          The authoritative analysis API could not be reached.
         </div>
       )}
-      {result.warnings.map((w, i) => (
-        <div key={i} style={{ fontSize: 11, color: '#7a5a12', padding: '3px 0' }}>
-          ⚠ {w}
+      {findings.slice(0, 8).map((finding) => (
+        <div
+          key={finding.id}
+          style={{
+            fontSize: 11,
+            color: finding.severity === 'WARNING' ? '#7a5a12' : '#8b3c32',
+            padding: '4px 0',
+            lineHeight: 1.35,
+          }}
+        >
+          <strong>{finding.severity}</strong> · {finding.message}
+          {finding.suggestedFixes[0] && (
+            <div style={{ color: '#65717a', paddingLeft: 10 }}>↳ {finding.suggestedFixes[0]}</div>
+          )}
         </div>
       ))}
-      {result.warnings.length === 0 && result.errors.length === 0 && (
-        <div style={{ fontSize: 11, color: '#2d5c36' }}>All model gates cleared.</div>
+      {findings.length > 8 && (
+        <div style={{ fontSize: 10, color: '#65717a' }}>
+          Showing 8 of {findings.length} findings for {level}.
+        </div>
+      )}
+      {!query.isLoading && !query.isError && findings.length === 0 && (
+        <div style={{ fontSize: 11, color: '#2d5c36' }}>All Week 3–4 gates cleared.</div>
       )}
     </section>
   );

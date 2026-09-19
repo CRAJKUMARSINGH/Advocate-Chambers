@@ -269,6 +269,26 @@ Gate: every occupied room has a proven route or a named finding explaining why i
 
 Gate: a door cannot make a room accessible unless both sides of the opening are valid and connected.
 
+### Week 3–4 implementation note
+
+Week 3 and Week 4 enrichment is now applied:
+
+- `scripts/week34.py` derives semantic side A/side B opening data, builds a
+  deterministic per-level/cross-level route graph, reports connected
+  components and first-broken-edge diagnostics, and writes the opening
+  schedule.
+- `scripts/week3.py` and `scripts/week4.py` provide focused validation
+  commands.
+- The canonical model stores additive opening semantics without changing the
+  Week 2 legacy round-trip. Reports are written to
+  `bar-association-hall/standard/`.
+- FastAPI `/analysis` exposes the graph, routes, findings, and opening schedule
+  to the React viewport. Unreachable rooms are visibly marked and route edges
+  are overlaid.
+- The current legacy fixture remains intentionally failing where access intent,
+  landing data, or connected openings are absent. This is the expected
+  auditable baseline for the next planning correction pass.
+
 ### Week 5 — Stairs and floor-to-floor coordination
 
 - Model stair arrivals and departures as graph nodes.

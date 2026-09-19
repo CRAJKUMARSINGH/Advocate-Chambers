@@ -18,6 +18,7 @@ SOURCE = ROOT / "standard" / "source" if (ROOT / "standard" / "source").exists()
 sys.path.insert(0, str(ROOT.parent / "scripts"))
 
 from week2 import canonical_to_legacy, load_canonical_model  # noqa: E402
+from week34 import validate_week34  # noqa: E402
 
 
 def load_model() -> tuple[dict[str, Any], dict[str, Any]]:
@@ -468,6 +469,16 @@ def validate_model_findings(site: dict[str, Any], plans: dict[str, Any]) -> list
                 level_id=entry.get("level"),
                 suggested_fixes=["Model the intended porch, ramp, landing, or approach zone."],
             )
+
+    # Week 3/4 enrichment runs against the same compatibility-shaped model
+    # used by the legacy generators.  Keep the original Week 1 rules above
+    # intact, then add deterministic graph/opening findings without changing
+    # the Week 2 migration round-trip.
+    existing_ids = {finding["id"] for finding in findings}
+    for finding in validate_week34(site, plans):
+        if finding["id"] not in existing_ids:
+            findings.append(finding)
+            existing_ids.add(finding["id"])
     return findings
 
 

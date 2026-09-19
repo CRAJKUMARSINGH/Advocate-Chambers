@@ -1,0 +1,602 @@
+{
+  "scheduleVersion": "week4.opening-schedule.v1",
+  "status": "fail",
+  "openings": [
+    {
+      "tag": "D-02",
+      "openingId": "D-GF-01",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-01",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-01",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-02",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "east",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-GF-02",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-02",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-02",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 42.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-GF-03",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-03",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-03",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 42.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-GF-04",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-04",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-04",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-GF-05",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-05",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-05",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-01",
+      "openingId": "D-GF-06",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-06",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-06",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "exterior-zone",
+        "zoneId": "EXT-ENTRY-MAIN",
+        "levelId": "GF",
+        "source": "explicit-entry",
+        "isNamedZone": true
+      },
+      "connectionType": "exterior",
+      "wall": "east",
+      "width": 84.0,
+      "swing": "out",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": true,
+        "landingValid": true,
+        "zoneId": "EXT-ENTRY-MAIN"
+      },
+      "entryIds": [
+        "ENTRY-MAIN"
+      ]
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-GF-07",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-07",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-07",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "exterior-zone",
+        "zoneId": "EXT-ENTRY-VIP",
+        "levelId": "GF",
+        "source": "explicit-entry",
+        "isNamedZone": false
+      },
+      "connectionType": "exterior",
+      "wall": "east",
+      "width": 42.0,
+      "swing": "out",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": true,
+        "landingValid": false,
+        "zoneId": "EXT-ENTRY-VIP"
+      },
+      "entryIds": [
+        "ENTRY-VIP"
+      ]
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-GF-08",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-07",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-07",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "north",
+      "width": 42.0,
+      "swing": "out",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-GF-09",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-01",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-01",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 42.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-GF-10",
+      "levelId": "GF",
+      "kind": "door",
+      "hostSpace": "GF-03",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "GF-03",
+        "levelId": "GF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "GF-02",
+        "levelId": "GF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "west",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-FF-01",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-01",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-01",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-02",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "east",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-FF-02",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-02",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-02",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 42.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-02",
+      "openingId": "D-FF-03",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-03",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-03",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 42.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-FF-04",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-04",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-04",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-FF-05",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-05",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-05",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": null,
+      "connectionType": "unconnected",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-01",
+      "openingId": "D-FF-06",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-06",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-06",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-03",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "south",
+      "width": 48.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-01",
+      "openingId": "D-FF-07",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-07",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-07",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-09",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "north",
+      "width": 48.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-FF-08",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-08",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-08",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-07",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-FF-09",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-09",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-09",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-07",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "in",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    },
+    {
+      "tag": "D-03",
+      "openingId": "D-FF-10",
+      "levelId": "FF",
+      "kind": "door",
+      "hostSpace": "FF-10",
+      "sideA": {
+        "kind": "space",
+        "spaceId": "FF-10",
+        "levelId": "FF",
+        "valid": true
+      },
+      "sideB": {
+        "kind": "space",
+        "spaceId": "FF-07",
+        "levelId": "FF",
+        "source": "geometric-adjacency"
+      },
+      "connectionType": "internal",
+      "wall": "south",
+      "width": 36.0,
+      "swing": "out",
+      "wallBreak": true,
+      "approach": {
+        "requiredWidth": 36.0,
+        "requiredDepth": 42.0,
+        "landingRequired": false,
+        "landingValid": true,
+        "zoneId": null
+      },
+      "entryIds": []
+    }
+  ]
+}
