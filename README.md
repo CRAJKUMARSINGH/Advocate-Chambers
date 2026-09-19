@@ -36,6 +36,13 @@ These outputs are preliminary planning aids and still require review by the
 licensed architect, structural engineer, MEP consultant, fire/life-safety
 professional, surveyor, and local authority.
 
+**Task verification:** Week 9–10 enrichment is complete on `main`. The focused
+suite passes (`36` tests), Week 9 presentation validation passes, and Week 10
+release gating correctly remains blocked by the inherited Week 3–8 findings.
+The Week 3 and Week 4 commands therefore exit non-zero for the current legacy
+fixture by design; they preserve the auditable route/opening findings instead
+of hiding them.
+
 # Advocate-Chambers
 
 Architectural planning intelligence for the Bar Association Hall project in
