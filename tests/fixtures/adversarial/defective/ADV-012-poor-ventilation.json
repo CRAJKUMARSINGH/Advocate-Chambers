@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-012",
+  "title": "Poor ventilation",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "ventilation", "severity": "BLOCKER", "description": "A room requiring ventilation has no window host." },
+  "mutations": [{ "path": "windows.1.hostSpace", "operation": "set", "value": "UNKNOWN-SPACE" }],
+  "expectedFinding": {
+    "ruleId": "VENTILATION.OPENINGS",
+    "severity": "BLOCKER",
+    "affectedObjects": ["FF-VENT-01"],
+    "evidenceFields": ["spaceId", "windowCount"],
+    "correction": "Provide a compliant ventilation opening or designed mechanical strategy."
+  }
+}
