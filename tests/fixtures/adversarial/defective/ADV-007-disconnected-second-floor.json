@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-007",
+  "title": "Disconnected second floor",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "vertical-access", "severity": "BLOCKER", "description": "The vertical connector does not connect both levels." },
+  "mutations": [{ "path": "verticalConnectors.0.connected", "operation": "set", "value": false }],
+  "expectedFinding": {
+    "ruleId": "ACCESS.VERTICAL.CONTINUITY",
+    "severity": "BLOCKER",
+    "affectedObjects": ["VERTICAL-01"],
+    "evidenceFields": ["connectorId", "fromLevel", "toLevel", "connected"],
+    "correction": "Connect the vertical connector on both levels."
+  }
+}
