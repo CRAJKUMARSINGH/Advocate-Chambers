@@ -76,6 +76,7 @@ from pypdf import PdfReader, PdfWriter
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A2, landscape
 from reportlab.pdfgen import canvas
+from drawing_model import load_model
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Paths
@@ -1892,8 +1893,7 @@ def clean_old_outputs():
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
     # Load authoritative source model
-    site  = json.loads((SRC / "site_plan.json").read_text(encoding="utf-8"))
-    plans = json.loads((SRC / "preliminary_plans.json").read_text(encoding="utf-8"))
+    site, plans = load_model()
 
     # Clean up old outputs
     removed = clean_old_outputs()

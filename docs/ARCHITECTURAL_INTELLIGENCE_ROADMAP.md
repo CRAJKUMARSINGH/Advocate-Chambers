@@ -229,6 +229,28 @@ no history rewrite or bulk move is part of Week 1.
 
 Gate: old source files migrate into the new model and round-trip without losing rooms, openings, stairs, notes, or revisions.
 
+### Week 2 implementation note
+
+The Week 2 foundation is now implemented:
+
+- `scripts/week2.py migrate` deterministically creates
+  `bar-association-hall/standard/model/project.json` using the canonical
+  `advocate-chambers.project.v2` model.
+- `packages/schema/project-v2.schema.json` documents the canonical contract.
+- Every migrated level and drawable carries a stable ID, source path, source ID,
+  migration version, legacy keys, status, and revision.
+- Spaces now carry `roomUse` and `accessIntent`; circulation zones, exterior
+  entry zones, and vertical connector references are explicit model objects.
+- `scripts/week2.py roundtrip` proves that the existing rooms, openings,
+  windows, entries, stairs, notes, levels, and revisions survive migration
+  without loss.
+- The drawing model loader validates the canonical model before handing the
+  compatibility-shaped view to geometry generators.
+
+The existing Week 1 source remains the auditable legacy input. Week 2 does not
+silently repair the known upper-floor access blockers; those findings remain
+visible until the Week 3 reachability work resolves them.
+
 ### Week 3 — Reachability graph
 
 - Build the per-level and cross-level walkable graph.

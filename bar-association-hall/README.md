@@ -73,5 +73,28 @@ Revision B makes the circulation explicit: the hall entry is centered on the sou
 
     python3 bar-association-hall/validate_plan.py
     python3 bar-association-hall/traecad_engine.py
+    python3 scripts/week2.py validate
+    python3 scripts/week2.py roundtrip
 
 The generator writes optional outputs to `bar-association-hall/generated/` and requires the packages listed in `requirements.txt`.
+
+## Week 2 enrichment — complete
+
+Week 2 schema foundation and migration have been applied and merged to the
+repository's `main` branch. The legacy Week 1 JSON remains the auditable source
+input, while `standard/model/project.json` is the generated canonical v2 model.
+It now carries explicit levels, room use, access intent, circulation zones,
+exterior entry zones, vertical connector references, stable IDs, and source
+provenance. The drawing loaders validate this canonical model before exposing
+geometry to the generators.
+
+The migration is deterministic and round-trips the existing rooms, openings,
+windows, entries, stairs, notes, levels, and revisions without loss:
+
+    python3 scripts/week2.py migrate
+    python3 scripts/week2.py validate
+    python3 scripts/week2.py roundtrip
+
+The source is still preliminary planning information and remains subject to
+licensed architectural, structural, fire, accessibility, survey, and authority
+review. Week 2 does not make the drawings construction-ready.

@@ -1,0 +1,3719 @@
+{
+  "schemaVersion": "advocate-chambers.project.v2",
+  "project": {
+    "id": "proj-bar-association-hall",
+    "name": "Bar Association Hall",
+    "location": "Banswara, Rajasthan",
+    "status": "schematic",
+    "revision": 1,
+    "source": "legacy",
+    "legacy": {
+      "name": "Bar Association Hall",
+      "location": "Banswara, Rajasthan",
+      "status": "schematic",
+      "drawing_standard": "Coordinated architectural planning set",
+      "source_note": "This model replaces the uploaded abstract review diagrams. Dimensions shown on the sheets are calculated from this file."
+    }
+  },
+  "units": "inch",
+  "wallThickness": 6,
+  "site": {
+    "id": "SITE-BAR-ASSOCIATION-HALL",
+    "kind": "site",
+    "levelId": "SITE",
+    "geometry": {
+      "plotVertices": [
+        [
+          0,
+          0
+        ],
+        [
+          35,
+          0
+        ],
+        [
+          35,
+          30
+        ],
+        [
+          60,
+          30
+        ],
+        [
+          60,
+          98
+        ],
+        [
+          0,
+          98
+        ]
+      ],
+      "setbacks": {
+        "west": 0,
+        "north": 60,
+        "east": 5,
+        "south": 5
+      },
+      "north": "up"
+    },
+    "source": "legacy",
+    "status": "warning",
+    "revision": 1,
+    "provenance": {
+      "sourcePath": "bar-association-hall/standard/source/site_plan.json#/site/0",
+      "sourceId": "SITE",
+      "migration": "week2.legacy-to-v2",
+      "legacyKeys": [
+        "assumptions",
+        "north",
+        "plot",
+        "setbacks"
+      ]
+    },
+    "legacy": {
+      "north": "up",
+      "plot": [
+        [
+          0,
+          0
+        ],
+        [
+          35,
+          0
+        ],
+        [
+          35,
+          30
+        ],
+        [
+          60,
+          30
+        ],
+        [
+          60,
+          98
+        ],
+        [
+          0,
+          98
+        ]
+      ],
+      "setbacks": {
+        "west": 0,
+        "north": 60,
+        "east": 5,
+        "south": 5
+      },
+      "assumptions": [
+        "L-shaped plot vertices are rationalized from the uploaded planning package and require a licensed survey.",
+        "North is shown toward the top of the sheet; confirm orientation against the site survey.",
+        "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets."
+      ]
+    }
+  },
+  "levels": [
+    {
+      "id": "GF",
+      "name": "Ground Floor",
+      "elevation": 0,
+      "floorToFloor": 178,
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/site_plan.json#/levels/0",
+        "sourceId": "GF",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "elevation",
+          "floorToFloor",
+          "id",
+          "name"
+        ]
+      },
+      "legacy": {
+        "id": "GF",
+        "name": "Ground Floor",
+        "elevation": 0,
+        "floorToFloor": 178
+      }
+    },
+    {
+      "id": "FF",
+      "name": "First Floor",
+      "elevation": 178,
+      "floorToFloor": 178,
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/site_plan.json#/levels/1",
+        "sourceId": "FF",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "elevation",
+          "floorToFloor",
+          "id",
+          "name"
+        ]
+      },
+      "legacy": {
+        "id": "FF",
+        "name": "First Floor",
+        "elevation": 178,
+        "floorToFloor": 178
+      }
+    }
+  ],
+  "spaces": [
+    {
+      "id": "GF-01",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/0",
+        "sourceId": "GF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "GF-01",
+        "level": "GF",
+        "name": "Reception / Records",
+        "rect": [
+          6,
+          6,
+          150,
+          174
+        ],
+        "finish": "public",
+        "comment": "West end, 12'-0\" x 14'-0\" clear"
+      },
+      "name": "Reception / Records",
+      "roomUse": "reception",
+      "accessIntent": "public",
+      "geometry": {
+        "rect": [
+          6,
+          6,
+          150,
+          174
+        ]
+      }
+    },
+    {
+      "id": "GF-02",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/1",
+        "sourceId": "GF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect",
+          "stairId"
+        ]
+      },
+      "legacy": {
+        "id": "GF-02",
+        "level": "GF",
+        "name": "Main Stair",
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ],
+        "finish": "circulation",
+        "stairId": "STAIR-01",
+        "comment": "10'-6\" wide x 14'-0\" — compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north"
+      },
+      "name": "Main Stair",
+      "roomUse": "vertical-circulation",
+      "accessIntent": "vertical",
+      "geometry": {
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ]
+      }
+    },
+    {
+      "id": "GF-03",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/2",
+        "sourceId": "GF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "GF-03",
+        "level": "GF",
+        "name": "President Chamber",
+        "rect": [
+          288,
+          6,
+          432,
+          174
+        ],
+        "finish": "staff",
+        "comment": "12'-0\" x 14'-0\" — President's private chamber east of stair"
+      },
+      "name": "President Chamber",
+      "roomUse": "office",
+      "accessIntent": "staff",
+      "geometry": {
+        "rect": [
+          288,
+          6,
+          432,
+          174
+        ]
+      }
+    },
+    {
+      "id": "GF-04",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/3",
+        "sourceId": "GF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "GF-04",
+        "level": "GF",
+        "name": "Pantry",
+        "rect": [
+          438,
+          6,
+          546,
+          174
+        ],
+        "finish": "service",
+        "comment": "9'-0\" x 14'-0\" — flush north wall with all service units"
+      },
+      "name": "Pantry",
+      "roomUse": "service",
+      "accessIntent": "service",
+      "geometry": {
+        "rect": [
+          438,
+          6,
+          546,
+          174
+        ]
+      }
+    },
+    {
+      "id": "GF-05",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/4",
+        "sourceId": "GF-05",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "GF-05",
+        "level": "GF",
+        "name": "Toilet Block",
+        "rect": [
+          552,
+          6,
+          666,
+          174
+        ],
+        "finish": "service",
+        "comment": "9'-6\" x 14'-0\" — Male / Female / Accessible, flush north wall"
+      },
+      "name": "Toilet Block",
+      "roomUse": "service",
+      "accessIntent": "service",
+      "geometry": {
+        "rect": [
+          552,
+          6,
+          666,
+          174
+        ]
+      }
+    },
+    {
+      "id": "GF-06",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/5",
+        "sourceId": "GF-06",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "GF-06",
+        "level": "GF",
+        "name": "Main Assembly Hall",
+        "rect": [
+          6,
+          180,
+          666,
+          900
+        ],
+        "finish": "public",
+        "comment": "55'-0\" x 60'-0\" — main audience hall"
+      },
+      "name": "Main Assembly Hall",
+      "roomUse": "assembly",
+      "accessIntent": "public",
+      "geometry": {
+        "rect": [
+          6,
+          180,
+          666,
+          900
+        ]
+      }
+    },
+    {
+      "id": "GF-07",
+      "kind": "space",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/6",
+        "sourceId": "GF-07",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "GF-07",
+        "level": "GF",
+        "name": "Dais / Speaker Zone",
+        "rect": [
+          6,
+          906,
+          666,
+          1080
+        ],
+        "finish": "public",
+        "comment": "55'-0\" x 14'-6\" — raised dais, +1'-6\" FFL"
+      },
+      "name": "Dais / Speaker Zone",
+      "roomUse": "stage",
+      "accessIntent": "controlled",
+      "geometry": {
+        "rect": [
+          6,
+          906,
+          666,
+          1080
+        ]
+      }
+    },
+    {
+      "id": "FF-01",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/7",
+        "sourceId": "FF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-01",
+        "level": "FF",
+        "name": "Librarian / Administration",
+        "rect": [
+          6,
+          6,
+          150,
+          174
+        ],
+        "finish": "staff"
+      },
+      "name": "Librarian / Administration",
+      "roomUse": "office",
+      "accessIntent": "staff",
+      "geometry": {
+        "rect": [
+          6,
+          6,
+          150,
+          174
+        ]
+      }
+    },
+    {
+      "id": "FF-02",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/8",
+        "sourceId": "FF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect",
+          "stairId"
+        ]
+      },
+      "legacy": {
+        "id": "FF-02",
+        "level": "FF",
+        "name": "Main Stair",
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ],
+        "finish": "circulation",
+        "stairId": "STAIR-01"
+      },
+      "name": "Main Stair",
+      "roomUse": "vertical-circulation",
+      "accessIntent": "vertical",
+      "geometry": {
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ]
+      }
+    },
+    {
+      "id": "FF-03",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/9",
+        "sourceId": "FF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-03",
+        "level": "FF",
+        "name": "Secretary / Committee Room",
+        "rect": [
+          288,
+          6,
+          432,
+          174
+        ],
+        "finish": "staff",
+        "comment": "12'-0\" x 14'-0\" — stacked above President Chamber"
+      },
+      "name": "Secretary / Committee Room",
+      "roomUse": "office",
+      "accessIntent": "staff",
+      "geometry": {
+        "rect": [
+          288,
+          6,
+          432,
+          174
+        ]
+      }
+    },
+    {
+      "id": "FF-04",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/10",
+        "sourceId": "FF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-04",
+        "level": "FF",
+        "name": "Pantry",
+        "rect": [
+          438,
+          6,
+          546,
+          174
+        ],
+        "finish": "service"
+      },
+      "name": "Pantry",
+      "roomUse": "service",
+      "accessIntent": "service",
+      "geometry": {
+        "rect": [
+          438,
+          6,
+          546,
+          174
+        ]
+      }
+    },
+    {
+      "id": "FF-05",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/11",
+        "sourceId": "FF-05",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-05",
+        "level": "FF",
+        "name": "Toilet Block",
+        "rect": [
+          552,
+          6,
+          666,
+          174
+        ],
+        "finish": "service"
+      },
+      "name": "Toilet Block",
+      "roomUse": "service",
+      "accessIntent": "service",
+      "geometry": {
+        "rect": [
+          552,
+          6,
+          666,
+          174
+        ]
+      }
+    },
+    {
+      "id": "FF-06",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/12",
+        "sourceId": "FF-06",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-06",
+        "level": "FF",
+        "name": "Library Reading Room",
+        "rect": [
+          6,
+          180,
+          666,
+          768
+        ],
+        "finish": "public"
+      },
+      "name": "Library Reading Room",
+      "roomUse": "library",
+      "accessIntent": "public",
+      "geometry": {
+        "rect": [
+          6,
+          180,
+          666,
+          768
+        ]
+      }
+    },
+    {
+      "id": "FF-07",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/13",
+        "sourceId": "FF-07",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-07",
+        "level": "FF",
+        "name": "Stack Area / Book Storage",
+        "rect": [
+          6,
+          774,
+          666,
+          990
+        ],
+        "finish": "public"
+      },
+      "name": "Stack Area / Book Storage",
+      "roomUse": "library",
+      "accessIntent": "public",
+      "geometry": {
+        "rect": [
+          6,
+          774,
+          666,
+          990
+        ]
+      }
+    },
+    {
+      "id": "FF-08",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/14",
+        "sourceId": "FF-08",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-08",
+        "level": "FF",
+        "name": "Discussion Room",
+        "rect": [
+          6,
+          996,
+          222,
+          1122
+        ],
+        "finish": "public"
+      },
+      "name": "Discussion Room",
+      "roomUse": "discussion",
+      "accessIntent": "public",
+      "geometry": {
+        "rect": [
+          6,
+          996,
+          222,
+          1122
+        ]
+      }
+    },
+    {
+      "id": "FF-09",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/15",
+        "sourceId": "FF-09",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-09",
+        "level": "FF",
+        "name": "Computer / Internet",
+        "rect": [
+          228,
+          996,
+          444,
+          1122
+        ],
+        "finish": "public"
+      },
+      "name": "Computer / Internet",
+      "roomUse": "computer",
+      "accessIntent": "public",
+      "geometry": {
+        "rect": [
+          228,
+          996,
+          444,
+          1122
+        ]
+      }
+    },
+    {
+      "id": "FF-10",
+      "kind": "space",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/16",
+        "sourceId": "FF-10",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect"
+        ]
+      },
+      "legacy": {
+        "id": "FF-10",
+        "level": "FF",
+        "name": "Store / Electrical",
+        "rect": [
+          450,
+          996,
+          666,
+          1122
+        ],
+        "finish": "service"
+      },
+      "name": "Store / Electrical",
+      "roomUse": "service",
+      "accessIntent": "service",
+      "geometry": {
+        "rect": [
+          450,
+          996,
+          666,
+          1122
+        ]
+      }
+    }
+  ],
+  "openings": [
+    {
+      "id": "D-GF-01",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/0",
+        "sourceId": "D-GF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-01",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "GF-01",
+        "wall": "east",
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "GF-01",
+      "wall": "east",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-GF-02",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/1",
+        "sourceId": "D-GF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-02",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "GF-02",
+        "wall": "south",
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "GF-02",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-GF-03",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/2",
+        "sourceId": "D-GF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-03",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "GF-03",
+        "wall": "south",
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "GF-03",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-GF-04",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/3",
+        "sourceId": "D-GF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-04",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "GF-04",
+        "wall": "south",
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "GF-04",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-GF-05",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/4",
+        "sourceId": "D-GF-05",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-05",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "GF-05",
+        "wall": "south",
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "GF-05",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-GF-06",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/5",
+        "sourceId": "D-GF-06",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-06",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-01",
+        "hostSpace": "GF-06",
+        "wall": "east",
+        "offset": 120,
+        "width": 84,
+        "swing": "out"
+      },
+      "tag": "D-01",
+      "hostSpace": "GF-06",
+      "wall": "east",
+      "accessIntent": "entry",
+      "geometry": {
+        "offset": 120,
+        "width": 84,
+        "swing": "out"
+      }
+    },
+    {
+      "id": "D-GF-07",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/6",
+        "sourceId": "D-GF-07",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-07",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "GF-07",
+        "wall": "east",
+        "offset": 48,
+        "width": 42,
+        "swing": "out"
+      },
+      "tag": "D-02",
+      "hostSpace": "GF-07",
+      "wall": "east",
+      "accessIntent": "entry",
+      "geometry": {
+        "offset": 48,
+        "width": 42,
+        "swing": "out"
+      }
+    },
+    {
+      "id": "D-GF-08",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/7",
+        "sourceId": "D-GF-08",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-08",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "GF-07",
+        "wall": "north",
+        "offset": 288,
+        "width": 42,
+        "swing": "out"
+      },
+      "tag": "D-02",
+      "hostSpace": "GF-07",
+      "wall": "north",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 288,
+        "width": 42,
+        "swing": "out"
+      }
+    },
+    {
+      "id": "D-GF-09",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/8",
+        "sourceId": "D-GF-09",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-09",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "GF-01",
+        "wall": "south",
+        "offset": 48,
+        "width": 42,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "GF-01",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 48,
+        "width": 42,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-GF-10",
+      "kind": "door",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/9",
+        "sourceId": "D-GF-10",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-GF-10",
+        "level": "GF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "GF-03",
+        "wall": "west",
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "GF-03",
+      "wall": "west",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-01",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/10",
+        "sourceId": "D-FF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-01",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "FF-01",
+        "wall": "east",
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "FF-01",
+      "wall": "east",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-02",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/11",
+        "sourceId": "D-FF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-02",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "FF-02",
+        "wall": "south",
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "FF-02",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-03",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/12",
+        "sourceId": "D-FF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-03",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-02",
+        "hostSpace": "FF-03",
+        "wall": "south",
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      },
+      "tag": "D-02",
+      "hostSpace": "FF-03",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 42,
+        "width": 42,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-04",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/13",
+        "sourceId": "D-FF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-04",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "FF-04",
+        "wall": "south",
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "FF-04",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-05",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/14",
+        "sourceId": "D-FF-05",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-05",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "FF-05",
+        "wall": "south",
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "FF-05",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 36,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-06",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/15",
+        "sourceId": "D-FF-06",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-06",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-01",
+        "hostSpace": "FF-06",
+        "wall": "south",
+        "offset": 300,
+        "width": 48,
+        "swing": "in"
+      },
+      "tag": "D-01",
+      "hostSpace": "FF-06",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 300,
+        "width": 48,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-07",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/16",
+        "sourceId": "D-FF-07",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-07",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-01",
+        "hostSpace": "FF-07",
+        "wall": "north",
+        "offset": 300,
+        "width": 48,
+        "swing": "in"
+      },
+      "tag": "D-01",
+      "hostSpace": "FF-07",
+      "wall": "north",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 300,
+        "width": 48,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-08",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/17",
+        "sourceId": "D-FF-08",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-08",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "FF-08",
+        "wall": "south",
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "FF-08",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-09",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/18",
+        "sourceId": "D-FF-09",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-09",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "FF-09",
+        "wall": "south",
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      },
+      "tag": "D-03",
+      "hostSpace": "FF-09",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 60,
+        "width": 36,
+        "swing": "in"
+      }
+    },
+    {
+      "id": "D-FF-10",
+      "kind": "door",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/openings/19",
+        "sourceId": "D-FF-10",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "swing",
+          "tag",
+          "type",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "D-FF-10",
+        "level": "FF",
+        "type": "door",
+        "tag": "D-03",
+        "hostSpace": "FF-10",
+        "wall": "south",
+        "offset": 60,
+        "width": 36,
+        "swing": "out"
+      },
+      "tag": "D-03",
+      "hostSpace": "FF-10",
+      "wall": "south",
+      "accessIntent": "room",
+      "geometry": {
+        "offset": 60,
+        "width": 36,
+        "swing": "out"
+      }
+    }
+  ],
+  "windows": [
+    {
+      "id": "W-GF-01",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/0",
+        "sourceId": "W-GF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-01",
+        "level": "GF",
+        "tag": "W-02",
+        "hostSpace": "GF-01",
+        "wall": "south",
+        "offset": 18,
+        "width": 48
+      },
+      "tag": "W-02",
+      "hostSpace": "GF-01",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 18,
+        "width": 48
+      }
+    },
+    {
+      "id": "W-GF-02",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/1",
+        "sourceId": "W-GF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-02",
+        "level": "GF",
+        "tag": "W-02",
+        "hostSpace": "GF-01",
+        "wall": "west",
+        "offset": 36,
+        "width": 60
+      },
+      "tag": "W-02",
+      "hostSpace": "GF-01",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 60
+      }
+    },
+    {
+      "id": "W-GF-03",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/2",
+        "sourceId": "W-GF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-03",
+        "level": "GF",
+        "tag": "W-02",
+        "hostSpace": "GF-03",
+        "wall": "south",
+        "offset": 24,
+        "width": 60
+      },
+      "tag": "W-02",
+      "hostSpace": "GF-03",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 24,
+        "width": 60
+      }
+    },
+    {
+      "id": "V-GF-01",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/3",
+        "sourceId": "V-GF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-GF-01",
+        "level": "GF",
+        "tag": "V-01",
+        "hostSpace": "GF-04",
+        "wall": "south",
+        "offset": 18,
+        "width": 36
+      },
+      "tag": "V-01",
+      "hostSpace": "GF-04",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 18,
+        "width": 36
+      }
+    },
+    {
+      "id": "V-GF-02",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/4",
+        "sourceId": "V-GF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-GF-02",
+        "level": "GF",
+        "tag": "V-01",
+        "hostSpace": "GF-05",
+        "wall": "south",
+        "offset": 18,
+        "width": 36
+      },
+      "tag": "V-01",
+      "hostSpace": "GF-05",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 18,
+        "width": 36
+      }
+    },
+    {
+      "id": "V-GF-03",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/5",
+        "sourceId": "V-GF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-GF-03",
+        "level": "GF",
+        "tag": "V-01",
+        "hostSpace": "GF-05",
+        "wall": "east",
+        "offset": 36,
+        "width": 36
+      },
+      "tag": "V-01",
+      "hostSpace": "GF-05",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 36
+      }
+    },
+    {
+      "id": "W-GF-04",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/6",
+        "sourceId": "W-GF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-04",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "east",
+        "offset": 252,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 252,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-05",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/7",
+        "sourceId": "W-GF-05",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-05",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "east",
+        "offset": 372,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 372,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-06",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/8",
+        "sourceId": "W-GF-06",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-06",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "east",
+        "offset": 492,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 492,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-07",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/9",
+        "sourceId": "W-GF-07",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-07",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "west",
+        "offset": 84,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 84,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-08",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/10",
+        "sourceId": "W-GF-08",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-08",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "west",
+        "offset": 204,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 204,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-09",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/11",
+        "sourceId": "W-GF-09",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-09",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "west",
+        "offset": 324,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 324,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-10",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/12",
+        "sourceId": "W-GF-10",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-10",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "west",
+        "offset": 444,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 444,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-11",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/13",
+        "sourceId": "W-GF-11",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-11",
+        "level": "GF",
+        "tag": "W-01",
+        "hostSpace": "GF-06",
+        "wall": "west",
+        "offset": 540,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "GF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 540,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-12",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/14",
+        "sourceId": "W-GF-12",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-12",
+        "level": "GF",
+        "tag": "W-02",
+        "hostSpace": "GF-07",
+        "wall": "west",
+        "offset": 60,
+        "width": 48
+      },
+      "tag": "W-02",
+      "hostSpace": "GF-07",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 60,
+        "width": 48
+      }
+    },
+    {
+      "id": "W-GF-13",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/15",
+        "sourceId": "W-GF-13",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-13",
+        "level": "GF",
+        "tag": "W-02",
+        "hostSpace": "GF-07",
+        "wall": "east",
+        "offset": 108,
+        "width": 48
+      },
+      "tag": "W-02",
+      "hostSpace": "GF-07",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 108,
+        "width": 48
+      }
+    },
+    {
+      "id": "W-GF-14",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/16",
+        "sourceId": "W-GF-14",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-14",
+        "level": "GF",
+        "tag": "W-01A",
+        "hostSpace": "GF-07",
+        "wall": "north",
+        "offset": 96,
+        "width": 72
+      },
+      "tag": "W-01A",
+      "hostSpace": "GF-07",
+      "wall": "north",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 96,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-GF-15",
+      "kind": "window",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/17",
+        "sourceId": "W-GF-15",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-GF-15",
+        "level": "GF",
+        "tag": "W-01A",
+        "hostSpace": "GF-07",
+        "wall": "north",
+        "offset": 480,
+        "width": 72
+      },
+      "tag": "W-01A",
+      "hostSpace": "GF-07",
+      "wall": "north",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 480,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-01",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/18",
+        "sourceId": "W-FF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-01",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-01",
+        "wall": "south",
+        "offset": 18,
+        "width": 48
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-01",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 18,
+        "width": 48
+      }
+    },
+    {
+      "id": "W-FF-02",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/19",
+        "sourceId": "W-FF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-02",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-01",
+        "wall": "west",
+        "offset": 36,
+        "width": 60
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-01",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 60
+      }
+    },
+    {
+      "id": "W-FF-03",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/20",
+        "sourceId": "W-FF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-03",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-03",
+        "wall": "south",
+        "offset": 24,
+        "width": 60
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-03",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 24,
+        "width": 60
+      }
+    },
+    {
+      "id": "V-FF-01",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/21",
+        "sourceId": "V-FF-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-FF-01",
+        "level": "FF",
+        "tag": "V-01",
+        "hostSpace": "FF-04",
+        "wall": "south",
+        "offset": 18,
+        "width": 36
+      },
+      "tag": "V-01",
+      "hostSpace": "FF-04",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 18,
+        "width": 36
+      }
+    },
+    {
+      "id": "V-FF-02",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/22",
+        "sourceId": "V-FF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-FF-02",
+        "level": "FF",
+        "tag": "V-01",
+        "hostSpace": "FF-05",
+        "wall": "south",
+        "offset": 18,
+        "width": 36
+      },
+      "tag": "V-01",
+      "hostSpace": "FF-05",
+      "wall": "south",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 18,
+        "width": 36
+      }
+    },
+    {
+      "id": "V-FF-03",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/23",
+        "sourceId": "V-FF-03",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-FF-03",
+        "level": "FF",
+        "tag": "V-01",
+        "hostSpace": "FF-05",
+        "wall": "east",
+        "offset": 36,
+        "width": 36
+      },
+      "tag": "V-01",
+      "hostSpace": "FF-05",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 36
+      }
+    },
+    {
+      "id": "W-FF-04",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/24",
+        "sourceId": "W-FF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-04",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-06",
+        "wall": "east",
+        "offset": 72,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-06",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 72,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-05",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/25",
+        "sourceId": "W-FF-05",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-05",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-06",
+        "wall": "east",
+        "offset": 216,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-06",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 216,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-06",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/26",
+        "sourceId": "W-FF-06",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-06",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-06",
+        "wall": "east",
+        "offset": 360,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-06",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 360,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-07",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/27",
+        "sourceId": "W-FF-07",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-07",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-06",
+        "wall": "west",
+        "offset": 72,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 72,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-08",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/28",
+        "sourceId": "W-FF-08",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-08",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-06",
+        "wall": "west",
+        "offset": 216,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 216,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-09",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/29",
+        "sourceId": "W-FF-09",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-09",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-06",
+        "wall": "west",
+        "offset": 360,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-06",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 360,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-10",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/30",
+        "sourceId": "W-FF-10",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-10",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-07",
+        "wall": "east",
+        "offset": 72,
+        "width": 72
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-07",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 72,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-11",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/31",
+        "sourceId": "W-FF-11",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-11",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-07",
+        "wall": "west",
+        "offset": 72,
+        "width": 72
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-07",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 72,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-12",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/32",
+        "sourceId": "W-FF-12",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-12",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-08",
+        "wall": "west",
+        "offset": 36,
+        "width": 54
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-08",
+      "wall": "west",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 54
+      }
+    },
+    {
+      "id": "W-FF-13",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/33",
+        "sourceId": "W-FF-13",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-13",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-08",
+        "wall": "north",
+        "offset": 60,
+        "width": 72
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-08",
+      "wall": "north",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 60,
+        "width": 72
+      }
+    },
+    {
+      "id": "W-FF-14",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/34",
+        "sourceId": "W-FF-14",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-14",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-09",
+        "wall": "north",
+        "offset": 36,
+        "width": 60
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-09",
+      "wall": "north",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 60
+      }
+    },
+    {
+      "id": "W-FF-15",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/35",
+        "sourceId": "W-FF-15",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-15",
+        "level": "FF",
+        "tag": "W-01",
+        "hostSpace": "FF-09",
+        "wall": "north",
+        "offset": 120,
+        "width": 60
+      },
+      "tag": "W-01",
+      "hostSpace": "FF-09",
+      "wall": "north",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 120,
+        "width": 60
+      }
+    },
+    {
+      "id": "V-FF-04",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/36",
+        "sourceId": "V-FF-04",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "V-FF-04",
+        "level": "FF",
+        "tag": "V-01",
+        "hostSpace": "FF-10",
+        "wall": "east",
+        "offset": 36,
+        "width": 48
+      },
+      "tag": "V-01",
+      "hostSpace": "FF-10",
+      "wall": "east",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 36,
+        "width": 48
+      }
+    },
+    {
+      "id": "W-FF-16",
+      "kind": "window",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/windows/37",
+        "sourceId": "W-FF-16",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "level",
+          "offset",
+          "tag",
+          "wall",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "W-FF-16",
+        "level": "FF",
+        "tag": "W-02",
+        "hostSpace": "FF-10",
+        "wall": "north",
+        "offset": 72,
+        "width": 60
+      },
+      "tag": "W-02",
+      "hostSpace": "FF-10",
+      "wall": "north",
+      "accessIntent": "daylight-ventilation",
+      "geometry": {
+        "offset": 72,
+        "width": 60
+      }
+    }
+  ],
+  "entries": [
+    {
+      "id": "ENTRY-MAIN",
+      "kind": "entry",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/entries/0",
+        "sourceId": "ENTRY-MAIN",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "importance",
+          "kind",
+          "label",
+          "level",
+          "openingId",
+          "porch",
+          "sourceBasis",
+          "status",
+          "wall"
+        ]
+      },
+      "legacy": {
+        "id": "ENTRY-MAIN",
+        "level": "GF",
+        "kind": "main",
+        "label": "EAST / MAIN ENTRANCE PORCH",
+        "openingId": "D-GF-06",
+        "hostSpace": "GF-06",
+        "wall": "east",
+        "importance": "primary public entrance on long wall to the assembly hall",
+        "sourceBasis": "relocated to long wall per approved design directive",
+        "status": "approved",
+        "porch": {
+          "label": "MAIN ENTRANCE PORCH",
+          "width": 144,
+          "depth": 96,
+          "status": "covered entrance porch with accessible ramp & steps"
+        }
+      },
+      "entryKind": "main",
+      "label": "EAST / MAIN ENTRANCE PORCH",
+      "openingId": "D-GF-06",
+      "hostSpace": "GF-06",
+      "wall": "east",
+      "accessIntent": "entry",
+      "exteriorZoneId": "EXT-ENTRY-MAIN"
+    },
+    {
+      "id": "ENTRY-VIP",
+      "kind": "entry",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/entries/1",
+        "sourceId": "ENTRY-VIP",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "importance",
+          "kind",
+          "label",
+          "level",
+          "openingId",
+          "sourceBasis",
+          "status",
+          "wall"
+        ]
+      },
+      "legacy": {
+        "id": "ENTRY-VIP",
+        "level": "GF",
+        "kind": "secondary",
+        "label": "EAST / VIP & STAGE ENTRY",
+        "openingId": "D-GF-07",
+        "hostSpace": "GF-07",
+        "wall": "east",
+        "importance": "secondary controlled access / dignitary egress",
+        "sourceBasis": "coordinated with stage & dais",
+        "status": "approved"
+      },
+      "entryKind": "secondary",
+      "label": "EAST / VIP & STAGE ENTRY",
+      "openingId": "D-GF-07",
+      "hostSpace": "GF-07",
+      "wall": "east",
+      "accessIntent": "entry",
+      "exteriorZoneId": null
+    }
+  ],
+  "circulationZones": [
+    {
+      "id": "CIRC-GF-02",
+      "kind": "circulation-zone",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/1",
+        "sourceId": "CIRC-GF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect",
+          "stairId"
+        ]
+      },
+      "legacy": {
+        "id": "GF-02",
+        "level": "GF",
+        "name": "Main Stair",
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ],
+        "finish": "circulation",
+        "stairId": "STAIR-01",
+        "comment": "10'-6\" wide x 14'-0\" — compact dog-leg: 4' landing at south wall, 2 flights of 12 treads, 4' void at north"
+      },
+      "zoneType": "vertical-approach",
+      "spaceId": "GF-02",
+      "accessIntent": "vertical",
+      "geometry": {
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ]
+      }
+    },
+    {
+      "id": "CIRC-FF-02",
+      "kind": "circulation-zone",
+      "levelId": "FF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/spaces/8",
+        "sourceId": "CIRC-FF-02",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "finish",
+          "id",
+          "level",
+          "name",
+          "rect",
+          "stairId"
+        ]
+      },
+      "legacy": {
+        "id": "FF-02",
+        "level": "FF",
+        "name": "Main Stair",
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ],
+        "finish": "circulation",
+        "stairId": "STAIR-01"
+      },
+      "zoneType": "vertical-approach",
+      "spaceId": "FF-02",
+      "accessIntent": "vertical",
+      "geometry": {
+        "rect": [
+          156,
+          6,
+          282,
+          174
+        ]
+      }
+    }
+  ],
+  "exteriorZones": [
+    {
+      "id": "EXT-ENTRY-MAIN",
+      "kind": "exterior-zone",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "warning",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/entries/0",
+        "sourceId": "EXT-ENTRY-MAIN",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "hostSpace",
+          "id",
+          "importance",
+          "kind",
+          "label",
+          "level",
+          "openingId",
+          "porch",
+          "sourceBasis",
+          "status",
+          "wall"
+        ]
+      },
+      "legacy": {
+        "id": "ENTRY-MAIN",
+        "level": "GF",
+        "kind": "main",
+        "label": "EAST / MAIN ENTRANCE PORCH",
+        "openingId": "D-GF-06",
+        "hostSpace": "GF-06",
+        "wall": "east",
+        "importance": "primary public entrance on long wall to the assembly hall",
+        "sourceBasis": "relocated to long wall per approved design directive",
+        "status": "approved",
+        "porch": {
+          "label": "MAIN ENTRANCE PORCH",
+          "width": 144,
+          "depth": 96,
+          "status": "covered entrance porch with accessible ramp & steps"
+        }
+      },
+      "zoneType": "porch",
+      "accessIntent": "entry",
+      "geometry": {
+        "width": 144,
+        "depth": 96,
+        "label": "MAIN ENTRANCE PORCH"
+      }
+    }
+  ],
+  "verticalConnectors": [
+    {
+      "id": "VC-STAIR-01",
+      "kind": "vertical-connector",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "validated",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/stairs/0",
+        "sourceId": "VC-STAIR-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "direction",
+          "flightCount",
+          "floorToFloor",
+          "handrails",
+          "id",
+          "kind",
+          "landingDepth",
+          "landingPosition",
+          "levelFrom",
+          "levelTo",
+          "northVoid",
+          "riser",
+          "riserCountPerFlight",
+          "riserCountTotal",
+          "status",
+          "tread",
+          "turn",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "STAIR-01",
+        "kind": "dog-leg",
+        "levelFrom": "GF",
+        "levelTo": "FF",
+        "width": 48,
+        "flightCount": 2,
+        "riserCountTotal": 24,
+        "riserCountPerFlight": 12,
+        "floorToFloor": 178,
+        "riser": 7.4167,
+        "tread": 9,
+        "landingDepth": 48,
+        "landingPosition": "south",
+        "northVoid": 48,
+        "turn": "180-deg",
+        "direction": "up",
+        "handrails": [
+          "left",
+          "right"
+        ],
+        "status": "coordinated",
+        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end — all within 14'-6\" box"
+      },
+      "fromLevelId": "GF",
+      "toLevelId": "FF",
+      "stairId": "STAIR-01",
+      "departureSpaceId": "GF-02",
+      "arrivalSpaceId": "FF-02",
+      "accessIntent": "vertical"
+    }
+  ],
+  "stairs": [
+    {
+      "id": "STAIR-01",
+      "kind": "stair",
+      "levelId": "GF",
+      "source": "legacy",
+      "status": "validated",
+      "revision": 1,
+      "provenance": {
+        "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/stairs/0",
+        "sourceId": "STAIR-01",
+        "migration": "week2.legacy-to-v2",
+        "legacyKeys": [
+          "comment",
+          "direction",
+          "flightCount",
+          "floorToFloor",
+          "handrails",
+          "id",
+          "kind",
+          "landingDepth",
+          "landingPosition",
+          "levelFrom",
+          "levelTo",
+          "northVoid",
+          "riser",
+          "riserCountPerFlight",
+          "riserCountTotal",
+          "status",
+          "tread",
+          "turn",
+          "width"
+        ]
+      },
+      "legacy": {
+        "id": "STAIR-01",
+        "kind": "dog-leg",
+        "levelFrom": "GF",
+        "levelTo": "FF",
+        "width": 48,
+        "flightCount": 2,
+        "riserCountTotal": 24,
+        "riserCountPerFlight": 12,
+        "floorToFloor": 178,
+        "riser": 7.4167,
+        "tread": 9,
+        "landingDepth": 48,
+        "landingPosition": "south",
+        "northVoid": 48,
+        "turn": "180-deg",
+        "direction": "up",
+        "handrails": [
+          "left",
+          "right"
+        ],
+        "status": "coordinated",
+        "comment": "Landing 4'-0\" at south wall, flights run north, 4'-0\" void at north end — all within 14'-6\" box"
+      },
+      "levelFrom": "GF",
+      "levelTo": "FF",
+      "verticalConnectorId": "VC-STAIR-01",
+      "configuration": "dog-leg",
+      "turnDegrees": 180,
+      "geometry": {
+        "width": 48,
+        "flightCount": 2,
+        "riserCountTotal": 24,
+        "riserCountPerFlight": 12,
+        "floorToFloor": 178,
+        "riser": 7.4167,
+        "tread": 9,
+        "landingDepth": 48,
+        "landingPosition": "south",
+        "northVoid": 48,
+        "direction": "up",
+        "handrails": [
+          "left",
+          "right"
+        ]
+      }
+    }
+  ],
+  "assumptions": [
+    "L-shaped plot vertices are rationalized from the uploaded planning package and require a licensed survey.",
+    "North is shown toward the top of the sheet; confirm orientation against the site survey.",
+    "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets."
+  ],
+  "notes": [
+    "Service core redesigned: ALL units flush at south Y=6 and north Y=174 (14'-6\").",
+    "West to East: Reception(12') | Stair(10'-6\") | President Chamber(12') | Pantry(9') | Toilet(9'-6\").",
+    "Staircase: 4' landing at south wall, 2 flights of 12 treads×9\"=9'-0\" each, 4' void at north.",
+    "Main entrance relocated to East long wall with 12'-0\"×8'-0\" covered porch.",
+    "Assembly Hall starts at Y=180 (15'-0\") — full 55'-0\" clear width × 60'-0\" length.",
+    "Floor-to-floor height 178\" (14'-10\"). 24 risers @ 7.42\" / 9\" tread.",
+    "Wall thickness: 12\" outer perimeter, 6\" internal partitions.",
+    "All dimensions are nominal planning dimensions. Verify before construction."
+  ],
+  "revisions": [
+    {
+      "id": "P01",
+      "date": "2026-09-18",
+      "author": "legacy-source",
+      "summary": "Rebuilt from a coordinated structured model; conventional door swings and parametric dog-leg stair added.",
+      "source": "legacy",
+      "legacy": {
+        "id": "P01",
+        "date": "2026-09-18",
+        "description": "Rebuilt from a coordinated structured model; conventional door swings and parametric dog-leg stair added."
+      }
+    }
+  ],
+  "legacyMetadata": {
+    "plans": {
+      "projectId": "bar-association-hall",
+      "units": "inch",
+      "wallThickness": 6
+    },
+    "sourcePaths": {
+      "site": "bar-association-hall/standard/source/site_plan.json",
+      "plans": "bar-association-hall/standard/source/preliminary_plans.json"
+    }
+  }
+}

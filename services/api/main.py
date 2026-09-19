@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field, ConfigDict
 
 ROOT = Path(__file__).resolve().parents[2]
 BA_HALL = ROOT / "bar-association-hall"
-SCHEMA_PATH = ROOT / "packages" / "schema" / "project.schema.json"
+SCHEMA_PATH = ROOT / "packages" / "schema" / "project-v2.schema.json"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(BA_HALL))
@@ -66,7 +66,7 @@ ARTIFACTS: dict[str, dict[str, Any]] = {}
 
 
 # ---------------------------------------------------------------------------
-# Pydantic models — aligned with packages/schema/project.schema.json
+# Pydantic models — aligned with packages/schema/project-v2.schema.json
 # ---------------------------------------------------------------------------
 class ProjectRef(BaseModel):
     model_config = ConfigDict(extra="forbid")

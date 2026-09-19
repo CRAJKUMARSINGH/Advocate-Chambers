@@ -24,6 +24,7 @@ from pathlib import Path
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A2, landscape
 from reportlab.pdfgen import canvas
+from drawing_model import load_model
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Paths
@@ -782,8 +783,7 @@ def draw_seating_sheet(c, site, plans):
 # Entry Point
 # ─────────────────────────────────────────────────────────────────────────────
 def main():
-    site  = json.loads((SRC / "site_plan.json").read_text(encoding="utf-8"))
-    plans = json.loads((SRC / "preliminary_plans.json").read_text(encoding="utf-8"))
+    site, plans = load_model()
 
     out_path = PDF_OUT / "SP-101-GF-SEATING-ARRANGEMENT-PLAN.pdf"
     c = canvas.Canvas(str(out_path), pagesize=landscape(A2))

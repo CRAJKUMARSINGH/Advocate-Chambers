@@ -8,18 +8,28 @@ generators and API; new callers should use ``validate_model_findings``.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent
 SOURCE = ROOT / "standard" / "source" if (ROOT / "standard" / "source").exists() else ROOT / "source"
+sys.path.insert(0, str(ROOT.parent / "scripts"))
+
+from week2 import canonical_to_legacy, load_canonical_model  # noqa: E402
 
 
 def load_model() -> tuple[dict[str, Any], dict[str, Any]]:
-    site = json.loads((SOURCE / "site_plan.json").read_text())
-    plans = json.loads((SOURCE / "preliminary_plans.json").read_text())
-    return site, plans
+    """Load the validated canonical model through the legacy generator view.
+
+    Existing drawing functions still consume the Week 1-shaped dictionaries.
+    They receive those dictionaries only after the Week 2 canonical model has
+    been loaded and validated, so the source model cannot bypass schema checks.
+    """
+
+    canonical = load_canonical_model()
+    return canonical_to_legacy(canonical)
 
 
 def rect(space: dict[str, Any]) -> tuple[float, float, float, float]:

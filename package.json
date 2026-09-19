@@ -19,6 +19,10 @@
     "validate:week1": "python scripts/week1.py validate --write-report",
     "verify:week1": "python scripts/week1.py verify-manifest",
     "test:week1": "python -m unittest discover -s tests -p 'test_week1*.py'",
+    "migrate:week2": "python scripts/week2.py migrate",
+    "validate:week2": "python scripts/week2.py validate",
+    "roundtrip:week2": "python scripts/week2.py roundtrip",
+    "test:week2": "python -m unittest discover -s tests -p 'test_week2*.py'",
     "docs:patch-guide": "start code-junction/future-react-cad-transformation-patch-guide/deliverables/TRANSFORMATION_PATCH_GUIDE.md"
   },
   "devDependencies": {

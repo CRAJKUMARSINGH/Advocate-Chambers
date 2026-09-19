@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://advocate-chambers.local/schemas/project-v2.schema.json",
+  "title": "Advocate-Chambers Canonical Project Schema v2",
+  "description": "Canonical Week 2 model. Legacy source files are migrated into this model before geometry generation.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "project",
+    "units",
+    "wallThickness",
+    "site",
+    "levels",
+    "spaces",
+    "openings",
+    "windows",
+    "entries",
+    "circulationZones",
+    "exteriorZones",
+    "verticalConnectors",
+    "stairs",
+    "assumptions",
+    "notes",
+    "revisions"
+  ],
+  "properties": {
+    "schemaVersion": {"const": "advocate-chambers.project.v2"},
+    "project": {"$ref": "#/$defs/project"},
+    "units": {"const": "inch"},
+    "wallThickness": {"type": "number", "exclusiveMinimum": 0},
+    "site": {"$ref": "#/$defs/site"},
+    "levels": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/level"}},
+    "spaces": {"type": "array", "items": {"$ref": "#/$defs/space"}},
+    "openings": {"type": "array", "items": {"$ref": "#/$defs/opening"}},
+    "windows": {"type": "array", "items": {"$ref": "#/$defs/window"}},
+    "entries": {"type": "array", "items": {"$ref": "#/$defs/entry"}},
+    "circulationZones": {"type": "array", "items": {"$ref": "#/$defs/circulationZone"}},
+    "exteriorZones": {"type": "array", "items": {"$ref": "#/$defs/exteriorZone"}},
+    "verticalConnectors": {"type": "array", "items": {"$ref": "#/$defs/verticalConnector"}},
+    "stairs": {"type": "array", "items": {"$ref": "#/$defs/stair"}},
+    "assumptions": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "revisions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/revision"}},
+    "legacyMetadata": {"type": "object"}
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "required": ["sourcePath", "sourceId", "migration", "legacyKeys"],
+      "properties": {
+        "sourcePath": {"type": "string"},
+        "sourceId": {"type": "string"},
+        "migration": {"const": "week2.legacy-to-v2"},
+        "legacyKeys": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "drawableBase": {
+      "type": "object",
+      "required": ["id", "kind", "levelId", "source", "status", "revision", "provenance", "legacy"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string"},
+        "levelId": {"type": "string", "minLength": 1},
+        "source": {"enum": ["user", "generator", "import", "survey", "legacy"]},
+        "status": {"enum": ["draft", "validated", "warning", "rejected"]},
+        "revision": {"type": "integer", "minimum": 1},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "legacy": {"type": "object"}
+      }
+    },
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "location", "status", "revision", "source", "legacy"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^proj-[a-z0-9-]+$"},
+        "name": {"type": "string", "minLength": 1},
+        "location": {"type": "string"},
+        "status": {"enum": ["draft", "schematic", "validated", "warning", "rejected"]},
+        "revision": {"type": "integer", "minimum": 1},
+        "source": {"enum": ["user", "generator", "import", "survey", "legacy"]},
+        "legacy": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "site": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "geometry"],
+          "properties": {
+            "kind": {"const": "site"},
+            "levelId": {"const": "SITE"},
+            "geometry": {
+              "type": "object",
+              "required": ["plotVertices", "setbacks"],
+              "properties": {
+                "plotVertices": {"type": "array", "minItems": 3, "items": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}},
+                "setbacks": {"type": "object"},
+                "north": {"type": "string"}
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "level": {
+      "type": "object",
+      "required": ["id", "name", "elevation", "floorToFloor", "source", "status", "revision", "provenance", "legacy"],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "elevation": {"type": "number"},
+        "floorToFloor": {"type": "number", "exclusiveMinimum": 0},
+        "source": {"enum": ["user", "generator", "import", "survey", "legacy"]},
+        "status": {"enum": ["draft", "validated", "warning", "rejected"]},
+        "revision": {"type": "integer", "minimum": 1},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "legacy": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "space": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "name", "roomUse", "accessIntent", "geometry"],
+          "properties": {
+            "kind": {"const": "space"},
+            "name": {"type": "string"},
+            "roomUse": {"type": "string", "minLength": 1},
+            "accessIntent": {"type": "string", "minLength": 1},
+            "geometry": {
+              "type": "object",
+              "required": ["rect"],
+              "properties": {"rect": {"$ref": "#/$defs/rect"}},
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "opening": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "tag", "hostSpace", "wall", "accessIntent", "geometry"],
+          "properties": {
+            "kind": {"const": "door"},
+            "tag": {"type": "string"},
+            "hostSpace": {"type": "string"},
+            "wall": {"enum": ["north", "south", "east", "west"]},
+            "accessIntent": {"type": "string"},
+            "geometry": {
+              "type": "object",
+              "required": ["offset", "width"],
+              "properties": {
+                "offset": {"type": "number", "minimum": 0},
+                "width": {"type": "number", "exclusiveMinimum": 0},
+                "swing": {"enum": ["in", "out"]}
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "window": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "tag", "hostSpace", "wall", "accessIntent", "geometry"],
+          "properties": {
+            "kind": {"const": "window"},
+            "tag": {"type": "string"},
+            "hostSpace": {"type": "string"},
+            "wall": {"enum": ["north", "south", "east", "west"]},
+            "accessIntent": {"const": "daylight-ventilation"},
+            "geometry": {
+              "type": "object",
+              "required": ["offset", "width"],
+              "properties": {
+                "offset": {"type": "number", "minimum": 0},
+                "width": {"type": "number", "exclusiveMinimum": 0}
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      ]
+    },
+    "entry": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "entryKind", "label", "openingId", "hostSpace", "wall", "accessIntent", "exteriorZoneId"],
+          "properties": {
+            "kind": {"const": "entry"},
+            "entryKind": {"enum": ["main", "secondary", "service"]},
+            "label": {"type": "string"},
+            "openingId": {"type": "string"},
+            "hostSpace": {"type": "string"},
+            "wall": {"enum": ["north", "south", "east", "west"]},
+            "accessIntent": {"const": "entry"},
+            "exteriorZoneId": {"type": ["string", "null"]}
+          }
+        }
+      ]
+    },
+    "circulationZone": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "zoneType", "spaceId", "accessIntent", "geometry"],
+          "properties": {
+            "kind": {"const": "circulation-zone"},
+            "zoneType": {"type": "string"},
+            "spaceId": {"type": "string"},
+            "accessIntent": {"const": "vertical"},
+            "geometry": {"type": "object", "required": ["rect"], "properties": {"rect": {"$ref": "#/$defs/rect"}}, "additionalProperties": false}
+          }
+        }
+      ]
+    },
+    "exteriorZone": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "zoneType", "accessIntent", "geometry"],
+          "properties": {
+            "kind": {"const": "exterior-zone"},
+            "zoneType": {"type": "string"},
+            "accessIntent": {"const": "entry"},
+            "geometry": {"type": "object", "required": ["width", "depth"], "properties": {"width": {"type": "number", "exclusiveMinimum": 0}, "depth": {"type": "number", "exclusiveMinimum": 0}, "label": {"type": "string"}}, "additionalProperties": false}
+          }
+        }
+      ]
+    },
+    "verticalConnector": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "fromLevelId", "toLevelId", "stairId", "departureSpaceId", "arrivalSpaceId", "accessIntent"],
+          "properties": {
+            "kind": {"const": "vertical-connector"},
+            "fromLevelId": {"type": "string"},
+            "toLevelId": {"type": "string"},
+            "stairId": {"type": "string"},
+            "departureSpaceId": {"type": ["string", "null"]},
+            "arrivalSpaceId": {"type": ["string", "null"]},
+            "accessIntent": {"const": "vertical"}
+          }
+        }
+      ]
+    },
+    "stair": {
+      "allOf": [
+        {"$ref": "#/$defs/drawableBase"},
+        {
+          "type": "object",
+          "required": ["kind", "levelFrom", "levelTo", "verticalConnectorId", "configuration", "turnDegrees", "geometry"],
+          "properties": {
+            "kind": {"const": "stair"},
+            "levelFrom": {"type": "string"},
+            "levelTo": {"type": "string"},
+            "verticalConnectorId": {"type": "string"},
+            "configuration": {"type": "string"},
+            "turnDegrees": {"type": "number"},
+            "geometry": {"type": "object"}
+          }
+        }
+      ]
+    },
+    "revision": {
+      "type": "object",
+      "required": ["id", "date", "author", "summary", "source", "legacy"],
+      "properties": {
+        "id": {"type": "string"},
+        "date": {"type": "string"},
+        "author": {"type": "string"},
+        "summary": {"type": "string"},
+        "source": {"enum": ["user", "generator", "import", "survey", "legacy"]},
+        "legacy": {"type": "object"}
+      },
+      "additionalProperties": false
+    },
+    "rect": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {"type": "number"}
+    }
+  },
+  "additionalProperties": false
+}
