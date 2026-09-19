@@ -687,3 +687,149 @@ Give users the simplicity of a 3D home-design editor, but keep the intelligence 
 Never allow:
 
 **select → decorate → hide the problem → export**
+
+
+---
+
+# Project Archive and Large-File Storage
+
+## Storage decision
+
+Use two complementary layers:
+
+1. **Git LFS** for versioned large binary artifacts inside the repository: PDF, DXF, IFC, images, 3D models, spreadsheets, archives, and presentation exports.
+2. **An organized project archive** for application-readable project state, revisions, manifests, validation reports, and artifact relationships.
+
+Git LFS is repository storage; it is not a complete runtime database or user-upload storage system. If the application later stores projects outside Git, use the same project and revision keys in a local artifact store during development and an object store in production.
+
+## Canonical archive structure
+
+Use stable project slugs and immutable revision folders. Do not use filenames such as final, final2, latest, new, or corrected as version control.
+
+~~~text
+projects/
+  2026/
+    advocate-chambers/
+      project.json
+      README.md
+      source/
+      revisions/
+        r001/
+          model/
+          inputs/
+          cad/
+          pdf/
+          renders/
+          validation/
+          manifest.json
+        r002/
+          ...
+      current.json
+    jamuniya-shaktawat/
+      project.json
+      revisions/
+        r001/
+          ...
+      current.json
+
+archive/
+  project-index.json
+  migration-manifest.json
+~~~
+
+The same structure may be implemented under an application storage root if the repository is not the runtime store. Every artifact must be addressable by project slug, revision ID, artifact kind, filename, and content hash.
+
+## Current repository inventory
+
+Treat the following as existing project families until migration is verified:
+
+- Advocate-Chambers / Bar Association: bar-association-hall, CAD-Drawings, and the related standard drawing package.
+- Jamuniya-Shaktawat: CAD, PDF, and source/reference images.
+- code-junction: implementation guides and package documentation, not a client drawing project.
+- apps, packages, services, and scripts: product source code, not project deliverables.
+
+The current CAD-Drawings archive contains both ARCHIEVES and active CAD/PDF trees. Preserve the original paths during migration, record checksums, then mark them legacy read-only. Do not delete or overwrite them until every artifact has a destination and a verified hash.
+
+## Project manifest contract
+
+Each project must have a manifest containing:
+
+- project ID and stable slug;
+- project name, building type, location, client label, and status;
+- source model path and schema version;
+- levels, units, orientation, and rule-pack version;
+- revision list and current revision ID;
+- artifact list with kind, relative path, size, content hash, source revision, and generated timestamp;
+- validation summary and unresolved professional-review items;
+- migration status and legacy source paths.
+
+Example artifact record:
+
+~~~json
+{
+  "artifactId": "art-advocate-chambers-r002-a101-pdf",
+  "projectId": "advocate-chambers",
+  "revisionId": "r002",
+  "kind": "technical-pdf",
+  "path": "projects/2026/advocate-chambers/revisions/r002/pdf/A-101-GF-Plan.pdf",
+  "sha256": "recorded-at-migration",
+  "bytes": 0,
+  "generatedAt": "2026-09-19T00:00:00Z",
+  "validationStatus": "preliminary-review"
+}
+~~~
+
+Do not use a placeholder hash in a real manifest; the migration tool must calculate it.
+
+## LFS policy
+
+Track large or binary artifacts with Git LFS using .gitattributes. Keep JSON, Markdown, Python, TypeScript, schemas, manifests, and validation reports in normal Git so they remain reviewable and diffable.
+
+Recommended LFS patterns:
+
+- PDF, DXF, IFC, GLB, FBX, ZIP, XLSX, DOCX, PPTX;
+- PNG, JPG, JPEG, WEBP, and other generated raster images;
+- large exported CAD, BIM, render, panorama, and presentation files.
+
+Do not put source JSON, schemas, manifests, or small text-based SVG drawings into LFS unless there is a measured reason. LFS tracking must not be mistaken for a backup policy; maintain repository and artifact backup procedures separately.
+
+## Migration sequence
+
+1. Inventory every existing project folder and binary artifact.
+2. Classify each item as source, input, generated artifact, reference, duplicate, or unknown.
+3. Compute SHA-256 checksums and record size, path, project, and revision guess.
+4. Create project manifests and destination paths without deleting legacy files.
+5. Add LFS patterns and migrate new or verified large artifacts through Git LFS.
+6. Compare source and destination hashes; reject the migration on any mismatch.
+7. Update application indexes and artifact links to use project ID plus revision ID.
+8. Mark legacy paths read-only and retain a redirect map.
+9. Only after review, remove exact duplicates in a separate, explicitly approved cleanup change.
+
+Never rewrite the repository's public history as part of routine organization. Perform history migration only as a separately approved maintenance operation with a full backup and a documented rollback plan.
+
+## Runtime project storage requirements
+
+The application must provide:
+
+- create, open, duplicate, archive, and restore project operations;
+- project search by name, type, location, status, and updated date;
+- revision timeline with model and artifact comparisons;
+- artifact preview for PDF, image, CAD metadata, and validation report;
+- immutable generated artifacts linked to the exact model revision;
+- soft archive rather than destructive deletion;
+- export of one complete project package with its manifest.
+
+A project is not complete when only the latest drawing is saved. It is complete when the brief, model, assumptions, validation report, source inputs, generated artifacts, and revision history can be recovered together.
+
+## Storage acceptance tests
+
+1. Every current project candidate has a stable project ID and manifest.
+2. Every generated PDF/DXF/image is linked to a revision and content hash.
+3. Reopening a project restores the same model, validation findings, and artifact links.
+4. Duplicate filenames in different projects do not overwrite each other.
+5. A failed or partial generation cannot replace the current valid revision.
+6. Legacy paths remain recoverable during migration.
+7. A checksum mismatch blocks migration and reports the exact artifact.
+8. Archive and restore preserve source provenance and validation status.
+9. Large binaries use LFS policy while text contracts remain ordinary Git files.
+10. A complete project package can be exported and restored on another workspace.
