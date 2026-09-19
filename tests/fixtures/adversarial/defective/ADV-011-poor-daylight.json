@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-011",
+  "title": "Poor daylight",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "daylight", "severity": "BLOCKER", "description": "A room requiring daylight has no window host." },
+  "mutations": [{ "path": "windows.0.hostSpace", "operation": "set", "value": "UNKNOWN-SPACE" }],
+  "expectedFinding": {
+    "ruleId": "DAYLIGHT.OPENINGS",
+    "severity": "BLOCKER",
+    "affectedObjects": ["FF-DAYLIGHT-01"],
+    "evidenceFields": ["spaceId", "windowCount"],
+    "correction": "Provide a compliant daylight opening or approved alternative."
+  }
+}
