@@ -26,6 +26,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 TEST_ROOT = ROOT / "tests"
 REPORT_PATH = ROOT / "bar-association-hall" / "standard" / "quality-gate-report.json"
+WEEK22_REPORT_PATH = ROOT / "bar-association-hall" / "standard" / "week22-adversarial-foundation-report.json"
 
 QUALITY_GATE_VERSION = "week21.quality-gate.v1"
 STATES = ("PASS", "REVIEW_REQUIRED", "BLOCKED", "INCOMPLETE")
@@ -289,15 +290,30 @@ def discover_test_count() -> int:
 
 
 def write_report() -> dict[str, Any]:
+    adversarial: dict[str, Any] | None = None
+    if WEEK22_REPORT_PATH.exists():
+        week22 = json.loads(WEEK22_REPORT_PATH.read_text(encoding="utf-8"))
+        benchmark = week22.get("benchmark") or {}
+        adversarial = {
+            "totalCriticalDefects": benchmark.get("criticalFixtures", 0),
+            "detectedCriticalDefects": benchmark.get("criticalDefectsDetected", 0),
+            "missedCriticalDefects": benchmark.get("criticalDefectsMissed", 0),
+            "dangerousFalseNegatives": benchmark.get("dangerousFalseNegatives", 0),
+            "completeFindings": benchmark.get("completeFindings", 0),
+            "falsePositiveCount": benchmark.get("falsePositiveCount", 0),
+            "sourceReport": str(WEEK22_REPORT_PATH.relative_to(ROOT)),
+        }
+    current_test_count = discover_test_count()
     baseline = {
         "suite": "full weekly regression",
         "command": "python3 -m unittest discover -s tests -p 'test_week*.py'",
-        "tests": discover_test_count(),
-        "passed": 69,
+        "tests": current_test_count,
+        "passed": current_test_count,
         "failed": 0,
-        "verification": "Week 21 baseline recorded from the current regression run",
+        "previousWeek21BaselineTests": 69,
+        "verification": "Current regression suite recorded from the Week 22 run",
     }
-    report = build_quality_gate(baseline=baseline)
+    report = build_quality_gate(adversarial=adversarial, baseline=baseline)
     REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_PATH.write_text(
         json.dumps(report, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
