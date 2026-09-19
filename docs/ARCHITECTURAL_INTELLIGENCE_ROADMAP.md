@@ -532,6 +532,34 @@ By the end of Phase Two, a user should be able to:
 
 **Gate:** another professional can open the package, identify the exact model revision, understand all unresolved issues, and reproduce the drawing set.
 
+### Week 19 — Project archive, artifact integrity, and migration safety
+
+- Add a manifest-first archive contract under `projects/YYYY/project-slug/`
+  without moving, overwriting, or deleting legacy source paths.
+- Record project ID, revision, source provenance, artifact kind, destination
+  path, byte size, SHA-256, validation status, and missing-artifact state.
+- Verify manifest signatures, duplicate paths, duplicate artifact IDs, and
+  source/report completeness before a package is considered recoverable.
+- Keep binary cleanup separate from organization and require a reviewed,
+  explicit change for any destructive duplicate removal.
+
+**Gate:** a reviewer can identify every verified and missing artifact, reproduce
+each recorded hash, and see exactly what remains before migration or cleanup.
+
+### Week 20 — Durable revision operations and reproducibility
+
+- Create immutable revision records with parent revision, author, reason,
+  model signature, validation summary, and artifact-manifest signature.
+- Add soft archive and restore operations that retain source files, revision
+  history, and the current revision; no operation silently deletes geometry.
+- Add complete-package verification with explicit blocked/incomplete results
+  rather than guessed hashes or placeholder artifacts.
+- Expose archive, revision, restore, and verification contracts through the
+  typed API and deterministic command-line reports.
+
+**Gate:** another workspace can verify the package contract, recover the
+current revision, and distinguish an incomplete migration from a valid archive.
+
 ## 15. Phase Two acceptance tests
 
 1. Natural-language input with missing upper-floor access produces a clarification or BLOCKER before rendering.
@@ -544,6 +572,8 @@ By the end of Phase Two, a user should be able to:
 8. A rule-pack report identifies whether a result is PASS, FAIL, UNKNOWN, or PROFESSIONAL REVIEW REQUIRED.
 9. Comments and findings remain anchored after a revision or are explicitly marked as displaced.
 10. Final export contains matching revision IDs and hashes for model, validation report, technical sheets, presentation sheets, and renders.
+11. An archive manifest rejects tampered content and never treats a missing artifact as verified.
+12. Soft archive and restore preserve the current revision and all prior revision records.
 
 ## 16. Feature priority if engineering capacity is limited
 

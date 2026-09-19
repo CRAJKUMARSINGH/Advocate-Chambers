@@ -119,6 +119,21 @@ except Exception:  # pragma: no cover
     evaluate_rule_pack = None  # type: ignore
     imported_review_workflow = None  # type: ignore
 
+try:
+    from week1920 import (  # type: ignore
+        archive_project_state,
+        build_archive_manifest,
+        create_revision_record,
+        restore_project_state,
+        verify_project_package,
+    )
+except Exception:  # pragma: no cover
+    archive_project_state = None  # type: ignore
+    build_archive_manifest = None  # type: ignore
+    create_revision_record = None  # type: ignore
+    restore_project_state = None  # type: ignore
+    verify_project_package = None  # type: ignore
+
 
 app = FastAPI(
     title="Advocate-Chambers CAD API",
@@ -127,7 +142,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-week18",
+    version="1.0.0-week20",
 )
 
 app.add_middleware(
@@ -263,6 +278,38 @@ class ImportedReviewRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     sourcePath: str = Field(..., min_length=1, max_length=500)
     sourceFormat: str | None = Field(default=None, max_length=20)
+
+
+class ArchiveManifestRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    artifactPaths: list[str] | None = None
+    validationReport: dict[str, Any] | None = None
+    rulePackVersion: str | None = None
+
+
+class RevisionRecordRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    author: str = Field(..., min_length=1, max_length=120)
+    reason: str = Field(..., min_length=1, max_length=2000)
+    validationReport: dict[str, Any] | None = None
+    parentRevision: int | None = Field(default=None, ge=0)
+    artifactManifest: dict[str, Any] | None = None
+
+
+class PackageVerifyRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    manifest: dict[str, Any]
+    requireComplete: bool = True
+
+
+class ArchiveStateRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    state: dict[str, Any]
+    action: str = Field(..., pattern="^(archive|restore)$")
+    author: str = Field(..., min_length=1, max_length=120)
+    reason: str = Field(..., min_length=1, max_length=2000)
 
 
 class GenerateRequest(BaseModel):
@@ -710,6 +757,61 @@ def delivery_contract() -> dict[str, Any]:
         "commentAnchors": sorted(ANCHOR_TYPES),
         "releaseGate": "unresolved BLOCKER findings require an explicit Not Issuable review export",
     }
+
+
+@app.post("/archive/manifest", tags=["archive"])
+def archive_manifest(req: ArchiveManifestRequest) -> dict[str, Any]:
+    """Build a manifest-first archive plan with real or missing artifact records."""
+    if build_archive_manifest is None:
+        raise HTTPException(status_code=503, detail="archive layer unavailable")
+    return build_archive_manifest(
+        req.model,
+        artifact_paths=req.artifactPaths or (
+            "bar-association-hall/standard/model/project.json",
+            "bar-association-hall/standard/week17-site-feasibility-report.json",
+            "bar-association-hall/standard/week18-delivery-package-report.json",
+        ),
+        validation_report=req.validationReport,
+        rule_pack_version=req.rulePackVersion,
+    )
+
+
+@app.post("/revisions/record", tags=["archive"])
+def revision_record(req: RevisionRecordRequest) -> dict[str, Any]:
+    """Create an immutable, deterministic revision descriptor."""
+    if create_revision_record is None:
+        raise HTTPException(status_code=503, detail="revision layer unavailable")
+    try:
+        return create_revision_record(
+            req.model,
+            author=req.author,
+            reason=req.reason,
+            validation_report=req.validationReport,
+            parent_revision=req.parentRevision,
+            artifact_manifest=req.artifactManifest,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/archive/verify", tags=["archive"])
+def archive_verify(req: PackageVerifyRequest) -> dict[str, Any]:
+    """Verify manifest structure and optionally require a complete package."""
+    if verify_project_package is None:
+        raise HTTPException(status_code=503, detail="archive layer unavailable")
+    return verify_project_package(req.manifest, require_complete=req.requireComplete)
+
+
+@app.post("/archive/state", tags=["archive"])
+def archive_state(req: ArchiveStateRequest) -> dict[str, Any]:
+    """Soft-archive or restore state without changing the current revision."""
+    operation = archive_project_state if req.action == "archive" else restore_project_state
+    if operation is None:
+        raise HTTPException(status_code=503, detail="archive layer unavailable")
+    try:
+        return operation(req.state, author=req.author, reason=req.reason)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @app.post("/generate", tags=["jobs"], response_model=JobResponse)

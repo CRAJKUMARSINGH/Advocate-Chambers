@@ -1,0 +1,125 @@
+{
+  "archive": {
+    "current": "projects/2026/proj-bar-association-hall/current.json",
+    "destructiveCleanup": false,
+    "legacyPathsRetained": true,
+    "mode": "manifest-first",
+    "revision": "projects/2026/proj-bar-association-hall/revisions/r001/",
+    "root": "projects/2026/proj-bar-association-hall/"
+  },
+  "artifacts": [
+    {
+      "artifactId": "art-proj-bar-association-hall-r001-5af34271e3",
+      "bytes": 158876,
+      "generatedAt": null,
+      "kind": "source-json",
+      "path": "bar-association-hall/standard/model/project.json",
+      "projectId": "proj-bar-association-hall",
+      "revisionId": "r001",
+      "sha256": "2316acb51300e67b45ac610ae65a1bce556ffcb5a7c93993eee70546ba1566c4",
+      "status": "verified",
+      "validationStatus": "preliminary-review"
+    },
+    {
+      "artifactId": "art-proj-bar-association-hall-r001-a44a098ffb",
+      "bytes": 1855,
+      "generatedAt": null,
+      "kind": "rule-pack",
+      "path": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+      "projectId": "proj-bar-association-hall",
+      "revisionId": "r001",
+      "sha256": "9658f5dd730fede050c52fae435a844b0fe724a640c42dd4738184a39df4289b",
+      "status": "verified",
+      "validationStatus": "preliminary-review"
+    },
+    {
+      "artifactId": "art-proj-bar-association-hall-r001-e9d83ed40e",
+      "bytes": 20669,
+      "generatedAt": null,
+      "kind": "validation-report",
+      "path": "bar-association-hall/standard/week17-site-feasibility-report.json",
+      "projectId": "proj-bar-association-hall",
+      "revisionId": "r001",
+      "sha256": "49291ee5b1c864adb0b9d418508e42b98e3ce68bc59a069912b48e6914537c2b",
+      "status": "verified",
+      "validationStatus": "preliminary-review"
+    },
+    {
+      "artifactId": "art-proj-bar-association-hall-r001-4016ff1854",
+      "bytes": 1455,
+      "generatedAt": null,
+      "kind": "text-contract",
+      "path": "bar-association-hall/standard/week1718-changelog.md",
+      "projectId": "proj-bar-association-hall",
+      "revisionId": "r001",
+      "sha256": "a1abfbf91f4fefc63321df5c2d629b567b7f84a0f256d91517fcfda447f99928",
+      "status": "verified",
+      "validationStatus": "preliminary-review"
+    },
+    {
+      "artifactId": "art-proj-bar-association-hall-r001-31f9fc1514",
+      "bytes": 666,
+      "generatedAt": null,
+      "kind": "text-contract",
+      "path": "bar-association-hall/standard/week1718-enrichment-manifest.json",
+      "projectId": "proj-bar-association-hall",
+      "revisionId": "r001",
+      "sha256": "03c79895a6922326b43e6ae0ec22e77ac1a1413a9d97182a6a6d43365bc13a07",
+      "status": "verified",
+      "validationStatus": "preliminary-review"
+    },
+    {
+      "artifactId": "art-proj-bar-association-hall-r001-829e3e4f2b",
+      "bytes": 5157,
+      "generatedAt": null,
+      "kind": "text-contract",
+      "path": "bar-association-hall/standard/week18-delivery-package-report.json",
+      "projectId": "proj-bar-association-hall",
+      "revisionId": "r001",
+      "sha256": "987d165a11208eb2d5b29b03262588fe0e5dc3fbb6bfe5beff1ad8af214162c6",
+      "status": "verified",
+      "validationStatus": "preliminary-review"
+    }
+  ],
+  "integrity": {
+    "hashAlgorithm": "sha256",
+    "missingCount": 0,
+    "status": "pass",
+    "verifiedCount": 6
+  },
+  "layoutVersion": "projects/2026/{project-slug}",
+  "manifestSignature": "436adc317234496153032dfe4c777e77f50970043c2170493997e307b3ed9f57",
+  "migration": {
+    "legacySourcePaths": [
+      "bar-association-hall",
+      "CAD-Drawings",
+      "Jamuniya-Shaktawat"
+    ],
+    "nextAction": "review destination paths and hashes before any separate cleanup change",
+    "status": "review-required"
+  },
+  "project": {
+    "id": "proj-bar-association-hall",
+    "name": "Bar Association Hall",
+    "revision": 1,
+    "slug": "proj-bar-association-hall",
+    "units": "inch"
+  },
+  "rulePackVersion": "india-preliminary-review@1.0.0",
+  "sourceModel": {
+    "path": "bar-association-hall/standard/model/project.json",
+    "revision": 1,
+    "sha256": "2316acb51300e67b45ac610ae65a1bce556ffcb5a7c93993eee70546ba1566c4"
+  },
+  "validation": {
+    "blockers": [],
+    "counts": {
+      "fail": 0,
+      "pass": 2,
+      "professional-review": 2,
+      "unknown": 8
+    },
+    "professionalReviewRequired": true
+  },
+  "version": "week19.project-archive.v1"
+}

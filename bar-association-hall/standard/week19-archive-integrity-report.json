@@ -1,0 +1,21 @@
+{
+  "integrity": {
+    "hashAlgorithm": "sha256",
+    "missingCount": 0,
+    "status": "pass",
+    "verifiedCount": 6
+  },
+  "manifestPath": "bar-association-hall/standard/week1920-archive-manifest.json",
+  "manifestSignature": "436adc317234496153032dfe4c777e77f50970043c2170493997e307b3ed9f57",
+  "migration": {
+    "legacySourcePaths": [
+      "bar-association-hall",
+      "CAD-Drawings",
+      "Jamuniya-Shaktawat"
+    ],
+    "nextAction": "review destination paths and hashes before any separate cleanup change",
+    "status": "review-required"
+  },
+  "professionalReviewRequired": true,
+  "version": "week19.project-archive.v1"
+}

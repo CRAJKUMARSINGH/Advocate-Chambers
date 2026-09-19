@@ -1,0 +1,50 @@
+{
+  "destructiveCleanup": "intentionally untouched",
+  "operations": {
+    "currentRevisionPreservedOnRestore": true,
+    "restore": "available",
+    "softArchive": "available"
+  },
+  "packageVerification": {
+    "destructiveCleanupAllowed": false,
+    "errors": [],
+    "missingArtifacts": [],
+    "requiresCompletePackage": false,
+    "status": "pass",
+    "verifiedArtifacts": [
+      "bar-association-hall/standard/model/project.json",
+      "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+      "bar-association-hall/standard/week17-site-feasibility-report.json",
+      "bar-association-hall/standard/week1718-changelog.md",
+      "bar-association-hall/standard/week1718-enrichment-manifest.json",
+      "bar-association-hall/standard/week18-delivery-package-report.json"
+    ],
+    "version": "week20.package-verification.v1"
+  },
+  "professionalReviewRequired": true,
+  "revisionRecord": {
+    "artifactManifestSignature": "436adc317234496153032dfe4c777e77f50970043c2170493997e307b3ed9f57",
+    "author": "architectural-pipeline",
+    "immutable": true,
+    "modelSignature": "7467e52729f8d54d950415f3442e7fd1a54471f9bebdf2bf22d0f9a3de6b4a4f",
+    "parentRevision": null,
+    "projectId": "proj-bar-association-hall",
+    "reason": "Week 19–20 archive and revision enrichment",
+    "recordSignature": "c6d09adc61177fd9c75ae9d52a37e26201f53c684f1baa5a59debe6a2985f960",
+    "revision": 1,
+    "revisionId": "r001",
+    "status": "review-required",
+    "validation": {
+      "blockers": [],
+      "counts": {
+        "fail": 0,
+        "pass": 2,
+        "professional-review": 2,
+        "unknown": 8
+      },
+      "professionalReviewRequired": true
+    },
+    "version": "week20.revision-operations.v1"
+  },
+  "version": "week20.revision-operations.v1"
+}

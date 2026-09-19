@@ -356,6 +356,45 @@ require review by the appointed architect, accessibility professional,
 fire/life-safety professional, structural and MEP engineers, surveyor, and
 local authority. The separate binary cleanup remains intentionally untouched.
 
+## Week 19–20 task status — applied and marked done
+
+The Week 19 and Week 20 enrichment is implemented in the canonical pipeline
+and marked complete here.
+
+- **Week 19 — project archive and artifact integrity:** the manifest-first
+  archive contract records project/revision identity, destination layout,
+  artifact kind, byte size, SHA-256, validation status, and explicit missing
+  records. Manifest signatures, duplicate paths, and duplicate artifact IDs
+  are validated before a package can be treated as recoverable.
+- **Week 20 — durable revision operations:** immutable revision records carry
+  parent revision, author, reason, model signature, validation summary, and
+  artifact-manifest signature. Soft archive and restore retain the current
+  revision and source history; complete-package verification blocks incomplete
+  migration instead of inventing hashes or silently deleting files.
+- API contracts are available at `POST /archive/manifest`,
+  `POST /revisions/record`, `POST /archive/verify`, and
+  `POST /archive/state`.
+- Deterministic artifacts:
+  - `bar-association-hall/standard/week19-archive-integrity-report.json`
+  - `bar-association-hall/standard/week20-revision-operations-report.json`
+  - `bar-association-hall/standard/week1920-archive-manifest.json`
+  - `bar-association-hall/standard/week1920-changelog.md`
+- Regression tests live in `tests/test_week1920_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week1920
+npm run validate:week19
+npm run validate:week20
+npm run test:week1920
+```
+
+**Task completion:** Week 17–20 enrichment is complete and marked done in
+this README. These archive, revision, and verification contracts remain
+preliminary coordination infrastructure; the separate 84-file binary cleanup
+and any destructive history rewrite remain intentionally untouched.
+
 ## Furnishing architecture consolidation — applied
 
 The Week 15 parametric asset schema is now the single furnishing authority.
