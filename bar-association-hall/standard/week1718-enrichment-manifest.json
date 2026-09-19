@@ -1,0 +1,18 @@
+{
+  "manifestVersion": "week1718.enrichment-manifest.v1",
+  "professionalReviewRequired": true,
+  "releaseGate": {
+    "explicitNonIssuableExport": false,
+    "rule": "reject unresolved BLOCKER findings unless explicitly marked Not Issuable",
+    "status": "ready",
+    "unresolvedBlockers": []
+  },
+  "reports": {
+    "week17": "bar-association-hall/standard/week17-site-feasibility-report.json",
+    "week18": "bar-association-hall/standard/week18-delivery-package-report.json"
+  },
+  "rulePackVersion": "india-preliminary-review@1.0.0",
+  "status": "review",
+  "week17Version": "week17.site-feasibility.v1",
+  "week18Version": "week18.professional-delivery.v1"
+}

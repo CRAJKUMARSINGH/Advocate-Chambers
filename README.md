@@ -300,6 +300,62 @@ npm run test:week1516
 this README. Outputs remain preliminary planning/presentation aids and require
 appointed architect, engineers, surveyor, and local-authority review.
 
+## Week 17–18 task status — applied and marked done
+
+The Week 17 and Week 18 enrichment from
+[`docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md`](docs/ARCHITECTURAL_INTELLIGENCE_ROADMAP.md)
+is implemented in the canonical pipeline and marked complete here.
+
+- **Week 17 — site feasibility and transparent plan review:** the site
+  workspace exposes plot bounds, north, setbacks, access points, level and
+  footprint records, context layers, and assumptions without mutating
+  authoritative geometry.
+- The configurable rule-pack evaluator checks coverage, setbacks, height,
+  floor-area targets, parking, accessibility, daylight, ventilation, egress,
+  fire access, service access, and wet-area coordination. Each result includes
+  a rule ID, input geometry, source, calculation, assumption, confidence, and
+  suggested correction, with explicit `pass`, `fail`, `unknown`, and
+  professional-review semantics.
+- PDF/CAD inspection is a separate imported-review workflow. It records the
+  source and review steps but never claims approval or promotes uncertain
+  observations to authoritative geometry.
+- **Week 18 — collaboration and professional delivery:** deterministic
+  read-only technical/presentation review-link contracts, comments anchored to
+  rooms, walls, openings, dimensions, validation findings, or viewpoints, and
+  revision comparison for geometry, validation, area, openings, and furniture
+  changes are included.
+- Approval states are `Draft`, `Review`, `Client Presentation`, `Preliminary
+  Coordination`, and `Not Issuable`. The coordinated package manifest covers
+  source JSON, validation report, technical PDF, coloured PDF, DXF, optional
+  IFC, images, assumptions, rule-pack version, and manifest. The release gate
+  rejects unresolved blockers unless the export is explicitly marked
+  `Not Issuable`.
+- FastAPI routes: `POST /site/feasibility`, `POST /site/imported-review`,
+  `POST /collaboration/review-link`, `POST /collaboration/comments`,
+  `POST /collaboration/revision-compare`, `POST /delivery/package`, and
+  `GET /delivery/contract`.
+- Deterministic artifacts:
+  - `bar-association-hall/standard/week17-site-feasibility-report.json`
+  - `bar-association-hall/standard/week18-delivery-package-report.json`
+  - `bar-association-hall/standard/week1718-enrichment-manifest.json`
+  - `bar-association-hall/standard/week1718-changelog.md`
+- Regression tests live in `tests/test_week1718_enrichment.py`.
+
+Commands:
+
+```bash
+npm run enrich:week1718
+npm run validate:week17
+npm run validate:week18
+npm run test:week1718
+```
+
+**Task completion:** Week 17–18 enrichment is complete and marked done in
+this README. All checks remain preliminary planning/coordination aids and
+require review by the appointed architect, accessibility professional,
+fire/life-safety professional, structural and MEP engineers, surveyor, and
+local authority. The separate binary cleanup remains intentionally untouched.
+
 ## Furnishing architecture consolidation — applied
 
 The Week 15 parametric asset schema is now the single furnishing authority.

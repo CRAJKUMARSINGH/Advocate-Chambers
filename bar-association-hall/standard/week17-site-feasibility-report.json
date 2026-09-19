@@ -1,0 +1,741 @@
+{
+  "assumptions": [
+    "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets.",
+    "L-shaped plot vertices are rationalized from the uploaded planning package and require a licensed survey.",
+    "North is shown toward the top of the sheet; confirm orientation against the site survey.",
+    "Plot, north, road frontage, and setbacks remain survey/jurisdiction inputs.",
+    "Site checks are preliminary rule-pack checks and do not grant approval."
+  ],
+  "dashboard": {
+    "approvalClaim": false,
+    "counts": {
+      "fail": 0,
+      "pass": 2,
+      "professional-review": 2,
+      "review": 10,
+      "unknown": 8
+    },
+    "professionalReviewRequired": true,
+    "status": "review"
+  },
+  "results": [
+    {
+      "assumption": "A maximum coverage value must be supplied by the selected jurisdiction.",
+      "calculation": "ground-floor area 696888.00 / plot envelope area 5880.00",
+      "category": "coverage",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "groundFloorSpaceIds": [
+          "GF-01",
+          "GF-02",
+          "GF-03",
+          "GF-04",
+          "GF-05",
+          "GF-06",
+          "GF-07"
+        ],
+        "plotBounds": [
+          0.0,
+          0.0,
+          60.0,
+          98.0
+        ]
+      },
+      "message": "Coverage is unknown because the rule pack has no jurisdictional maximum.",
+      "ruleId": "SITE-COVERAGE",
+      "severity": "REVIEW",
+      "source": "rule pack site.maximumCoverage + canonical spaces",
+      "status": "unknown",
+      "suggestedCorrection": "Set rule-pack site.maximumCoverage after jurisdiction and survey confirmation."
+    },
+    {
+      "assumption": "Site and building dimensions appear to use incompatible scales; confirm units before evaluating setbacks.",
+      "calculation": "compare each envelope edge to the corresponding plot edge plus required setback; suspected unit/scale mismatch prevents a reliable comparison",
+      "category": "setbacks",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "groundFloorEnvelope": [
+          6.0,
+          6.0,
+          666.0,
+          1080.0
+        ],
+        "plotBounds": [
+          0.0,
+          0.0,
+          60.0,
+          98.0
+        ],
+        "setbacks": {
+          "east": 5,
+          "north": 60,
+          "south": 5,
+          "west": 0
+        }
+      },
+      "message": "Setback compliance is unknown because site and building scales require reconciliation.",
+      "ruleId": "SITE-SETBACKS",
+      "severity": "REVIEW",
+      "source": "canonical site geometry and orientation.setbacks",
+      "status": "unknown",
+      "suggestedCorrection": "Normalize site and building units, then confirm the survey and jurisdictional setbacks."
+    },
+    {
+      "assumption": "A height datum and jurisdictional maximum are not present in this preliminary model.",
+      "calculation": "highest recorded level elevation = 178.00 inch",
+      "category": "height",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "levels": [
+          {
+            "elevation": 0,
+            "floorToFloor": 178,
+            "id": "GF",
+            "name": "Ground Floor"
+          },
+          {
+            "elevation": 178,
+            "floorToFloor": 178,
+            "id": "FF",
+            "name": "First Floor"
+          }
+        ]
+      },
+      "message": "Height is unknown until a verified limit and datum are supplied.",
+      "ruleId": "SITE-HEIGHT",
+      "severity": "REVIEW",
+      "source": "rule pack site.maximumHeight + canonical levels",
+      "status": "unknown",
+      "suggestedCorrection": "Add a verified height limit and datum to the selected rule pack."
+    },
+    {
+      "assumption": "No target floor area is currently recorded in the program brief.",
+      "calculation": "recorded floor area = 9833.50 sq ft; target = None",
+      "category": "floor-area-target",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "spaceIds": [
+          "GF-01",
+          "GF-02",
+          "GF-03",
+          "GF-04",
+          "GF-05",
+          "GF-06",
+          "GF-07",
+          "FF-01",
+          "FF-02",
+          "FF-03",
+          "FF-04",
+          "FF-05",
+          "FF-06",
+          "FF-07",
+          "FF-08",
+          "FF-09",
+          "FF-10"
+        ]
+      },
+      "message": "Floor-area target is unknown until the brief supplies a target.",
+      "ruleId": "PROGRAM-FLOOR-AREA",
+      "severity": "REVIEW",
+      "source": "canonical program.targetFloorAreaSqFt + space rectangles",
+      "status": "unknown",
+      "suggestedCorrection": "Record an approved target range in the program brief before treating area as pass/fail."
+    },
+    {
+      "assumption": "Parking demand and vehicle access are not defined in the current model.",
+      "calculation": "parking input = None",
+      "category": "parking",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "siteBounds": [
+          0.0,
+          0.0,
+          60.0,
+          98.0
+        ]
+      },
+      "message": "Parking is unknown because no parking program or geometry is recorded.",
+      "ruleId": "SITE-PARKING",
+      "severity": "REVIEW",
+      "source": "canonical program.parking",
+      "status": "unknown",
+      "suggestedCorrection": "Add parking count, accessible bays, loading, and maneuvering geometry after a site survey."
+    },
+    {
+      "assumption": "A full accessible route audit needs measured thresholds, landings, fixtures, and vertical access.",
+      "calculation": "door minimum 32.0; route minimum 44.0; route widths = []",
+      "category": "accessibility",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "openingIds": [
+          "D-GF-01",
+          "D-GF-02",
+          "D-GF-03",
+          "D-GF-04",
+          "D-GF-05",
+          "D-GF-06",
+          "D-GF-07",
+          "D-GF-08",
+          "D-GF-09",
+          "D-GF-10",
+          "D-FF-01",
+          "D-FF-02",
+          "D-FF-03",
+          "D-FF-04",
+          "D-FF-05",
+          "D-FF-06",
+          "D-FF-07",
+          "D-FF-08",
+          "D-FF-09",
+          "D-FF-10"
+        ],
+        "routeIds": [
+          "CIRC-GF-02",
+          "CIRC-FF-02"
+        ]
+      },
+      "message": "Accessibility requires professional review; route widths are incomplete.",
+      "ruleId": "ACCESSIBILITY-ROUTES",
+      "severity": "REVIEW",
+      "source": "rule pack accessibility + canonical openings/circulation zones",
+      "status": "unknown",
+      "suggestedCorrection": "Have an accessibility professional verify the entire route, not just nominal rectangle widths."
+    },
+    {
+      "assumption": "Window presence is only a planning proxy; area, orientation, obstruction, and mechanical systems need review.",
+      "calculation": "required uses = ['assembly', 'library', 'office', 'reception']; missing host spaces = []",
+      "category": "daylight",
+      "confidence": 0.75,
+      "inputGeometry": {
+        "spaceIds": [
+          "GF-01",
+          "GF-03",
+          "GF-06",
+          "FF-01",
+          "FF-03",
+          "FF-06",
+          "FF-07"
+        ],
+        "windowHostCounts": {
+          "FF-01": 2,
+          "FF-03": 1,
+          "FF-04": 1,
+          "FF-05": 2,
+          "FF-06": 6,
+          "FF-07": 2,
+          "FF-08": 2,
+          "FF-09": 2,
+          "FF-10": 2,
+          "GF-01": 2,
+          "GF-03": 1,
+          "GF-04": 1,
+          "GF-05": 2,
+          "GF-06": 8,
+          "GF-07": 4
+        }
+      },
+      "message": "All configured daylight uses have window hosts.",
+      "ruleId": "DAYLIGHT-OPENINGS",
+      "severity": "INFO",
+      "source": "rule pack daylight.requiredWindowUses + canonical windows",
+      "status": "pass",
+      "suggestedCorrection": "Review daylight area, orientation, obstructions, and mechanical strategy with the appointed professional."
+    },
+    {
+      "assumption": "Window presence is only a planning proxy; area, orientation, obstruction, and mechanical systems need review.",
+      "calculation": "required uses = ['assembly', 'library', 'office', 'reception', 'service']; missing host spaces = []",
+      "category": "ventilation",
+      "confidence": 0.75,
+      "inputGeometry": {
+        "spaceIds": [
+          "GF-01",
+          "GF-03",
+          "GF-04",
+          "GF-05",
+          "GF-06",
+          "FF-01",
+          "FF-03",
+          "FF-04",
+          "FF-05",
+          "FF-06",
+          "FF-07",
+          "FF-10"
+        ],
+        "windowHostCounts": {
+          "FF-01": 2,
+          "FF-03": 1,
+          "FF-04": 1,
+          "FF-05": 2,
+          "FF-06": 6,
+          "FF-07": 2,
+          "FF-08": 2,
+          "FF-09": 2,
+          "FF-10": 2,
+          "GF-01": 2,
+          "GF-03": 1,
+          "GF-04": 1,
+          "GF-05": 2,
+          "GF-06": 8,
+          "GF-07": 4
+        }
+      },
+      "message": "All configured ventilation uses have window hosts.",
+      "ruleId": "VENTILATION-OPENINGS",
+      "severity": "INFO",
+      "source": "rule pack ventilation.requiredWindowUses + canonical windows",
+      "status": "pass",
+      "suggestedCorrection": "Review ventilation area, orientation, obstructions, and mechanical strategy with the appointed professional."
+    },
+    {
+      "assumption": "Travel distance, occupant load, exit separation, fire doors, and discharge are not fully modeled.",
+      "calculation": "exterior entries = 2; configured assembly minimum = 1",
+      "category": "egress",
+      "confidence": 0.6,
+      "inputGeometry": {
+        "assemblySpaceIds": [
+          "GF-06"
+        ],
+        "entryIds": [
+          "ENTRY-MAIN",
+          "ENTRY-VIP"
+        ]
+      },
+      "message": "Nominal exterior-entry count is available, but egress remains professional review.",
+      "ruleId": "EGRESS-EXTERIOR-EXITS",
+      "severity": "REVIEW",
+      "source": "rule pack egress + canonical entries and room uses",
+      "status": "professional-review",
+      "suggestedCorrection": "Run a fire/life-safety review using occupant load, travel paths, exit widths, separation, and discharge."
+    },
+    {
+      "assumption": "Site access intent must be confirmed against survey, vehicle requirements, and local authority guidance.",
+      "calculation": "no authoritative fire/service access geometry is present",
+      "category": "fire-access",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "entries": [
+          "ENTRY-MAIN",
+          "ENTRY-VIP"
+        ],
+        "plotBounds": [
+          0.0,
+          0.0,
+          60.0,
+          98.0
+        ]
+      },
+      "message": "Fire Access is unknown.",
+      "ruleId": "FIRE-ACCESS",
+      "severity": "REVIEW",
+      "source": "site.fireAccess",
+      "status": "unknown",
+      "suggestedCorrection": "Add verified fire appliance access geometry and turning data."
+    },
+    {
+      "assumption": "Site access intent must be confirmed against survey, vehicle requirements, and local authority guidance.",
+      "calculation": "no authoritative fire/service access geometry is present",
+      "category": "service-access",
+      "confidence": 0.0,
+      "inputGeometry": {
+        "entries": [
+          "ENTRY-MAIN",
+          "ENTRY-VIP"
+        ],
+        "plotBounds": [
+          0.0,
+          0.0,
+          60.0,
+          98.0
+        ]
+      },
+      "message": "Service Access is unknown.",
+      "ruleId": "SERVICE-ACCESS",
+      "severity": "REVIEW",
+      "source": "site.serviceAccess",
+      "status": "unknown",
+      "suggestedCorrection": "Add a service entry, route, and loading/service-zone geometry."
+    },
+    {
+      "assumption": "Plumbing stacks, shafts, falls, waterproofing, and mechanical ventilation are not represented.",
+      "calculation": "wet-area spaces with at least one ventilation opening = 5 / 5",
+      "category": "wet-area",
+      "confidence": 0.5,
+      "inputGeometry": {
+        "wetSpaceIds": [
+          "GF-04",
+          "GF-05",
+          "FF-04",
+          "FF-05",
+          "FF-10"
+        ],
+        "windowHostCounts": {
+          "FF-01": 2,
+          "FF-03": 1,
+          "FF-04": 1,
+          "FF-05": 2,
+          "FF-06": 6,
+          "FF-07": 2,
+          "FF-08": 2,
+          "FF-09": 2,
+          "FF-10": 2,
+          "GF-01": 2,
+          "GF-03": 1,
+          "GF-04": 1,
+          "GF-05": 2,
+          "GF-06": 8,
+          "GF-07": 4
+        }
+      },
+      "message": "Wet-area openings are nominally present; MEP coordination remains required.",
+      "ruleId": "WET-AREA-COORDINATION",
+      "severity": "REVIEW",
+      "source": "rule pack wetArea + canonical service spaces/windows",
+      "status": "professional-review",
+      "suggestedCorrection": "Coordinate wet areas with the MEP layout, shafts, drainage, waterproofing, and ventilation strategy."
+    }
+  ],
+  "rulePack": {
+    "id": "india-preliminary-review",
+    "jurisdiction": "India / preliminary planning review",
+    "path": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+    "version": "1.0.0"
+  },
+  "version": "week17.site-feasibility.v1",
+  "workspace": {
+    "accessPoints": [
+      {
+        "accessIntent": "entry",
+        "entryKind": "main",
+        "exteriorZoneId": "EXT-ENTRY-MAIN",
+        "hostSpace": "GF-06",
+        "id": "ENTRY-MAIN",
+        "kind": "entry",
+        "label": "EAST / MAIN ENTRANCE PORCH",
+        "legacy": {
+          "hostSpace": "GF-06",
+          "id": "ENTRY-MAIN",
+          "importance": "primary public entrance on long wall to the assembly hall",
+          "kind": "main",
+          "label": "EAST / MAIN ENTRANCE PORCH",
+          "level": "GF",
+          "openingId": "D-GF-06",
+          "porch": {
+            "depth": 96,
+            "label": "MAIN ENTRANCE PORCH",
+            "status": "covered entrance porch with accessible ramp & steps",
+            "width": 144
+          },
+          "sourceBasis": "relocated to long wall per approved design directive",
+          "status": "approved",
+          "wall": "east"
+        },
+        "levelId": "GF",
+        "openingId": "D-GF-06",
+        "provenance": {
+          "legacyKeys": [
+            "hostSpace",
+            "id",
+            "importance",
+            "kind",
+            "label",
+            "level",
+            "openingId",
+            "porch",
+            "sourceBasis",
+            "status",
+            "wall"
+          ],
+          "migration": "week2.legacy-to-v2",
+          "sourceId": "ENTRY-MAIN",
+          "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/entries/0"
+        },
+        "revision": 1,
+        "source": "legacy",
+        "status": "warning",
+        "wall": "east"
+      },
+      {
+        "accessIntent": "entry",
+        "entryKind": "secondary",
+        "exteriorZoneId": "EXT-ENTRY-VIP",
+        "hostSpace": "GF-07",
+        "id": "ENTRY-VIP",
+        "kind": "entry",
+        "label": "EAST / VIP & STAGE ENTRY",
+        "legacy": {
+          "hostSpace": "GF-07",
+          "id": "ENTRY-VIP",
+          "importance": "secondary controlled access / dignitary egress",
+          "kind": "secondary",
+          "label": "EAST / VIP & STAGE ENTRY",
+          "level": "GF",
+          "openingId": "D-GF-07",
+          "porch": {
+            "depth": 48,
+            "label": "VIP / STAGE LANDING",
+            "status": "preliminary controlled-access landing; verify with egress and accessibility review",
+            "width": 48
+          },
+          "sourceBasis": "coordinated with stage & dais",
+          "status": "approved",
+          "wall": "east"
+        },
+        "levelId": "GF",
+        "openingId": "D-GF-07",
+        "provenance": {
+          "legacyKeys": [
+            "hostSpace",
+            "id",
+            "importance",
+            "kind",
+            "label",
+            "level",
+            "openingId",
+            "porch",
+            "sourceBasis",
+            "status",
+            "wall"
+          ],
+          "migration": "week2.legacy-to-v2",
+          "sourceId": "ENTRY-VIP",
+          "sourcePath": "bar-association-hall/standard/source/preliminary_plans.json#/entries/1"
+        },
+        "revision": 1,
+        "source": "legacy",
+        "status": "warning",
+        "wall": "east"
+      }
+    ],
+    "assumptions": [
+      "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets.",
+      "L-shaped plot vertices are rationalized from the uploaded planning package and require a licensed survey.",
+      "North is shown toward the top of the sheet; confirm orientation against the site survey.",
+      "Plot, north, road frontage, and setbacks remain survey/jurisdiction inputs.",
+      "Site checks are preliminary rule-pack checks and do not grant approval."
+    ],
+    "buildingFootprints": [
+      {
+        "area": 696888.0,
+        "envelope": [
+          6.0,
+          6.0,
+          666.0,
+          1080.0
+        ],
+        "levelId": "GF",
+        "rects": [
+          [
+            6.0,
+            6.0,
+            150.0,
+            174.0
+          ],
+          [
+            156.0,
+            6.0,
+            282.0,
+            174.0
+          ],
+          [
+            288.0,
+            6.0,
+            432.0,
+            174.0
+          ],
+          [
+            438.0,
+            6.0,
+            546.0,
+            174.0
+          ],
+          [
+            552.0,
+            6.0,
+            666.0,
+            174.0
+          ],
+          [
+            6.0,
+            180.0,
+            666.0,
+            900.0
+          ],
+          [
+            6.0,
+            906.0,
+            666.0,
+            1080.0
+          ]
+        ],
+        "source": "canonical spaces"
+      },
+      {
+        "area": 719136.0,
+        "envelope": [
+          6.0,
+          6.0,
+          666.0,
+          1122.0
+        ],
+        "levelId": "FF",
+        "rects": [
+          [
+            6.0,
+            6.0,
+            150.0,
+            174.0
+          ],
+          [
+            156.0,
+            6.0,
+            282.0,
+            174.0
+          ],
+          [
+            288.0,
+            6.0,
+            432.0,
+            174.0
+          ],
+          [
+            438.0,
+            6.0,
+            546.0,
+            174.0
+          ],
+          [
+            552.0,
+            6.0,
+            666.0,
+            174.0
+          ],
+          [
+            6.0,
+            180.0,
+            666.0,
+            768.0
+          ],
+          [
+            6.0,
+            774.0,
+            666.0,
+            990.0
+          ],
+          [
+            6.0,
+            996.0,
+            222.0,
+            1122.0
+          ],
+          [
+            228.0,
+            996.0,
+            444.0,
+            1122.0
+          ],
+          [
+            450.0,
+            996.0,
+            666.0,
+            1122.0
+          ]
+        ],
+        "source": "canonical spaces"
+      }
+    ],
+    "contextLayers": [
+      {
+        "authoritative": false,
+        "id": "plot",
+        "kind": "site-boundary",
+        "visible": true
+      },
+      {
+        "authoritative": true,
+        "id": "footprints",
+        "kind": "building-footprint",
+        "visible": true
+      },
+      {
+        "authoritative": false,
+        "id": "north",
+        "kind": "orientation",
+        "visible": true
+      },
+      {
+        "authoritative": false,
+        "id": "access",
+        "kind": "access-points",
+        "visible": true
+      },
+      {
+        "authoritative": false,
+        "id": "review",
+        "kind": "imported-review-overlay",
+        "visible": false
+      }
+    ],
+    "editableGeometry": false,
+    "levels": [
+      {
+        "elevation": 0,
+        "floorToFloor": 178,
+        "id": "GF",
+        "name": "Ground Floor"
+      },
+      {
+        "elevation": 178,
+        "floorToFloor": 178,
+        "id": "FF",
+        "name": "First Floor"
+      }
+    ],
+    "modelRevision": 1,
+    "plot": {
+      "bounds": [
+        0.0,
+        0.0,
+        60.0,
+        98.0
+      ],
+      "north": "up",
+      "roadFrontage": null,
+      "setbacks": {
+        "east": 5,
+        "north": 60,
+        "south": 5,
+        "west": 0
+      },
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          35,
+          0
+        ],
+        [
+          35,
+          30
+        ],
+        [
+          60,
+          30
+        ],
+        [
+          60,
+          98
+        ],
+        [
+          0,
+          98
+        ]
+      ]
+    },
+    "projectId": "proj-bar-association-hall",
+    "source": "canonical project model",
+    "units": "inch",
+    "version": "week17.site-feasibility.v1"
+  }
+}

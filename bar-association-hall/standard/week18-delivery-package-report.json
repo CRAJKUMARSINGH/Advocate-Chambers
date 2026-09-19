@@ -1,0 +1,179 @@
+{
+  "approvalStates": [
+    "Draft",
+    "Review",
+    "Client Presentation",
+    "Preliminary Coordination",
+    "Not Issuable"
+  ],
+  "commentAnchors": [
+    "dimension",
+    "opening",
+    "render-viewpoint",
+    "room",
+    "validation-finding",
+    "wall"
+  ],
+  "coordinatedPackage": {
+    "approvalState": "Preliminary Coordination",
+    "artifacts": [
+      {
+        "generated": false,
+        "id": "source-json",
+        "kind": "source",
+        "path": "bar-association-hall/standard/model/project.json",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "validation-report",
+        "kind": "json",
+        "path": "bar-association-hall/standard/week17-site-feasibility-report.json",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "technical-pdf",
+        "kind": "pdf",
+        "path": "exports/technical-coordinated.pdf",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "coloured-pdf",
+        "kind": "pdf",
+        "path": "exports/coloured-coordinated.pdf",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "dxf",
+        "kind": "dxf",
+        "path": "exports/coordinated.dxf",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "images",
+        "kind": "image-set",
+        "path": "exports/presentation-images/",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "assumptions",
+        "kind": "json",
+        "path": "bar-association-hall/standard/week17-site-feasibility-report.json#/assumptions",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "rule-pack",
+        "kind": "json",
+        "path": "bar-association-hall/standard/rule-packs/india-preliminary-review.v1.json",
+        "required": true
+      },
+      {
+        "generated": false,
+        "id": "manifest",
+        "kind": "json",
+        "path": "exports/coordinated-package-manifest.json",
+        "required": true
+      }
+    ],
+    "assumptions": [
+      "All dimensions are nominal planning dimensions in inches and feet-inches on plotted sheets.",
+      "L-shaped plot vertices are rationalized from the uploaded planning package and require a licensed survey.",
+      "North is shown toward the top of the sheet; confirm orientation against the site survey.",
+      "Plot, north, road frontage, and setbacks remain survey/jurisdiction inputs.",
+      "Site checks are preliminary rule-pack checks and do not grant approval."
+    ],
+    "manifestSignature": "d5bd9e534c5774107b3025ed130d8c0ceeac1a0685c7ae295fa20434b1308b54",
+    "modelRevision": 1,
+    "projectId": "proj-bar-association-hall",
+    "releaseGate": {
+      "explicitNonIssuableExport": false,
+      "rule": "reject unresolved BLOCKER findings unless explicitly marked Not Issuable",
+      "status": "ready",
+      "unresolvedBlockers": []
+    },
+    "rulePackVersion": "india-preliminary-review@1.0.0",
+    "sourceModel": {
+      "path": "bar-association-hall/standard/model/project.json",
+      "revision": 1
+    },
+    "version": "week18.professional-delivery.v1"
+  },
+  "importedReview": {
+    "promotion": {
+      "approvalGranted": false,
+      "authoritativeGeometry": false,
+      "requiresHumanReview": true,
+      "uncertainObjectsRemainNonAuthoritative": true
+    },
+    "source": {
+      "format": "pdf",
+      "path": "review-source.pdf"
+    },
+    "status": "review-required",
+    "steps": [
+      "ingest source and record SHA-256",
+      "inspect CAD entities or render PDF/image for review",
+      "map observations to candidate model objects",
+      "record reviewer decisions and unresolved uncertainty",
+      "promote only reviewed geometry through the normal revision workflow"
+    ],
+    "supported": true,
+    "version": "week17.imported-review.v1",
+    "workflow": "separate-imported-review"
+  },
+  "professionalReviewRequired": true,
+  "reviewLinks": [
+    {
+      "expires": null,
+      "linkId": "review-617133141963cf31d0d20361",
+      "modelRevision": 1,
+      "permissions": {
+        "comment": true,
+        "editGeometry": false,
+        "export": false,
+        "read": true
+      },
+      "presentationView": false,
+      "readOnly": true,
+      "technicalView": true,
+      "url": "/review/617133141963cf31d0d20361",
+      "version": "week18.review-link.v1",
+      "view": "technical"
+    },
+    {
+      "expires": null,
+      "linkId": "review-a7ef4a3697d4a9cd9348db2f",
+      "modelRevision": 1,
+      "permissions": {
+        "comment": true,
+        "editGeometry": false,
+        "export": false,
+        "read": true
+      },
+      "presentationView": true,
+      "readOnly": true,
+      "technicalView": false,
+      "url": "/review/a7ef4a3697d4a9cd9348db2f",
+      "version": "week18.review-link.v1",
+      "view": "presentation"
+    }
+  ],
+  "revisionCompare": {
+    "categories": [
+      "geometry",
+      "validation",
+      "area",
+      "openings",
+      "furniture"
+    ],
+    "deterministic": true,
+    "version": "week18.revision-compare.v1"
+  },
+  "version": "week18.professional-delivery.v1"
+}

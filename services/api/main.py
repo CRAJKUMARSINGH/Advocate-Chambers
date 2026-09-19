@@ -96,6 +96,29 @@ except Exception:  # pragma: no cover
     render_job = None  # type: ignore
     validate_placement = None  # type: ignore
 
+try:
+    from week1718 import (  # type: ignore
+        APPROVAL_STATES,
+        ANCHOR_TYPES,
+        compare_revisions,
+        coordinated_package,
+        create_comment,
+        create_review_link,
+        enrichment_report as week1718_enrichment_report,
+        evaluate_rule_pack,
+        imported_review_workflow,
+    )
+except Exception:  # pragma: no cover
+    APPROVAL_STATES = None  # type: ignore
+    ANCHOR_TYPES = None  # type: ignore
+    compare_revisions = None  # type: ignore
+    coordinated_package = None  # type: ignore
+    create_comment = None  # type: ignore
+    create_review_link = None  # type: ignore
+    week1718_enrichment_report = None  # type: ignore
+    evaluate_rule_pack = None  # type: ignore
+    imported_review_workflow = None  # type: ignore
+
 
 app = FastAPI(
     title="Advocate-Chambers CAD API",
@@ -104,7 +127,7 @@ app = FastAPI(
         "remain in Python; this service validates, queues jobs, and serves "
         "artifact links."
     ),
-    version="1.0.0-week16",
+    version="1.0.0-week18",
 )
 
 app.add_middleware(
@@ -198,6 +221,48 @@ class DesignPackageRequest(BaseModel):
     candidateId: str | None = None
     seed: int = Field(default=1516, ge=0, le=2_147_483_647)
     model: dict[str, Any]
+
+
+class SiteFeasibilityRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+
+
+class ReviewLinkRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    view: str = Field(default="technical", pattern="^(technical|presentation)$")
+    baseUrl: str = Field(default="/review", min_length=1, max_length=200)
+
+
+class CommentRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    author: str = Field(..., min_length=1, max_length=120)
+    body: str = Field(..., min_length=1, max_length=5000)
+    anchorType: str
+    anchorId: str = Field(..., min_length=1, max_length=200)
+    viewpoint: dict[str, Any] | None = None
+
+
+class RevisionCompareRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    before: dict[str, Any]
+    after: dict[str, Any]
+
+
+class DeliveryPackageRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    model: dict[str, Any]
+    feasibilityReport: dict[str, Any] | None = None
+    allowNonIssuable: bool = False
+    includeIfc: bool = False
+
+
+class ImportedReviewRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    sourcePath: str = Field(..., min_length=1, max_length=500)
+    sourceFormat: str | None = Field(default=None, max_length=20)
 
 
 class GenerateRequest(BaseModel):
@@ -562,6 +627,89 @@ def presentation_render_job(req: DesignPackageRequest) -> dict[str, Any]:
         return render_job(kind, req.model.get("project", {}).get("revision"), req.candidateId, req.seed)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/site/feasibility", tags=["site-review"])
+def site_feasibility(req: SiteFeasibilityRequest) -> dict[str, Any]:
+    """Evaluate the transparent Week 17 rule-pack checks."""
+    if evaluate_rule_pack is None:
+        raise HTTPException(status_code=503, detail="site feasibility layer unavailable")
+    try:
+        return evaluate_rule_pack(req.model)
+    except (ValueError, KeyError) as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/site/imported-review", tags=["site-review"])
+def site_imported_review(req: ImportedReviewRequest) -> dict[str, Any]:
+    """Create a non-authoritative PDF/CAD review workflow contract."""
+    if imported_review_workflow is None:
+        raise HTTPException(status_code=503, detail="imported review layer unavailable")
+    return imported_review_workflow(req.sourcePath, req.sourceFormat)
+
+
+@app.post("/collaboration/review-link", tags=["collaboration"])
+def collaboration_review_link(req: ReviewLinkRequest) -> dict[str, Any]:
+    """Create a deterministic read-only technical or presentation link."""
+    if create_review_link is None:
+        raise HTTPException(status_code=503, detail="collaboration layer unavailable")
+    try:
+        return create_review_link(req.model, view=req.view, base_url=req.baseUrl)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/collaboration/comments", tags=["collaboration"])
+def collaboration_comment(req: CommentRequest) -> dict[str, Any]:
+    """Create a comment anchored to a model object or render viewpoint."""
+    if create_comment is None:
+        raise HTTPException(status_code=503, detail="collaboration layer unavailable")
+    try:
+        return create_comment(
+            req.model,
+            author=req.author,
+            body=req.body,
+            anchor_type=req.anchorType,
+            anchor_id=req.anchorId,
+            viewpoint=req.viewpoint,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/collaboration/revision-compare", tags=["collaboration"])
+def collaboration_revision_compare(req: RevisionCompareRequest) -> dict[str, Any]:
+    """Compare geometry, validation, areas, openings, and furniture."""
+    if compare_revisions is None:
+        raise HTTPException(status_code=503, detail="revision comparison layer unavailable")
+    return compare_revisions(req.before, req.after)
+
+
+@app.post("/delivery/package", tags=["delivery"])
+def delivery_package(req: DeliveryPackageRequest) -> dict[str, Any]:
+    """Build the Week 18 coordinated package manifest and release decision."""
+    if coordinated_package is None or evaluate_rule_pack is None:
+        raise HTTPException(status_code=503, detail="professional delivery layer unavailable")
+    feasibility = req.feasibilityReport or evaluate_rule_pack(req.model)
+    return coordinated_package(
+        req.model,
+        feasibility,
+        allow_non_issuable=req.allowNonIssuable,
+        include_ifc=req.includeIfc,
+    )
+
+
+@app.get("/delivery/contract", tags=["delivery"])
+def delivery_contract() -> dict[str, Any]:
+    """Return approval states and the Week 18 package contract."""
+    if APPROVAL_STATES is None or ANCHOR_TYPES is None:
+        raise HTTPException(status_code=503, detail="professional delivery layer unavailable")
+    return {
+        "version": "week18.professional-delivery.v1",
+        "approvalStates": list(APPROVAL_STATES),
+        "commentAnchors": sorted(ANCHOR_TYPES),
+        "releaseGate": "unresolved BLOCKER findings require an explicit Not Issuable review export",
+    }
 
 
 @app.post("/generate", tags=["jobs"], response_model=JobResponse)
