@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-004",
+  "title": "Corridor blocked by furniture",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "furniture", "severity": "BLOCKER", "description": "Furniture blocks a required circulation route." },
+  "mutations": [{ "path": "furniture.0.blocksRoute", "operation": "set", "value": true }],
+  "expectedFinding": {
+    "ruleId": "FURNITURE.ROUTE.CLEARANCE",
+    "severity": "BLOCKER",
+    "affectedObjects": ["FURNITURE-01", "FF-ROOM-01"],
+    "evidenceFields": ["furnitureId", "blocksRoute"],
+    "correction": "Relocate or resize the furniture."
+  }
+}
