@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "week22.adversarial-fixture.v1",
+  "fixtureId": "ADV-008",
+  "title": "Invalid external door",
+  "sourceFixture": "../valid/baseline.json",
+  "defect": { "category": "opening", "severity": "BLOCKER", "description": "An external door discharges without a modeled landing." },
+  "mutations": [{ "path": "openings.4.landing", "operation": "set", "value": false }],
+  "expectedFinding": {
+    "ruleId": "OPENING.EXTERNAL.LANDING",
+    "severity": "BLOCKER",
+    "affectedObjects": ["DOOR-EXTERNAL-01"],
+    "evidenceFields": ["openingId", "external", "landing"],
+    "correction": "Add an intentional landing, stair, ramp, porch, or balcony."
+  }
+}
