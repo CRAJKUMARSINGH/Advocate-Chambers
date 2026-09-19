@@ -87,9 +87,10 @@ performance evidence is supplied.
 - Added the baseline artifact:
   `bar-association-hall/standard/quality-gate-report.json`.
 
-The current Week 21 report is intentionally `INCOMPLETE` because the Week 22–25
-evidence tracks have not yet been executed. Missing benchmark evidence is not
-treated as a pass.
+The current Week 21 report is intentionally `INCOMPLETE` because the Week 23–25
+evidence tracks have not yet been executed. The Week 22 adversarial track is
+now connected to the quality gate and reports its own result. Missing
+benchmark evidence is not treated as a pass.
 
 Run the Week 21 contract checks with:
 
@@ -97,6 +98,38 @@ Run the Week 21 contract checks with:
 npm run enrich:week21
 npm run validate:week21
 npm run test:week21
+```
+
+## Week 22 task status — applied
+
+Week 22 adds the adversarial fixture foundation required to test dangerous
+architectural defects instead of only validating successful examples.
+
+- Added 15 deterministic defective fixtures paired with one valid source model.
+- Added expected rule ID, severity, affected objects, evidence fields, and
+  suggested correction contracts for every fixture.
+- Added automated fixture discovery, explicit model mutations, finding
+  execution, and benchmark reporting.
+- Added the fixture metadata schema at
+  `packages/schema/week22-adversarial-fixture.schema.json`.
+- Added the foundation report at
+  `bar-association-hall/standard/week22-adversarial-foundation-report.json`.
+
+The Week 22 benchmark must report zero missed critical defects, zero dangerous
+false negatives, no valid-baseline false positives, and complete evidence and
+correction data for every finding. Independent professional review remains
+required; this benchmark does not grant planning or construction approval.
+
+The Week 22 adversarial track currently passes with 15 of 15 critical fixtures
+detected. The combined quality gate remains `INCOMPLETE` until the Week 24
+professional-review and Week 25 performance evidence are supplied.
+
+Run the Week 22 fixture checks with:
+
+```bash
+npm run enrich:week22
+npm run validate:week22
+npm run test:week22
 ```
 
 ## Week 3–4 task status
